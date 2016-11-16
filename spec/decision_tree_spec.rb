@@ -31,14 +31,12 @@ describe DecisionTree do
 
   context 'decides' do
 
-    let (:a) { '<>' }
-
-    it 'true' do
-      decision_tree
+    it 'approve' do
+      expect(decision_tree.decide({})).to eq 'should_approve'
     end
 
-    it 'false' do
-
+    it 'decline' do
+      expect(decision_tree.decide({})).to eq 'should_decline'
     end
   end
 

@@ -25,12 +25,12 @@ class DecisionTree
     set_node(tree_xml.xpath('*')[2], root[RIGHT]) if tree_xml.xpath('*')[2]
   end
 
-  def decision(features)
+  def decide(features)
     curr = @root
-    while curr.has_children?
-      curr = @root.content.true?(features) ? curr.left : curr.right
+    while curr.children.count > 0
+      curr = curr.content.true?(features) ? curr[LEFT] : curr[RIGHT]
     end
-    curr.value
+    curr.content.decision
   end
 
 end

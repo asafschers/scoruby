@@ -14,6 +14,6 @@ class Predicate
 
   def true?(features)
     # TODO: implement
-    true
+    false
   end
 end
