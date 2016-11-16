@@ -22,11 +22,11 @@ module RandomForester
 
   def self.get_xml(pmml_file_name)
     pmml_string = File.open(pmml_file_name, 'rb').read
-    Nokogiri::XML(pmml_string)
+    xml = Nokogiri::XML(pmml_string)
+    xml.remove_namespaces!
   end
 
   def self.get_model_type(xml)
-    xml.remove_namespaces!
     xml.xpath("PMML/MiningModel/@modelName").to_s
   end
 end
