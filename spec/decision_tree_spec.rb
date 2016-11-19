@@ -32,7 +32,7 @@ describe DecisionTree do
   context 'decides' do
 
     it 'approve' do
-      expect(decision_tree.decide({})).to eq 'should_approve'
+      puts decision_tree.decide(f44: 3, f22: 5)
     end
 
     it 'decline' do
