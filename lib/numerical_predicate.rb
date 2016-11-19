@@ -1,12 +1,17 @@
 class NumericalPredicate
 
+  GREATER_THAN = 'greaterThan'
+  LESS_OR_EQUAL = 'lessOrEqual'
+
+
   def initialize(pred_xml)
-    @value = pred_xml.xpath('@value')
-    @operator = pred_xml.xpath('@operator')
+    @field = pred_xml.xpath('@field').to_s.to_sym
+    @value = pred_xml.xpath('@value').to_s.to_i
+    @operator = pred_xml.xpath('@operator').to_s
   end
 
   def true?(features)
-    puts @value
-    puts @operator
+    return @value > features[@field] if @operator == GREATER_THAN
+    @value < features[@field] if @operator == LESS_OR_EQUAL
   end
 end
