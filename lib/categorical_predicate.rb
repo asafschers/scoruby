@@ -1,15 +1,15 @@
 class CategoricalPredicate
 
+  IS_IN = 'isIn'
+
   def initialize(pred_xml)
     @field = pred_xml.xpath('@field')
-    @Array = pred_xml.xpath('Array')
+    @array = pred_xml.xpath('Array/text()').to_s.tr('"', '').split('   ')
     @operator = pred_xml.xpath('@booleanOperator')
   end
 
   def true?(features)
-    # puts @Array
-    # puts @operator
-    # puts @field
+    @array.include? features[@field] if @operator == IS_IN
   end
 
 end
