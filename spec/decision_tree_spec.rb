@@ -24,7 +24,7 @@ describe DecisionTree do
 
     it 'sets leave' do
       expect(lrlr_node.content.to_s).to eq leave_xml
-      expect(lrlr_node.content.decision.to_s).to eq 'should_decline'
+      expect(lrlr_node.content.decision.to_s).to eq DecisionTree::SHOULD_DECLINE
       expect(lrlr_node.is_leaf?).to be true
     end
   end
@@ -32,17 +32,11 @@ describe DecisionTree do
   context 'decides' do
 
     it 'approve' do
-      puts decision_tree.decide(f44: 3, f22: 5)
+      expect(decision_tree.decide(f44: 3, f22: 5)).to eq DecisionTree::SHOULD_APPROVE
     end
 
     it 'decline' do
-      expect(decision_tree.decide({})).to eq 'should_decline'
-    end
-  end
-
-  context 'raise' do
-    it 'on wrong param type' do
-
+      expect(decision_tree.decide(f44: 300, f22: 500)).to eq DecisionTree::SHOULD_DECLINE
     end
   end
 

@@ -6,6 +6,9 @@ class DecisionTree
   LEFT = 'left'
   RIGHT = 'right'
 
+  SHOULD_APPROVE = 'should_approve'
+  SHOULD_DECLINE = 'should_decline'
+
   attr_reader :root
 
   def initialize(tree_xml)
