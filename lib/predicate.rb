@@ -24,8 +24,7 @@ class Predicate
   end
 
   def true?(features)
-    puts @pred.true?(features)
-
-    true
+    return true if @pred.nil?
+    @pred.true?(features)
   end
 end
