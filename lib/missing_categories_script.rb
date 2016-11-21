@@ -1,6 +1,6 @@
 require 'json'
 
-pmml_file = 'giftcards_physical_v1-ALL-IMPUTED.pmml' #add pmml to root dir
+pmml_file = '' #pmml file name
 json = '' #get features json from oscd
 
 get_missing_categories(json,pmml_file)
