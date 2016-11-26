@@ -2,9 +2,6 @@ require 'spec_helper'
 
 describe RandomForester do
 
-  RF_FILE = 'rf_file'
-  NON_RF_FILE = 'non_rf_file'
-
   let(:rf_file) { 'spec/fixtures/rf_file.pmml' }
   let(:non_rf_file) { 'spec/fixtures/non_rf_file.pmml' }
 

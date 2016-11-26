@@ -2,9 +2,6 @@ require 'spec_helper'
 
 describe DecisionTree do
 
-  RF_FILE = 'rf_file'
-  NON_RF_FILE = 'non_rf_file'
-
   let(:tree_file) { 'spec/fixtures/pmml_tree.pmml' }
   let(:tree_xml) { RandomForester.get_xml(tree_file) }
   let(:decision_tree) { DecisionTree.new(tree_xml) }
