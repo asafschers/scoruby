@@ -1,11 +1,23 @@
 require 'random_forester/version'
 require 'nokogiri'
 require 'random_forest'
+require 'logger'
 
 RANDOM_FOREST_MODEL = 'randomForest_Model'
 MODEL_NOT_SUPPORTED_ERROR = 'model not supported'
 
 module RandomForester
+
+  class << self
+    attr_writer :logger
+
+    def logger
+      @logger ||= Logger.new($stdout).tap do |log|
+        log.progname = self.name
+      end
+    end
+  end
+
   def self.get_model(pmml_file_name)
     xml = get_xml(pmml_file_name)
     new_model(xml)
