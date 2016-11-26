@@ -2,14 +2,16 @@ require 'spec_helper'
 
 describe RandomForest do
 
-  RF_FILE = 'rf_file'
-  NON_RF_FILE = 'non_rf_file'
-
   let(:rf_file) { 'spec/fixtures/rf_file.pmml' }
+  let(:xml) { RandomForester.get_xml(rf_file) }
+  let(:random_forest) { RandomForest.new(xml) }
 
-  it 'raises when type not random forest' do
-    rf_model = RandomForester.get_model(rf_file)
-    rf_model.predict
+  it 'predicts approve' do
+    expect(random_forest.predict({})).to eq DecisionTree::SHOULD_APPROVE
+  end
+
+  it 'predicts approve' do
+    expect(random_forest.predict({})).to eq DecisionTree::SHOULD_DECLINE
   end
 
 end
