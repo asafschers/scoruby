@@ -11,8 +11,8 @@ class RandomForest
   end
 
   def predict(features)
-    @decision_trees.each { |decision_tree|
-      puts decision_tree.decide(features)
+    @decision_trees.count { |decision_tree|
+      decision_tree.decide(features) == DecisionTree::SHOULD_APPROVE
     }
   end
 
