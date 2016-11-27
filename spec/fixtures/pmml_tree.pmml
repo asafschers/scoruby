@@ -1,74 +1,3 @@
-<TreeModel modelName="randomForest_Model" functionName="classification" algorithmName="randomForest" splitCharacteristic="binarySplit">
- <MiningSchema>
-  <MiningField name="class" usageType="predicted"/>
-  <MiningField name="f1" usageType="active"/>
-  <MiningField name="f2" usageType="active"/>
-  <MiningField name="f3" usageType="active"/>
-  <MiningField name="f4" usageType="active"/>
-  <MiningField name="f5" usageType="active"/>
-  <MiningField name="f6" usageType="active"/>
-  <MiningField name="f7" usageType="active"/>
-  <MiningField name="f8" usageType="active"/>
-  <MiningField name="f9" usageType="active"/>
-  <MiningField name="f10" usageType="active"/>
-  <MiningField name="f11" usageType="active"/>
-  <MiningField name="f12" usageType="active"/>
-  <MiningField name="f13" usageType="active"/>
-  <MiningField name="f14" usageType="active"/>
-  <MiningField name="f15" usageType="active"/>
-  <MiningField name="f16" usageType="active"/>
-  <MiningField name="f17" usageType="active"/>
-  <MiningField name="f18" usageType="active"/>
-  <MiningField name="f19" usageType="active"/>
-  <MiningField name="f20" usageType="active"/>
-  <MiningField name="f21" usageType="active"/>
-  <MiningField name="f22" usageType="active"/>
-  <MiningField name="f23" usageType="active"/>
-  <MiningField name="f24" usageType="active"/>
-  <MiningField name="f25" usageType="active"/>
-  <MiningField name="f26" usageType="active"/>
-  <MiningField name="f27" usageType="active"/>
-  <MiningField name="f28" usageType="active"/>
-  <MiningField name="f29" usageType="active"/>
-  <MiningField name="f30" usageType="active"/>
-  <MiningField name="f31" usageType="active"/>
-  <MiningField name="f32" usageType="active"/>
-  <MiningField name="f33" usageType="active"/>
-  <MiningField name="f34" usageType="active"/>
-  <MiningField name="f35" usageType="active"/>
-  <MiningField name="f36" usageType="active"/>
-  <MiningField name="f37" usageType="active"/>
-  <MiningField name="f38" usageType="active"/>
-  <MiningField name="f39" usageType="active"/>
-  <MiningField name="f40" usageType="active"/>
-  <MiningField name="f41" usageType="active"/>
-  <MiningField name="f42" usageType="active"/>
-  <MiningField name="f43" usageType="active"/>
-  <MiningField name="f44" usageType="active"/>
-  <MiningField name="f45" usageType="active"/>
-  <MiningField name="f46" usageType="active"/>
-  <MiningField name="f47" usageType="active"/>
-  <MiningField name="f48" usageType="active"/>
-  <MiningField name="f49" usageType="active"/>
-  <MiningField name="f50" usageType="active"/>
-  <MiningField name="f51" usageType="active"/>
-  <MiningField name="f52" usageType="active"/>
-  <MiningField name="f53" usageType="active"/>
-  <MiningField name="f54" usageType="active"/>
-  <MiningField name="f55" usageType="active"/>
-  <MiningField name="f56" usageType="active"/>
-  <MiningField name="f57" usageType="active"/>
-  <MiningField name="f58" usageType="active"/>
-  <MiningField name="f59" usageType="active"/>
-  <MiningField name="f60" usageType="active"/>
-  <MiningField name="f61" usageType="active"/>
-  <MiningField name="f62" usageType="active"/>
-  <MiningField name="f63" usageType="active"/>
-  <MiningField name="f64" usageType="active"/>
-  <MiningField name="f65" usageType="active"/>
-  <MiningField name="f66" usageType="active"/>
-  <MiningField name="f67" usageType="active"/>
- </MiningSchema>
  <Node id="1">
   <True/>
   <Node id="2">
@@ -1186,4 +1115,4 @@
    </Node>
   </Node>
  </Node>
-</TreeModel>
+

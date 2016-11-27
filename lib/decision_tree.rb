@@ -13,7 +13,7 @@ class DecisionTree
 
   def initialize(tree_xml)
     @root = Tree::TreeNode.new(ROOT)
-    set_node(tree_xml.xpath('TreeModel/Node'), @root)
+    set_node(tree_xml, @root)
   end
 
   def set_node(tree_xml, root)
