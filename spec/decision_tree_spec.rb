@@ -2,6 +2,9 @@ require 'spec_helper'
 
 describe DecisionTree do
 
+  SHOULD_APPROVE = 'should_approve'
+  SHOULD_DECLINE = 'should_decline'
+
   let(:tree_file) { 'spec/fixtures/pmml_tree.pmml' }
   let(:tree_xml) { RandomForester.get_xml(tree_file) }
   let(:decision_tree) { DecisionTree.new(tree_xml.xpath('Node')) }
@@ -21,7 +24,7 @@ describe DecisionTree do
 
     it 'sets leave' do
       expect(lrlr_node.content.to_s).to eq leave_xml
-      expect(lrlr_node.content.decision.to_s).to eq DecisionTree::SHOULD_DECLINE
+      expect(lrlr_node.content.decision.to_s).to eq SHOULD_DECLINE
       expect(lrlr_node.is_leaf?).to be true
     end
   end
@@ -29,11 +32,11 @@ describe DecisionTree do
   context 'decides' do
 
     it 'approve' do
-      expect(decision_tree.decide(f44: 3, f22: 5)).to eq DecisionTree::SHOULD_APPROVE
+      expect(decision_tree.decide(f44: 3, f22: 5)).to eq SHOULD_APPROVE
     end
 
     it 'decline' do
-      expect(decision_tree.decide(f44: 300, f22: 500)).to eq DecisionTree::SHOULD_DECLINE
+      expect(decision_tree.decide(f44: 300, f22: 500)).to eq SHOULD_DECLINE
     end
   end
 
