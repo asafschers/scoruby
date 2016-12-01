@@ -2,6 +2,7 @@ require 'random_forester/version'
 require 'nokogiri'
 require 'random_forest'
 require 'logger'
+require 'pry'
 
 RANDOM_FOREST_MODEL = 'randomForest_Model'
 MODEL_NOT_SUPPORTED_ERROR = 'model not supported'
