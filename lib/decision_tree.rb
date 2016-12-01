@@ -9,8 +9,9 @@ class DecisionTree
   attr_reader :root
 
   def initialize(tree_xml)
+    @id = tree_xml.xpath('@id')
     @root = Tree::TreeNode.new(ROOT)
-    set_node(tree_xml, @root)
+    set_node(tree_xml.xpath('TreeModel/Node'), @root)
   end
 
   def set_node(tree_xml, root)
@@ -29,10 +30,16 @@ class DecisionTree
     curr = @root
     while curr.children.count > 0
       curr_value = curr.content.true?(features)
-      return if curr_value.nil?
+      return if nil?(curr_value)
       curr = curr_value ? curr[LEFT] : curr[RIGHT]
     end
     curr.content.decision
+  end
+
+  def nil?(curr_value)
+    return false unless curr_value.nil?
+    RandomForester.logger.error "Null tree: #{@id}"
+    true
   end
 
 end
