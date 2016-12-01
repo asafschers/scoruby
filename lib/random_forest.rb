@@ -3,7 +3,7 @@ require 'decision_tree'
 class RandomForest
 
   def initialize(xml)
-    xml_trees = xml.xpath("PMML/MiningModel/Segmentation/Segment/TreeModel/Node")
+    xml_trees = xml.xpath('PMML/MiningModel/Segmentation/Segment')
     @decision_trees = xml_trees.collect{ |xml_tree|
       DecisionTree.new(xml_tree)
     }

@@ -13,7 +13,7 @@ describe RandomForest do
   end
 
   it 'predicts approve' do
-    (1..65).each { |i| @features[:"f#{i}"] = 0}
+    (1..67).each { |i| @features[:"f#{i}"] = 0}
     expect(@random_forest.predict(@features)).to eq SHOULD_APPROVE
     decisions_count = @random_forest.decisions_count(@features)
     expect(decisions_count[SHOULD_APPROVE]).to eq 160
@@ -21,7 +21,7 @@ describe RandomForest do
   end
 
   it 'predicts decline' do
-    (1..65).each { |i| @features[:"f#{i}"] = 3000}
+    (1..67).each { |i| @features[:"f#{i}"] = 3000}
     expect(@random_forest.predict(@features)).to eq SHOULD_DECLINE
     decisions_count = @random_forest.decisions_count(@features)
     expect(decisions_count[SHOULD_APPROVE]).to eq 142

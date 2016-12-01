@@ -7,7 +7,7 @@ describe DecisionTree do
 
   let(:tree_file) { 'spec/fixtures/pmml_tree.pmml' }
   let(:tree_xml) { RandomForester.get_xml(tree_file) }
-  let(:decision_tree) { DecisionTree.new(tree_xml.xpath('Node')) }
+  let(:decision_tree) { DecisionTree.new(tree_xml.xpath('Segment')) }
 
   context 'sets tree' do
 
@@ -40,6 +40,8 @@ describe DecisionTree do
     end
 
     it 'nils' do
+      expect(RandomForester.logger).to receive(:error).with('Missing feature f36')
+      expect(RandomForester.logger).to receive(:error).with('Null tree: 4')
       expect(decision_tree.decide(f44: 300, f22: 500)).to be_nil
     end
   end
