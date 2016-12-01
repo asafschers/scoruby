@@ -32,15 +32,15 @@ describe DecisionTree do
   context 'decides' do
 
     it 'approve' do
-      expect(decision_tree.decide(f44: 3, f22: 5)).to eq SHOULD_APPROVE
+      expect(decision_tree.decide(f44: 3, f22: 5, f36: 4, f5: 3)).to eq SHOULD_APPROVE
     end
 
     it 'decline' do
-      expect(decision_tree.decide(f44: 300, f22: 500)).to eq SHOULD_DECLINE
+      expect(decision_tree.decide(f44: 300, f22: 500, f36: 3, f5: 2)).to eq SHOULD_DECLINE
     end
 
     it 'nils' do
-
+      expect(decision_tree.decide(f44: 300, f22: 500)).to be_nil
     end
   end
 
