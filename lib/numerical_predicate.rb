@@ -3,6 +3,7 @@ class NumericalPredicate
   GREATER_THAN = 'greaterThan'
   LESS_OR_EQUAL = 'lessOrEqual'
 
+  attr_reader :field
 
   def initialize(pred_xml)
     @field = pred_xml.xpath('@field').to_s.to_sym
@@ -11,22 +12,7 @@ class NumericalPredicate
   end
 
   def true?(features)
-    return if missing_feature?(features)
-    return if nil_feature?(features)
     return @value > features[@field] if @operator == GREATER_THAN
     @value < features[@field] if @operator == LESS_OR_EQUAL
   end
-
-  def missing_feature?(features)
-    return false if features.has_key? @field
-    RandomForester.logger.error "Missing feature #{@field}"
-    true
-  end
-
-  def nil_feature?(features)
-    return false unless features[@field].nil?
-    RandomForester.logger.error "Feature #{@field} value is nil"
-    true
-  end
-
 end
