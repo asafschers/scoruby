@@ -11,8 +11,4 @@ describe RandomForester do
     }.to raise_error(MODEL_NOT_SUPPORTED_ERROR)
   end
 
-  it 'inits random forest when type random forest' do
-    model = RandomForester.get_model(rf_file)
-    expect(model).to be_an_instance_of(RandomForest)
-  end
 end

@@ -14,7 +14,7 @@ describe DecisionTree do
     let (:lr_node) { decision_tree.root[DecisionTree::LEFT][DecisionTree::RIGHT] }
     let (:lrlr_node) { lr_node['left']['right'] }
     let (:node_xml) { '<SimplePredicate field="f44" operator="greaterThan" value="3.01028050880094"/>' }
-    let (:leave_xml) { '<SimplePredicate field="f33" operator="greaterThan" value="18.8513846048894"/>' }
+    let (:leaf_xml) { '<SimplePredicate field="f33" operator="greaterThan" value="18.8513846048894"/>' }
 
     it 'sets node' do
       expect(lr_node.content.to_s).to eq node_xml
@@ -23,7 +23,7 @@ describe DecisionTree do
     end
 
     it 'sets leave' do
-      expect(lrlr_node.content.to_s).to eq leave_xml
+      expect(lrlr_node.content.to_s).to eq leaf_xml
       expect(lrlr_node.content.decision.to_s).to eq SHOULD_DECLINE
       expect(lrlr_node.is_leaf?).to be true
     end
@@ -37,6 +37,10 @@ describe DecisionTree do
 
     it 'decline' do
       expect(decision_tree.decide(f44: 300, f22: 500)).to eq SHOULD_DECLINE
+    end
+
+    it 'nils' do
+
     end
   end
 

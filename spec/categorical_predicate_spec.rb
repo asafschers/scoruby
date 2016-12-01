@@ -9,17 +9,6 @@ describe CategoricalPredicate do
   let (:relevant_pred_xml) {  pred_xml.xpath('*') }
   let (:categorical_predicate) { CategoricalPredicate.new(relevant_pred_xml) }
 
-
-  it 'logs missing feature' do
-    expect(RandomForester.logger).to receive(:error).with('Missing feature f36')
-    categorical_predicate.true?({})
-  end
-
-  it 'logs nil feature' do
-    expect(RandomForester.logger).to receive(:error).with('Feature f36 value is nil')
-    categorical_predicate.true?({f36: nil})
-  end
-
   it 'returns true' do
     expect(categorical_predicate.true?(f36: 'FL')).to eq true
   end

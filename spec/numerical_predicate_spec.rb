@@ -7,17 +7,6 @@ describe NumericalPredicate do
   let (:relevant_pred_xml) {  pred_xml.xpath('*') }
   let (:numerical_predicate) { NumericalPredicate.new(relevant_pred_xml) }
 
-
-  it 'logs missing feature' do
-    expect(RandomForester.logger).to receive(:error).with('Missing feature f33')
-    numerical_predicate.true?({})
-  end
-
-  it 'logs nil feature' do
-    expect(RandomForester.logger).to receive(:error).with('Feature f33 value is nil')
-    numerical_predicate.true?({f33: nil})
-  end
-
   it 'returns true' do
     expect(numerical_predicate.true?(f33: 19)).to eq true
   end
