@@ -28,17 +28,20 @@ class DecisionTree
 
   def decide(features)
     curr = @root
-    while curr.children.count > 0
-      curr_value = curr.content.true?(features)
-      return if nil?(curr_value)
-      curr = curr_value ? curr[LEFT] : curr[RIGHT]
+    while curr.children.count > 0 and curr.content.decision == ''
+      prev = curr
+      curr = curr[LEFT] if curr[LEFT] && curr[LEFT].content.true?(features)
+      curr = curr[RIGHT] if curr[RIGHT] && curr[RIGHT].content.true?(features)
+
+      return if no_true_child?(curr, prev)
     end
+
     curr.content.decision
   end
 
-  def nil?(curr_value)
-    return false unless curr_value.nil?
-    RandomForester.logger.error "Null tree: #{@id}"
+  def no_true_child?(curr, prev)
+    return false if (prev.content != curr.content)
+    RandomForester.logger.error "Null tree: #{@id}, bad feature: #{curr[LEFT].content.field }"
     true
   end
 
