@@ -32,16 +32,18 @@ describe DecisionTree do
   context 'decides' do
 
     it 'approve' do
-      expect(decision_tree.decide(f44: 3, f22: 5, f36: 4, f5: 3)).to eq SHOULD_APPROVE
+      expect(decision_tree.decide(f36: 'FL', f44: 4, f5: 'iPhone', f33: 18, f1: 4)).to eq SHOULD_APPROVE
+      expect(decision_tree.decide(f36: 'FL', f44: 4, f5: 'iPhone', f33: 18, f1: 5, f11: 1000000)).to eq SHOULD_APPROVE
     end
 
     it 'decline' do
-      expect(decision_tree.decide(f44: 300, f22: 500, f36: 3, f5: 2)).to eq SHOULD_DECLINE
+      expect(decision_tree.decide(f36: 'FL', f44: 4, f5: 'iPhone', f33: 19)).to eq SHOULD_DECLINE
+      expect(decision_tree.decide(f36: 'FL', f44: 4, f5: 'iPhone', f33: 18, f1: 5, f11: 1)).to eq SHOULD_DECLINE
     end
 
     it 'nils' do
-      expect(RandomForester.logger).to receive(:error).with('Missing feature f36')
-      expect(RandomForester.logger).to receive(:error).with('Null tree: 4')
+      expect(RandomForester.logger).to receive(:error).twice.with('Missing feature f36')
+      expect(RandomForester.logger).to receive(:error).with('Null tree: 4, bad feature: f36')
       expect(decision_tree.decide(f44: 300, f22: 500)).to be_nil
     end
   end
