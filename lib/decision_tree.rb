@@ -30,16 +30,20 @@ class DecisionTree
     curr = @root
     while curr.content.decision == ''
       prev = curr
-      curr = curr[LEFT] if curr[LEFT] && curr[LEFT].content.true?(features)
-      curr = curr[RIGHT] if curr[RIGHT] && curr[RIGHT].content.true?(features)
-
-      return if no_true_child?(curr, prev)
+      curr = step(curr, features)
+      return if didnt_step?(curr, prev)
     end
 
     curr.content.decision
   end
 
-  def no_true_child?(curr, prev)
+  def step(curr, features)
+    curr = curr[LEFT] if curr[LEFT] && curr[LEFT].content.true?(features)
+    curr = curr[RIGHT] if curr[RIGHT] && curr[RIGHT].content.true?(features)
+    curr
+  end
+
+  def didnt_step?(curr, prev)
     return false if (prev.content != curr.content)
     RandomForester.logger.error "Null tree: #{@id}, bad feature: #{curr[LEFT].content.field }"
     true
