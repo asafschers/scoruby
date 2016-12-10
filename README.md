@@ -1,3 +1,5 @@
+<a href="https://codeclimate.com/github/asafschers/random_forester"><img src="https://codeclimate.com/github/asafschers/random_forester/badges/gpa.svg" /></a>
+
 # RandomForester
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/random_forester`. To experiment with that code, run `bin/console` for an interactive prompt.
