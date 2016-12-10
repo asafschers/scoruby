@@ -1,4 +1,5 @@
 <a href="https://codeclimate.com/github/asafschers/random_forester"><img src="https://codeclimate.com/github/asafschers/random_forester/badges/gpa.svg" /></a>
+<a href="https://badge.fury.io/rb/random_forester"><img src="https://badge.fury.io/rb/random_forester.svg" alt="Gem Version" height="18"></a>
 
 # RandomForester
 
