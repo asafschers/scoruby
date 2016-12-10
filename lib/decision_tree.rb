@@ -28,7 +28,7 @@ class DecisionTree
 
   def decide(features)
     curr = @root
-    while curr.children.count > 0 and curr.content.decision == ''
+    while curr.content.decision == ''
       prev = curr
       curr = curr[LEFT] if curr[LEFT] && curr[LEFT].content.true?(features)
       curr = curr[RIGHT] if curr[RIGHT] && curr[RIGHT].content.true?(features)
