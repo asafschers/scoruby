@@ -30,7 +30,7 @@ module RandomForester
         RandomForest.new(xml)
       else
         raise MODEL_NOT_SUPPORTED_ERROR
-      end
+    end
   end
 
   def self.get_xml(pmml_file_name)

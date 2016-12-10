@@ -8,14 +8,14 @@ get_missing_categories(json,pmml_file)
 def get_category_feature_names(pmml_file)
   xml = RandomForester.get_xml pmml_file;
   features = {}
-  xml.xpath("PMML/DataDictionary/*").each { |df| features[df.xpath('@name').to_s] = df.xpath('@dataType').to_s }; nil
+  xml.xpath("PMML/DataDictionary/*").each { |df| features[df.xpath('@name').to_s] = df.xpath('@dataType').to_s }
   features.select { |_, v| v == 'string' }.keys
 end
 
 def get_categories(json, pmml_file)
   curr_features = JSON.parse(json)
   category_features = get_category_feature_names(pmml_file)
-  curr_features.select { |k, v| category_features.include?(k)}
+  curr_features.select { |k, _| category_features.include?(k)}
 end
 
 def get_missing_categories(json, pmml_file)
