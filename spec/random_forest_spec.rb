@@ -12,20 +12,54 @@ describe RandomForest do
     @features = Hash.new
   end
 
+  def categorial_features
+    {
+      f5: 'Linux',
+      f6: 'Chrome',
+      f13: 'F1L',
+      f15: 'f',
+      f19: 'cellular',
+      f20: 'Corporate',
+      f26: 'ValidDomain',
+      f31: 'female',
+      f35: 'f',
+      f36: 'F1L',
+      f38: 'NO_EA_LOCATION',
+      f49: 'field mismatch',
+      f53: 'field_match',
+      f54: 'field mismatch',
+      f55: 'FL',
+      f63: 'match',
+      f65: 'all_uppercase',
+      f66: 'all_lowercase',
+      f67: 'Missing'
+    }
+  end
+
+  def approve_features
+    features = categorial_features
+    (1..67).each { |i| features[:"f#{i}"] = 0 if features[:"f#{i}"].nil? }
+    features
+  end
+
+  def decline_features
+    features = categorial_features
+    (1..67).each { |i| features[:"f#{i}"] = 3000 if features[:"f#{i}"].nil? }
+    features
+  end
+
   it 'predicts approve' do
-    (1..67).each { |i| @features[:"f#{i}"] = 0}
-    expect(@random_forest.predict(@features)).to eq SHOULD_APPROVE
-    decisions_count = @random_forest.decisions_count(@features)
-    expect(decisions_count[SHOULD_APPROVE]).to eq 160
-    expect(decisions_count[SHOULD_DECLINE]).to eq 140
+    expect(@random_forest.predict(approve_features)).to eq SHOULD_APPROVE
+    decisions_count = @random_forest.decisions_count(approve_features)
+    expect(decisions_count[SHOULD_APPROVE]).to eq 12
+    expect(decisions_count[SHOULD_DECLINE]).to eq 3
   end
 
   it 'predicts decline' do
-    (1..67).each { |i| @features[:"f#{i}"] = 3000}
-    expect(@random_forest.predict(@features)).to eq SHOULD_DECLINE
-    decisions_count = @random_forest.decisions_count(@features)
-    expect(decisions_count[SHOULD_APPROVE]).to eq 142
-    expect(decisions_count[SHOULD_DECLINE]).to eq 158
+    expect(@random_forest.predict(decline_features)).to eq SHOULD_DECLINE
+    decisions_count = @random_forest.decisions_count(decline_features)
+    expect(decisions_count[SHOULD_APPROVE]).to eq 6
+    expect(decisions_count[SHOULD_DECLINE]).to eq 9
   end
 
 end
