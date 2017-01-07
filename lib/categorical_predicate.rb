@@ -11,6 +11,12 @@ class CategoricalPredicate
   end
 
   def true?(features)
+    format_boolean(features)
     @array.include? features[@field] if @operator == IS_IN
+  end
+
+  def format_boolean(features)
+    features[@field] = 'f' if features[@field] == false
+    features[@field] = 't' if features[@field] == true
   end
 end
