@@ -1,5 +1,5 @@
 <a href="https://codeclimate.com/github/asafschers/random_forester"><img src="https://codeclimate.com/github/asafschers/random_forester/badges/gpa.svg" /></a>
-<a href="https://badge.fury.io/rb/random_forester"><img src="https://badge.fury.io/rb/random_forester.svg" alt="Gem Version" height="18"></a>
+[![Gem Version](https://badge.fury.io/rb/random_forester.svg)](https://badge.fury.io/rb/random_forester)
 [![Dependency Status](https://www.versioneye.com/user/projects/5870c8c42f149b00509e72a3/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/5870c8c42f149b00509e72a3)
 [![Build Status](https://travis-ci.org/asafschers/random_forester.svg?branch=master)](https://travis-ci.org/asafschers/random_forester)
 
