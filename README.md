@@ -6,7 +6,6 @@
 # RandomForester
 
 Reads Random Forest PMML files and creates Ruby Random Forest classifier model.
-(Only tested on R trained PMML files for now)
 
 ## Installation
 
