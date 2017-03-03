@@ -14,18 +14,6 @@ class DecisionTree
     set_node(tree_xml.xpath('TreeModel/Node'), @root)
   end
 
-  def set_node(tree_xml, root)
-    root.content = Predicate.new(tree_xml)
-
-    return if tree_xml.xpath('*').count == 1
-
-    root << Tree::TreeNode.new(LEFT)
-    root << Tree::TreeNode.new(RIGHT)
-
-    set_node(tree_xml.xpath('*')[1], root[LEFT]) if tree_xml.xpath('*')[1]
-    set_node(tree_xml.xpath('*')[2], root[RIGHT]) if tree_xml.xpath('*')[2]
-  end
-
   def decide(features)
     curr = @root
     while curr.content.decision == ''
@@ -35,6 +23,20 @@ class DecisionTree
     end
 
     curr.content.decision
+  end
+
+  private
+
+  def set_node(tree_xml, root)
+    root.content = Predicate.new(tree_xml)
+    children = tree_xml.xpath('*')
+    return if children.count == 1
+
+    root << Tree::TreeNode.new(LEFT)
+    root << Tree::TreeNode.new(RIGHT)
+
+    set_node(children[1], root[LEFT]) if children[1]
+    set_node(children[2], root[RIGHT]) if children[2]
   end
 
   def step(curr, features)
