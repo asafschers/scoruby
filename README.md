@@ -2,6 +2,7 @@
 [![Gem Version](https://badge.fury.io/rb/random_forester.svg)](https://badge.fury.io/rb/random_forester)
 [![Dependency Status](https://www.versioneye.com/user/projects/5870c8c42f149b00509e72a3/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/5870c8c42f149b00509e72a3)
 [![Build Status](https://travis-ci.org/asafschers/random_forester.svg?branch=master)](https://travis-ci.org/asafschers/random_forester)
+[![Code Triagers Badge](https://www.codetriage.com/asafschers/random_forester/badges/users.svg)](https://www.codetriage.com/asafschers/random_forester)
 
 # RandomForester
 
