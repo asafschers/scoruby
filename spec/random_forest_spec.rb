@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe RandomForest do
 
-  SHOULD_APPROVE = 'should_approve'
-  SHOULD_DECLINE = 'should_decline'
+  SHOULD_APPROVE ||= 'should_approve'
+  SHOULD_DECLINE ||= 'should_decline'
 
   before(:all) do
     rf_file = 'spec/fixtures/rf_file.pmml'

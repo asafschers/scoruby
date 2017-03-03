@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe DecisionTree do
 
-  SHOULD_APPROVE = 'should_approve'
-  SHOULD_DECLINE = 'should_decline'
+  SHOULD_APPROVE ||= 'should_approve'
+  SHOULD_DECLINE ||= 'should_decline'
 
   let(:tree_file) { 'spec/fixtures/pmml_tree.pmml' }
   let(:tree_xml) { RandomForester.get_xml(tree_file) }
