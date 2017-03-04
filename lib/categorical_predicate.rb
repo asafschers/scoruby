@@ -5,9 +5,9 @@ class CategoricalPredicate
   attr_reader :field
 
   def initialize(pred_xml)
-    @field = pred_xml.xpath('@field').to_s.to_sym
+    @field = pred_xml.attribute('field').to_s.to_sym
     @array = pred_xml.xpath('Array/text()').to_s.tr('"', '').split('   ')
-    @operator = pred_xml.xpath('@booleanOperator').to_s
+    @operator = pred_xml.attribute('booleanOperator').to_s
   end
 
   def true?(features)

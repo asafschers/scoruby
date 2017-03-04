@@ -8,8 +8,8 @@ class Predicate
   def initialize(pred_xml, decision)
     @pred_xml = pred_xml
 
-    @op = @pred_xml.xpath('@operator').to_s
-    @bool_op = @pred_xml.xpath('@booleanOperator').to_s
+    @op = @pred_xml.attribute('operator').to_s
+    @bool_op = @pred_xml.attribute('booleanOperator').to_s
 
     if !@op.empty?
       @pred = NumericalPredicate.new(@pred_xml)
