@@ -35,7 +35,7 @@ module RandomForester
 
   def self.get_xml(pmml_file_name)
     pmml_string = File.open(pmml_file_name, 'rb').read
-    xml = Nokogiri::XML(pmml_string)
+    xml = Nokogiri::XML(pmml_string) { |config| config.noblanks }
     xml.remove_namespaces!
   end
 
