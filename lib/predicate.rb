@@ -5,8 +5,8 @@ class Predicate
 
   attr_reader :decision
 
-  def initialize(pred_xml)
-    @pred_xml =  pred_xml.xpath('*')[0]
+  def initialize(pred_xml, decision)
+    @pred_xml = pred_xml
 
     @op = @pred_xml.xpath('@operator').to_s
     @bool_op = @pred_xml.xpath('@booleanOperator').to_s
@@ -17,7 +17,7 @@ class Predicate
       @pred = CategoricalPredicate.new(@pred_xml)
     end
 
-    @decision = pred_xml.xpath('@score').to_s
+    @decision = decision
   end
 
   def to_s

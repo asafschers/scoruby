@@ -28,8 +28,8 @@ class DecisionTree
   private
 
   def set_node(tree_xml, root)
-    root.content = Predicate.new(tree_xml)
     children = tree_xml.xpath('*')
+    root.content = Predicate.new(children[0], tree_xml.xpath('@score').to_s)
     return if children.count == 1
 
     root << Tree::TreeNode.new(LEFT)
