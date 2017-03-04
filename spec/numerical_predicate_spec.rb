@@ -4,8 +4,7 @@ describe NumericalPredicate do
 
   let (:pred_string) { '<SimplePredicate field="f33" operator="lessOrEqual" value="18.8513846048894"/>' }
   let (:pred_xml) { Nokogiri::XML(pred_string); }
-  let (:relevant_pred_xml) {  pred_xml.children }
-  let (:numerical_predicate) { NumericalPredicate.new(relevant_pred_xml) }
+  let (:numerical_predicate) { NumericalPredicate.new(pred_xml.children.first) }
 
   it 'returns true' do
     expect(numerical_predicate.true?(f33: 18)).to eq true
