@@ -28,7 +28,7 @@ class DecisionTree
   private
 
   def set_node(tree_xml, root)
-    children = tree_xml.xpath('*')
+    children = tree_xml.children
     root.content = Predicate.new(children[0], tree_xml.xpath('@score').to_s)
     return if children.count == 1
 
