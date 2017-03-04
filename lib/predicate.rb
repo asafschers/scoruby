@@ -8,12 +8,12 @@ class Predicate
   def initialize(pred_xml, decision)
     @pred_xml = pred_xml
 
-    @op = @pred_xml.attribute('operator').to_s
-    @bool_op = @pred_xml.attribute('booleanOperator').to_s
+    @op = @pred_xml.attribute('operator')
+    @bool_op = @pred_xml.attribute('booleanOperator')
 
-    if !@op.empty?
+    if !@op.nil?
       @pred = NumericalPredicate.new(@pred_xml)
-    elsif !@bool_op.empty?
+    elsif !@bool_op.nil?
       @pred = CategoricalPredicate.new(@pred_xml)
     end
 

@@ -6,9 +6,10 @@ class NumericalPredicate
   attr_reader :field
 
   def initialize(pred_xml)
-    @field = pred_xml.attribute('field').to_s.to_sym
-    @value = Float(pred_xml.attribute('value').to_s)
-    @operator = pred_xml.attribute('operator').to_s
+    attributes = pred_xml.attributes
+    @field = attributes['field'].value.to_sym
+    @value = Float(attributes['value'].value)
+    @operator = attributes['operator'].value
   end
 
   def true?(features)
