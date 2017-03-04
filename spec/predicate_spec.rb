@@ -2,10 +2,9 @@ require 'spec_helper'
 
 describe Predicate do
 
-  let (:pred_string) { '<Node id="2"><SimplePredicate field="f33" operator="lessOrEqual" value="18.8513846048894"/></Node>' }
+  let (:pred_string) { '<SimplePredicate field="f33" operator="lessOrEqual" value="18.8513846048894"/>' }
   let (:pred_xml) { Nokogiri::XML(pred_string); }
-  let (:relevant_pred_xml) {  pred_xml.xpath('*').xpath('*')[0] }
-  let (:predicate) { Predicate.new(relevant_pred_xml, 0) }
+  let (:predicate) { Predicate.new(pred_xml.children[0], 0) }
 
   it 'logs missing feature' do
     expect(RandomForester.logger).to receive(:error).with('Missing feature f33')
