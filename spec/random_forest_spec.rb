@@ -7,7 +7,7 @@ describe RandomForest do
 
   before(:all) do
     rf_file = 'spec/fixtures/rf_file.pmml'
-    xml = RandomForester.get_xml(rf_file)
+    xml = RandomForester.xml_from_file_path(rf_file)
     @random_forest = RandomForest.new(xml)
     @features = Hash.new
   end
