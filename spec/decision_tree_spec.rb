@@ -7,7 +7,7 @@ describe DecisionTree do
 
   let(:tree_file) { 'spec/fixtures/pmml_tree.pmml' }
   let(:tree_xml) { RandomForester.get_xml(tree_file) }
-  let(:decision_tree) { DecisionTree.new(tree_xml.xpath('Segment')) }
+  let(:decision_tree) { DecisionTree.new(tree_xml.child) }
 
   context 'sets tree' do
 

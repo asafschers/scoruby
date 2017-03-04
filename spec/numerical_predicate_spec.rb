@@ -4,7 +4,7 @@ describe NumericalPredicate do
 
   let (:pred_string) { '<SimplePredicate field="f33" operator="lessOrEqual" value="18.8513846048894"/>' }
   let (:pred_xml) { Nokogiri::XML(pred_string); }
-  let (:relevant_pred_xml) {  pred_xml.xpath('*') }
+  let (:relevant_pred_xml) {  pred_xml.children }
   let (:numerical_predicate) { NumericalPredicate.new(relevant_pred_xml) }
 
   it 'returns true' do
