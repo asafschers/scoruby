@@ -9,7 +9,7 @@ class DecisionTree
   attr_reader :root
 
   def initialize(tree_xml)
-    @id = tree_xml.xpath('@id')
+    @id = tree_xml.attribute('id')
     @root = Tree::TreeNode.new(ROOT)
     set_node(tree_xml.xpath('TreeModel/Node'), @root)
   end
@@ -29,7 +29,7 @@ class DecisionTree
 
   def set_node(tree_xml, root)
     children = tree_xml.children
-    root.content = Predicate.new(children[0], tree_xml.xpath('@score').to_s)
+    root.content = Predicate.new(children[0], tree_xml.attribute('score').to_s)
     return if children.count == 1
 
     root << Tree::TreeNode.new(LEFT)
