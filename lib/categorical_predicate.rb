@@ -6,7 +6,8 @@ class CategoricalPredicate
 
   def initialize(pred_xml)
     @field = pred_xml.attribute('field').value.to_sym
-    @array = pred_xml.xpath('Array/text()').to_s.tr('"', '').split('   ')
+    #@array = pred_xml.xpath('Array/text()').to_s.tr('"', '').split('   ')
+    @array = pred_xml.children[0].content.tr('"', '').split('   ')
     @operator = pred_xml.attribute('booleanOperator').value
   end
 

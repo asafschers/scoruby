@@ -6,7 +6,7 @@ describe DecisionTree do
   SHOULD_DECLINE ||= 'should_decline'
 
   let(:tree_file) { 'spec/fixtures/pmml_tree.pmml' }
-  let(:tree_xml) { RandomForester.get_xml(tree_file) }
+  let(:tree_xml) { RandomForester.xml_from_file_path(tree_file) }
   let(:decision_tree) { DecisionTree.new(tree_xml.child) }
 
   context 'sets tree' do
