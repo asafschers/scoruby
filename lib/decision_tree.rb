@@ -1,4 +1,4 @@
-require 'predicate'
+require 'node'
 
 class DecisionTree
 
@@ -6,7 +6,7 @@ class DecisionTree
 
   def initialize(tree_xml)
     @id = tree_xml.attribute('id')
-    @root = Predicate.new(tree_xml.xpath('TreeModel/Node'))
+    @root = Node.new(tree_xml.xpath('TreeModel/Node'))
   end
 
   def decide(features)
