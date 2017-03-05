@@ -19,7 +19,7 @@ describe DecisionTree do
     it 'sets node' do
       expect(lr_node.to_s).to eq node_xml
       expect(lr_node.decision.to_s).to eq ''
-      expect([lr_node.left, lr_node.right]).to all( be_a Predicate )
+      expect([lr_node.left, lr_node.right]).to all( be_a Node )
     end
 
     it 'sets leave' do
