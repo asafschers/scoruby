@@ -1,13 +1,13 @@
 require 'numerical_predicate'
 require 'categorical_predicate'
 
-class Predicate
+class Predicate # todo: change name to node
 
-  attr_reader :decision
+  attr_reader :decision, :left, :right, :pred
 
-  def initialize(pred_xml, decision)
-    @pred_xml = pred_xml
-
+  def initialize(xml)
+    children = xml.children
+    @pred_xml = children[0]
     @op = @pred_xml.attribute('operator')
     @bool_op = @pred_xml.attribute('booleanOperator')
 
@@ -17,7 +17,11 @@ class Predicate
       @pred = CategoricalPredicate.new(@pred_xml)
     end
 
-    @decision = decision
+    @decision = xml.attribute('score').to_s
+
+    return if children.count == 1
+    @left = Predicate.new(children[1]) if children[1]
+    @right = Predicate.new(children[2]) if children[2]
   end
 
   def to_s

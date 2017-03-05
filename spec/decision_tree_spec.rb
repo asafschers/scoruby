@@ -11,21 +11,21 @@ describe DecisionTree do
 
   context 'sets tree' do
 
-    let (:lr_node) { decision_tree.root[DecisionTree::LEFT][DecisionTree::RIGHT] }
-    let (:lrlr_node) { lr_node['left']['right'] }
+    let (:lr_node) { decision_tree.root.left.right }
+    let (:lrlr_node) { lr_node.left.right }
     let (:node_xml) { '<SimplePredicate field="f44" operator="greaterThan" value="3.01028050880094"/>' }
     let (:leaf_xml) { '<SimplePredicate field="f33" operator="greaterThan" value="18.8513846048894"/>' }
 
     it 'sets node' do
-      expect(lr_node.content.to_s).to eq node_xml
-      expect(lr_node.content.decision.to_s).to eq ''
-      expect(lr_node.is_leaf?).to be false
+      expect(lr_node.to_s).to eq node_xml
+      expect(lr_node.decision.to_s).to eq ''
+      expect([lr_node.left, lr_node.right]).to all( be_a Predicate )
     end
 
     it 'sets leave' do
-      expect(lrlr_node.content.to_s).to eq leaf_xml
-      expect(lrlr_node.content.decision.to_s).to eq SHOULD_DECLINE
-      expect(lrlr_node.is_leaf?).to be true
+      expect(lrlr_node.to_s).to eq leaf_xml
+      expect(lrlr_node.decision.to_s).to eq SHOULD_DECLINE
+      expect([lrlr_node.left, lrlr_node.right]).to all(be_nil)
     end
   end
 

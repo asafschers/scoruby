@@ -6,7 +6,7 @@ require 'random_forester/version'
 Gem::Specification.new do |spec|
   spec.name          = "random_forester"
   spec.version       = RandomForester::VERSION
-  spec.authors       = ["asaf schers"]
+  spec.authors       = ["Asaf Schers"]
   spec.email         = ["schers@riskified.com"]
 
   spec.summary       = %q{Creates a random forest object from a pmml file.}
@@ -23,5 +23,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec", "~> 3.5"
   spec.add_development_dependency "pry", "~> 0.10"
   spec.add_dependency "nokogiri", "~> 1.7"
-  spec.add_dependency "rubytree"
+  spec.add_dependency "ruby-prof"
 end
