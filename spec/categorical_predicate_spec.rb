@@ -6,7 +6,7 @@ describe CategoricalPredicate do
     <Array n="6" type="string">"F"   "F1L"   "F1L1"   "FL"   "FL1"   "L"</Array>
    </SimpleSetPredicate>' }
   let (:pred_xml) { RandomForester.xml_from_string(pred_string) }
-  let (:relevant_pred_xml) {  pred_xml.children }
+  let (:relevant_pred_xml) {  pred_xml.children[0] }
   let (:categorical_predicate) { CategoricalPredicate.new(relevant_pred_xml) }
 
   it 'returns true' do
