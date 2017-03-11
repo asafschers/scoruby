@@ -8,7 +8,6 @@ class Predicate
   IS_IN = 'isIn'
 
   def initialize(pred_xml)
-    @pred_xml = pred_xml
     attributes = pred_xml.attributes
     @pred = NumericalPredicate.new(attributes) if attributes['operator']
     @pred = CategoricalPredicate.new(pred_xml) if attributes['booleanOperator']
