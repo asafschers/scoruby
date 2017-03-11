@@ -17,13 +17,13 @@ describe DecisionTree do
     let (:leaf_xml) { '<SimplePredicate field="f33" operator="greaterThan" value="18.8513846048894"/>' }
 
     it 'sets node' do
-      expect(lr_node.to_s).to eq node_xml
+      expect(lr_node.pred.field).to eq :f44
       expect(lr_node.decision.to_s).to eq ''
       expect([lr_node.left, lr_node.right]).to all( be_a Node )
     end
 
     it 'sets leave' do
-      expect(lrlr_node.to_s).to eq leaf_xml
+      expect(lrlr_node.pred.field).to eq :f33
       expect(lrlr_node.decision.to_s).to eq SHOULD_DECLINE
       expect([lrlr_node.left, lrlr_node.right]).to all(be_nil)
     end

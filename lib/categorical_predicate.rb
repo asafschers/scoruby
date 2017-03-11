@@ -5,9 +5,10 @@ class CategoricalPredicate
   attr_reader :field
 
   def initialize(pred_xml)
-    @field = pred_xml.attribute('field').value.to_sym
+    attributes = pred_xml.attributes
+    @field = attributes['field'].value.to_sym
     @array = pred_xml.children[0].content.tr('"', '').split('   ')
-    @operator = pred_xml.attribute('booleanOperator').value
+    @operator = attributes['booleanOperator'].value
   end
 
   def true?(features)
