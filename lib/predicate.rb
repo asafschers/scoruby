@@ -3,10 +3,6 @@ require 'categorical_predicate'
 
 class Predicate
 
-  GREATER_THAN = 'greaterThan'
-  LESS_OR_EQUAL = 'lessOrEqual'
-  IS_IN = 'isIn'
-
   def initialize(pred_xml)
     attributes = pred_xml.attributes
     @pred = NumericalPredicate.new(attributes) if attributes['operator']
