@@ -9,9 +9,9 @@ class RandomForest
     }
   end
 
-  def decisions_count(fearures)
+  def decisions_count(features)
     decisions = @decision_trees.collect { |decision_tree|
-      decision_tree.decide(fearures)
+      decision_tree.decide(features)
     }
     decisions.inject(Hash.new(0)) { |h, e| h[e] += 1 ; h }
   end
