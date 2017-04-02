@@ -1,10 +1,12 @@
 require 'random_forester/version'
 require 'nokogiri'
 require 'random_forest'
+require 'gbm'
 require 'logger'
 require 'pry'
 
 RANDOM_FOREST_MODEL = 'randomForest_Model'
+GBM_INDICATION = "//OutputField[@name='scaledGbmValue']"
 MODEL_NOT_SUPPORTED_ERROR = 'model not supported'
 
 module RandomForester
@@ -25,12 +27,9 @@ module RandomForester
   end
 
   def self.new_model(xml)
-    case get_model_type(xml)
-      when RANDOM_FOREST_MODEL
-        RandomForest.new(xml)
-      else
-        raise MODEL_NOT_SUPPORTED_ERROR
-    end
+    return RandomForest.new(xml) if random_forest?(xml)
+    return Gbm.new(xml) if gbm?(xml)
+    raise MODEL_NOT_SUPPORTED_ERROR
   end
 
   def self.xml_from_file_path(pmml_file_name)
@@ -43,7 +42,11 @@ module RandomForester
     xml.remove_namespaces!
   end
 
-  def self.get_model_type(xml)
-    xml.xpath("PMML/MiningModel/@modelName").to_s
+  def self.random_forest?(xml)
+    xml.xpath("PMML/MiningModel/@modelName").to_s == RANDOM_FOREST_MODEL
+  end
+
+  def self.gbm?(xml)
+    !xml.xpath(GBM_INDICATION).empty?
   end
 end
