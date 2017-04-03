@@ -2,11 +2,15 @@ require 'decision_tree'
 
 class RandomForest
 
-  def initialize(xml)
-    xml_trees = xml.xpath('PMML/MiningModel/Segmentation/Segment')
+  def initialize(xml, tree, path)
+    xml_trees = xml.xpath(path)
     @decision_trees = xml_trees.collect{ |xml_tree|
-      DecisionTree.new(xml_tree)
+      tree.new(xml_tree)
     }
+  end
+
+  def tree_count
+    @decision_trees.count
   end
 
   def decisions_count(features)

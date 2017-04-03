@@ -5,11 +5,11 @@ require 'gbm'
 require 'logger'
 require 'pry'
 
-RANDOM_FOREST_MODEL = 'randomForest_Model'
-GBM_INDICATION = "//OutputField[@name='scaledGbmValue']"
-MODEL_NOT_SUPPORTED_ERROR = 'model not supported'
-
 module RandomForester
+  RANDOM_FOREST_MODEL = 'randomForest_Model'
+  GBM_INDICATION = '//OutputField[@name="scaledGbmValue"]'
+  MODEL_NOT_SUPPORTED_ERROR = 'model not supported'
+  RF_FOREST_XPATH = 'PMML/MiningModel/Segmentation/Segment'
 
   class << self
     attr_writer :logger
@@ -27,7 +27,7 @@ module RandomForester
   end
 
   def self.new_model(xml)
-    return RandomForest.new(xml) if random_forest?(xml)
+    return RandomForest.new(xml, DecisionTree, RF_FOREST_XPATH) if random_forest?(xml)
     return Gbm.new(xml) if gbm?(xml)
     raise MODEL_NOT_SUPPORTED_ERROR
   end
@@ -43,7 +43,7 @@ module RandomForester
   end
 
   def self.random_forest?(xml)
-    xml.xpath("PMML/MiningModel/@modelName").to_s == RANDOM_FOREST_MODEL
+    xml.xpath('PMML/MiningModel/@modelName').to_s == RANDOM_FOREST_MODEL
   end
 
   def self.gbm?(xml)
