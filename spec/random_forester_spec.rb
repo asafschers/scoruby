@@ -10,7 +10,7 @@ describe RandomForester do
   it 'raises when type not known' do
     expect {
       RandomForester.get_model(non_rf_file)
-    }.to raise_error(MODEL_NOT_SUPPORTED_ERROR)
+    }.to raise_error(RandomForester::MODEL_NOT_SUPPORTED_ERROR)
   end
 
   it 'initializes random forest' do

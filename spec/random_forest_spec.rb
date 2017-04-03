@@ -5,10 +5,11 @@ describe RandomForest do
   SHOULD_APPROVE ||= 'should_approve'
   SHOULD_DECLINE ||= 'should_decline'
 
+
   before(:all) do
     rf_file = 'spec/fixtures/rf_file.pmml'
     xml = RandomForester.xml_from_file_path(rf_file)
-    @random_forest = RandomForest.new(xml)
+    @random_forest = RandomForest.new(xml, DecisionTree, RandomForester::RF_FOREST_XPATH)
     @features = Hash.new
   end
 
