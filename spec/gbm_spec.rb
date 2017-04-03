@@ -6,7 +6,7 @@ describe Gbm do
   let(:xml) { RandomForester.xml_from_file_path(gbm_file) }
   let(:gbm) { Gbm.new(xml) }
 
-  it 'loads correct number of trees' do
+  xit 'loads correct number of trees' do
     expect(gbm.tree_count).to eq 30
   end
 
