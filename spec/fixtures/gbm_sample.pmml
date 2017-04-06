@@ -1,0 +1,1765 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+   <PMML xmlns="http://www.dmg.org/PMML-4_2" version="4.2">
+   	<Header>
+   		<Application name="JPMML-R" version="1.1-SNAPSHOT"/>
+   		<Timestamp>2017-02-06T15:24:37Z</Timestamp>
+   	</Header>
+   	<MiningModel functionName="classification">
+   		<MiningSchema>
+   			<MiningField name="y" usageType="target"/>
+   			<MiningField name="f1"/>
+   			<MiningField name="f2"/>
+   			<MiningField name="f3"/>
+   			<MiningField name="f4"/>
+   			<MiningField name="f5"/>
+   			<MiningField name="f6"/>
+   			<MiningField name="f7"/>
+   			<MiningField name="f8"/>
+   			<MiningField name="f9"/>
+   			<MiningField name="f10"/>
+   			<MiningField name="f11"/>
+   			<MiningField name="f12"/>
+   			<MiningField name="f13"/>
+   			<MiningField name="f14"/>
+   			<MiningField name="f15"/>
+   			<MiningField name="f16"/>
+   			<MiningField name="f17"/>
+   			<MiningField name="f18"/>
+   			<MiningField name="f19"/>
+   			<MiningField name="f20"/>
+   			<MiningField name="f21"/>
+   			<MiningField name="f22"/>
+   			<MiningField name="f23"/>
+   			<MiningField name="f24"/>
+   			<MiningField name="f25"/>
+   			<MiningField name="f26"/>
+   			<MiningField name="f27"/>
+   			<MiningField name="f28"/>
+   			<MiningField name="f29"/>
+   			<MiningField name="f30"/>
+   			<MiningField name="f31"/>
+   			<MiningField name="f32"/>
+   			<MiningField name="f33"/>
+   			<MiningField name="f34"/>
+   			<MiningField name="f35"/>
+   			<MiningField name="f36"/>
+   			<MiningField name="f37"/>
+   			<MiningField name="f38"/>
+   			<MiningField name="f39"/>
+   			<MiningField name="f40"/>
+   			<MiningField name="f41"/>
+   			<MiningField name="f42"/>
+   			<MiningField name="f43"/>
+   			<MiningField name="f44"/>
+   			<MiningField name="f45"/>
+   			<MiningField name="f46"/>
+   			<MiningField name="f47"/>
+   			<MiningField name="f48"/>
+   			<MiningField name="f49"/>
+   			<MiningField name="f50"/>
+   			<MiningField name="f51"/>
+   			<MiningField name="f52"/>
+   			<MiningField name="f53"/>
+   			<MiningField name="f54"/>
+   			<MiningField name="f55"/>
+   			<MiningField name="f56"/>
+   			<MiningField name="f57"/>
+   			<MiningField name="f58"/>
+   			<MiningField name="f59"/>
+   			<MiningField name="f60"/>
+   			<MiningField name="f61"/>
+   			<MiningField name="f62"/>
+   			<MiningField name="f63"/>
+   			<MiningField name="f64"/>
+   			<MiningField name="f65"/>
+   			<MiningField name="f66"/>
+   			<MiningField name="f67"/>
+   			<MiningField name="f68"/>
+   			<MiningField name="f69"/>
+   			<MiningField name="f70"/>
+   			<MiningField name="f71"/>
+   			<MiningField name="f72"/>
+   			<MiningField name="f73"/>
+   			<MiningField name="f74"/>
+   			<MiningField name="f75"/>
+   			<MiningField name="f76"/>
+   			<MiningField name="f77"/>
+   			<MiningField name="f78"/>
+   			<MiningField name="f79"/>
+   			<MiningField name="f80"/>
+   			<MiningField name="f81"/>
+   			<MiningField name="f82"/>
+   			<MiningField name="f83"/>
+   			<MiningField name="f84"/>
+   			<MiningField name="f85"/>
+   			<MiningField name="f86"/>
+   			<MiningField name="f87"/>
+   			<MiningField name="f88"/>
+   			<MiningField name="f89"/>
+   			<MiningField name="f90"/>
+   			<MiningField name="f91"/>
+   			<MiningField name="f92"/>
+   			<MiningField name="f93"/>
+   			<MiningField name="f94"/>
+   			<MiningField name="f95"/>
+   			<MiningField name="f96"/>
+   			<MiningField name="f97"/>
+   			<MiningField name="f98"/>
+   			<MiningField name="f99"/>
+   			<MiningField name="f100"/>
+   			<MiningField name="f101"/>
+   			<MiningField name="f102"/>
+   			<MiningField name="f103"/>
+   			<MiningField name="f104"/>
+   			<MiningField name="f105"/>
+   			<MiningField name="f106"/>
+   			<MiningField name="f107"/>
+   			<MiningField name="f108"/>
+   			<MiningField name="f109"/>
+   			<MiningField name="f110"/>
+   			<MiningField name="f111"/>
+   			<MiningField name="f112"/>
+   			<MiningField name="f113"/>
+   		</MiningSchema>
+   		<Segmentation multipleModelMethod="modelChain">
+   			<Segment id="1">
+   				<True/>
+   				<MiningModel functionName="regression">
+   					<MiningSchema>
+   						<MiningField name="f1"/>
+   						<MiningField name="f2"/>
+   						<MiningField name="f3"/>
+   						<MiningField name="f4"/>
+   						<MiningField name="f5"/>
+   						<MiningField name="f6"/>
+   						<MiningField name="f7"/>
+   						<MiningField name="f8"/>
+   						<MiningField name="f9"/>
+   						<MiningField name="f10"/>
+   						<MiningField name="f11"/>
+   						<MiningField name="f12"/>
+   						<MiningField name="f13"/>
+   						<MiningField name="f14"/>
+   						<MiningField name="f15"/>
+   						<MiningField name="f16"/>
+   						<MiningField name="f17"/>
+   						<MiningField name="f18"/>
+   						<MiningField name="f19"/>
+   						<MiningField name="f20"/>
+   						<MiningField name="f21"/>
+   						<MiningField name="f22"/>
+   						<MiningField name="f23"/>
+   						<MiningField name="f24"/>
+   						<MiningField name="f25"/>
+   						<MiningField name="f26"/>
+   						<MiningField name="f27"/>
+   						<MiningField name="f28"/>
+   						<MiningField name="f29"/>
+   						<MiningField name="f30"/>
+   						<MiningField name="f31"/>
+   						<MiningField name="f32"/>
+   						<MiningField name="f33"/>
+   						<MiningField name="f34"/>
+   						<MiningField name="f35"/>
+   						<MiningField name="f36"/>
+   						<MiningField name="f37"/>
+   						<MiningField name="f38"/>
+   						<MiningField name="f39"/>
+   						<MiningField name="f40"/>
+   						<MiningField name="f41"/>
+   						<MiningField name="f42"/>
+   						<MiningField name="f43"/>
+   						<MiningField name="f44"/>
+   						<MiningField name="f45"/>
+   						<MiningField name="f46"/>
+   						<MiningField name="f47"/>
+   						<MiningField name="f48"/>
+   						<MiningField name="f49"/>
+   						<MiningField name="f50"/>
+   						<MiningField name="f51"/>
+   						<MiningField name="f52"/>
+   						<MiningField name="f53"/>
+   						<MiningField name="f54"/>
+   						<MiningField name="f55"/>
+   						<MiningField name="f56"/>
+   						<MiningField name="f57"/>
+   						<MiningField name="f58"/>
+   						<MiningField name="f59"/>
+   						<MiningField name="f60"/>
+   						<MiningField name="f61"/>
+   						<MiningField name="f62"/>
+   						<MiningField name="f63"/>
+   						<MiningField name="f64"/>
+   						<MiningField name="f65"/>
+   						<MiningField name="f66"/>
+   						<MiningField name="f67"/>
+   						<MiningField name="f68"/>
+   						<MiningField name="f69"/>
+   						<MiningField name="f70"/>
+   						<MiningField name="f71"/>
+   						<MiningField name="f72"/>
+   						<MiningField name="f73"/>
+   						<MiningField name="f74"/>
+   						<MiningField name="f75"/>
+   						<MiningField name="f76"/>
+   						<MiningField name="f77"/>
+   						<MiningField name="f78"/>
+   						<MiningField name="f79"/>
+   						<MiningField name="f80"/>
+   						<MiningField name="f81"/>
+   						<MiningField name="f82"/>
+   						<MiningField name="f83"/>
+   						<MiningField name="f84"/>
+   						<MiningField name="f85"/>
+   						<MiningField name="f86"/>
+   						<MiningField name="f87"/>
+   						<MiningField name="f88"/>
+   						<MiningField name="f89"/>
+   						<MiningField name="f90"/>
+   						<MiningField name="f91"/>
+   						<MiningField name="f92"/>
+   						<MiningField name="f93"/>
+   						<MiningField name="f94"/>
+   						<MiningField name="f95"/>
+   						<MiningField name="f96"/>
+   						<MiningField name="f97"/>
+   						<MiningField name="f98"/>
+   						<MiningField name="f99"/>
+   						<MiningField name="f100"/>
+   						<MiningField name="f101"/>
+   						<MiningField name="f102"/>
+   						<MiningField name="f103"/>
+   						<MiningField name="f104"/>
+   						<MiningField name="f105"/>
+   						<MiningField name="f106"/>
+   						<MiningField name="f107"/>
+   						<MiningField name="f108"/>
+   						<MiningField name="f109"/>
+   						<MiningField name="f110"/>
+   						<MiningField name="f111"/>
+   						<MiningField name="f112"/>
+   						<MiningField name="f113"/>
+   					</MiningSchema>
+   					<Output>
+   						<OutputField name="rawGbmValue" feature="predictedValue"/>
+   						<OutputField name="scaledGbmValue" optype="continuous" dataType="double" feature="transformedValue">
+   							<Apply function="+">
+   								<FieldRef field="rawGbmValue"/>
+   								<Constant dataType="double">0.4035419585463159</Constant>
+   							</Apply>
+   						</OutputField>
+   					</Output>
+   					<Segmentation multipleModelMethod="sum">
+   						<Segment id="1">
+   							<True/>
+   							<TreeModel functionName="regression" splitCharacteristic="multiSplit">
+   								<MiningSchema>
+   									<MiningField name="f2"/>
+   									<MiningField name="f14"/>
+   									<MiningField name="f27"/>
+   									<MiningField name="f105"/>
+   								</MiningSchema>
+   								<Node id="1">
+   									<True/>
+   									<Node id="13" score="-0.012496315787604741">
+   										<SimplePredicate field="f2" operator="isMissing"/>
+   									</Node>
+   									<Node id="2">
+   										<SimplePredicate field="f2" operator="lessThan" value="1.2349999999999999"/>
+   										<Node id="8" score="0.010949756508460227">
+   											<SimplePredicate field="f105" operator="isMissing"/>
+   										</Node>
+   										<Node id="3">
+   											<SimplePredicate field="f105" operator="lessThan" value="15.916382409583601"/>
+   											<Node id="6" score="0.010151589303205238">
+   												<SimplePredicate field="f14" operator="isMissing"/>
+   											</Node>
+   											<Node id="4" score="0.012021577621896706">
+   												<SimplePredicate field="f14" operator="lessThan" value="0.5"/>
+   											</Node>
+   											<Node id="5" score="-0.01648119102415412">
+   												<SimplePredicate field="f14" operator="greaterOrEqual" value="0.5"/>
+   											</Node>
+   										</Node>
+   										<Node id="7" score="-0.01214040213141063">
+   											<SimplePredicate field="f105" operator="greaterOrEqual" value="15.916382409583601"/>
+   										</Node>
+   									</Node>
+   									<Node id="9">
+   										<SimplePredicate field="f2" operator="greaterOrEqual" value="1.2349999999999999"/>
+   										<Node id="12" score="-0.01342441156264772">
+   											<SimplePredicate field="f27" operator="isMissing"/>
+   										</Node>
+   										<Node id="10" score="-0.0016398452118449125">
+   											<SimplePredicate field="f27" operator="lessThan" value="144.5"/>
+   										</Node>
+   										<Node id="11" score="-0.018698126076789875">
+   											<SimplePredicate field="f27" operator="greaterOrEqual" value="144.5"/>
+   										</Node>
+   									</Node>
+   								</Node>
+   							</TreeModel>
+   						</Segment>
+   						<Segment id="2">
+   							<True/>
+   							<TreeModel functionName="regression" splitCharacteristic="multiSplit">
+   								<MiningSchema>
+   									<MiningField name="f2"/>
+   									<MiningField name="f14"/>
+   									<MiningField name="f26"/>
+   									<MiningField name="f105"/>
+   								</MiningSchema>
+   								<Node id="1">
+   									<True/>
+   									<Node id="13" score="-0.012833189691514724">
+   										<SimplePredicate field="f2" operator="isMissing"/>
+   									</Node>
+   									<Node id="2">
+   										<SimplePredicate field="f2" operator="lessThan" value="1.2349999999999999"/>
+   										<Node id="8" score="0.010816821767793292">
+   											<SimplePredicate field="f105" operator="isMissing"/>
+   										</Node>
+   										<Node id="3">
+   											<SimplePredicate field="f105" operator="lessThan" value="15.9521453311656"/>
+   											<Node id="6" score="0.010113565962146727">
+   												<SimplePredicate field="f14" operator="isMissing"/>
+   											</Node>
+   											<Node id="4" score="0.011945683479140276">
+   												<SimplePredicate field="f14" operator="lessThan" value="0.5"/>
+   											</Node>
+   											<Node id="5" score="-0.016294468712659597">
+   												<SimplePredicate field="f14" operator="greaterOrEqual" value="0.5"/>
+   											</Node>
+   										</Node>
+   										<Node id="7" score="-0.012108491768308251">
+   											<SimplePredicate field="f105" operator="greaterOrEqual" value="15.9521453311656"/>
+   										</Node>
+   									</Node>
+   									<Node id="9">
+   										<SimplePredicate field="f2" operator="greaterOrEqual" value="1.2349999999999999"/>
+   										<Node id="12" score="-0.013048691759135594">
+   											<SimplePredicate field="f26" operator="isMissing"/>
+   										</Node>
+   										<Node id="10" score="0.0015742936385078976">
+   											<SimplePredicate field="f26" operator="lessThan" value="95.5"/>
+   										</Node>
+   										<Node id="11" score="-0.017485726924744507">
+   											<SimplePredicate field="f26" operator="greaterOrEqual" value="95.5"/>
+   										</Node>
+   									</Node>
+   								</Node>
+   							</TreeModel>
+   						</Segment>
+   						<Segment id="3">
+   							<True/>
+   							<TreeModel functionName="regression" splitCharacteristic="multiSplit">
+   								<MiningSchema>
+   									<MiningField name="f2"/>
+   									<MiningField name="f17"/>
+   									<MiningField name="f26"/>
+   									<MiningField name="f105"/>
+   								</MiningSchema>
+   								<Node id="1">
+   									<True/>
+   									<Node id="13" score="-0.012745070636711263">
+   										<SimplePredicate field="f2" operator="isMissing"/>
+   									</Node>
+   									<Node id="2">
+   										<SimplePredicate field="f2" operator="lessThan" value="1.2349999999999999"/>
+   										<Node id="8" score="0.010641020316787765">
+   											<SimplePredicate field="f105" operator="isMissing"/>
+   										</Node>
+   										<Node id="3">
+   											<SimplePredicate field="f105" operator="lessThan" value="15.96007537754665"/>
+   											<Node id="6" score="0.01009916491610352">
+   												<SimplePredicate field="f17" operator="isMissing"/>
+   											</Node>
+   											<Node id="4" score="0.01190420214185073">
+   												<SimplePredicate field="f17" operator="lessThan" value="11"/>
+   											</Node>
+   											<Node id="5" score="-0.015892280006799653">
+   												<SimplePredicate field="f17" operator="greaterOrEqual" value="11"/>
+   											</Node>
+   										</Node>
+   										<Node id="7" score="-0.011966921652032302">
+   											<SimplePredicate field="f105" operator="greaterOrEqual" value="15.96007537754665"/>
+   										</Node>
+   									</Node>
+   									<Node id="9">
+   										<SimplePredicate field="f2" operator="greaterOrEqual" value="1.2349999999999999"/>
+   										<Node id="12" score="-0.013018821282574507">
+   											<SimplePredicate field="f26" operator="isMissing"/>
+   										</Node>
+   										<Node id="10" score="-1.407545681224341E-4">
+   											<SimplePredicate field="f26" operator="lessThan" value="112.5"/>
+   										</Node>
+   										<Node id="11" score="-0.01780447536836213">
+   											<SimplePredicate field="f26" operator="greaterOrEqual" value="112.5"/>
+   										</Node>
+   									</Node>
+   								</Node>
+   							</TreeModel>
+   						</Segment>
+   						<Segment id="4">
+   							<True/>
+   							<TreeModel functionName="regression" splitCharacteristic="multiSplit">
+   								<MiningSchema>
+   									<MiningField name="f2"/>
+   									<MiningField name="f14"/>
+   									<MiningField name="f26"/>
+   									<MiningField name="f105"/>
+   								</MiningSchema>
+   								<Node id="1">
+   									<True/>
+   									<Node id="13" score="-0.012259132705640101">
+   										<SimplePredicate field="f2" operator="isMissing"/>
+   									</Node>
+   									<Node id="2">
+   										<SimplePredicate field="f2" operator="lessThan" value="1.2349999999999999"/>
+   										<Node id="8" score="0.007013786865316038">
+   											<SimplePredicate field="f14" operator="isMissing"/>
+   										</Node>
+   										<Node id="3">
+   											<SimplePredicate field="f14" operator="lessThan" value="0.5"/>
+   											<Node id="6" score="0.012785078042835983">
+   												<SimplePredicate field="f105" operator="isMissing"/>
+   											</Node>
+   											<Node id="4" score="0.011779249352089707">
+   												<SimplePredicate field="f105" operator="lessThan" value="15.96654147723605"/>
+   											</Node>
+   											<Node id="5" score="-0.009188914297324543">
+   												<SimplePredicate field="f105" operator="greaterOrEqual" value="15.96654147723605"/>
+   											</Node>
+   										</Node>
+   										<Node id="7" score="-0.018533736368337533">
+   											<SimplePredicate field="f14" operator="greaterOrEqual" value="0.5"/>
+   										</Node>
+   									</Node>
+   									<Node id="9">
+   										<SimplePredicate field="f2" operator="greaterOrEqual" value="1.2349999999999999"/>
+   										<Node id="12" score="-0.012780170723514608">
+   											<SimplePredicate field="f26" operator="isMissing"/>
+   										</Node>
+   										<Node id="10" score="3.5628245716898824E-4">
+   											<SimplePredicate field="f26" operator="lessThan" value="108.5"/>
+   										</Node>
+   										<Node id="11" score="-0.01742297979746297">
+   											<SimplePredicate field="f26" operator="greaterOrEqual" value="108.5"/>
+   										</Node>
+   									</Node>
+   								</Node>
+   							</TreeModel>
+   						</Segment>
+   						<Segment id="5">
+   							<True/>
+   							<TreeModel functionName="regression" splitCharacteristic="multiSplit">
+   								<MiningSchema>
+   									<MiningField name="f2"/>
+   									<MiningField name="f14"/>
+   									<MiningField name="f27"/>
+   									<MiningField name="f105"/>
+   								</MiningSchema>
+   								<Node id="1">
+   									<True/>
+   									<Node id="13" score="-0.012588028105357214">
+   										<SimplePredicate field="f2" operator="isMissing"/>
+   									</Node>
+   									<Node id="2">
+   										<SimplePredicate field="f2" operator="lessThan" value="1.2349999999999999"/>
+   										<Node id="8" score="0.010543837719471356">
+   											<SimplePredicate field="f105" operator="isMissing"/>
+   										</Node>
+   										<Node id="3">
+   											<SimplePredicate field="f105" operator="lessThan" value="15.916382409583601"/>
+   											<Node id="6" score="0.009845577839452838">
+   												<SimplePredicate field="f14" operator="isMissing"/>
+   											</Node>
+   											<Node id="4" score="0.01164500498525539">
+   												<SimplePredicate field="f14" operator="lessThan" value="0.5"/>
+   											</Node>
+   											<Node id="5" score="-0.01560105259070296">
+   												<SimplePredicate field="f14" operator="greaterOrEqual" value="0.5"/>
+   											</Node>
+   										</Node>
+   										<Node id="7" score="-0.011513937568627793">
+   											<SimplePredicate field="f105" operator="greaterOrEqual" value="15.916382409583601"/>
+   										</Node>
+   									</Node>
+   									<Node id="9">
+   										<SimplePredicate field="f2" operator="greaterOrEqual" value="1.2349999999999999"/>
+   										<Node id="12" score="-0.012636427979865954">
+   											<SimplePredicate field="f27" operator="isMissing"/>
+   										</Node>
+   										<Node id="10" score="-1.9126211706775966E-4">
+   											<SimplePredicate field="f27" operator="lessThan" value="123.5"/>
+   										</Node>
+   										<Node id="11" score="-0.017216702497567297">
+   											<SimplePredicate field="f27" operator="greaterOrEqual" value="123.5"/>
+   										</Node>
+   									</Node>
+   								</Node>
+   							</TreeModel>
+   						</Segment>
+   						<Segment id="6">
+   							<True/>
+   							<TreeModel functionName="regression" splitCharacteristic="multiSplit">
+   								<MiningSchema>
+   									<MiningField name="f2"/>
+   									<MiningField name="f14"/>
+   									<MiningField name="f27"/>
+   									<MiningField name="f105"/>
+   								</MiningSchema>
+   								<Node id="1">
+   									<True/>
+   									<Node id="13" score="-0.011185107893037671">
+   										<SimplePredicate field="f2" operator="isMissing"/>
+   									</Node>
+   									<Node id="2">
+   										<SimplePredicate field="f2" operator="lessThan" value="1.2349999999999999"/>
+   										<Node id="8" score="0.010263001413567133">
+   											<SimplePredicate field="f105" operator="isMissing"/>
+   										</Node>
+   										<Node id="3">
+   											<SimplePredicate field="f105" operator="lessThan" value="15.916382409583601"/>
+   											<Node id="6" score="0.00981571504873799">
+   												<SimplePredicate field="f14" operator="isMissing"/>
+   											</Node>
+   											<Node id="4" score="0.011548971607193696">
+   												<SimplePredicate field="f14" operator="lessThan" value="0.5"/>
+   											</Node>
+   											<Node id="5" score="-0.01553477542143044">
+   												<SimplePredicate field="f14" operator="greaterOrEqual" value="0.5"/>
+   											</Node>
+   										</Node>
+   										<Node id="7" score="-0.011190243559971303">
+   											<SimplePredicate field="f105" operator="greaterOrEqual" value="15.916382409583601"/>
+   										</Node>
+   									</Node>
+   									<Node id="9">
+   										<SimplePredicate field="f2" operator="greaterOrEqual" value="1.2349999999999999"/>
+   										<Node id="12" score="-0.012664096822146973">
+   											<SimplePredicate field="f27" operator="isMissing"/>
+   										</Node>
+   										<Node id="10" score="-0.0013158966185826773">
+   											<SimplePredicate field="f27" operator="lessThan" value="144.5"/>
+   										</Node>
+   										<Node id="11" score="-0.01765323607574538">
+   											<SimplePredicate field="f27" operator="greaterOrEqual" value="144.5"/>
+   										</Node>
+   									</Node>
+   								</Node>
+   							</TreeModel>
+   						</Segment>
+   						<Segment id="7">
+   							<True/>
+   							<TreeModel functionName="regression" splitCharacteristic="multiSplit">
+   								<MiningSchema>
+   									<MiningField name="f2"/>
+   									<MiningField name="f17"/>
+   									<MiningField name="f26"/>
+   									<MiningField name="f105"/>
+   								</MiningSchema>
+   								<Node id="1">
+   									<True/>
+   									<Node id="13" score="-0.011449440081882326">
+   										<SimplePredicate field="f2" operator="isMissing"/>
+   									</Node>
+   									<Node id="2">
+   										<SimplePredicate field="f2" operator="lessThan" value="1.2349999999999999"/>
+   										<Node id="8" score="0.01037785927414311">
+   											<SimplePredicate field="f105" operator="isMissing"/>
+   										</Node>
+   										<Node id="3">
+   											<SimplePredicate field="f105" operator="lessThan" value="15.95343502803525"/>
+   											<Node id="6" score="0.009767099054196026">
+   												<SimplePredicate field="f17" operator="isMissing"/>
+   											</Node>
+   											<Node id="4" score="0.011536597994889515">
+   												<SimplePredicate field="f17" operator="lessThan" value="0.5"/>
+   											</Node>
+   											<Node id="5" score="-0.015141025064148057">
+   												<SimplePredicate field="f17" operator="greaterOrEqual" value="0.5"/>
+   											</Node>
+   										</Node>
+   										<Node id="7" score="-0.011213099385933203">
+   											<SimplePredicate field="f105" operator="greaterOrEqual" value="15.95343502803525"/>
+   										</Node>
+   									</Node>
+   									<Node id="9">
+   										<SimplePredicate field="f2" operator="greaterOrEqual" value="1.2349999999999999"/>
+   										<Node id="12" score="-0.012485053830956074">
+   											<SimplePredicate field="f26" operator="isMissing"/>
+   										</Node>
+   										<Node id="10" score="0.0013498624377797945">
+   											<SimplePredicate field="f26" operator="lessThan" value="95.5"/>
+   										</Node>
+   										<Node id="11" score="-0.01661441677449531">
+   											<SimplePredicate field="f26" operator="greaterOrEqual" value="95.5"/>
+   										</Node>
+   									</Node>
+   								</Node>
+   							</TreeModel>
+   						</Segment>
+   						<Segment id="8">
+   							<True/>
+   							<TreeModel functionName="regression" splitCharacteristic="multiSplit">
+   								<MiningSchema>
+   									<MiningField name="f2"/>
+   									<MiningField name="f14"/>
+   									<MiningField name="f26"/>
+   									<MiningField name="f105"/>
+   								</MiningSchema>
+   								<Node id="1">
+   									<True/>
+   									<Node id="13" score="-0.011954526551058192">
+   										<SimplePredicate field="f2" operator="isMissing"/>
+   									</Node>
+   									<Node id="2">
+   										<SimplePredicate field="f2" operator="lessThan" value="1.245"/>
+   										<Node id="8" score="0.010053615295713152">
+   											<SimplePredicate field="f105" operator="isMissing"/>
+   										</Node>
+   										<Node id="3">
+   											<SimplePredicate field="f105" operator="lessThan" value="15.916382409583601"/>
+   											<Node id="6" score="0.009726987265508018">
+   												<SimplePredicate field="f14" operator="isMissing"/>
+   											</Node>
+   											<Node id="4" score="0.01143533991923732">
+   												<SimplePredicate field="f14" operator="lessThan" value="0.5"/>
+   											</Node>
+   											<Node id="5" score="-0.014383293852580374">
+   												<SimplePredicate field="f14" operator="greaterOrEqual" value="0.5"/>
+   											</Node>
+   										</Node>
+   										<Node id="7" score="-0.01106710294580006">
+   											<SimplePredicate field="f105" operator="greaterOrEqual" value="15.916382409583601"/>
+   										</Node>
+   									</Node>
+   									<Node id="9">
+   										<SimplePredicate field="f2" operator="greaterOrEqual" value="1.245"/>
+   										<Node id="12" score="-0.012052335376058867">
+   											<SimplePredicate field="f26" operator="isMissing"/>
+   										</Node>
+   										<Node id="10" score="0.001592429453477257">
+   											<SimplePredicate field="f26" operator="lessThan" value="95.5"/>
+   										</Node>
+   										<Node id="11" score="-0.01609327745556256">
+   											<SimplePredicate field="f26" operator="greaterOrEqual" value="95.5"/>
+   										</Node>
+   									</Node>
+   								</Node>
+   							</TreeModel>
+   						</Segment>
+   						<Segment id="9">
+   							<True/>
+   							<TreeModel functionName="regression" splitCharacteristic="multiSplit">
+   								<MiningSchema>
+   									<MiningField name="f2"/>
+   									<MiningField name="f14"/>
+   									<MiningField name="f27"/>
+   									<MiningField name="f105"/>
+   								</MiningSchema>
+   								<Node id="1">
+   									<True/>
+   									<Node id="13" score="-0.011824081653029839">
+   										<SimplePredicate field="f2" operator="isMissing"/>
+   									</Node>
+   									<Node id="2">
+   										<SimplePredicate field="f2" operator="lessThan" value="1.2349999999999999"/>
+   										<Node id="8" score="0.010092180248113012">
+   											<SimplePredicate field="f105" operator="isMissing"/>
+   										</Node>
+   										<Node id="3">
+   											<SimplePredicate field="f105" operator="lessThan" value="15.916382409583601"/>
+   											<Node id="6" score="0.009600461510073894">
+   												<SimplePredicate field="f14" operator="isMissing"/>
+   											</Node>
+   											<Node id="4" score="0.011320366354629413">
+   												<SimplePredicate field="f14" operator="lessThan" value="0.5"/>
+   											</Node>
+   											<Node id="5" score="-0.014753420289254063">
+   												<SimplePredicate field="f14" operator="greaterOrEqual" value="0.5"/>
+   											</Node>
+   										</Node>
+   										<Node id="7" score="-0.010934459971219855">
+   											<SimplePredicate field="f105" operator="greaterOrEqual" value="15.916382409583601"/>
+   										</Node>
+   									</Node>
+   									<Node id="9">
+   										<SimplePredicate field="f2" operator="greaterOrEqual" value="1.2349999999999999"/>
+   										<Node id="12" score="-0.012054239391740326">
+   											<SimplePredicate field="f27" operator="isMissing"/>
+   										</Node>
+   										<Node id="10" score="-0.0012067736247610508">
+   											<SimplePredicate field="f27" operator="lessThan" value="144.5"/>
+   										</Node>
+   										<Node id="11" score="-0.016951015732029184">
+   											<SimplePredicate field="f27" operator="greaterOrEqual" value="144.5"/>
+   										</Node>
+   									</Node>
+   								</Node>
+   							</TreeModel>
+   						</Segment>
+   						<Segment id="10">
+   							<True/>
+   							<TreeModel functionName="regression" splitCharacteristic="multiSplit">
+   								<MiningSchema>
+   									<MiningField name="f2"/>
+   									<MiningField name="f14"/>
+   									<MiningField name="f27"/>
+   									<MiningField name="f105"/>
+   								</MiningSchema>
+   								<Node id="1">
+   									<True/>
+   									<Node id="13" score="-0.011192659120109687">
+   										<SimplePredicate field="f2" operator="isMissing"/>
+   									</Node>
+   									<Node id="2">
+   										<SimplePredicate field="f2" operator="lessThan" value="1.2349999999999999"/>
+   										<Node id="8" score="0.006783527161796341">
+   											<SimplePredicate field="f14" operator="isMissing"/>
+   										</Node>
+   										<Node id="3">
+   											<SimplePredicate field="f14" operator="lessThan" value="0.5"/>
+   											<Node id="6" score="0.012186941645960915">
+   												<SimplePredicate field="f105" operator="isMissing"/>
+   											</Node>
+   											<Node id="4" score="0.011299719721940242">
+   												<SimplePredicate field="f105" operator="lessThan" value="15.96007537754665"/>
+   											</Node>
+   											<Node id="5" score="-0.008685358636920498">
+   												<SimplePredicate field="f105" operator="greaterOrEqual" value="15.96007537754665"/>
+   											</Node>
+   										</Node>
+   										<Node id="7" score="-0.017555334965981814">
+   											<SimplePredicate field="f14" operator="greaterOrEqual" value="0.5"/>
+   										</Node>
+   									</Node>
+   									<Node id="9">
+   										<SimplePredicate field="f2" operator="greaterOrEqual" value="1.2349999999999999"/>
+   										<Node id="12" score="-0.011932468778467705">
+   											<SimplePredicate field="f27" operator="isMissing"/>
+   										</Node>
+   										<Node id="10" score="4.203764551667379E-4">
+   											<SimplePredicate field="f27" operator="lessThan" value="114.5"/>
+   										</Node>
+   										<Node id="11" score="-0.01618456336899586">
+   											<SimplePredicate field="f27" operator="greaterOrEqual" value="114.5"/>
+   										</Node>
+   									</Node>
+   								</Node>
+   							</TreeModel>
+   						</Segment>
+   						<Segment id="11">
+   							<True/>
+   							<TreeModel functionName="regression" splitCharacteristic="multiSplit">
+   								<MiningSchema>
+   									<MiningField name="f2"/>
+   									<MiningField name="f14"/>
+   									<MiningField name="f105"/>
+   								</MiningSchema>
+   								<Node id="1">
+   									<True/>
+   									<Node id="10">
+   										<SimplePredicate field="f105" operator="isMissing"/>
+   										<Node id="13" score="-0.010457163698953371">
+   											<SimplePredicate field="f2" operator="isMissing"/>
+   										</Node>
+   										<Node id="11" score="0.009353576192715748">
+   											<SimplePredicate field="f2" operator="lessThan" value="2.0949999999999998"/>
+   										</Node>
+   										<Node id="12" score="-0.015501477584060671">
+   											<SimplePredicate field="f2" operator="greaterOrEqual" value="2.0949999999999998"/>
+   										</Node>
+   									</Node>
+   									<Node id="2">
+   										<SimplePredicate field="f105" operator="lessThan" value="15.916382409583601"/>
+   										<Node id="8" score="0.005253041837805928">
+   											<SimplePredicate field="f14" operator="isMissing"/>
+   										</Node>
+   										<Node id="3">
+   											<SimplePredicate field="f14" operator="lessThan" value="0.5"/>
+   											<Node id="6" score="-0.0021935919122133742">
+   												<SimplePredicate field="f2" operator="isMissing"/>
+   											</Node>
+   											<Node id="4" score="0.01013432992678364">
+   												<SimplePredicate field="f2" operator="lessThan" value="6.005"/>
+   											</Node>
+   											<Node id="5" score="-0.010656608146076146">
+   												<SimplePredicate field="f2" operator="greaterOrEqual" value="6.005"/>
+   											</Node>
+   										</Node>
+   										<Node id="7" score="-0.01832133171384599">
+   											<SimplePredicate field="f14" operator="greaterOrEqual" value="0.5"/>
+   										</Node>
+   									</Node>
+   									<Node id="9" score="-0.016223843480644144">
+   										<SimplePredicate field="f105" operator="greaterOrEqual" value="15.916382409583601"/>
+   									</Node>
+   								</Node>
+   							</TreeModel>
+   						</Segment>
+   						<Segment id="12">
+   							<True/>
+   							<TreeModel functionName="regression" splitCharacteristic="multiSplit">
+   								<MiningSchema>
+   									<MiningField name="f2"/>
+   									<MiningField name="f14"/>
+   									<MiningField name="f27"/>
+   									<MiningField name="f105"/>
+   								</MiningSchema>
+   								<Node id="1">
+   									<True/>
+   									<Node id="13" score="-0.011704289245948818">
+   										<SimplePredicate field="f2" operator="isMissing"/>
+   									</Node>
+   									<Node id="2">
+   										<SimplePredicate field="f2" operator="lessThan" value="1.2149999999999999"/>
+   										<Node id="8" score="0.006684478584717398">
+   											<SimplePredicate field="f14" operator="isMissing"/>
+   										</Node>
+   										<Node id="3">
+   											<SimplePredicate field="f14" operator="lessThan" value="0.5"/>
+   											<Node id="6" score="0.012129322555617663">
+   												<SimplePredicate field="f105" operator="isMissing"/>
+   											</Node>
+   											<Node id="4" score="0.011096553933934845">
+   												<SimplePredicate field="f105" operator="lessThan" value="16.110914453243403"/>
+   											</Node>
+   											<Node id="5" score="-0.008343926148353737">
+   												<SimplePredicate field="f105" operator="greaterOrEqual" value="16.110914453243403"/>
+   											</Node>
+   										</Node>
+   										<Node id="7" score="-0.017146903592234832">
+   											<SimplePredicate field="f14" operator="greaterOrEqual" value="0.5"/>
+   										</Node>
+   									</Node>
+   									<Node id="9">
+   										<SimplePredicate field="f2" operator="greaterOrEqual" value="1.2149999999999999"/>
+   										<Node id="12" score="-0.011415785669447091">
+   											<SimplePredicate field="f27" operator="isMissing"/>
+   										</Node>
+   										<Node id="10" score="-6.384162573146961E-4">
+   											<SimplePredicate field="f27" operator="lessThan" value="144.5"/>
+   										</Node>
+   										<Node id="11" score="-0.016276776265750317">
+   											<SimplePredicate field="f27" operator="greaterOrEqual" value="144.5"/>
+   										</Node>
+   									</Node>
+   								</Node>
+   							</TreeModel>
+   						</Segment>
+   						<Segment id="13">
+   							<True/>
+   							<TreeModel functionName="regression" splitCharacteristic="multiSplit">
+   								<MiningSchema>
+   									<MiningField name="f2"/>
+   									<MiningField name="f14"/>
+   									<MiningField name="f105"/>
+   								</MiningSchema>
+   								<Node id="1">
+   									<True/>
+   									<Node id="10">
+   										<SimplePredicate field="f105" operator="isMissing"/>
+   										<Node id="13" score="-0.01019290898283509">
+   											<SimplePredicate field="f2" operator="isMissing"/>
+   										</Node>
+   										<Node id="11" score="0.009979979667954747">
+   											<SimplePredicate field="f2" operator="lessThan" value="1.1549999999999998"/>
+   										</Node>
+   										<Node id="12" score="-0.01154389807946506">
+   											<SimplePredicate field="f2" operator="greaterOrEqual" value="1.1549999999999998"/>
+   										</Node>
+   									</Node>
+   									<Node id="2">
+   										<SimplePredicate field="f105" operator="lessThan" value="15.916382409583601"/>
+   										<Node id="8" score="0.005133484893512491">
+   											<SimplePredicate field="f14" operator="isMissing"/>
+   										</Node>
+   										<Node id="3">
+   											<SimplePredicate field="f14" operator="lessThan" value="0.5"/>
+   											<Node id="6" score="-3.279660171464898E-4">
+   												<SimplePredicate field="f2" operator="isMissing"/>
+   											</Node>
+   											<Node id="4" score="0.009843795253776447">
+   												<SimplePredicate field="f2" operator="lessThan" value="7.29"/>
+   											</Node>
+   											<Node id="5" score="-0.011875589317233268">
+   												<SimplePredicate field="f2" operator="greaterOrEqual" value="7.29"/>
+   											</Node>
+   										</Node>
+   										<Node id="7" score="-0.01759181768702536">
+   											<SimplePredicate field="f14" operator="greaterOrEqual" value="0.5"/>
+   										</Node>
+   									</Node>
+   									<Node id="9" score="-0.0157269463991068">
+   										<SimplePredicate field="f105" operator="greaterOrEqual" value="15.916382409583601"/>
+   									</Node>
+   								</Node>
+   							</TreeModel>
+   						</Segment>
+   						<Segment id="14">
+   							<True/>
+   							<TreeModel functionName="regression" splitCharacteristic="multiSplit">
+   								<MiningSchema>
+   									<MiningField name="f2"/>
+   									<MiningField name="f14"/>
+   									<MiningField name="f26"/>
+   									<MiningField name="f105"/>
+   								</MiningSchema>
+   								<Node id="1">
+   									<True/>
+   									<Node id="13" score="-0.010994275749610642">
+   										<SimplePredicate field="f2" operator="isMissing"/>
+   									</Node>
+   									<Node id="2">
+   										<SimplePredicate field="f2" operator="lessThan" value="1.2349999999999999"/>
+   										<Node id="8" score="0.006705915981560406">
+   											<SimplePredicate field="f14" operator="isMissing"/>
+   										</Node>
+   										<Node id="3">
+   											<SimplePredicate field="f14" operator="lessThan" value="0.5"/>
+   											<Node id="6" score="0.012080115734658628">
+   												<SimplePredicate field="f105" operator="isMissing"/>
+   											</Node>
+   											<Node id="4" score="0.010995869063112087">
+   												<SimplePredicate field="f105" operator="lessThan" value="15.96007537754665"/>
+   											</Node>
+   											<Node id="5" score="-0.007967577749831015">
+   												<SimplePredicate field="f105" operator="greaterOrEqual" value="15.96007537754665"/>
+   											</Node>
+   										</Node>
+   										<Node id="7" score="-0.01663970753514116">
+   											<SimplePredicate field="f14" operator="greaterOrEqual" value="0.5"/>
+   										</Node>
+   									</Node>
+   									<Node id="9">
+   										<SimplePredicate field="f2" operator="greaterOrEqual" value="1.2349999999999999"/>
+   										<Node id="12" score="-0.011548082299486463">
+   											<SimplePredicate field="f26" operator="isMissing"/>
+   										</Node>
+   										<Node id="10" score="0.0018822407633755586">
+   											<SimplePredicate field="f26" operator="lessThan" value="87.5"/>
+   										</Node>
+   										<Node id="11" score="-0.01515843815367261">
+   											<SimplePredicate field="f26" operator="greaterOrEqual" value="87.5"/>
+   										</Node>
+   									</Node>
+   								</Node>
+   							</TreeModel>
+   						</Segment>
+   						<Segment id="15">
+   							<True/>
+   							<TreeModel functionName="regression" splitCharacteristic="multiSplit">
+   								<MiningSchema>
+   									<MiningField name="f2"/>
+   									<MiningField name="f17"/>
+   									<MiningField name="f26"/>
+   									<MiningField name="f105"/>
+   								</MiningSchema>
+   								<Node id="1">
+   									<True/>
+   									<Node id="13" score="-0.010624907454015866">
+   										<SimplePredicate field="f2" operator="isMissing"/>
+   									</Node>
+   									<Node id="2">
+   										<SimplePredicate field="f2" operator="lessThan" value="1.205"/>
+   										<Node id="8" score="0.0065760586051081624">
+   											<SimplePredicate field="f17" operator="isMissing"/>
+   										</Node>
+   										<Node id="3">
+   											<SimplePredicate field="f17" operator="lessThan" value="0.5"/>
+   											<Node id="6" score="0.011641575409722566">
+   												<SimplePredicate field="f105" operator="isMissing"/>
+   											</Node>
+   											<Node id="4" score="0.010879313550700008">
+   												<SimplePredicate field="f105" operator="lessThan" value="15.958785680677"/>
+   											</Node>
+   											<Node id="5" score="-0.008007559690911116">
+   												<SimplePredicate field="f105" operator="greaterOrEqual" value="15.958785680677"/>
+   											</Node>
+   										</Node>
+   										<Node id="7" score="-0.016694967071446267">
+   											<SimplePredicate field="f17" operator="greaterOrEqual" value="0.5"/>
+   										</Node>
+   									</Node>
+   									<Node id="9">
+   										<SimplePredicate field="f2" operator="greaterOrEqual" value="1.205"/>
+   										<Node id="12" score="-0.011218906908061366">
+   											<SimplePredicate field="f26" operator="isMissing"/>
+   										</Node>
+   										<Node id="10" score="5.28856085989708E-4">
+   											<SimplePredicate field="f26" operator="lessThan" value="108.5"/>
+   										</Node>
+   										<Node id="11" score="-0.015418265260827724">
+   											<SimplePredicate field="f26" operator="greaterOrEqual" value="108.5"/>
+   										</Node>
+   									</Node>
+   								</Node>
+   							</TreeModel>
+   						</Segment>
+   						<Segment id="16">
+   							<True/>
+   							<TreeModel functionName="regression" splitCharacteristic="multiSplit">
+   								<MiningSchema>
+   									<MiningField name="f2"/>
+   									<MiningField name="f14"/>
+   									<MiningField name="f105"/>
+   								</MiningSchema>
+   								<Node id="1">
+   									<True/>
+   									<Node id="10">
+   										<SimplePredicate field="f105" operator="isMissing"/>
+   										<Node id="13" score="-0.00967603719988014">
+   											<SimplePredicate field="f2" operator="isMissing"/>
+   										</Node>
+   										<Node id="11" score="0.009844253998596881">
+   											<SimplePredicate field="f2" operator="lessThan" value="1.2149999999999999"/>
+   										</Node>
+   										<Node id="12" score="-0.011714210383506013">
+   											<SimplePredicate field="f2" operator="greaterOrEqual" value="1.2149999999999999"/>
+   										</Node>
+   									</Node>
+   									<Node id="2">
+   										<SimplePredicate field="f105" operator="lessThan" value="12.64234042334245"/>
+   										<Node id="8" score="-0.002169774845480215">
+   											<SimplePredicate field="f2" operator="isMissing"/>
+   										</Node>
+   										<Node id="3">
+   											<SimplePredicate field="f2" operator="lessThan" value="8.905000000000001"/>
+   											<Node id="6" score="0.00938146273574218">
+   												<SimplePredicate field="f14" operator="isMissing"/>
+   											</Node>
+   											<Node id="4" score="0.0107880211593139">
+   												<SimplePredicate field="f14" operator="lessThan" value="0.5"/>
+   											</Node>
+   											<Node id="5" score="-0.013519310340830084">
+   												<SimplePredicate field="f14" operator="greaterOrEqual" value="0.5"/>
+   											</Node>
+   										</Node>
+   										<Node id="7" score="-0.014282878152178014">
+   											<SimplePredicate field="f2" operator="greaterOrEqual" value="8.905000000000001"/>
+   										</Node>
+   									</Node>
+   									<Node id="9" score="-0.011987055342752382">
+   										<SimplePredicate field="f105" operator="greaterOrEqual" value="12.64234042334245"/>
+   									</Node>
+   								</Node>
+   							</TreeModel>
+   						</Segment>
+   						<Segment id="17">
+   							<True/>
+   							<TreeModel functionName="regression" splitCharacteristic="multiSplit">
+   								<MiningSchema>
+   									<MiningField name="f2"/>
+   									<MiningField name="f14"/>
+   									<MiningField name="f26"/>
+   									<MiningField name="f105"/>
+   								</MiningSchema>
+   								<Node id="1">
+   									<True/>
+   									<Node id="13" score="-0.010521384723087538">
+   										<SimplePredicate field="f2" operator="isMissing"/>
+   									</Node>
+   									<Node id="2">
+   										<SimplePredicate field="f2" operator="lessThan" value="1.245"/>
+   										<Node id="8" score="0.00651058552671846">
+   											<SimplePredicate field="f14" operator="isMissing"/>
+   										</Node>
+   										<Node id="3">
+   											<SimplePredicate field="f14" operator="lessThan" value="0.5"/>
+   											<Node id="6" score="0.011595147552800222">
+   												<SimplePredicate field="f105" operator="isMissing"/>
+   											</Node>
+   											<Node id="4" score="0.010703680874994261">
+   												<SimplePredicate field="f105" operator="lessThan" value="16.0119060199373"/>
+   											</Node>
+   											<Node id="5" score="-0.007742561346689618">
+   												<SimplePredicate field="f105" operator="greaterOrEqual" value="16.0119060199373"/>
+   											</Node>
+   										</Node>
+   										<Node id="7" score="-0.016111015566316736">
+   											<SimplePredicate field="f14" operator="greaterOrEqual" value="0.5"/>
+   										</Node>
+   									</Node>
+   									<Node id="9">
+   										<SimplePredicate field="f2" operator="greaterOrEqual" value="1.245"/>
+   										<Node id="12" score="-0.01110579942970467">
+   											<SimplePredicate field="f26" operator="isMissing"/>
+   										</Node>
+   										<Node id="10" score="-5.510116696846545E-4">
+   											<SimplePredicate field="f26" operator="lessThan" value="123.5"/>
+   										</Node>
+   										<Node id="11" score="-0.015562657372973162">
+   											<SimplePredicate field="f26" operator="greaterOrEqual" value="123.5"/>
+   										</Node>
+   									</Node>
+   								</Node>
+   							</TreeModel>
+   						</Segment>
+   						<Segment id="18">
+   							<True/>
+   							<TreeModel functionName="regression" splitCharacteristic="multiSplit">
+   								<MiningSchema>
+   									<MiningField name="f2"/>
+   									<MiningField name="f14"/>
+   									<MiningField name="f105"/>
+   								</MiningSchema>
+   								<Node id="1">
+   									<True/>
+   									<Node id="10">
+   										<SimplePredicate field="f105" operator="isMissing"/>
+   										<Node id="13" score="-0.009056383450650156">
+   											<SimplePredicate field="f2" operator="isMissing"/>
+   										</Node>
+   										<Node id="11" score="0.009601825784204331">
+   											<SimplePredicate field="f2" operator="lessThan" value="1.1549999999999998"/>
+   										</Node>
+   										<Node id="12" score="-0.011397301143878089">
+   											<SimplePredicate field="f2" operator="greaterOrEqual" value="1.1549999999999998"/>
+   										</Node>
+   									</Node>
+   									<Node id="2">
+   										<SimplePredicate field="f105" operator="lessThan" value="12.64234042334245"/>
+   										<Node id="8" score="-0.00315667607157829">
+   											<SimplePredicate field="f2" operator="isMissing"/>
+   										</Node>
+   										<Node id="3">
+   											<SimplePredicate field="f2" operator="lessThan" value="8.895"/>
+   											<Node id="6" score="0.009210100912274487">
+   												<SimplePredicate field="f14" operator="isMissing"/>
+   											</Node>
+   											<Node id="4" score="0.010624043879535501">
+   												<SimplePredicate field="f14" operator="lessThan" value="0.5"/>
+   											</Node>
+   											<Node id="5" score="-0.01353877072385423">
+   												<SimplePredicate field="f14" operator="greaterOrEqual" value="0.5"/>
+   											</Node>
+   										</Node>
+   										<Node id="7" score="-0.013958621961960165">
+   											<SimplePredicate field="f2" operator="greaterOrEqual" value="8.895"/>
+   										</Node>
+   									</Node>
+   									<Node id="9" score="-0.011674506745476463">
+   										<SimplePredicate field="f105" operator="greaterOrEqual" value="12.64234042334245"/>
+   									</Node>
+   								</Node>
+   							</TreeModel>
+   						</Segment>
+   						<Segment id="19">
+   							<True/>
+   							<TreeModel functionName="regression" splitCharacteristic="multiSplit">
+   								<MiningSchema>
+   									<MiningField name="f1"/>
+   									<MiningField name="f2"/>
+   									<MiningField name="f14"/>
+   									<MiningField name="f105"/>
+   								</MiningSchema>
+   								<Node id="1">
+   									<True/>
+   									<Node id="13" score="-0.010711279799734116">
+   										<SimplePredicate field="f2" operator="isMissing"/>
+   									</Node>
+   									<Node id="2">
+   										<SimplePredicate field="f2" operator="lessThan" value="1.2349999999999999"/>
+   										<Node id="8" score="0.006549449767256704">
+   											<SimplePredicate field="f14" operator="isMissing"/>
+   										</Node>
+   										<Node id="3">
+   											<SimplePredicate field="f14" operator="lessThan" value="0.5"/>
+   											<Node id="6" score="0.011573910842745653">
+   												<SimplePredicate field="f105" operator="isMissing"/>
+   											</Node>
+   											<Node id="4" score="0.010609797671638388">
+   												<SimplePredicate field="f105" operator="lessThan" value="15.9918298534561"/>
+   											</Node>
+   											<Node id="5" score="-0.007267029431441885">
+   												<SimplePredicate field="f105" operator="greaterOrEqual" value="15.9918298534561"/>
+   											</Node>
+   										</Node>
+   										<Node id="7" score="-0.015990055586992354">
+   											<SimplePredicate field="f14" operator="greaterOrEqual" value="0.5"/>
+   										</Node>
+   									</Node>
+   									<Node id="9">
+   										<SimplePredicate field="f2" operator="greaterOrEqual" value="1.2349999999999999"/>
+   										<Node id="12" score="-0.01388363597309503">
+   											<SimplePredicate field="f1" operator="isMissing"/>
+   										</Node>
+   										<Node id="10" score="-6.302675203116147E-4">
+   											<SimplePredicate field="f1" operator="lessThan" value="7.4499802877981445"/>
+   										</Node>
+   										<Node id="11" score="-0.015199664081483738">
+   											<SimplePredicate field="f1" operator="greaterOrEqual" value="7.4499802877981445"/>
+   										</Node>
+   									</Node>
+   								</Node>
+   							</TreeModel>
+   						</Segment>
+   						<Segment id="20">
+   							<True/>
+   							<TreeModel functionName="regression" splitCharacteristic="multiSplit">
+   								<MiningSchema>
+   									<MiningField name="f2"/>
+   									<MiningField name="f17"/>
+   									<MiningField name="f27"/>
+   									<MiningField name="f105"/>
+   								</MiningSchema>
+   								<Node id="1">
+   									<True/>
+   									<Node id="13" score="-0.010166863200871422">
+   										<SimplePredicate field="f2" operator="isMissing"/>
+   									</Node>
+   									<Node id="2">
+   										<SimplePredicate field="f2" operator="lessThan" value="1.2349999999999999"/>
+   										<Node id="8" score="0.006392836684097012">
+   											<SimplePredicate field="f17" operator="isMissing"/>
+   										</Node>
+   										<Node id="3">
+   											<SimplePredicate field="f17" operator="lessThan" value="0.5"/>
+   											<Node id="6" score="0.011450710239389546">
+   												<SimplePredicate field="f105" operator="isMissing"/>
+   											</Node>
+   											<Node id="4" score="0.01040887227871028">
+   												<SimplePredicate field="f105" operator="lessThan" value="16.210563063889552"/>
+   											</Node>
+   											<Node id="5" score="-0.0077702332341654445">
+   												<SimplePredicate field="f105" operator="greaterOrEqual" value="16.210563063889552"/>
+   											</Node>
+   										</Node>
+   										<Node id="7" score="-0.01605800285055663">
+   											<SimplePredicate field="f17" operator="greaterOrEqual" value="0.5"/>
+   										</Node>
+   									</Node>
+   									<Node id="9">
+   										<SimplePredicate field="f2" operator="greaterOrEqual" value="1.2349999999999999"/>
+   										<Node id="12" score="-0.010866630293010054">
+   											<SimplePredicate field="f27" operator="isMissing"/>
+   										</Node>
+   										<Node id="10" score="3.049229637049417E-4">
+   											<SimplePredicate field="f27" operator="lessThan" value="122.5"/>
+   										</Node>
+   										<Node id="11" score="-0.014936715371522025">
+   											<SimplePredicate field="f27" operator="greaterOrEqual" value="122.5"/>
+   										</Node>
+   									</Node>
+   								</Node>
+   							</TreeModel>
+   						</Segment>
+   						<Segment id="21">
+   							<True/>
+   							<TreeModel functionName="regression" splitCharacteristic="multiSplit">
+   								<MiningSchema>
+   									<MiningField name="f2"/>
+   									<MiningField name="f14"/>
+   									<MiningField name="f105"/>
+   								</MiningSchema>
+   								<Node id="1">
+   									<True/>
+   									<Node id="10">
+   										<SimplePredicate field="f105" operator="isMissing"/>
+   										<Node id="13" score="-0.008771566578690347">
+   											<SimplePredicate field="f2" operator="isMissing"/>
+   										</Node>
+   										<Node id="11" score="0.009293151556498028">
+   											<SimplePredicate field="f2" operator="lessThan" value="1.1749999999999998"/>
+   										</Node>
+   										<Node id="12" score="-0.011126691508987574">
+   											<SimplePredicate field="f2" operator="greaterOrEqual" value="1.1749999999999998"/>
+   										</Node>
+   									</Node>
+   									<Node id="2">
+   										<SimplePredicate field="f105" operator="lessThan" value="15.916382409583601"/>
+   										<Node id="8" score="0.004998229870011909">
+   											<SimplePredicate field="f14" operator="isMissing"/>
+   										</Node>
+   										<Node id="3">
+   											<SimplePredicate field="f14" operator="lessThan" value="0.5"/>
+   											<Node id="6" score="3.0991538416083635E-4">
+   												<SimplePredicate field="f2" operator="isMissing"/>
+   											</Node>
+   											<Node id="4" score="0.009311002821406041">
+   												<SimplePredicate field="f2" operator="lessThan" value="8.265"/>
+   											</Node>
+   											<Node id="5" score="-0.011894752765741224">
+   												<SimplePredicate field="f2" operator="greaterOrEqual" value="8.265"/>
+   											</Node>
+   										</Node>
+   										<Node id="7" score="-0.01618110469550278">
+   											<SimplePredicate field="f14" operator="greaterOrEqual" value="0.5"/>
+   										</Node>
+   									</Node>
+   									<Node id="9" score="-0.014545097471708283">
+   										<SimplePredicate field="f105" operator="greaterOrEqual" value="15.916382409583601"/>
+   									</Node>
+   								</Node>
+   							</TreeModel>
+   						</Segment>
+   						<Segment id="22">
+   							<True/>
+   							<TreeModel functionName="regression" splitCharacteristic="multiSplit">
+   								<MiningSchema>
+   									<MiningField name="f2"/>
+   									<MiningField name="f14"/>
+   									<MiningField name="f105"/>
+   								</MiningSchema>
+   								<Node id="1">
+   									<True/>
+   									<Node id="10">
+   										<SimplePredicate field="f105" operator="isMissing"/>
+   										<Node id="13" score="-0.009571089370913806">
+   											<SimplePredicate field="f2" operator="isMissing"/>
+   										</Node>
+   										<Node id="11" score="0.00889170659520301">
+   											<SimplePredicate field="f2" operator="lessThan" value="2.075"/>
+   										</Node>
+   										<Node id="12" score="-0.013040422598180319">
+   											<SimplePredicate field="f2" operator="greaterOrEqual" value="2.075"/>
+   										</Node>
+   									</Node>
+   									<Node id="2">
+   										<SimplePredicate field="f105" operator="lessThan" value="15.750498186984249"/>
+   										<Node id="8" score="0.005059789778768574">
+   											<SimplePredicate field="f14" operator="isMissing"/>
+   										</Node>
+   										<Node id="3">
+   											<SimplePredicate field="f14" operator="lessThan" value="0.5"/>
+   											<Node id="6" score="0.0011719934510162958">
+   												<SimplePredicate field="f2" operator="isMissing"/>
+   											</Node>
+   											<Node id="4" score="0.009090325461953654">
+   												<SimplePredicate field="f2" operator="lessThan" value="12.024999999999999"/>
+   											</Node>
+   											<Node id="5" score="-0.013584848148455857">
+   												<SimplePredicate field="f2" operator="greaterOrEqual" value="12.024999999999999"/>
+   											</Node>
+   										</Node>
+   										<Node id="7" score="-0.016213518925441393">
+   											<SimplePredicate field="f14" operator="greaterOrEqual" value="0.5"/>
+   										</Node>
+   									</Node>
+   									<Node id="9" score="-0.014305996924827612">
+   										<SimplePredicate field="f105" operator="greaterOrEqual" value="15.750498186984249"/>
+   									</Node>
+   								</Node>
+   							</TreeModel>
+   						</Segment>
+   						<Segment id="23">
+   							<True/>
+   							<TreeModel functionName="regression" splitCharacteristic="multiSplit">
+   								<MiningSchema>
+   									<MiningField name="f2"/>
+   									<MiningField name="f14"/>
+   									<MiningField name="f105"/>
+   								</MiningSchema>
+   								<Node id="1">
+   									<True/>
+   									<Node id="10">
+   										<SimplePredicate field="f105" operator="isMissing"/>
+   										<Node id="13" score="-0.009208180134615933">
+   											<SimplePredicate field="f2" operator="isMissing"/>
+   										</Node>
+   										<Node id="11" score="0.008903566225635345">
+   											<SimplePredicate field="f2" operator="lessThan" value="1.645"/>
+   										</Node>
+   										<Node id="12" score="-0.011904662244571996">
+   											<SimplePredicate field="f2" operator="greaterOrEqual" value="1.645"/>
+   										</Node>
+   									</Node>
+   									<Node id="2">
+   										<SimplePredicate field="f105" operator="lessThan" value="15.916382409583601"/>
+   										<Node id="8" score="0.0049182081943004805">
+   											<SimplePredicate field="f14" operator="isMissing"/>
+   										</Node>
+   										<Node id="3">
+   											<SimplePredicate field="f14" operator="lessThan" value="0.5"/>
+   											<Node id="6" score="8.876594969191981E-4">
+   												<SimplePredicate field="f2" operator="isMissing"/>
+   											</Node>
+   											<Node id="4" score="0.009218002854180639">
+   												<SimplePredicate field="f2" operator="lessThan" value="6.835"/>
+   											</Node>
+   											<Node id="5" score="-0.010293546029714051">
+   												<SimplePredicate field="f2" operator="greaterOrEqual" value="6.835"/>
+   											</Node>
+   										</Node>
+   										<Node id="7" score="-0.015943018607079605">
+   											<SimplePredicate field="f14" operator="greaterOrEqual" value="0.5"/>
+   										</Node>
+   									</Node>
+   									<Node id="9" score="-0.014396161600905205">
+   										<SimplePredicate field="f105" operator="greaterOrEqual" value="15.916382409583601"/>
+   									</Node>
+   								</Node>
+   							</TreeModel>
+   						</Segment>
+   						<Segment id="24">
+   							<True/>
+   							<TreeModel functionName="regression" splitCharacteristic="multiSplit">
+   								<MiningSchema>
+   									<MiningField name="f2"/>
+   									<MiningField name="f14"/>
+   									<MiningField name="f105"/>
+   								</MiningSchema>
+   								<Node id="1">
+   									<True/>
+   									<Node id="10">
+   										<SimplePredicate field="f105" operator="isMissing"/>
+   										<Node id="13" score="-0.008379700383232318">
+   											<SimplePredicate field="f2" operator="isMissing"/>
+   										</Node>
+   										<Node id="11" score="0.008333521914975914">
+   											<SimplePredicate field="f2" operator="lessThan" value="2.035"/>
+   										</Node>
+   										<Node id="12" score="-0.013268605337382798">
+   											<SimplePredicate field="f2" operator="greaterOrEqual" value="2.035"/>
+   										</Node>
+   									</Node>
+   									<Node id="2">
+   										<SimplePredicate field="f105" operator="lessThan" value="12.67414974237685"/>
+   										<Node id="8" score="-0.002647151586393708">
+   											<SimplePredicate field="f2" operator="isMissing"/>
+   										</Node>
+   										<Node id="3">
+   											<SimplePredicate field="f2" operator="lessThan" value="12.98"/>
+   											<Node id="6" score="0.008566885880087803">
+   												<SimplePredicate field="f14" operator="isMissing"/>
+   											</Node>
+   											<Node id="4" score="0.009966299450521335">
+   												<SimplePredicate field="f14" operator="lessThan" value="0.5"/>
+   											</Node>
+   											<Node id="5" score="-0.01284209793047501">
+   												<SimplePredicate field="f14" operator="greaterOrEqual" value="0.5"/>
+   											</Node>
+   										</Node>
+   										<Node id="7" score="-0.01483965889388029">
+   											<SimplePredicate field="f2" operator="greaterOrEqual" value="12.98"/>
+   										</Node>
+   									</Node>
+   									<Node id="9" score="-0.011247252114579399">
+   										<SimplePredicate field="f105" operator="greaterOrEqual" value="12.67414974237685"/>
+   									</Node>
+   								</Node>
+   							</TreeModel>
+   						</Segment>
+   						<Segment id="25">
+   							<True/>
+   							<TreeModel functionName="regression" splitCharacteristic="multiSplit">
+   								<MiningSchema>
+   									<MiningField name="f2"/>
+   									<MiningField name="f14"/>
+   									<MiningField name="f105"/>
+   								</MiningSchema>
+   								<Node id="1">
+   									<True/>
+   									<Node id="10">
+   										<SimplePredicate field="f105" operator="isMissing"/>
+   										<Node id="13" score="-0.008951205413829667">
+   											<SimplePredicate field="f2" operator="isMissing"/>
+   										</Node>
+   										<Node id="11" score="0.01003880252805456">
+   											<SimplePredicate field="f2" operator="lessThan" value="0.615"/>
+   										</Node>
+   										<Node id="12" score="-0.008662035015777565">
+   											<SimplePredicate field="f2" operator="greaterOrEqual" value="0.615"/>
+   										</Node>
+   									</Node>
+   									<Node id="2">
+   										<SimplePredicate field="f105" operator="lessThan" value="15.916382409583601"/>
+   										<Node id="8" score="0.004858841457199089">
+   											<SimplePredicate field="f14" operator="isMissing"/>
+   										</Node>
+   										<Node id="3">
+   											<SimplePredicate field="f14" operator="lessThan" value="0.5"/>
+   											<Node id="6" score="-7.95333785388367E-4">
+   												<SimplePredicate field="f2" operator="isMissing"/>
+   											</Node>
+   											<Node id="4" score="0.009010490083816197">
+   												<SimplePredicate field="f2" operator="lessThan" value="8.895"/>
+   											</Node>
+   											<Node id="5" score="-0.011465731283494951">
+   												<SimplePredicate field="f2" operator="greaterOrEqual" value="8.895"/>
+   											</Node>
+   										</Node>
+   										<Node id="7" score="-0.015742501892760604">
+   											<SimplePredicate field="f14" operator="greaterOrEqual" value="0.5"/>
+   										</Node>
+   									</Node>
+   									<Node id="9" score="-0.014110374847714402">
+   										<SimplePredicate field="f105" operator="greaterOrEqual" value="15.916382409583601"/>
+   									</Node>
+   								</Node>
+   							</TreeModel>
+   						</Segment>
+   						<Segment id="26">
+   							<True/>
+   							<TreeModel functionName="regression" splitCharacteristic="multiSplit">
+   								<MiningSchema>
+   									<MiningField name="f2"/>
+   									<MiningField name="f17"/>
+   									<MiningField name="f26"/>
+   									<MiningField name="f105"/>
+   								</MiningSchema>
+   								<Node id="1">
+   									<True/>
+   									<Node id="13" score="-0.009912465673729203">
+   										<SimplePredicate field="f2" operator="isMissing"/>
+   									</Node>
+   									<Node id="2">
+   										<SimplePredicate field="f2" operator="lessThan" value="1.0350000000000001"/>
+   										<Node id="8" score="0.006529362435197135">
+   											<SimplePredicate field="f17" operator="isMissing"/>
+   										</Node>
+   										<Node id="3">
+   											<SimplePredicate field="f17" operator="lessThan" value="0.5"/>
+   											<Node id="6" score="0.01122505372091873">
+   												<SimplePredicate field="f105" operator="isMissing"/>
+   											</Node>
+   											<Node id="4" score="0.010183035154630354">
+   												<SimplePredicate field="f105" operator="lessThan" value="16.1949405049144"/>
+   											</Node>
+   											<Node id="5" score="-0.006538814988773209">
+   												<SimplePredicate field="f105" operator="greaterOrEqual" value="16.1949405049144"/>
+   											</Node>
+   										</Node>
+   										<Node id="7" score="-0.01485125780374939">
+   											<SimplePredicate field="f17" operator="greaterOrEqual" value="0.5"/>
+   										</Node>
+   									</Node>
+   									<Node id="9">
+   										<SimplePredicate field="f2" operator="greaterOrEqual" value="1.0350000000000001"/>
+   										<Node id="12" score="-0.009760256092136668">
+   											<SimplePredicate field="f26" operator="isMissing"/>
+   										</Node>
+   										<Node id="10" score="0.0014388549609866737">
+   											<SimplePredicate field="f26" operator="lessThan" value="107.5"/>
+   										</Node>
+   										<Node id="11" score="-0.013800515650033164">
+   											<SimplePredicate field="f26" operator="greaterOrEqual" value="107.5"/>
+   										</Node>
+   									</Node>
+   								</Node>
+   							</TreeModel>
+   						</Segment>
+   						<Segment id="27">
+   							<True/>
+   							<TreeModel functionName="regression" splitCharacteristic="multiSplit">
+   								<MiningSchema>
+   									<MiningField name="f2"/>
+   									<MiningField name="f17"/>
+   									<MiningField name="f65"/>
+   									<MiningField name="f105"/>
+   								</MiningSchema>
+   								<Node id="1">
+   									<True/>
+   									<Node id="13" score="-0.009710460962434725">
+   										<SimplePredicate field="f2" operator="isMissing"/>
+   									</Node>
+   									<Node id="2">
+   										<SimplePredicate field="f2" operator="lessThan" value="1.205"/>
+   										<Node id="8" score="0.006208307470589976">
+   											<SimplePredicate field="f17" operator="isMissing"/>
+   										</Node>
+   										<Node id="3">
+   											<SimplePredicate field="f17" operator="lessThan" value="0.5"/>
+   											<Node id="6" score="0.011102121868595324">
+   												<SimplePredicate field="f105" operator="isMissing"/>
+   											</Node>
+   											<Node id="4" score="0.009584185166334051">
+   												<SimplePredicate field="f105" operator="lessThan" value="22.94639529236365"/>
+   											</Node>
+   											<Node id="5" score="-0.009192812696793588">
+   												<SimplePredicate field="f105" operator="greaterOrEqual" value="22.94639529236365"/>
+   											</Node>
+   										</Node>
+   										<Node id="7" score="-0.014921470816694872">
+   											<SimplePredicate field="f17" operator="greaterOrEqual" value="0.5"/>
+   										</Node>
+   									</Node>
+   									<Node id="9">
+   										<SimplePredicate field="f2" operator="greaterOrEqual" value="1.205"/>
+   										<Node id="12" score="-0.010171573198333301">
+   											<SimplePredicate field="f65" operator="isMissing"/>
+   										</Node>
+   										<Node id="10" score="0.004024068672690226">
+   											<SimplePredicate field="f65" operator="lessThan" value="2.90964647619555"/>
+   										</Node>
+   										<Node id="11" score="-0.013769897536206168">
+   											<SimplePredicate field="f65" operator="greaterOrEqual" value="2.90964647619555"/>
+   										</Node>
+   									</Node>
+   								</Node>
+   							</TreeModel>
+   						</Segment>
+   						<Segment id="28">
+   							<True/>
+   							<TreeModel functionName="regression" splitCharacteristic="multiSplit">
+   								<MiningSchema>
+   									<MiningField name="f2"/>
+   									<MiningField name="f14"/>
+   									<MiningField name="f27"/>
+   									<MiningField name="f105"/>
+   								</MiningSchema>
+   								<Node id="1">
+   									<True/>
+   									<Node id="13" score="-0.009225518021464381">
+   										<SimplePredicate field="f2" operator="isMissing"/>
+   									</Node>
+   									<Node id="2">
+   										<SimplePredicate field="f2" operator="lessThan" value="1.205"/>
+   										<Node id="8" score="0.00624962234292985">
+   											<SimplePredicate field="f14" operator="isMissing"/>
+   										</Node>
+   										<Node id="3">
+   											<SimplePredicate field="f14" operator="lessThan" value="0.5"/>
+   											<Node id="6" score="0.010988021124693633">
+   												<SimplePredicate field="f105" operator="isMissing"/>
+   											</Node>
+   											<Node id="4" score="0.010061353205837746">
+   												<SimplePredicate field="f105" operator="lessThan" value="16.1949405049144"/>
+   											</Node>
+   											<Node id="5" score="-0.0067223787330051845">
+   												<SimplePredicate field="f105" operator="greaterOrEqual" value="16.1949405049144"/>
+   											</Node>
+   										</Node>
+   										<Node id="7" score="-0.014935720160812188">
+   											<SimplePredicate field="f14" operator="greaterOrEqual" value="0.5"/>
+   										</Node>
+   									</Node>
+   									<Node id="9">
+   										<SimplePredicate field="f2" operator="greaterOrEqual" value="1.205"/>
+   										<Node id="12" score="-0.010054117203174357">
+   											<SimplePredicate field="f27" operator="isMissing"/>
+   										</Node>
+   										<Node id="10" score="-7.83892773054946E-4">
+   											<SimplePredicate field="f27" operator="lessThan" value="152.5"/>
+   										</Node>
+   										<Node id="11" score="-0.014542677521635562">
+   											<SimplePredicate field="f27" operator="greaterOrEqual" value="152.5"/>
+   										</Node>
+   									</Node>
+   								</Node>
+   							</TreeModel>
+   						</Segment>
+   						<Segment id="29">
+   							<True/>
+   							<TreeModel functionName="regression" splitCharacteristic="multiSplit">
+   								<MiningSchema>
+   									<MiningField name="f2"/>
+   									<MiningField name="f14"/>
+   									<MiningField name="f105"/>
+   								</MiningSchema>
+   								<Node id="1">
+   									<True/>
+   									<Node id="10">
+   										<SimplePredicate field="f105" operator="isMissing"/>
+   										<Node id="13" score="-0.008273658559607995">
+   											<SimplePredicate field="f2" operator="isMissing"/>
+   										</Node>
+   										<Node id="11" score="0.00892160642847166">
+   											<SimplePredicate field="f2" operator="lessThan" value="1.1349999999999998"/>
+   										</Node>
+   										<Node id="12" score="-0.01025460892259282">
+   											<SimplePredicate field="f2" operator="greaterOrEqual" value="1.1349999999999998"/>
+   										</Node>
+   									</Node>
+   									<Node id="2">
+   										<SimplePredicate field="f105" operator="lessThan" value="12.64234042334245"/>
+   										<Node id="8" score="-0.0020845034709196975">
+   											<SimplePredicate field="f2" operator="isMissing"/>
+   										</Node>
+   										<Node id="3">
+   											<SimplePredicate field="f2" operator="lessThan" value="8.905000000000001"/>
+   											<Node id="6" score="0.008646196702122431">
+   												<SimplePredicate field="f14" operator="isMissing"/>
+   											</Node>
+   											<Node id="4" score="0.009906019235541753">
+   												<SimplePredicate field="f14" operator="lessThan" value="0.5"/>
+   											</Node>
+   											<Node id="5" score="-0.0119219407425606">
+   												<SimplePredicate field="f14" operator="greaterOrEqual" value="0.5"/>
+   											</Node>
+   										</Node>
+   										<Node id="7" score="-0.012563793906283535">
+   											<SimplePredicate field="f2" operator="greaterOrEqual" value="8.905000000000001"/>
+   										</Node>
+   									</Node>
+   									<Node id="9" score="-0.01072160259026242">
+   										<SimplePredicate field="f105" operator="greaterOrEqual" value="12.64234042334245"/>
+   									</Node>
+   								</Node>
+   							</TreeModel>
+   						</Segment>
+   						<Segment id="30">
+   							<True/>
+   							<TreeModel functionName="regression" splitCharacteristic="multiSplit">
+   								<MiningSchema>
+   									<MiningField name="f2"/>
+   									<MiningField name="f17"/>
+   									<MiningField name="f42"/>
+   									<MiningField name="f105"/>
+   								</MiningSchema>
+   								<Node id="1">
+   									<True/>
+   									<Node id="13" score="-0.00931768697097636">
+   										<SimplePredicate field="f2" operator="isMissing"/>
+   									</Node>
+   									<Node id="2">
+   										<SimplePredicate field="f2" operator="lessThan" value="4.775"/>
+   										<Node id="8">
+   											<SimplePredicate field="f105" operator="isMissing"/>
+   											<Node id="11" score="0.0076679465691825615">
+   												<SimplePredicate field="f17" operator="isMissing"/>
+   											</Node>
+   											<Node id="9" score="0.009846905732960138">
+   												<SimplePredicate field="f17" operator="lessThan" value="0.5"/>
+   											</Node>
+   											<Node id="10" score="-0.018282754181355554">
+   												<SimplePredicate field="f17" operator="greaterOrEqual" value="0.5"/>
+   											</Node>
+   										</Node>
+   										<Node id="3">
+   											<SimplePredicate field="f105" operator="lessThan" value="15.916382409583601"/>
+   											<Node id="6" score="0.007446004997311311">
+   												<SimplePredicate field="f42" operator="isMissing"/>
+   											</Node>
+   											<Node id="4" score="0.012151002803118562">
+   												<SimplePredicate field="f42" operator="lessThan" value="188.5"/>
+   											</Node>
+   											<Node id="5" score="-1.8404446106762135E-4">
+   												<SimplePredicate field="f42" operator="greaterOrEqual" value="188.5"/>
+   											</Node>
+   										</Node>
+   										<Node id="7" score="-0.010445461704657313">
+   											<SimplePredicate field="f105" operator="greaterOrEqual" value="15.916382409583601"/>
+   										</Node>
+   									</Node>
+   									<Node id="12" score="-0.014518179629376791">
+   										<SimplePredicate field="f2" operator="greaterOrEqual" value="4.775"/>
+   									</Node>
+   								</Node>
+   							</TreeModel>
+   						</Segment>
+                    </Segmentation>
+                </MiningModel>
+            </Segment>
+            <Segment id="2">
+                <True/>
+                <RegressionModel functionName="classification" normalizationMethod="softmax">
+                    <MiningSchema>
+                        <MiningField name="y" usageType="target"/>
+                        <MiningField name="scaledGbmValue"/>
+                    </MiningSchema>
+                    <Output>
+                        <OutputField name="probability_0" feature="probability" value="0"/>
+                        <OutputField name="probability_1" feature="probability" value="1"/>
+                    </Output>
+                    <RegressionTable intercept="0.0" targetCategory="0">
+                        <NumericPredictor name="scaledGbmValue" coefficient="-1.0"/>
+                    </RegressionTable>
+                    <RegressionTable intercept="0.0" targetCategory="1"/>
+                </RegressionModel>
+            </Segment>
+        </Segmentation>
+    </MiningModel>
+</PMML>
