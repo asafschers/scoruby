@@ -9,7 +9,6 @@ module RandomForester
   RANDOM_FOREST_MODEL = 'randomForest_Model'
   GBM_INDICATION = '//OutputField[@name="scaledGbmValue"]'
   MODEL_NOT_SUPPORTED_ERROR = 'model not supported'
-  RF_FOREST_XPATH = 'PMML/MiningModel/Segmentation/Segment'
 
   class << self
     attr_writer :logger
@@ -27,7 +26,7 @@ module RandomForester
   end
 
   def self.new_model(xml)
-    return RandomForest.new(xml, DecisionTree, RF_FOREST_XPATH) if random_forest?(xml)
+    return RandomForest.new(xml) if random_forest?(xml)
     return Gbm.new(xml) if gbm?(xml)
     raise MODEL_NOT_SUPPORTED_ERROR
   end
