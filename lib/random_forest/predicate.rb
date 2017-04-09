@@ -1,11 +1,15 @@
 require 'numerical_predicate'
 require 'categorical_predicate'
+require 'is_missing_predicate'
 
 class Predicate
 
   def initialize(pred_xml)
     attributes = pred_xml.attributes
-    @pred = NumericalPredicate.new(attributes) if attributes['operator']
+
+    # TODO: extract method set_pred
+    @pred = IsMissingPredicate.new(attributes) if attributes['operator'] && attributes['operator'].value == 'isMissing'
+    @pred = NumericalPredicate.new(attributes) if attributes['operator'] && attributes['operator'].value != 'isMissing'
     @pred = CategoricalPredicate.new(pred_xml) if attributes['booleanOperator']
   end
 
