@@ -1,4 +1,4 @@
-class NumericalPredicate
+class SimplePredicate
 
   GREATER_THAN = 'greaterThan'
   LESS_OR_EQUAL = 'lessOrEqual'
@@ -6,9 +6,12 @@ class NumericalPredicate
 
   attr_reader :field
 
-  def initialize(attributes)
+  def initialize(pred_xml)
+    attributes = pred_xml.attributes
+
     @field = attributes['field'].value.to_sym
     @operator = attributes['operator'].value
+    return if @operator == 'isMissing'
     @value = @operator == EQUAL ? attributes['value'].value : Float(attributes['value'].value)
   end
 

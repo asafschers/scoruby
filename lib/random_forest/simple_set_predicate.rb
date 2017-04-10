@@ -1,4 +1,4 @@
-class CategoricalPredicate
+class SimpleSetPredicate
 
   IS_IN = 'isIn'
 
