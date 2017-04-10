@@ -3,6 +3,7 @@ class SimplePredicate
   GREATER_THAN = 'greaterThan'
   LESS_OR_EQUAL = 'lessOrEqual'
   EQUAL = 'equal'
+  IS_MISSING = 'isMissing'
 
   attr_reader :field
 
@@ -18,6 +19,7 @@ class SimplePredicate
   def true?(features)
     curr_value = @operator == EQUAL ? features[@field] : Float(features[@field])
     return curr_value > @value if @operator == GREATER_THAN
-    curr_value < @value if @operator == LESS_OR_EQUAL
+    return curr_value < @value if @operator == LESS_OR_EQUAL
+    nil_feature?(features) || missing_feature?(features) if @operator == IS_MISSING
   end
 end
