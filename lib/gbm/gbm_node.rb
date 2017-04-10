@@ -1,10 +1,12 @@
+require 'gbm_predicate'
+
 class GbmNode
 
   attr_reader :score, :missing, :left, :right, :pred
 
   def initialize(xml)
     children = xml.children
-    @pred = Predicate.new(children[0])
+    @pred = GbmPredicate.new(children[0])
 
     @score = xml.attribute('score').to_s
 
