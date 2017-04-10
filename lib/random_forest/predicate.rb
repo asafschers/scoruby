@@ -1,6 +1,5 @@
 require 'simple_predicate'
 require 'simple_set_predicate'
-require 'is_missing_predicate'
 
 class Predicate
 
