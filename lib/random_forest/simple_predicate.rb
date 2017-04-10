@@ -13,13 +13,20 @@ class SimplePredicate
     @field = attributes['field'].value.to_sym
     @operator = attributes['operator'].value
     return if @operator == 'isMissing'
-    @value = @operator == EQUAL ? attributes['value'].value : Float(attributes['value'].value)
+    @value = attributes['value'].value 
   end
 
   def true?(features)
-    curr_value = @operator == EQUAL ? features[@field] : Float(features[@field])
-    return curr_value > @value if @operator == GREATER_THAN
-    return curr_value < @value if @operator == LESS_OR_EQUAL
-    nil_feature?(features) || missing_feature?(features) if @operator == IS_MISSING
+    return num_true?(features) if [GREATER_THAN, LESS_OR_EQUAL].include?(@operator)
+
+    return features[@field] == @value if @operator == EQUAL
+    features[field].nil? || !features.has_key?(field) if @operator == IS_MISSING
+  end
+
+  def num_true?(features)
+    curr_value = Float(features[@field])
+    value = Float(@value)
+    return curr_value > value if @operator == GREATER_THAN
+    curr_value < value if @operator == LESS_OR_EQUAL
   end
 end
