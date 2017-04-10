@@ -12,7 +12,7 @@ class SimplePredicate
 
     @field = attributes['field'].value.to_sym
     @operator = attributes['operator'].value
-    return if @operator == 'isMissing'
+    return if @operator == IS_MISSING
     @value = attributes['value'].value 
   end
 
