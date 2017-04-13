@@ -1,7 +1,10 @@
 class SimplePredicate
 
   GREATER_THAN = 'greaterThan'
+  LESS_THAN = 'lessThan'
   LESS_OR_EQUAL = 'lessOrEqual'
+  GREATER_OR_EQUAL = 'greaterOrEqual'
+  MATH_OPS = [GREATER_THAN, LESS_THAN, LESS_OR_EQUAL, GREATER_OR_EQUAL]
   EQUAL = 'equal'
   IS_MISSING = 'isMissing'
 
@@ -17,7 +20,7 @@ class SimplePredicate
   end
 
   def true?(features)
-    return num_true?(features) if [GREATER_THAN, LESS_OR_EQUAL].include?(@operator)
+    return num_true?(features) if MATH_OPS.include?(@operator)
 
     return features[@field] == @value if @operator == EQUAL
     features[field].nil? || !features.has_key?(field) if @operator == IS_MISSING
@@ -27,6 +30,8 @@ class SimplePredicate
     curr_value = Float(features[@field])
     value = Float(@value)
     return curr_value > value if @operator == GREATER_THAN
-    curr_value < value if @operator == LESS_OR_EQUAL
+    return curr_value < value if @operator == LESS_THAN
+    return curr_value <= value if @operator == LESS_OR_EQUAL
+    curr_value >= value if @operator == GREATER_OR_EQUAL
   end
 end
