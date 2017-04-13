@@ -8,7 +8,7 @@ class GbmNode
     children = xml.children
     @pred = GbmPredicate.new(children[0])
 
-    @score = xml.attribute('score').to_s
+    @score = xml.attribute('score').to_s.to_f unless xml.attribute('score').to_s.empty?
 
     return if children.count == 1
     @missing = GbmNode.new(children[1]) if children[1]
