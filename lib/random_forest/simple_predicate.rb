@@ -27,6 +27,7 @@ class SimplePredicate
   end
 
   def num_true?(features)
+    return false unless features[@field]
     curr_value = Float(features[@field])
     value = Float(@value)
     return curr_value > value if @operator == GREATER_THAN
