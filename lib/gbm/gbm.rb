@@ -15,6 +15,6 @@ class Gbm
   end
 
   def score(features)
-    
+    @decision_trees.map { |dt| dt.decide(features) }.reduce(:+)
   end
 end

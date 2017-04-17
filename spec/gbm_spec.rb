@@ -22,12 +22,12 @@ describe Gbm do
     features
   end
   
-  xit 'predicts approve' do
-    expect(gbm.score(approve_features)).to eq SHOULD_APPROVE
+  it 'predicts approve' do
+    expect(gbm.score(approve_features)).to eq 0.3210027070079627
   end
 
-  xit 'predicts decline' do
-    expect(gbm.score(decline_features)).to eq SHOULD_DECLINE
+  it 'predicts decline' do
+    expect(gbm.score(decline_features)).to eq -0.4562471444332135
   end
 
 end
