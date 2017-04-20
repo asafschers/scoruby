@@ -1,6 +1,6 @@
 <a href="https://codeclimate.com/github/asafschers/scoruby"><img src="https://codeclimate.com/github/asafschers/random_forester/badges/gpa.svg" /></a>
 [![Gem Version](https://badge.fury.io/rb/random_forester.svg)](https://badge.fury.io/rb/random_forester)
-[![Build Status](https://travis-ci.org/asafschers/random_forester.svg?branch=master)](https://travis-ci.org/asafschers/random_forester)
+[![Build Status](https://travis-ci.org/asafschers/scoruby.svg?branch=master)](https://travis-ci.org/asafschers/scoruby)
 
 # RandomForester
 
