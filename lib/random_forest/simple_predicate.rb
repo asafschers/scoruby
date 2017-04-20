@@ -20,6 +20,7 @@ class SimplePredicate
   end
 
   def true?(features)
+    format_boolean(features)
     return num_true?(features) if MATH_OPS.include?(@operator)
 
     return features[@field] == @value if @operator == EQUAL
@@ -34,5 +35,10 @@ class SimplePredicate
     return curr_value < value if @operator == LESS_THAN
     return curr_value <= value if @operator == LESS_OR_EQUAL
     curr_value >= value if @operator == GREATER_OR_EQUAL
+  end
+
+  def format_boolean(features)
+    features[@field] = 'f' if features[@field] == false
+    features[@field] = 't' if features[@field] == true
   end
 end
