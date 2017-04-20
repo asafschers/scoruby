@@ -16,9 +16,8 @@ class Gbm
   end
 
   def score(features)
-    @decision_trees.map { |dt| dt.decide(features) }.reduce(:+) + @const
-
-
-    # TODO: add const and run exp(a) / (1+exp(a))
+    x = @decision_trees.map { |dt| dt.decide(features) }.reduce(:+) + @const
+    Math.exp(x) / (1 + Math.exp(x))
   end
 end
+
