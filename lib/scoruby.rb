@@ -1,11 +1,11 @@
-require 'random_forester/version'
+require 'scoruby/version'
 require 'nokogiri'
 require 'random_forest'
 require 'gbm'
 require 'logger'
 require 'pry'
 
-module RandomForester
+module Scoruby
   RANDOM_FOREST_MODEL = 'randomForest_Model'
   GBM_INDICATION = '//OutputField[@name="scaledGbmValue"]'
   MODEL_NOT_SUPPORTED_ERROR = 'model not supported'

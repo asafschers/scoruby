@@ -3,7 +3,7 @@ require 'spec_helper'
 describe GbmDecisionTree do
 
   let(:tree_file) { 'spec/fixtures/gbm_tree.pmml' }
-  let(:tree_xml) { RandomForester.xml_from_file_path(tree_file) }
+  let(:tree_xml) { Scoruby.xml_from_file_path(tree_file) }
   let(:decision_tree) { GbmDecisionTree.new(tree_xml.child) }
 
   context 'sets tree' do
@@ -73,7 +73,7 @@ describe GbmDecisionTree do
 
     it 'f2 none are true' do
       features = { f2: 'f2v9' }
-      expect(RandomForester.logger).to receive(:error).with('Null tree: 2532, bad feature: f2')
+      expect(Scoruby.logger).to receive(:error).with('Null tree: 2532, bad feature: f2')
       expect(decision_tree.decide(features)).to be_nil
     end
   end

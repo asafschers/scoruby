@@ -6,7 +6,7 @@ describe DecisionTree do
   SHOULD_DECLINE ||= 'should_decline'
 
   let(:tree_file) { 'spec/fixtures/pmml_tree.pmml' }
-  let(:tree_xml) { RandomForester.xml_from_file_path(tree_file) }
+  let(:tree_xml) { Scoruby.xml_from_file_path(tree_file) }
   let(:decision_tree) { DecisionTree.new(tree_xml.child) }
 
   context 'sets tree' do
@@ -42,8 +42,8 @@ describe DecisionTree do
     end
 
     it 'nils' do
-      expect(RandomForester.logger).to receive(:error).twice.with('Missing feature f36')
-      expect(RandomForester.logger).to receive(:error).with('Null tree: 4, bad feature: f36')
+      expect(Scoruby.logger).to receive(:error).twice.with('Missing feature f36')
+      expect(Scoruby.logger).to receive(:error).with('Null tree: 4, bad feature: f36')
       expect(decision_tree.decide(f44: 300, f22: 500)).to be_nil
     end
   end

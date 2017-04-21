@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in random_forester.gemspec
+# Specify your gem's dependencies in scoruby.gemspec
 gemspec

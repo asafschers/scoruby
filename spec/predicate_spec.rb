@@ -7,12 +7,12 @@ describe Predicate do
   let (:predicate) { Predicate.new(pred_xml.children.first) }
 
   it 'logs missing feature' do
-    expect(RandomForester.logger).to receive(:error).with('Missing feature f33')
+    expect(Scoruby.logger).to receive(:error).with('Missing feature f33')
     predicate.true?({})
   end
 
   it 'logs nil feature' do
-    expect(RandomForester.logger).to receive(:error).with('Feature f33 value is nil')
+    expect(Scoruby.logger).to receive(:error).with('Feature f33 value is nil')
     predicate.true?({f33: nil})
   end
 
