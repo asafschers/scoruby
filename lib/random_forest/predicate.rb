@@ -20,13 +20,13 @@ class Predicate
 
   def missing_feature?(features)
     return false if features.has_key? field
-    RandomForester.logger.error "Missing feature #{field}"
+    Scoruby.logger.error "Missing feature #{field}"
     true
   end
 
   def nil_feature?(features)
     return false unless features[field].nil?
-    RandomForester.logger.error "Feature #{field} value is nil"
+    Scoruby.logger.error "Feature #{field} value is nil"
     true
   end
 end

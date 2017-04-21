@@ -1,8 +1,8 @@
-<a href="https://codeclimate.com/github/asafschers/random_forester"><img src="https://codeclimate.com/github/asafschers/random_forester/badges/gpa.svg" /></a>
+<a href="https://codeclimate.com/github/asafschers/scoruby"><img src="https://codeclimate.com/github/asafschers/scoruby/badges/gpa.svg" /></a>
 [![Gem Version](https://badge.fury.io/rb/random_forester.svg)](https://badge.fury.io/rb/random_forester)
-[![Build Status](https://travis-ci.org/asafschers/random_forester.svg?branch=master)](https://travis-ci.org/asafschers/random_forester)
+[![Build Status](https://travis-ci.org/asafschers/scoruby.svg?branch=master)](https://travis-ci.org/asafschers/scoruby)
 
-# RandomForester
+# Scoruby
 
 Reads Random Forest PMML files and creates Ruby Random Forest classifier model.
 
@@ -11,7 +11,7 @@ Reads Random Forest PMML files and creates Ruby Random Forest classifier model.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'random_forester'
+gem 'scoruby'
 ```
 
 And then execute:
@@ -20,12 +20,12 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install random_forester
+    $ gem install scoruby
 
 ## Usage
 
 ```ruby
-random_forest = RandomForester.get_model 'sample.pmml'
+random_forest = Scourby.get_model 'rf.pmml'
 features = {a: 1, b: true, c: "YES"}
 random_forest.predict(features)
 random_forest.decisions_count(features)
@@ -40,7 +40,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/asafschers/random_forester. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/asafschers/scoruby. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
 
 ## License

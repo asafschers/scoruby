@@ -1,3 +1,3 @@
-module RandomForester
+module Scoruby
   VERSION = "0.1.2"
 end

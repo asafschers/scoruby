@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'random_forester/version'
+require 'scoruby/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "random_forester"
-  spec.version       = RandomForester::VERSION
+  spec.name          = "scoruby"
+  spec.version       = Scoruby::VERSION
   spec.authors       = ["Asaf Schers"]
   spec.email         = ["schers@riskified.com"]
 
   spec.summary       = %q{Creates a random forest object from a pmml file.}
-  spec.homepage      = 'https://github.com/asafschers/random_forester'
+  spec.homepage      = 'https://github.com/asafschers/scoruby'
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }

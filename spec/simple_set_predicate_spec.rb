@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe SimpleSetPredicate do
 
-  let (:pred_xml) { RandomForester.xml_from_string(pred_string) }
+  let (:pred_xml) { Scoruby.xml_from_string(pred_string) }
   let (:relevant_pred_xml) {  pred_xml.children[0] }
   let (:categorical_predicate) { SimpleSetPredicate.new(relevant_pred_xml) }
 

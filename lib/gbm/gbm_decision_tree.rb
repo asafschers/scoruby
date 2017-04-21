@@ -30,7 +30,7 @@ class GbmDecisionTree
 
   def didnt_step?(curr, prev)
     return false if (prev.pred != curr.pred)
-    RandomForester.logger.error "Null tree: #{@id}, bad feature: #{curr.left.pred.field }"
+    Scoruby.logger.error "Null tree: #{@id}, bad feature: #{curr.left.pred.field }"
     true
   end
   

@@ -6,5 +6,5 @@ RSpec::Core::RakeTask.new(:spec)
 task :default => :spec
 
 task :console do
-  exec "pry -r random_forester -I ./lib"
+  exec "pry -r scoruby -I ./lib"
 end
