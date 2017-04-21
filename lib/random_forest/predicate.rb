@@ -13,20 +13,6 @@ class Predicate
   end
 
   def true?(features)
-    return if missing_feature?(features)
-    return if nil_feature?(features)
     @pred.true?(features)
-  end
-
-  def missing_feature?(features)
-    return false if features.has_key? field
-    Scoruby.logger.error "Missing feature #{field}"
-    true
-  end
-
-  def nil_feature?(features)
-    return false unless features[field].nil?
-    Scoruby.logger.error "Feature #{field} value is nil"
-    true
   end
 end
