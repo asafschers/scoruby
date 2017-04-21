@@ -4,7 +4,13 @@
 
 # Scoruby
 
-Reads Random Forest PMML files and creates Ruby Random Forest classifier model.
+Ruby scoring API for Predictive Model Markup Language (PMML).
+
+Currently supports random forest and gradient boosted models.
+
+Will be happy to implement new kinds of models by demand, or assist with any other issue.
+
+Contact me here or at aschers@gmail.com.
 
 ## Installation
 
@@ -25,10 +31,16 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
-random_forest = Scourby.get_model 'rf.pmml'
-features = {a: 1, b: true, c: "YES"}
+# random forest model
+random_forest = Scourby.get_model 'random_forest.pmml'
+features = {a: 1, b: true, c: 'YES'}
 random_forest.predict(features)
 random_forest.decisions_count(features)
+
+# gradient boosted model
+gbm = Scoruby.get_model 'gbm.pmml'
+features = {a: 1, b: true, c: 'YES'}
+gbm.score(features)
 ```
 
 
