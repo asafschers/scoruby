@@ -23,14 +23,15 @@ class DecisionTree
   private
 
   def step(curr, features)
-    curr = curr.left if curr.left && curr.left.true?(features)
-    curr = curr.right if curr.right && curr.right.true?(features)
+    curr = curr.children[0] if curr.children && curr.children[0] && curr.children[0].true?(features)
+    curr = curr.children[1] if curr.children && curr.children[1] && curr.children[1].true?(features)
+    curr = curr.children[2] if curr.children && curr.children[2] && curr.children[2].true?(features)
     curr
   end
 
   def didnt_step?(curr, prev)
     return false if (prev.pred != curr.pred)
-    Scoruby.logger.error "Null tree: #{@id}, bad feature: #{curr.left.pred.field }"
+    Scoruby.logger.error "Null tree: #{@id}, bad feature: #{curr.children[0].pred.field }"
     true
   end
 end
