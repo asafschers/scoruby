@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Asaf Schers"]
   spec.email         = ["schers@riskified.com"]
 
-  spec.summary       = %q{Creates a random forest object from a pmml file.}
+  spec.summary       = %q{Ruby Scoring API for PMML.}
   spec.homepage      = 'https://github.com/asafschers/scoruby'
   spec.license       = "MIT"
 
