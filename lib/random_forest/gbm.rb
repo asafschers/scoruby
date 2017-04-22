@@ -1,4 +1,5 @@
 require 'decision_tree'
+require 'features'
 
 class Gbm
   GBM_FOREST_XPATH = '//Segmentation[@multipleModelMethod="sum"]/Segment'
@@ -16,11 +17,13 @@ class Gbm
   end
 
   def score(features)
+    formatted_features = Features.new(features).formatted
     x = @decision_trees.map { |dt|
-      score = dt.decide(features)
+      score = dt.decide(formatted_features)
       score.to_s.to_f
     }.reduce(:+) + @const
     Math.exp(x) / (1 + Math.exp(x))
   end
+
 end
 

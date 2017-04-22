@@ -11,8 +11,9 @@ class RandomForest
   end
 
   def decisions_count(features)
+    formatted_features = Features.new(features).formatted
     decisions = @decision_trees.collect { |decision_tree|
-      decision_tree.decide(features)
+      decision_tree.decide(formatted_features)
     }
     decisions.inject(Hash.new(0)) { |h, e| h[e] += 1 ; h }
   end
