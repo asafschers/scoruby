@@ -42,6 +42,7 @@ describe DecisionTree do
     end
 
     it 'nils' do
+      expect(Scoruby.logger).to receive(:error).with('Null tree: 4, bad feature: f36')
       expect(decision_tree.decide(f44: 300, f22: 500)).to be_nil
     end
   end
