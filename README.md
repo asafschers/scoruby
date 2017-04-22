@@ -1,4 +1,5 @@
 <a href="https://codeclimate.com/github/asafschers/scoruby"><img src="https://codeclimate.com/github/asafschers/scoruby/badges/gpa.svg" /></a>
+[![Coverage Status](https://coveralls.io/repos/github/asafschers/scoruby/badge.svg?branch=master)](https://coveralls.io/github/asafschers/scoruby?branch=master)
 [![Gem Version](https://badge.fury.io/rb/scoruby.svg)](https://badge.fury.io/rb/scoruby)
 [![Build Status](https://travis-ci.org/asafschers/scoruby.svg?branch=master)](https://travis-ci.org/asafschers/scoruby)
 
