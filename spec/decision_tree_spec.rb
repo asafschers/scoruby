@@ -124,4 +124,17 @@ describe DecisionTree do
       end
     end
   end
+
+  context 'formats' do
+
+    let(:tree_file) { 'spec/fixtures/gbm_tree.pmml' }
+    let(:tree_xml) { Scoruby.xml_from_file_path(tree_file) }
+    let(:decision_tree) { DecisionTree.new(tree_xml.child) }
+
+    it 'booleans' do
+      features = { f2: true, f3: false }
+      allow_any_instance_of(Node).to receive(:true?).with(f2: 't', f3: 'f')
+      decision_tree.decide(features)
+    end
+  end
 end

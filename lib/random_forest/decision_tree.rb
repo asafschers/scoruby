@@ -10,6 +10,7 @@ class DecisionTree
   end
 
   def decide(features)
+    format_booleans(features)
     curr = @root
     while curr.decision == ''
       prev = curr
@@ -38,5 +39,12 @@ class DecisionTree
     return false if (prev.pred != curr.pred)
     Scoruby.logger.error "Null tree: #{@id}, bad feature: #{curr.children[0].pred.field }"
     true
+  end
+
+  def format_booleans(features)
+    features.map { |k, v|
+      features[k] = 'f' if v == false
+      features[k] = 't' if v == true
+    }
   end
 end

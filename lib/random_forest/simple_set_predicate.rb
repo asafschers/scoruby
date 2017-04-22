@@ -12,7 +12,6 @@ class SimpleSetPredicate
   end
 
   def true?(features)
-    format_boolean(features)
     @array.include? features[@field] if @operator == IS_IN
   end
 
@@ -22,10 +21,5 @@ class SimpleSetPredicate
     string.split(/\s(?=(?:[^"]|"[^"]*")*$)/).
         reject(&:empty?).
         map { |w| w.tr('"','')}
-  end
-
-  def format_boolean(features)
-    features[@field] = 'f' if features[@field] == false
-    features[@field] = 't' if features[@field] == true
   end
 end
