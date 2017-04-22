@@ -23,9 +23,14 @@ class DecisionTree
   private
 
   def step(curr, features)
-    curr = curr.children[0] if curr.children && curr.children[0] && curr.children[0].true?(features)
-    curr = curr.children[1] if curr.children && curr.children[1] && curr.children[1].true?(features)
-    curr = curr.children[2] if curr.children && curr.children[2] && curr.children[2].true?(features)
+    curr = step_on_true(curr, features, 0)
+    curr = step_on_true(curr, features, 1)
+    curr = step_on_true(curr, features, 2)
+    curr
+  end
+
+  def step_on_true(curr, features, num)
+    return curr.children[num] if curr.children && curr.children[num] && curr.children[num].true?(features)
     curr
   end
 
