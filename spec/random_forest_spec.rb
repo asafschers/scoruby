@@ -2,65 +2,51 @@ require 'spec_helper'
 
 describe RandomForest do
 
-  SHOULD_APPROVE ||= 'should_approve'
-  SHOULD_DECLINE ||= 'should_decline'
-
-
   before(:all) do
-    rf_file = 'spec/fixtures/rf_file.pmml'
+    rf_file = 'spec/fixtures/titanic_rf.pmml'
     xml = Scoruby.xml_from_file_path(rf_file)
     @random_forest = RandomForest.new(xml)
-    @features = Hash.new
-  end
 
-  def categorial_features
-    {
-      f5: 'Linux',
-      f6: 'Chrome',
-      f13: 'F1L',
-      f15: 'f',
-      f19: 'cellular',
-      f20: 'Corporate',
-      f26: 'ValidDomain',
-      f31: 'female',
-      f35: 'f',
-      f36: 'F1L',
-      f38: 'NO_EA_LOCATION',
-      f49: 'field mismatch',
-      f53: 'field_match',
-      f54: 'field mismatch',
-      f55: 'FL',
-      f63: 'match',
-      f65: 'all_uppercase',
-      f66: 'all_lowercase',
-      f67: 'Missing'
-    }
   end
 
   def approve_features
-    features = categorial_features
-    (1..67).each { |i| features[:"f#{i}"] = 0 if features[:"f#{i}"].nil? }
-    features
+    {
+        Sex: 'male',
+        Parch: 0,
+        Age: 30,
+        Fare: 9.6875,
+        Pclass: 2,
+        SibSp: 0,
+        Embarked: 'Q'
+        
+    }
+       #   male,30,0,0,110469,26,S
   end
 
   def decline_features
-    features = categorial_features
-    (1..67).each { |i| features[:"f#{i}"] = 3000 if features[:"f#{i}"].nil? }
-    features
+    {
+        Sex: 'female',
+        Parch: 0,
+        Age: 38,
+        Fare: 71.2833,
+        Pclass: 2,
+        SibSp: 1,
+        Embarked: 'C'
+    # 38,1,0,PC 17599,71.2833
+    }
   end
 
-  it 'predicts approve' do
-    expect(@random_forest.predict(approve_features)).to eq SHOULD_APPROVE
+  it 'predicts 0' do
+    expect(@random_forest.predict(approve_features)).to eq '0'
     decisions_count = @random_forest.decisions_count(approve_features)
-    expect(decisions_count[SHOULD_APPROVE]).to eq 12
-    expect(decisions_count[SHOULD_DECLINE]).to eq 3
+    expect(decisions_count['0']).to eq 4
+    expect(decisions_count['1']).to eq 1
   end
 
-  it 'predicts decline' do
-    expect(@random_forest.predict(decline_features)).to eq SHOULD_DECLINE
+  it 'predicts 1' do
+    expect(@random_forest.predict(decline_features)).to eq '1'
     decisions_count = @random_forest.decisions_count(decline_features)
-    expect(decisions_count[SHOULD_APPROVE]).to eq 6
-    expect(decisions_count[SHOULD_DECLINE]).to eq 9
+    expect(decisions_count['0']).to eq 0
+    expect(decisions_count['1']).to eq 5
   end
-
 end

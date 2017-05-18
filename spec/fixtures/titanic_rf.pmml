@@ -1,0 +1,3024 @@
+<?xml version="1.0"?>
+<PMML version="4.3" xmlns="http://www.dmg.org/PMML-4_3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.dmg.org/PMML-4_3 http://www.dmg.org/pmml/v4-3/pmml-4-3.xsd">
+ <Header copyright="Copyright (c) 2017 asafschers1" description="Random Forest Tree Model">
+  <Extension name="user" value="asafschers1" extender="Rattle/PMML"/>
+  <Application name="Rattle/PMML" version="1.4"/>
+  <Timestamp>2017-05-18 14:19:49</Timestamp>
+ </Header>
+ <DataDictionary numberOfFields="12">
+  <DataField name="Survived" optype="categorical" dataType="string">
+   <Value value="0"/>
+   <Value value="1"/>
+  </DataField>
+  <DataField name="PassengerId" optype="continuous" dataType="double"/>
+  <DataField name="Pclass" optype="continuous" dataType="double"/>
+  <DataField name="Name" optype="categorical" dataType="string"/>
+  <DataField name="Sex" optype="categorical" dataType="string"/>
+  <DataField name="Age" optype="continuous" dataType="double"/>
+  <DataField name="SibSp" optype="continuous" dataType="double"/>
+  <DataField name="Parch" optype="continuous" dataType="double"/>
+  <DataField name="Ticket" optype="categorical" dataType="string"/>
+  <DataField name="Fare" optype="continuous" dataType="double"/>
+  <DataField name="Cabin" optype="categorical" dataType="string"/>
+  <DataField name="Embarked" optype="categorical" dataType="string"/>
+ </DataDictionary>
+ <MiningModel modelName="randomForest_Model" algorithmName="randomForest" functionName="classification">
+  <MiningSchema>
+   <MiningField name="Survived" usageType="predicted"/>
+   <MiningField name="PassengerId" usageType="active"/>
+   <MiningField name="Pclass" usageType="active"/>
+   <MiningField name="Name" usageType="active"/>
+   <MiningField name="Sex" usageType="active"/>
+   <MiningField name="Age" usageType="active"/>
+   <MiningField name="SibSp" usageType="active"/>
+   <MiningField name="Parch" usageType="active"/>
+   <MiningField name="Ticket" usageType="active"/>
+   <MiningField name="Fare" usageType="active"/>
+   <MiningField name="Cabin" usageType="active"/>
+   <MiningField name="Embarked" usageType="active"/>
+  </MiningSchema>
+  <Output>
+   <OutputField name="Predicted_Survived" feature="predictedValue"/>
+   <OutputField name="Probability_0" optype="continuous" dataType="double" feature="probability" value="0"/>
+   <OutputField name="Probability_1" optype="continuous" dataType="double" feature="probability" value="1"/>
+  </Output>
+  <Segmentation multipleModelMethod="majorityVote">
+   <Segment id="1">
+    <True/>
+    <TreeModel modelName="randomForest_Model" functionName="classification" algorithmName="randomForest" splitCharacteristic="binarySplit">
+     <MiningSchema>
+      <MiningField name="Survived" usageType="predicted"/>
+      <MiningField name="PassengerId" usageType="active"/>
+      <MiningField name="Pclass" usageType="active"/>
+      <MiningField name="Name" usageType="active"/>
+      <MiningField name="Sex" usageType="active"/>
+      <MiningField name="Age" usageType="active"/>
+      <MiningField name="SibSp" usageType="active"/>
+      <MiningField name="Parch" usageType="active"/>
+      <MiningField name="Ticket" usageType="active"/>
+      <MiningField name="Fare" usageType="active"/>
+      <MiningField name="Cabin" usageType="active"/>
+      <MiningField name="Embarked" usageType="active"/>
+     </MiningSchema>
+     <Node id="1">
+      <True/>
+      <Node id="2">
+       <SimplePredicate field="Pclass" operator="lessOrEqual" value="2.5"/>
+       <Node id="4">
+        <SimplePredicate field="SibSp" operator="lessOrEqual" value="0.5"/>
+        <Node id="8">
+         <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+          <Array n="1" type="string">&quot;female&quot;</Array>
+         </SimpleSetPredicate>
+         <Node id="14" score="1">
+          <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+           <Array n="3" type="string">&quot;&quot;   &quot;C&quot;   &quot;Q&quot;</Array>
+          </SimpleSetPredicate>
+         </Node>
+         <Node id="15">
+          <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+           <Array n="1" type="string">&quot;S&quot;</Array>
+          </SimpleSetPredicate>
+          <Node id="24">
+           <SimplePredicate field="Fare" operator="lessOrEqual" value="13.25"/>
+           <Node id="36" score="1">
+            <SimplePredicate field="Age" operator="lessOrEqual" value="26"/>
+           </Node>
+           <Node id="37">
+            <SimplePredicate field="Age" operator="greaterThan" value="26"/>
+            <Node id="54">
+             <SimplePredicate field="Age" operator="lessOrEqual" value="53.5"/>
+             <Node id="68" score="1">
+              <SimplePredicate field="Age" operator="lessOrEqual" value="37"/>
+             </Node>
+             <Node id="69">
+              <SimplePredicate field="Age" operator="greaterThan" value="37"/>
+              <Node id="84" score="0">
+               <SimplePredicate field="Age" operator="lessOrEqual" value="40"/>
+              </Node>
+              <Node id="85" score="1">
+               <SimplePredicate field="Age" operator="greaterThan" value="40"/>
+              </Node>
+             </Node>
+            </Node>
+            <Node id="55" score="0">
+             <SimplePredicate field="Age" operator="greaterThan" value="53.5"/>
+            </Node>
+           </Node>
+          </Node>
+          <Node id="25" score="1">
+           <SimplePredicate field="Fare" operator="greaterThan" value="13.25"/>
+          </Node>
+         </Node>
+        </Node>
+        <Node id="9">
+         <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+          <Array n="1" type="string">&quot;male&quot;</Array>
+         </SimpleSetPredicate>
+         <Node id="16">
+          <SimplePredicate field="Age" operator="lessOrEqual" value="75.5"/>
+          <Node id="26" score="1">
+           <SimplePredicate field="Age" operator="lessOrEqual" value="10"/>
+          </Node>
+          <Node id="27">
+           <SimplePredicate field="Age" operator="greaterThan" value="10"/>
+           <Node id="38">
+            <SimplePredicate field="Age" operator="lessOrEqual" value="45.5"/>
+            <Node id="56">
+             <SimplePredicate field="Pclass" operator="lessOrEqual" value="1.5"/>
+             <Node id="70" score="0">
+              <SimplePredicate field="Parch" operator="lessOrEqual" value="0.5"/>
+             </Node>
+             <Node id="71">
+              <SimplePredicate field="Parch" operator="greaterThan" value="0.5"/>
+              <Node id="86">
+               <SimplePredicate field="Fare" operator="lessOrEqual" value="361.914600000000007"/>
+               <Node id="92" score="0">
+                <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+                 <Array n="1" type="string">&quot;C&quot;</Array>
+                </SimpleSetPredicate>
+               </Node>
+               <Node id="93" score="0">
+                <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+                 <Array n="3" type="string">&quot;&quot;   &quot;Q&quot;   &quot;S&quot;</Array>
+                </SimpleSetPredicate>
+               </Node>
+              </Node>
+              <Node id="87" score="1">
+               <SimplePredicate field="Fare" operator="greaterThan" value="361.914600000000007"/>
+              </Node>
+             </Node>
+            </Node>
+            <Node id="57">
+             <SimplePredicate field="Pclass" operator="greaterThan" value="1.5"/>
+             <Node id="72" score="0">
+              <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+               <Array n="1" type="string">&quot;C&quot;</Array>
+              </SimpleSetPredicate>
+             </Node>
+             <Node id="73" score="0">
+              <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+               <Array n="3" type="string">&quot;&quot;   &quot;Q&quot;   &quot;S&quot;</Array>
+              </SimpleSetPredicate>
+             </Node>
+            </Node>
+           </Node>
+           <Node id="39">
+            <SimplePredicate field="Age" operator="greaterThan" value="45.5"/>
+            <Node id="58">
+             <SimplePredicate field="Pclass" operator="lessOrEqual" value="1.5"/>
+             <Node id="74" score="0">
+              <SimplePredicate field="Fare" operator="lessOrEqual" value="35.0771000000000015"/>
+             </Node>
+             <Node id="75" score="0">
+              <SimplePredicate field="Fare" operator="greaterThan" value="35.0771000000000015"/>
+             </Node>
+            </Node>
+            <Node id="59" score="0">
+             <SimplePredicate field="Pclass" operator="greaterThan" value="1.5"/>
+            </Node>
+           </Node>
+          </Node>
+         </Node>
+         <Node id="17" score="1">
+          <SimplePredicate field="Age" operator="greaterThan" value="75.5"/>
+         </Node>
+        </Node>
+       </Node>
+       <Node id="5">
+        <SimplePredicate field="SibSp" operator="greaterThan" value="0.5"/>
+        <Node id="10">
+         <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+          <Array n="1" type="string">&quot;female&quot;</Array>
+         </SimpleSetPredicate>
+         <Node id="18" score="1">
+          <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+           <Array n="2" type="string">&quot;C&quot;   &quot;Q&quot;</Array>
+          </SimpleSetPredicate>
+         </Node>
+         <Node id="19">
+          <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+           <Array n="2" type="string">&quot;&quot;   &quot;S&quot;</Array>
+          </SimpleSetPredicate>
+          <Node id="28">
+           <SimplePredicate field="Fare" operator="lessOrEqual" value="142.600000000000023"/>
+           <Node id="40">
+            <SimplePredicate field="Fare" operator="lessOrEqual" value="26.125"/>
+            <Node id="60">
+             <SimplePredicate field="SibSp" operator="lessOrEqual" value="1.5"/>
+             <Node id="76">
+              <SimplePredicate field="Age" operator="lessOrEqual" value="43"/>
+              <Node id="88" score="1">
+               <SimplePredicate field="Fare" operator="lessOrEqual" value="24.5"/>
+              </Node>
+              <Node id="89" score="1">
+               <SimplePredicate field="Fare" operator="greaterThan" value="24.5"/>
+              </Node>
+             </Node>
+             <Node id="77" score="0">
+              <SimplePredicate field="Age" operator="greaterThan" value="43"/>
+             </Node>
+            </Node>
+            <Node id="61" score="1">
+             <SimplePredicate field="SibSp" operator="greaterThan" value="1.5"/>
+            </Node>
+           </Node>
+           <Node id="41" score="1">
+            <SimplePredicate field="Fare" operator="greaterThan" value="26.125"/>
+           </Node>
+          </Node>
+          <Node id="29">
+           <SimplePredicate field="Fare" operator="greaterThan" value="142.600000000000023"/>
+           <Node id="42" score="0">
+            <SimplePredicate field="Age" operator="lessOrEqual" value="12.5"/>
+           </Node>
+           <Node id="43" score="1">
+            <SimplePredicate field="Age" operator="greaterThan" value="12.5"/>
+           </Node>
+          </Node>
+         </Node>
+        </Node>
+        <Node id="11">
+         <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+          <Array n="1" type="string">&quot;male&quot;</Array>
+         </SimpleSetPredicate>
+         <Node id="20">
+          <SimplePredicate field="Parch" operator="lessOrEqual" value="0.5"/>
+          <Node id="30">
+           <SimplePredicate field="Fare" operator="lessOrEqual" value="56.4146000000000001"/>
+           <Node id="44" score="0">
+            <SimplePredicate field="Age" operator="lessOrEqual" value="32.25"/>
+           </Node>
+           <Node id="45" score="0">
+            <SimplePredicate field="Age" operator="greaterThan" value="32.25"/>
+           </Node>
+          </Node>
+          <Node id="31">
+           <SimplePredicate field="Fare" operator="greaterThan" value="56.4146000000000001"/>
+           <Node id="46">
+            <SimplePredicate field="Pclass" operator="lessOrEqual" value="1.5"/>
+            <Node id="62">
+             <SimplePredicate field="SibSp" operator="lessOrEqual" value="1.5"/>
+             <Node id="78" score="1">
+              <SimplePredicate field="Fare" operator="lessOrEqual" value="59.0874999999999986"/>
+             </Node>
+             <Node id="79">
+              <SimplePredicate field="Fare" operator="greaterThan" value="59.0874999999999986"/>
+              <Node id="90">
+               <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+                <Array n="1" type="string">&quot;C&quot;</Array>
+               </SimpleSetPredicate>
+               <Node id="94">
+                <SimplePredicate field="Fare" operator="lessOrEqual" value="97.7646000000000015"/>
+                <Node id="98" score="0">
+                 <SimplePredicate field="Fare" operator="lessOrEqual" value="85.6375000000000028"/>
+                </Node>
+                <Node id="99" score="1">
+                 <SimplePredicate field="Fare" operator="greaterThan" value="85.6375000000000028"/>
+                </Node>
+               </Node>
+               <Node id="95" score="0">
+                <SimplePredicate field="Fare" operator="greaterThan" value="97.7646000000000015"/>
+               </Node>
+              </Node>
+              <Node id="91">
+               <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+                <Array n="3" type="string">&quot;&quot;   &quot;Q&quot;   &quot;S&quot;</Array>
+               </SimpleSetPredicate>
+               <Node id="96" score="0">
+                <SimplePredicate field="Fare" operator="lessOrEqual" value="86.7374999999999972"/>
+               </Node>
+               <Node id="97" score="1">
+                <SimplePredicate field="Fare" operator="greaterThan" value="86.7374999999999972"/>
+               </Node>
+              </Node>
+             </Node>
+            </Node>
+            <Node id="63" score="0">
+             <SimplePredicate field="SibSp" operator="greaterThan" value="1.5"/>
+            </Node>
+           </Node>
+           <Node id="47" score="0">
+            <SimplePredicate field="Pclass" operator="greaterThan" value="1.5"/>
+           </Node>
+          </Node>
+         </Node>
+         <Node id="21">
+          <SimplePredicate field="Parch" operator="greaterThan" value="0.5"/>
+          <Node id="32">
+           <SimplePredicate field="Fare" operator="lessOrEqual" value="61.7771000000000043"/>
+           <Node id="48">
+            <SimplePredicate field="SibSp" operator="lessOrEqual" value="1.5"/>
+            <Node id="64" score="1">
+             <SimplePredicate field="Age" operator="lessOrEqual" value="19.5"/>
+            </Node>
+            <Node id="65">
+             <SimplePredicate field="Age" operator="greaterThan" value="19.5"/>
+             <Node id="80" score="0">
+              <SimplePredicate field="Fare" operator="lessOrEqual" value="39.4021000000000043"/>
+             </Node>
+             <Node id="81" score="1">
+              <SimplePredicate field="Fare" operator="greaterThan" value="39.4021000000000043"/>
+             </Node>
+            </Node>
+           </Node>
+           <Node id="49" score="0">
+            <SimplePredicate field="SibSp" operator="greaterThan" value="1.5"/>
+           </Node>
+          </Node>
+          <Node id="33">
+           <SimplePredicate field="Fare" operator="greaterThan" value="61.7771000000000043"/>
+           <Node id="50">
+            <SimplePredicate field="Parch" operator="lessOrEqual" value="1.5"/>
+            <Node id="66">
+             <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+              <Array n="1" type="string">&quot;C&quot;</Array>
+             </SimpleSetPredicate>
+             <Node id="82" score="1">
+              <SimplePredicate field="Fare" operator="lessOrEqual" value="95.0416500000000042"/>
+             </Node>
+             <Node id="83" score="0">
+              <SimplePredicate field="Fare" operator="greaterThan" value="95.0416500000000042"/>
+             </Node>
+            </Node>
+            <Node id="67" score="0">
+             <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+              <Array n="3" type="string">&quot;&quot;   &quot;Q&quot;   &quot;S&quot;</Array>
+             </SimpleSetPredicate>
+            </Node>
+           </Node>
+           <Node id="51" score="1">
+            <SimplePredicate field="Parch" operator="greaterThan" value="1.5"/>
+           </Node>
+          </Node>
+         </Node>
+        </Node>
+       </Node>
+      </Node>
+      <Node id="3">
+       <SimplePredicate field="Pclass" operator="greaterThan" value="2.5"/>
+       <Node id="6" score="0">
+        <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+         <Array n="1" type="string">&quot;female&quot;</Array>
+        </SimpleSetPredicate>
+       </Node>
+       <Node id="7">
+        <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+         <Array n="1" type="string">&quot;male&quot;</Array>
+        </SimpleSetPredicate>
+        <Node id="12">
+         <SimplePredicate field="Parch" operator="lessOrEqual" value="0.5"/>
+         <Node id="22">
+          <SimplePredicate field="SibSp" operator="lessOrEqual" value="1.5"/>
+          <Node id="34">
+           <SimplePredicate field="Fare" operator="lessOrEqual" value="40.3229000000000042"/>
+           <Node id="52" score="1">
+            <SimplePredicate field="Fare" operator="lessOrEqual" value="2.00625000000000009"/>
+           </Node>
+           <Node id="53" score="0">
+            <SimplePredicate field="Fare" operator="greaterThan" value="2.00625000000000009"/>
+           </Node>
+          </Node>
+          <Node id="35" score="1">
+           <SimplePredicate field="Fare" operator="greaterThan" value="40.3229000000000042"/>
+          </Node>
+         </Node>
+         <Node id="23" score="0">
+          <SimplePredicate field="SibSp" operator="greaterThan" value="1.5"/>
+         </Node>
+        </Node>
+        <Node id="13" score="0">
+         <SimplePredicate field="Parch" operator="greaterThan" value="0.5"/>
+        </Node>
+       </Node>
+      </Node>
+     </Node>
+    </TreeModel>
+   </Segment>
+   <Segment id="2">
+    <True/>
+    <TreeModel modelName="randomForest_Model" functionName="classification" algorithmName="randomForest" splitCharacteristic="binarySplit">
+     <MiningSchema>
+      <MiningField name="Survived" usageType="predicted"/>
+      <MiningField name="PassengerId" usageType="active"/>
+      <MiningField name="Pclass" usageType="active"/>
+      <MiningField name="Name" usageType="active"/>
+      <MiningField name="Sex" usageType="active"/>
+      <MiningField name="Age" usageType="active"/>
+      <MiningField name="SibSp" usageType="active"/>
+      <MiningField name="Parch" usageType="active"/>
+      <MiningField name="Ticket" usageType="active"/>
+      <MiningField name="Fare" usageType="active"/>
+      <MiningField name="Cabin" usageType="active"/>
+      <MiningField name="Embarked" usageType="active"/>
+     </MiningSchema>
+     <Node id="1">
+      <True/>
+      <Node id="2">
+       <SimplePredicate field="Age" operator="lessOrEqual" value="6.5"/>
+       <Node id="4">
+        <SimplePredicate field="SibSp" operator="lessOrEqual" value="2.5"/>
+        <Node id="8">
+         <SimplePredicate field="Age" operator="lessOrEqual" value="2.5"/>
+         <Node id="16">
+          <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+           <Array n="1" type="string">&quot;female&quot;</Array>
+          </SimpleSetPredicate>
+          <Node id="28" score="0">
+           <SimplePredicate field="Pclass" operator="lessOrEqual" value="2"/>
+          </Node>
+          <Node id="29">
+           <SimplePredicate field="Pclass" operator="greaterThan" value="2"/>
+           <Node id="40" score="1">
+            <SimplePredicate field="Age" operator="lessOrEqual" value="1.5"/>
+           </Node>
+           <Node id="41" score="0">
+            <SimplePredicate field="Age" operator="greaterThan" value="1.5"/>
+           </Node>
+          </Node>
+         </Node>
+         <Node id="17" score="1">
+          <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+           <Array n="1" type="string">&quot;male&quot;</Array>
+          </SimpleSetPredicate>
+         </Node>
+        </Node>
+        <Node id="9" score="1">
+         <SimplePredicate field="Age" operator="greaterThan" value="2.5"/>
+        </Node>
+       </Node>
+       <Node id="5">
+        <SimplePredicate field="SibSp" operator="greaterThan" value="2.5"/>
+        <Node id="10">
+         <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+          <Array n="1" type="string">&quot;female&quot;</Array>
+         </SimpleSetPredicate>
+         <Node id="18" score="0">
+          <SimplePredicate field="Age" operator="lessOrEqual" value="4"/>
+         </Node>
+         <Node id="19" score="1">
+          <SimplePredicate field="Age" operator="greaterThan" value="4"/>
+         </Node>
+        </Node>
+        <Node id="11" score="0">
+         <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+          <Array n="1" type="string">&quot;male&quot;</Array>
+         </SimpleSetPredicate>
+        </Node>
+       </Node>
+      </Node>
+      <Node id="3">
+       <SimplePredicate field="Age" operator="greaterThan" value="6.5"/>
+       <Node id="6">
+        <SimplePredicate field="Fare" operator="lessOrEqual" value="15.1728999999999985"/>
+        <Node id="12">
+         <SimplePredicate field="Pclass" operator="lessOrEqual" value="2.5"/>
+         <Node id="20" score="0">
+          <SimplePredicate field="Fare" operator="lessOrEqual" value="7.75"/>
+         </Node>
+         <Node id="21">
+          <SimplePredicate field="Fare" operator="greaterThan" value="7.75"/>
+          <Node id="30">
+           <SimplePredicate field="Age" operator="lessOrEqual" value="30.5"/>
+           <Node id="42">
+            <SimplePredicate field="Parch" operator="lessOrEqual" value="1"/>
+            <Node id="60">
+             <SimplePredicate field="Age" operator="lessOrEqual" value="29.5"/>
+             <Node id="86">
+              <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+               <Array n="1" type="string">&quot;female&quot;</Array>
+              </SimpleSetPredicate>
+              <Node id="120">
+               <SimplePredicate field="Age" operator="lessOrEqual" value="25.5"/>
+               <Node id="156" score="1">
+                <SimplePredicate field="Age" operator="lessOrEqual" value="23.5"/>
+               </Node>
+               <Node id="157" score="1">
+                <SimplePredicate field="Age" operator="greaterThan" value="23.5"/>
+               </Node>
+              </Node>
+              <Node id="121" score="1">
+               <SimplePredicate field="Age" operator="greaterThan" value="25.5"/>
+              </Node>
+             </Node>
+             <Node id="87">
+              <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+               <Array n="1" type="string">&quot;male&quot;</Array>
+              </SimpleSetPredicate>
+              <Node id="122" score="0">
+               <SimplePredicate field="Age" operator="lessOrEqual" value="27.5"/>
+              </Node>
+              <Node id="123">
+               <SimplePredicate field="Age" operator="greaterThan" value="27.5"/>
+               <Node id="158" score="0">
+                <SimplePredicate field="Age" operator="lessOrEqual" value="28.5"/>
+               </Node>
+               <Node id="159" score="0">
+                <SimplePredicate field="Age" operator="greaterThan" value="28.5"/>
+               </Node>
+              </Node>
+             </Node>
+            </Node>
+            <Node id="61">
+             <SimplePredicate field="Age" operator="greaterThan" value="29.5"/>
+             <Node id="88" score="1">
+              <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+               <Array n="1" type="string">&quot;Q&quot;</Array>
+              </SimpleSetPredicate>
+             </Node>
+             <Node id="89" score="0">
+              <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+               <Array n="3" type="string">&quot;&quot;   &quot;C&quot;   &quot;S&quot;</Array>
+              </SimpleSetPredicate>
+             </Node>
+            </Node>
+           </Node>
+           <Node id="43" score="1">
+            <SimplePredicate field="Parch" operator="greaterThan" value="1"/>
+           </Node>
+          </Node>
+          <Node id="31">
+           <SimplePredicate field="Age" operator="greaterThan" value="30.5"/>
+           <Node id="44">
+            <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+             <Array n="1" type="string">&quot;female&quot;</Array>
+            </SimpleSetPredicate>
+            <Node id="62">
+             <SimplePredicate field="Age" operator="lessOrEqual" value="53.5"/>
+             <Node id="90" score="1">
+              <SimplePredicate field="Age" operator="lessOrEqual" value="39"/>
+             </Node>
+             <Node id="91" score="1">
+              <SimplePredicate field="Age" operator="greaterThan" value="39"/>
+             </Node>
+            </Node>
+            <Node id="63" score="0">
+             <SimplePredicate field="Age" operator="greaterThan" value="53.5"/>
+            </Node>
+           </Node>
+           <Node id="45">
+            <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+             <Array n="1" type="string">&quot;male&quot;</Array>
+            </SimpleSetPredicate>
+            <Node id="64">
+             <SimplePredicate field="Fare" operator="lessOrEqual" value="13.25"/>
+             <Node id="92">
+              <SimplePredicate field="Fare" operator="lessOrEqual" value="12.9375"/>
+              <Node id="124" score="0">
+               <SimplePredicate field="Age" operator="lessOrEqual" value="49"/>
+              </Node>
+              <Node id="125" score="1">
+               <SimplePredicate field="Age" operator="greaterThan" value="49"/>
+              </Node>
+             </Node>
+             <Node id="93">
+              <SimplePredicate field="Fare" operator="greaterThan" value="12.9375"/>
+              <Node id="126">
+               <SimplePredicate field="Age" operator="lessOrEqual" value="36.5"/>
+               <Node id="160" score="1">
+                <SimplePredicate field="Age" operator="lessOrEqual" value="32.5"/>
+               </Node>
+               <Node id="161" score="1">
+                <SimplePredicate field="Age" operator="greaterThan" value="32.5"/>
+               </Node>
+              </Node>
+              <Node id="127" score="0">
+               <SimplePredicate field="Age" operator="greaterThan" value="36.5"/>
+              </Node>
+             </Node>
+            </Node>
+            <Node id="65" score="0">
+             <SimplePredicate field="Fare" operator="greaterThan" value="13.25"/>
+            </Node>
+           </Node>
+          </Node>
+         </Node>
+        </Node>
+        <Node id="13">
+         <SimplePredicate field="Pclass" operator="greaterThan" value="2.5"/>
+         <Node id="22">
+          <SimplePredicate field="SibSp" operator="lessOrEqual" value="3"/>
+          <Node id="32">
+           <SimplePredicate field="Age" operator="lessOrEqual" value="29.5"/>
+           <Node id="46">
+            <SimplePredicate field="SibSp" operator="lessOrEqual" value="0.5"/>
+            <Node id="66">
+             <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+              <Array n="2" type="string">&quot;C&quot;   &quot;Q&quot;</Array>
+             </SimpleSetPredicate>
+             <Node id="94">
+              <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+               <Array n="1" type="string">&quot;female&quot;</Array>
+              </SimpleSetPredicate>
+              <Node id="128" score="1">
+               <SimplePredicate field="Parch" operator="lessOrEqual" value="0.5"/>
+              </Node>
+              <Node id="129" score="0">
+               <SimplePredicate field="Parch" operator="greaterThan" value="0.5"/>
+              </Node>
+             </Node>
+             <Node id="95">
+              <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+               <Array n="1" type="string">&quot;male&quot;</Array>
+              </SimpleSetPredicate>
+              <Node id="130">
+               <SimplePredicate field="Age" operator="lessOrEqual" value="20.5"/>
+               <Node id="162" score="0">
+                <SimplePredicate field="Age" operator="lessOrEqual" value="19.5"/>
+               </Node>
+               <Node id="163" score="1">
+                <SimplePredicate field="Age" operator="greaterThan" value="19.5"/>
+               </Node>
+              </Node>
+              <Node id="131">
+               <SimplePredicate field="Age" operator="greaterThan" value="20.5"/>
+               <Node id="164">
+                <SimplePredicate field="Age" operator="lessOrEqual" value="28.75"/>
+                <Node id="194" score="0">
+                 <SimplePredicate field="Age" operator="lessOrEqual" value="26.5"/>
+                </Node>
+                <Node id="195">
+                 <SimplePredicate field="Age" operator="greaterThan" value="26.5"/>
+                 <Node id="220" score="0">
+                  <SimplePredicate field="Age" operator="lessOrEqual" value="28.25"/>
+                 </Node>
+                 <Node id="221" score="0">
+                  <SimplePredicate field="Age" operator="greaterThan" value="28.25"/>
+                 </Node>
+                </Node>
+               </Node>
+               <Node id="165" score="1">
+                <SimplePredicate field="Age" operator="greaterThan" value="28.75"/>
+               </Node>
+              </Node>
+             </Node>
+            </Node>
+            <Node id="67">
+             <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+              <Array n="2" type="string">&quot;&quot;   &quot;S&quot;</Array>
+             </SimpleSetPredicate>
+             <Node id="96">
+              <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+               <Array n="1" type="string">&quot;female&quot;</Array>
+              </SimpleSetPredicate>
+              <Node id="132" score="0">
+               <SimplePredicate field="Fare" operator="lessOrEqual" value="9.83960000000000079"/>
+              </Node>
+              <Node id="133" score="1">
+               <SimplePredicate field="Fare" operator="greaterThan" value="9.83960000000000079"/>
+              </Node>
+             </Node>
+             <Node id="97" score="0">
+              <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+               <Array n="1" type="string">&quot;male&quot;</Array>
+              </SimpleSetPredicate>
+             </Node>
+            </Node>
+           </Node>
+           <Node id="47">
+            <SimplePredicate field="SibSp" operator="greaterThan" value="0.5"/>
+            <Node id="68">
+             <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+              <Array n="1" type="string">&quot;female&quot;</Array>
+             </SimpleSetPredicate>
+             <Node id="98">
+              <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+               <Array n="1" type="string">&quot;C&quot;</Array>
+              </SimpleSetPredicate>
+              <Node id="134" score="1">
+               <SimplePredicate field="Fare" operator="lessOrEqual" value="12.8479500000000009"/>
+              </Node>
+              <Node id="135">
+               <SimplePredicate field="Fare" operator="greaterThan" value="12.8479500000000009"/>
+               <Node id="166" score="0">
+                <SimplePredicate field="Age" operator="lessOrEqual" value="14.75"/>
+               </Node>
+               <Node id="167">
+                <SimplePredicate field="Age" operator="greaterThan" value="14.75"/>
+                <Node id="196" score="1">
+                 <SimplePredicate field="Fare" operator="lessOrEqual" value="14.4562500000000007"/>
+                </Node>
+                <Node id="197" score="0">
+                 <SimplePredicate field="Fare" operator="greaterThan" value="14.4562500000000007"/>
+                </Node>
+               </Node>
+              </Node>
+             </Node>
+             <Node id="99" score="0">
+              <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+               <Array n="3" type="string">&quot;&quot;   &quot;Q&quot;   &quot;S&quot;</Array>
+              </SimpleSetPredicate>
+             </Node>
+            </Node>
+            <Node id="69">
+             <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+              <Array n="1" type="string">&quot;male&quot;</Array>
+             </SimpleSetPredicate>
+             <Node id="100" score="0">
+              <SimplePredicate field="Parch" operator="lessOrEqual" value="0.5"/>
+             </Node>
+             <Node id="101" score="0">
+              <SimplePredicate field="Parch" operator="greaterThan" value="0.5"/>
+             </Node>
+            </Node>
+           </Node>
+          </Node>
+          <Node id="33">
+           <SimplePredicate field="Age" operator="greaterThan" value="29.5"/>
+           <Node id="48">
+            <SimplePredicate field="Age" operator="lessOrEqual" value="32.5"/>
+            <Node id="70" score="0">
+             <SimplePredicate field="Age" operator="lessOrEqual" value="30.75"/>
+            </Node>
+            <Node id="71">
+             <SimplePredicate field="Age" operator="greaterThan" value="30.75"/>
+             <Node id="102" score="0">
+              <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+               <Array n="1" type="string">&quot;Q&quot;</Array>
+              </SimpleSetPredicate>
+             </Node>
+             <Node id="103" score="0">
+              <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+               <Array n="3" type="string">&quot;&quot;   &quot;C&quot;   &quot;S&quot;</Array>
+              </SimpleSetPredicate>
+             </Node>
+            </Node>
+           </Node>
+           <Node id="49">
+            <SimplePredicate field="Age" operator="greaterThan" value="32.5"/>
+            <Node id="72" score="0">
+             <SimplePredicate field="Age" operator="lessOrEqual" value="43.5"/>
+            </Node>
+            <Node id="73">
+             <SimplePredicate field="Age" operator="greaterThan" value="43.5"/>
+             <Node id="104" score="0">
+              <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+               <Array n="2" type="string">&quot;C&quot;   &quot;Q&quot;</Array>
+              </SimpleSetPredicate>
+             </Node>
+             <Node id="105">
+              <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+               <Array n="2" type="string">&quot;&quot;   &quot;S&quot;</Array>
+              </SimpleSetPredicate>
+              <Node id="136" score="0">
+               <SimplePredicate field="Fare" operator="lessOrEqual" value="7.88959999999999972"/>
+              </Node>
+              <Node id="137">
+               <SimplePredicate field="Fare" operator="greaterThan" value="7.88959999999999972"/>
+               <Node id="168" score="1">
+                <SimplePredicate field="Fare" operator="lessOrEqual" value="7.98750000000000071"/>
+               </Node>
+               <Node id="169" score="0">
+                <SimplePredicate field="Fare" operator="greaterThan" value="7.98750000000000071"/>
+               </Node>
+              </Node>
+             </Node>
+            </Node>
+           </Node>
+          </Node>
+         </Node>
+         <Node id="23" score="1">
+          <SimplePredicate field="SibSp" operator="greaterThan" value="3"/>
+         </Node>
+        </Node>
+       </Node>
+       <Node id="7">
+        <SimplePredicate field="Fare" operator="greaterThan" value="15.1728999999999985"/>
+        <Node id="14">
+         <SimplePredicate field="Pclass" operator="lessOrEqual" value="2.5"/>
+         <Node id="24">
+          <SimplePredicate field="Parch" operator="lessOrEqual" value="3"/>
+          <Node id="34">
+           <SimplePredicate field="Age" operator="lessOrEqual" value="43.5"/>
+           <Node id="50">
+            <SimplePredicate field="SibSp" operator="lessOrEqual" value="2.5"/>
+            <Node id="74">
+             <SimplePredicate field="Age" operator="lessOrEqual" value="31.5"/>
+             <Node id="106">
+              <SimplePredicate field="Age" operator="lessOrEqual" value="26.5"/>
+              <Node id="138">
+               <SimplePredicate field="Age" operator="lessOrEqual" value="21.5"/>
+               <Node id="170">
+                <SimplePredicate field="Age" operator="lessOrEqual" value="20"/>
+                <Node id="198" score="1">
+                 <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+                  <Array n="1" type="string">&quot;female&quot;</Array>
+                 </SimpleSetPredicate>
+                </Node>
+                <Node id="199">
+                 <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+                  <Array n="1" type="string">&quot;male&quot;</Array>
+                 </SimpleSetPredicate>
+                 <Node id="222" score="0">
+                  <SimplePredicate field="Parch" operator="lessOrEqual" value="0.5"/>
+                 </Node>
+                 <Node id="223">
+                  <SimplePredicate field="Parch" operator="greaterThan" value="0.5"/>
+                  <Node id="238" score="0">
+                   <SimplePredicate field="Fare" operator="lessOrEqual" value="73.8166500000000099"/>
+                  </Node>
+                  <Node id="239" score="1">
+                   <SimplePredicate field="Fare" operator="greaterThan" value="73.8166500000000099"/>
+                  </Node>
+                 </Node>
+                </Node>
+               </Node>
+               <Node id="171">
+                <SimplePredicate field="Age" operator="greaterThan" value="20"/>
+                <Node id="200" score="0">
+                 <SimplePredicate field="Parch" operator="lessOrEqual" value="1.5"/>
+                </Node>
+                <Node id="201" score="1">
+                 <SimplePredicate field="Parch" operator="greaterThan" value="1.5"/>
+                </Node>
+               </Node>
+              </Node>
+              <Node id="139">
+               <SimplePredicate field="Age" operator="greaterThan" value="21.5"/>
+               <Node id="172">
+                <SimplePredicate field="SibSp" operator="lessOrEqual" value="1.5"/>
+                <Node id="202" score="1">
+                 <SimplePredicate field="Age" operator="lessOrEqual" value="23.5"/>
+                </Node>
+                <Node id="203">
+                 <SimplePredicate field="Age" operator="greaterThan" value="23.5"/>
+                 <Node id="224">
+                  <SimplePredicate field="Fare" operator="lessOrEqual" value="74.25"/>
+                  <Node id="240" score="1">
+                   <SimplePredicate field="SibSp" operator="lessOrEqual" value="0.5"/>
+                  </Node>
+                  <Node id="241">
+                   <SimplePredicate field="SibSp" operator="greaterThan" value="0.5"/>
+                   <Node id="252">
+                    <SimplePredicate field="Fare" operator="lessOrEqual" value="28"/>
+                    <Node id="260" score="1">
+                     <SimplePredicate field="Parch" operator="lessOrEqual" value="0.5"/>
+                    </Node>
+                    <Node id="261" score="0">
+                     <SimplePredicate field="Parch" operator="greaterThan" value="0.5"/>
+                    </Node>
+                   </Node>
+                   <Node id="253" score="1">
+                    <SimplePredicate field="Fare" operator="greaterThan" value="28"/>
+                   </Node>
+                  </Node>
+                 </Node>
+                 <Node id="225" score="0">
+                  <SimplePredicate field="Fare" operator="greaterThan" value="74.25"/>
+                 </Node>
+                </Node>
+               </Node>
+               <Node id="173" score="0">
+                <SimplePredicate field="SibSp" operator="greaterThan" value="1.5"/>
+               </Node>
+              </Node>
+             </Node>
+             <Node id="107">
+              <SimplePredicate field="Age" operator="greaterThan" value="26.5"/>
+              <Node id="140">
+               <SimplePredicate field="Pclass" operator="lessOrEqual" value="1.5"/>
+               <Node id="174">
+                <SimplePredicate field="SibSp" operator="lessOrEqual" value="0.5"/>
+                <Node id="204">
+                 <SimplePredicate field="Fare" operator="lessOrEqual" value="188.183350000000019"/>
+                 <Node id="226" score="1">
+                  <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+                   <Array n="1" type="string">&quot;female&quot;</Array>
+                  </SimpleSetPredicate>
+                 </Node>
+                 <Node id="227">
+                  <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+                   <Array n="1" type="string">&quot;male&quot;</Array>
+                  </SimpleSetPredicate>
+                  <Node id="242" score="0">
+                   <SimplePredicate field="Fare" operator="lessOrEqual" value="38.9500000000000028"/>
+                  </Node>
+                  <Node id="243">
+                   <SimplePredicate field="Fare" operator="greaterThan" value="38.9500000000000028"/>
+                   <Node id="254" score="1">
+                    <SimplePredicate field="Age" operator="lessOrEqual" value="27.5"/>
+                   </Node>
+                   <Node id="255" score="0">
+                    <SimplePredicate field="Age" operator="greaterThan" value="27.5"/>
+                   </Node>
+                  </Node>
+                 </Node>
+                </Node>
+                <Node id="205" score="0">
+                 <SimplePredicate field="Fare" operator="greaterThan" value="188.183350000000019"/>
+                </Node>
+               </Node>
+               <Node id="175">
+                <SimplePredicate field="SibSp" operator="greaterThan" value="0.5"/>
+                <Node id="206" score="1">
+                 <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+                  <Array n="1" type="string">&quot;female&quot;</Array>
+                 </SimpleSetPredicate>
+                </Node>
+                <Node id="207">
+                 <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+                  <Array n="1" type="string">&quot;male&quot;</Array>
+                 </SimpleSetPredicate>
+                 <Node id="228" score="1">
+                  <SimplePredicate field="Fare" operator="lessOrEqual" value="61.7999999999999972"/>
+                 </Node>
+                 <Node id="229" score="0">
+                  <SimplePredicate field="Fare" operator="greaterThan" value="61.7999999999999972"/>
+                 </Node>
+                </Node>
+               </Node>
+              </Node>
+              <Node id="141">
+               <SimplePredicate field="Pclass" operator="greaterThan" value="1.5"/>
+               <Node id="176">
+                <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+                 <Array n="1" type="string">&quot;female&quot;</Array>
+                </SimpleSetPredicate>
+                <Node id="208" score="0">
+                 <SimplePredicate field="Fare" operator="lessOrEqual" value="22.5"/>
+                </Node>
+                <Node id="209" score="1">
+                 <SimplePredicate field="Fare" operator="greaterThan" value="22.5"/>
+                </Node>
+               </Node>
+               <Node id="177" score="0">
+                <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+                 <Array n="1" type="string">&quot;male&quot;</Array>
+                </SimpleSetPredicate>
+               </Node>
+              </Node>
+             </Node>
+            </Node>
+            <Node id="75">
+             <SimplePredicate field="Age" operator="greaterThan" value="31.5"/>
+             <Node id="108" score="1">
+              <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+               <Array n="1" type="string">&quot;female&quot;</Array>
+              </SimpleSetPredicate>
+             </Node>
+             <Node id="109">
+              <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+               <Array n="1" type="string">&quot;male&quot;</Array>
+              </SimpleSetPredicate>
+              <Node id="142">
+               <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+                <Array n="1" type="string">&quot;C&quot;</Array>
+               </SimpleSetPredicate>
+               <Node id="178" score="0">
+                <SimplePredicate field="Fare" operator="lessOrEqual" value="30.3500000000000014"/>
+               </Node>
+               <Node id="179" score="1">
+                <SimplePredicate field="Fare" operator="greaterThan" value="30.3500000000000014"/>
+               </Node>
+              </Node>
+              <Node id="143">
+               <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+                <Array n="3" type="string">&quot;&quot;   &quot;Q&quot;   &quot;S&quot;</Array>
+               </SimpleSetPredicate>
+               <Node id="180">
+                <SimplePredicate field="Parch" operator="lessOrEqual" value="1.5"/>
+                <Node id="210">
+                 <SimplePredicate field="Fare" operator="lessOrEqual" value="63.0271000000000043"/>
+                 <Node id="230" score="1">
+                  <SimplePredicate field="Pclass" operator="lessOrEqual" value="1.5"/>
+                 </Node>
+                 <Node id="231">
+                  <SimplePredicate field="Pclass" operator="greaterThan" value="1.5"/>
+                  <Node id="244" score="1">
+                   <SimplePredicate field="Age" operator="lessOrEqual" value="33"/>
+                  </Node>
+                  <Node id="245" score="0">
+                   <SimplePredicate field="Age" operator="greaterThan" value="33"/>
+                  </Node>
+                 </Node>
+                </Node>
+                <Node id="211">
+                 <SimplePredicate field="Fare" operator="greaterThan" value="63.0271000000000043"/>
+                 <Node id="232">
+                  <SimplePredicate field="SibSp" operator="lessOrEqual" value="1.5"/>
+                  <Node id="246" score="0">
+                   <SimplePredicate field="Age" operator="lessOrEqual" value="37"/>
+                  </Node>
+                  <Node id="247" score="1">
+                   <SimplePredicate field="Age" operator="greaterThan" value="37"/>
+                  </Node>
+                 </Node>
+                 <Node id="233" score="0">
+                  <SimplePredicate field="SibSp" operator="greaterThan" value="1.5"/>
+                 </Node>
+                </Node>
+               </Node>
+               <Node id="181" score="0">
+                <SimplePredicate field="Parch" operator="greaterThan" value="1.5"/>
+               </Node>
+              </Node>
+             </Node>
+            </Node>
+           </Node>
+           <Node id="51" score="1">
+            <SimplePredicate field="SibSp" operator="greaterThan" value="2.5"/>
+           </Node>
+          </Node>
+          <Node id="35">
+           <SimplePredicate field="Age" operator="greaterThan" value="43.5"/>
+           <Node id="52">
+            <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+             <Array n="1" type="string">&quot;female&quot;</Array>
+            </SimpleSetPredicate>
+            <Node id="76" score="1">
+             <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+              <Array n="1" type="string">&quot;C&quot;</Array>
+             </SimpleSetPredicate>
+            </Node>
+            <Node id="77">
+             <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+              <Array n="3" type="string">&quot;&quot;   &quot;Q&quot;   &quot;S&quot;</Array>
+             </SimpleSetPredicate>
+             <Node id="110" score="0">
+              <SimplePredicate field="Age" operator="lessOrEqual" value="44.5"/>
+             </Node>
+             <Node id="111" score="1">
+              <SimplePredicate field="Age" operator="greaterThan" value="44.5"/>
+             </Node>
+            </Node>
+           </Node>
+           <Node id="53">
+            <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+             <Array n="1" type="string">&quot;male&quot;</Array>
+            </SimpleSetPredicate>
+            <Node id="78">
+             <SimplePredicate field="Pclass" operator="lessOrEqual" value="1.5"/>
+             <Node id="112">
+              <SimplePredicate field="Age" operator="lessOrEqual" value="75.5"/>
+              <Node id="144">
+               <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+                <Array n="1" type="string">&quot;C&quot;</Array>
+               </SimpleSetPredicate>
+               <Node id="182">
+                <SimplePredicate field="Parch" operator="lessOrEqual" value="0.5"/>
+                <Node id="212" score="0">
+                 <SimplePredicate field="SibSp" operator="lessOrEqual" value="0.5"/>
+                </Node>
+                <Node id="213" score="1">
+                 <SimplePredicate field="SibSp" operator="greaterThan" value="0.5"/>
+                </Node>
+               </Node>
+               <Node id="183" score="0">
+                <SimplePredicate field="Parch" operator="greaterThan" value="0.5"/>
+               </Node>
+              </Node>
+              <Node id="145">
+               <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+                <Array n="3" type="string">&quot;&quot;   &quot;Q&quot;   &quot;S&quot;</Array>
+               </SimpleSetPredicate>
+               <Node id="184">
+                <SimplePredicate field="SibSp" operator="lessOrEqual" value="1.5"/>
+                <Node id="214">
+                 <SimplePredicate field="Fare" operator="lessOrEqual" value="31.4103999999999992"/>
+                 <Node id="234">
+                  <SimplePredicate field="Age" operator="lessOrEqual" value="53.5"/>
+                  <Node id="248">
+                   <SimplePredicate field="Age" operator="lessOrEqual" value="48.25"/>
+                   <Node id="256" score="0">
+                    <SimplePredicate field="Fare" operator="lessOrEqual" value="27.5249999999999986"/>
+                   </Node>
+                   <Node id="257" score="0">
+                    <SimplePredicate field="Fare" operator="greaterThan" value="27.5249999999999986"/>
+                   </Node>
+                  </Node>
+                  <Node id="249" score="1">
+                   <SimplePredicate field="Age" operator="greaterThan" value="48.25"/>
+                  </Node>
+                 </Node>
+                 <Node id="235" score="0">
+                  <SimplePredicate field="Age" operator="greaterThan" value="53.5"/>
+                 </Node>
+                </Node>
+                <Node id="215">
+                 <SimplePredicate field="Fare" operator="greaterThan" value="31.4103999999999992"/>
+                 <Node id="236" score="0">
+                  <SimplePredicate field="Age" operator="lessOrEqual" value="47.5"/>
+                 </Node>
+                 <Node id="237">
+                  <SimplePredicate field="Age" operator="greaterThan" value="47.5"/>
+                  <Node id="250" score="0">
+                   <SimplePredicate field="SibSp" operator="lessOrEqual" value="0.5"/>
+                  </Node>
+                  <Node id="251">
+                   <SimplePredicate field="SibSp" operator="greaterThan" value="0.5"/>
+                   <Node id="258" score="1">
+                    <SimplePredicate field="Parch" operator="lessOrEqual" value="0.5"/>
+                   </Node>
+                   <Node id="259" score="0">
+                    <SimplePredicate field="Parch" operator="greaterThan" value="0.5"/>
+                   </Node>
+                  </Node>
+                 </Node>
+                </Node>
+               </Node>
+               <Node id="185">
+                <SimplePredicate field="SibSp" operator="greaterThan" value="1.5"/>
+                <Node id="216" score="0">
+                 <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+                  <Array n="1" type="string">&quot;Q&quot;</Array>
+                 </SimpleSetPredicate>
+                </Node>
+                <Node id="217" score="1">
+                 <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+                  <Array n="3" type="string">&quot;&quot;   &quot;C&quot;   &quot;S&quot;</Array>
+                 </SimpleSetPredicate>
+                </Node>
+               </Node>
+              </Node>
+             </Node>
+             <Node id="113" score="1">
+              <SimplePredicate field="Age" operator="greaterThan" value="75.5"/>
+             </Node>
+            </Node>
+            <Node id="79" score="0">
+             <SimplePredicate field="Pclass" operator="greaterThan" value="1.5"/>
+            </Node>
+           </Node>
+          </Node>
+         </Node>
+         <Node id="25" score="0">
+          <SimplePredicate field="Parch" operator="greaterThan" value="3"/>
+         </Node>
+        </Node>
+        <Node id="15">
+         <SimplePredicate field="Pclass" operator="greaterThan" value="2.5"/>
+         <Node id="26">
+          <SimplePredicate field="Fare" operator="lessOrEqual" value="15.9750000000000014"/>
+          <Node id="36">
+           <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+            <Array n="1" type="string">&quot;Q&quot;</Array>
+           </SimpleSetPredicate>
+           <Node id="54" score="0">
+            <SimplePredicate field="SibSp" operator="lessOrEqual" value="0.5"/>
+           </Node>
+           <Node id="55">
+            <SimplePredicate field="SibSp" operator="greaterThan" value="0.5"/>
+            <Node id="80" score="1">
+             <SimplePredicate field="Parch" operator="lessOrEqual" value="0.5"/>
+            </Node>
+            <Node id="81" score="0">
+             <SimplePredicate field="Parch" operator="greaterThan" value="0.5"/>
+            </Node>
+           </Node>
+          </Node>
+          <Node id="37" score="1">
+           <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+            <Array n="3" type="string">&quot;&quot;   &quot;C&quot;   &quot;S&quot;</Array>
+           </SimpleSetPredicate>
+          </Node>
+         </Node>
+         <Node id="27">
+          <SimplePredicate field="Fare" operator="greaterThan" value="15.9750000000000014"/>
+          <Node id="38">
+           <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+            <Array n="1" type="string">&quot;C&quot;</Array>
+           </SimpleSetPredicate>
+           <Node id="56" score="1">
+            <SimplePredicate field="SibSp" operator="lessOrEqual" value="1"/>
+           </Node>
+           <Node id="57" score="0">
+            <SimplePredicate field="SibSp" operator="greaterThan" value="1"/>
+           </Node>
+          </Node>
+          <Node id="39">
+           <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+            <Array n="3" type="string">&quot;&quot;   &quot;Q&quot;   &quot;S&quot;</Array>
+           </SimpleSetPredicate>
+           <Node id="58">
+            <SimplePredicate field="Parch" operator="lessOrEqual" value="0.5"/>
+            <Node id="82">
+             <SimplePredicate field="SibSp" operator="lessOrEqual" value="0.5"/>
+             <Node id="114" score="0">
+              <SimplePredicate field="Age" operator="lessOrEqual" value="23.5"/>
+             </Node>
+             <Node id="115">
+              <SimplePredicate field="Age" operator="greaterThan" value="23.5"/>
+              <Node id="146" score="1">
+               <SimplePredicate field="Age" operator="lessOrEqual" value="27"/>
+              </Node>
+              <Node id="147">
+               <SimplePredicate field="Age" operator="greaterThan" value="27"/>
+               <Node id="186" score="1">
+                <SimplePredicate field="Age" operator="lessOrEqual" value="28.25"/>
+               </Node>
+               <Node id="187" score="0">
+                <SimplePredicate field="Age" operator="greaterThan" value="28.25"/>
+               </Node>
+              </Node>
+             </Node>
+            </Node>
+            <Node id="83">
+             <SimplePredicate field="SibSp" operator="greaterThan" value="0.5"/>
+             <Node id="116">
+              <SimplePredicate field="Fare" operator="lessOrEqual" value="17.6000000000000014"/>
+              <Node id="148" score="0">
+               <SimplePredicate field="Fare" operator="lessOrEqual" value="16.75"/>
+              </Node>
+              <Node id="149" score="1">
+               <SimplePredicate field="Fare" operator="greaterThan" value="16.75"/>
+              </Node>
+             </Node>
+             <Node id="117">
+              <SimplePredicate field="Fare" operator="greaterThan" value="17.6000000000000014"/>
+              <Node id="150">
+               <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+                <Array n="1" type="string">&quot;Q&quot;</Array>
+               </SimpleSetPredicate>
+               <Node id="188" score="0">
+                <SimplePredicate field="SibSp" operator="lessOrEqual" value="1.5"/>
+               </Node>
+               <Node id="189" score="1">
+                <SimplePredicate field="SibSp" operator="greaterThan" value="1.5"/>
+               </Node>
+              </Node>
+              <Node id="151" score="0">
+               <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+                <Array n="3" type="string">&quot;&quot;   &quot;C&quot;   &quot;S&quot;</Array>
+               </SimpleSetPredicate>
+              </Node>
+             </Node>
+            </Node>
+           </Node>
+           <Node id="59">
+            <SimplePredicate field="Parch" operator="greaterThan" value="0.5"/>
+            <Node id="84" score="0">
+             <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+              <Array n="1" type="string">&quot;Q&quot;</Array>
+             </SimpleSetPredicate>
+            </Node>
+            <Node id="85">
+             <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+              <Array n="3" type="string">&quot;&quot;   &quot;C&quot;   &quot;S&quot;</Array>
+             </SimpleSetPredicate>
+             <Node id="118">
+              <SimplePredicate field="Age" operator="lessOrEqual" value="34"/>
+              <Node id="152">
+               <SimplePredicate field="Fare" operator="lessOrEqual" value="20.5499999999999972"/>
+               <Node id="190" score="1">
+                <SimplePredicate field="SibSp" operator="lessOrEqual" value="0.5"/>
+               </Node>
+               <Node id="191" score="0">
+                <SimplePredicate field="SibSp" operator="greaterThan" value="0.5"/>
+               </Node>
+              </Node>
+              <Node id="153" score="0">
+               <SimplePredicate field="Fare" operator="greaterThan" value="20.5499999999999972"/>
+              </Node>
+             </Node>
+             <Node id="119">
+              <SimplePredicate field="Age" operator="greaterThan" value="34"/>
+              <Node id="154" score="0">
+               <SimplePredicate field="SibSp" operator="lessOrEqual" value="0.5"/>
+              </Node>
+              <Node id="155">
+               <SimplePredicate field="SibSp" operator="greaterThan" value="0.5"/>
+               <Node id="192">
+                <SimplePredicate field="Parch" operator="lessOrEqual" value="2.5"/>
+                <Node id="218" score="1">
+                 <SimplePredicate field="Age" operator="lessOrEqual" value="35.5"/>
+                </Node>
+                <Node id="219" score="0">
+                 <SimplePredicate field="Age" operator="greaterThan" value="35.5"/>
+                </Node>
+               </Node>
+               <Node id="193" score="0">
+                <SimplePredicate field="Parch" operator="greaterThan" value="2.5"/>
+               </Node>
+              </Node>
+             </Node>
+            </Node>
+           </Node>
+          </Node>
+         </Node>
+        </Node>
+       </Node>
+      </Node>
+     </Node>
+    </TreeModel>
+   </Segment>
+   <Segment id="3">
+    <True/>
+    <TreeModel modelName="randomForest_Model" functionName="classification" algorithmName="randomForest" splitCharacteristic="binarySplit">
+     <MiningSchema>
+      <MiningField name="Survived" usageType="predicted"/>
+      <MiningField name="PassengerId" usageType="active"/>
+      <MiningField name="Pclass" usageType="active"/>
+      <MiningField name="Name" usageType="active"/>
+      <MiningField name="Sex" usageType="active"/>
+      <MiningField name="Age" usageType="active"/>
+      <MiningField name="SibSp" usageType="active"/>
+      <MiningField name="Parch" usageType="active"/>
+      <MiningField name="Ticket" usageType="active"/>
+      <MiningField name="Fare" usageType="active"/>
+      <MiningField name="Cabin" usageType="active"/>
+      <MiningField name="Embarked" usageType="active"/>
+     </MiningSchema>
+     <Node id="1">
+      <True/>
+      <Node id="2">
+       <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+        <Array n="2" type="string">&quot;&quot;   &quot;C&quot;</Array>
+       </SimpleSetPredicate>
+       <Node id="4">
+        <SimplePredicate field="SibSp" operator="lessOrEqual" value="0.5"/>
+        <Node id="8">
+         <SimplePredicate field="Fare" operator="lessOrEqual" value="29.2062499999999972"/>
+         <Node id="16">
+          <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+           <Array n="1" type="string">&quot;female&quot;</Array>
+          </SimpleSetPredicate>
+          <Node id="32">
+           <SimplePredicate field="Age" operator="lessOrEqual" value="26"/>
+           <Node id="56" score="1">
+            <SimplePredicate field="Fare" operator="lessOrEqual" value="14.1229499999999994"/>
+           </Node>
+           <Node id="57">
+            <SimplePredicate field="Fare" operator="greaterThan" value="14.1229499999999994"/>
+            <Node id="84" score="0">
+             <SimplePredicate field="Fare" operator="lessOrEqual" value="16.8582999999999998"/>
+            </Node>
+            <Node id="85" score="1">
+             <SimplePredicate field="Fare" operator="greaterThan" value="16.8582999999999998"/>
+            </Node>
+           </Node>
+          </Node>
+          <Node id="33">
+           <SimplePredicate field="Age" operator="greaterThan" value="26"/>
+           <Node id="58" score="1">
+            <SimplePredicate field="Fare" operator="lessOrEqual" value="10.8416999999999994"/>
+           </Node>
+           <Node id="59" score="0">
+            <SimplePredicate field="Fare" operator="greaterThan" value="10.8416999999999994"/>
+           </Node>
+          </Node>
+         </Node>
+         <Node id="17">
+          <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+           <Array n="1" type="string">&quot;male&quot;</Array>
+          </SimpleSetPredicate>
+          <Node id="34" score="1">
+           <SimplePredicate field="Age" operator="lessOrEqual" value="5.70999999999999996"/>
+          </Node>
+          <Node id="35">
+           <SimplePredicate field="Age" operator="greaterThan" value="5.70999999999999996"/>
+           <Node id="60">
+            <SimplePredicate field="Age" operator="lessOrEqual" value="34.75"/>
+            <Node id="86">
+             <SimplePredicate field="Age" operator="lessOrEqual" value="27"/>
+             <Node id="106">
+              <SimplePredicate field="Age" operator="lessOrEqual" value="25.5"/>
+              <Node id="130" score="0">
+               <SimplePredicate field="Fare" operator="lessOrEqual" value="7.22710000000000008"/>
+              </Node>
+              <Node id="131">
+               <SimplePredicate field="Fare" operator="greaterThan" value="7.22710000000000008"/>
+               <Node id="148" score="0">
+                <SimplePredicate field="Pclass" operator="lessOrEqual" value="2.5"/>
+               </Node>
+               <Node id="149">
+                <SimplePredicate field="Pclass" operator="greaterThan" value="2.5"/>
+                <Node id="160">
+                 <SimplePredicate field="Age" operator="lessOrEqual" value="21"/>
+                 <Node id="166" score="0">
+                  <SimplePredicate field="Age" operator="lessOrEqual" value="15.5"/>
+                 </Node>
+                 <Node id="167" score="1">
+                  <SimplePredicate field="Age" operator="greaterThan" value="15.5"/>
+                 </Node>
+                </Node>
+                <Node id="161" score="0">
+                 <SimplePredicate field="Age" operator="greaterThan" value="21"/>
+                </Node>
+               </Node>
+              </Node>
+             </Node>
+             <Node id="107" score="1">
+              <SimplePredicate field="Age" operator="greaterThan" value="25.5"/>
+             </Node>
+            </Node>
+            <Node id="87">
+             <SimplePredicate field="Age" operator="greaterThan" value="27"/>
+             <Node id="108">
+              <SimplePredicate field="Age" operator="lessOrEqual" value="29"/>
+              <Node id="132">
+               <SimplePredicate field="Fare" operator="lessOrEqual" value="7.97085000000000043"/>
+               <Node id="150" score="0">
+                <SimplePredicate field="Fare" operator="lessOrEqual" value="7.22710000000000008"/>
+               </Node>
+               <Node id="151" score="0">
+                <SimplePredicate field="Fare" operator="greaterThan" value="7.22710000000000008"/>
+               </Node>
+              </Node>
+              <Node id="133" score="0">
+               <SimplePredicate field="Fare" operator="greaterThan" value="7.97085000000000043"/>
+              </Node>
+             </Node>
+             <Node id="109" score="0">
+              <SimplePredicate field="Age" operator="greaterThan" value="29"/>
+             </Node>
+            </Node>
+           </Node>
+           <Node id="61">
+            <SimplePredicate field="Age" operator="greaterThan" value="34.75"/>
+            <Node id="88">
+             <SimplePredicate field="Age" operator="lessOrEqual" value="35.5"/>
+             <Node id="110" score="1">
+              <SimplePredicate field="Pclass" operator="lessOrEqual" value="2"/>
+             </Node>
+             <Node id="111" score="0">
+              <SimplePredicate field="Pclass" operator="greaterThan" value="2"/>
+             </Node>
+            </Node>
+            <Node id="89" score="0">
+             <SimplePredicate field="Age" operator="greaterThan" value="35.5"/>
+            </Node>
+           </Node>
+          </Node>
+         </Node>
+        </Node>
+        <Node id="9">
+         <SimplePredicate field="Fare" operator="greaterThan" value="29.2062499999999972"/>
+         <Node id="18" score="1">
+          <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+           <Array n="1" type="string">&quot;female&quot;</Array>
+          </SimpleSetPredicate>
+         </Node>
+         <Node id="19">
+          <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+           <Array n="1" type="string">&quot;male&quot;</Array>
+          </SimpleSetPredicate>
+          <Node id="36">
+           <SimplePredicate field="Age" operator="lessOrEqual" value="36.5"/>
+           <Node id="62">
+            <SimplePredicate field="Age" operator="lessOrEqual" value="27.5"/>
+            <Node id="90">
+             <SimplePredicate field="Pclass" operator="lessOrEqual" value="1.5"/>
+             <Node id="112" score="1">
+              <SimplePredicate field="Fare" operator="lessOrEqual" value="123.258299999999991"/>
+             </Node>
+             <Node id="113" score="0">
+              <SimplePredicate field="Fare" operator="greaterThan" value="123.258299999999991"/>
+             </Node>
+            </Node>
+            <Node id="91" score="1">
+             <SimplePredicate field="Pclass" operator="greaterThan" value="1.5"/>
+            </Node>
+           </Node>
+           <Node id="63" score="1">
+            <SimplePredicate field="Age" operator="greaterThan" value="27.5"/>
+           </Node>
+          </Node>
+          <Node id="37" score="0">
+           <SimplePredicate field="Age" operator="greaterThan" value="36.5"/>
+          </Node>
+         </Node>
+        </Node>
+       </Node>
+       <Node id="5">
+        <SimplePredicate field="SibSp" operator="greaterThan" value="0.5"/>
+        <Node id="10">
+         <SimplePredicate field="Fare" operator="lessOrEqual" value="31.8000000000000007"/>
+         <Node id="20">
+          <SimplePredicate field="Age" operator="lessOrEqual" value="20.5"/>
+          <Node id="38" score="0">
+           <SimplePredicate field="Age" operator="lessOrEqual" value="10.5"/>
+          </Node>
+          <Node id="39" score="1">
+           <SimplePredicate field="Age" operator="greaterThan" value="10.5"/>
+          </Node>
+         </Node>
+         <Node id="21">
+          <SimplePredicate field="Age" operator="greaterThan" value="20.5"/>
+          <Node id="40" score="0">
+           <SimplePredicate field="Fare" operator="lessOrEqual" value="14.8499999999999996"/>
+          </Node>
+          <Node id="41">
+           <SimplePredicate field="Fare" operator="greaterThan" value="14.8499999999999996"/>
+           <Node id="64" score="0">
+            <SimplePredicate field="Parch" operator="lessOrEqual" value="0.5"/>
+           </Node>
+           <Node id="65" score="1">
+            <SimplePredicate field="Parch" operator="greaterThan" value="0.5"/>
+           </Node>
+          </Node>
+         </Node>
+        </Node>
+        <Node id="11">
+         <SimplePredicate field="Fare" operator="greaterThan" value="31.8000000000000007"/>
+         <Node id="22">
+          <SimplePredicate field="Parch" operator="lessOrEqual" value="0.5"/>
+          <Node id="42" score="1">
+           <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+            <Array n="1" type="string">&quot;female&quot;</Array>
+           </SimpleSetPredicate>
+          </Node>
+          <Node id="43">
+           <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+            <Array n="1" type="string">&quot;male&quot;</Array>
+           </SimpleSetPredicate>
+           <Node id="66" score="1">
+            <SimplePredicate field="Fare" operator="lessOrEqual" value="98.7520999999999987"/>
+           </Node>
+           <Node id="67" score="0">
+            <SimplePredicate field="Fare" operator="greaterThan" value="98.7520999999999987"/>
+           </Node>
+          </Node>
+         </Node>
+         <Node id="23" score="1">
+          <SimplePredicate field="Parch" operator="greaterThan" value="0.5"/>
+         </Node>
+        </Node>
+       </Node>
+      </Node>
+      <Node id="3">
+       <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+        <Array n="2" type="string">&quot;Q&quot;   &quot;S&quot;</Array>
+       </SimpleSetPredicate>
+       <Node id="6">
+        <SimplePredicate field="Pclass" operator="lessOrEqual" value="2.5"/>
+        <Node id="12">
+         <SimplePredicate field="Pclass" operator="lessOrEqual" value="1.5"/>
+         <Node id="24">
+          <SimplePredicate field="Fare" operator="lessOrEqual" value="77.6228999999999871"/>
+          <Node id="44">
+           <SimplePredicate field="Fare" operator="lessOrEqual" value="26.46875"/>
+           <Node id="68" score="0">
+            <SimplePredicate field="Fare" operator="lessOrEqual" value="12.9646000000000008"/>
+           </Node>
+           <Node id="69" score="1">
+            <SimplePredicate field="Fare" operator="greaterThan" value="12.9646000000000008"/>
+           </Node>
+          </Node>
+          <Node id="45">
+           <SimplePredicate field="Fare" operator="greaterThan" value="26.46875"/>
+           <Node id="70" score="1">
+            <SimplePredicate field="Age" operator="lessOrEqual" value="27.5"/>
+           </Node>
+           <Node id="71">
+            <SimplePredicate field="Age" operator="greaterThan" value="27.5"/>
+            <Node id="92" score="1">
+             <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+              <Array n="1" type="string">&quot;female&quot;</Array>
+             </SimpleSetPredicate>
+            </Node>
+            <Node id="93">
+             <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+              <Array n="1" type="string">&quot;male&quot;</Array>
+             </SimpleSetPredicate>
+             <Node id="114">
+              <SimplePredicate field="Parch" operator="lessOrEqual" value="0.5"/>
+              <Node id="134">
+               <SimplePredicate field="SibSp" operator="lessOrEqual" value="0.5"/>
+               <Node id="152">
+                <SimplePredicate field="Fare" operator="lessOrEqual" value="30.75"/>
+                <Node id="162" score="0">
+                 <SimplePredicate field="Fare" operator="lessOrEqual" value="29.25"/>
+                </Node>
+                <Node id="163">
+                 <SimplePredicate field="Fare" operator="greaterThan" value="29.25"/>
+                 <Node id="168" score="1">
+                  <SimplePredicate field="Fare" operator="lessOrEqual" value="30.25"/>
+                 </Node>
+                 <Node id="169" score="1">
+                  <SimplePredicate field="Fare" operator="greaterThan" value="30.25"/>
+                 </Node>
+                </Node>
+               </Node>
+               <Node id="153" score="0">
+                <SimplePredicate field="Fare" operator="greaterThan" value="30.75"/>
+               </Node>
+              </Node>
+              <Node id="135">
+               <SimplePredicate field="SibSp" operator="greaterThan" value="0.5"/>
+               <Node id="154">
+                <SimplePredicate field="Age" operator="lessOrEqual" value="36.5"/>
+                <Node id="164" score="0">
+                 <SimplePredicate field="Fare" operator="lessOrEqual" value="61.7999999999999972"/>
+                </Node>
+                <Node id="165" score="0">
+                 <SimplePredicate field="Fare" operator="greaterThan" value="61.7999999999999972"/>
+                </Node>
+               </Node>
+               <Node id="155" score="1">
+                <SimplePredicate field="Age" operator="greaterThan" value="36.5"/>
+               </Node>
+              </Node>
+             </Node>
+             <Node id="115" score="0">
+              <SimplePredicate field="Parch" operator="greaterThan" value="0.5"/>
+             </Node>
+            </Node>
+           </Node>
+          </Node>
+         </Node>
+         <Node id="25">
+          <SimplePredicate field="Fare" operator="greaterThan" value="77.6228999999999871"/>
+          <Node id="46" score="0">
+           <SimplePredicate field="Age" operator="lessOrEqual" value="3"/>
+          </Node>
+          <Node id="47">
+           <SimplePredicate field="Age" operator="greaterThan" value="3"/>
+           <Node id="72">
+            <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+             <Array n="1" type="string">&quot;Q&quot;</Array>
+            </SimpleSetPredicate>
+            <Node id="94" score="1">
+             <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+              <Array n="1" type="string">&quot;female&quot;</Array>
+             </SimpleSetPredicate>
+            </Node>
+            <Node id="95" score="0">
+             <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+              <Array n="1" type="string">&quot;male&quot;</Array>
+             </SimpleSetPredicate>
+            </Node>
+           </Node>
+           <Node id="73">
+            <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+             <Array n="3" type="string">&quot;&quot;   &quot;C&quot;   &quot;S&quot;</Array>
+            </SimpleSetPredicate>
+            <Node id="96">
+             <SimplePredicate field="Fare" operator="lessOrEqual" value="216.558350000000019"/>
+             <Node id="116" score="1">
+              <SimplePredicate field="Age" operator="lessOrEqual" value="35.5"/>
+             </Node>
+             <Node id="117">
+              <SimplePredicate field="Age" operator="greaterThan" value="35.5"/>
+              <Node id="136" score="1">
+               <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+                <Array n="1" type="string">&quot;female&quot;</Array>
+               </SimpleSetPredicate>
+              </Node>
+              <Node id="137">
+               <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+                <Array n="1" type="string">&quot;male&quot;</Array>
+               </SimpleSetPredicate>
+               <Node id="156" score="0">
+                <SimplePredicate field="Fare" operator="lessOrEqual" value="84.4249999999999972"/>
+               </Node>
+               <Node id="157" score="1">
+                <SimplePredicate field="Fare" operator="greaterThan" value="84.4249999999999972"/>
+               </Node>
+              </Node>
+             </Node>
+            </Node>
+            <Node id="97">
+             <SimplePredicate field="Fare" operator="greaterThan" value="216.558350000000019"/>
+             <Node id="118" score="1">
+              <SimplePredicate field="Age" operator="lessOrEqual" value="25.5"/>
+             </Node>
+             <Node id="119" score="0">
+              <SimplePredicate field="Age" operator="greaterThan" value="25.5"/>
+             </Node>
+            </Node>
+           </Node>
+          </Node>
+         </Node>
+        </Node>
+        <Node id="13">
+         <SimplePredicate field="Pclass" operator="greaterThan" value="1.5"/>
+         <Node id="26" score="1">
+          <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+           <Array n="1" type="string">&quot;female&quot;</Array>
+          </SimpleSetPredicate>
+         </Node>
+         <Node id="27">
+          <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+           <Array n="1" type="string">&quot;male&quot;</Array>
+          </SimpleSetPredicate>
+          <Node id="48">
+           <SimplePredicate field="Fare" operator="lessOrEqual" value="26.125"/>
+           <Node id="74" score="1">
+            <SimplePredicate field="Age" operator="lessOrEqual" value="9.5"/>
+           </Node>
+           <Node id="75">
+            <SimplePredicate field="Age" operator="greaterThan" value="9.5"/>
+            <Node id="98">
+             <SimplePredicate field="Fare" operator="lessOrEqual" value="13.25"/>
+             <Node id="120">
+              <SimplePredicate field="Age" operator="lessOrEqual" value="30.5"/>
+              <Node id="138" score="0">
+               <SimplePredicate field="Fare" operator="lessOrEqual" value="11"/>
+              </Node>
+              <Node id="139" score="0">
+               <SimplePredicate field="Fare" operator="greaterThan" value="11"/>
+              </Node>
+             </Node>
+             <Node id="121">
+              <SimplePredicate field="Age" operator="greaterThan" value="30.5"/>
+              <Node id="140" score="0">
+               <SimplePredicate field="Age" operator="lessOrEqual" value="64"/>
+              </Node>
+              <Node id="141" score="0">
+               <SimplePredicate field="Age" operator="greaterThan" value="64"/>
+              </Node>
+             </Node>
+            </Node>
+            <Node id="99">
+             <SimplePredicate field="Fare" operator="greaterThan" value="13.25"/>
+             <Node id="122" score="0">
+              <SimplePredicate field="Fare" operator="lessOrEqual" value="23.5"/>
+             </Node>
+             <Node id="123" score="0">
+              <SimplePredicate field="Fare" operator="greaterThan" value="23.5"/>
+             </Node>
+            </Node>
+           </Node>
+          </Node>
+          <Node id="49" score="0">
+           <SimplePredicate field="Fare" operator="greaterThan" value="26.125"/>
+          </Node>
+         </Node>
+        </Node>
+       </Node>
+       <Node id="7">
+        <SimplePredicate field="Pclass" operator="greaterThan" value="2.5"/>
+        <Node id="14">
+         <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+          <Array n="1" type="string">&quot;female&quot;</Array>
+         </SimpleSetPredicate>
+         <Node id="28">
+          <SimplePredicate field="Fare" operator="lessOrEqual" value="17.25"/>
+          <Node id="50">
+           <SimplePredicate field="Age" operator="lessOrEqual" value="19.5"/>
+           <Node id="76">
+            <SimplePredicate field="Parch" operator="lessOrEqual" value="1.5"/>
+            <Node id="100">
+             <SimplePredicate field="Fare" operator="lessOrEqual" value="10.7979000000000003"/>
+             <Node id="124" score="0">
+              <SimplePredicate field="Age" operator="lessOrEqual" value="8.5"/>
+             </Node>
+             <Node id="125">
+              <SimplePredicate field="Age" operator="greaterThan" value="8.5"/>
+              <Node id="142" score="1">
+               <SimplePredicate field="Age" operator="lessOrEqual" value="17"/>
+              </Node>
+              <Node id="143" score="1">
+               <SimplePredicate field="Age" operator="greaterThan" value="17"/>
+              </Node>
+             </Node>
+            </Node>
+            <Node id="101" score="1">
+             <SimplePredicate field="Fare" operator="greaterThan" value="10.7979000000000003"/>
+            </Node>
+           </Node>
+           <Node id="77" score="1">
+            <SimplePredicate field="Parch" operator="greaterThan" value="1.5"/>
+           </Node>
+          </Node>
+          <Node id="51">
+           <SimplePredicate field="Age" operator="greaterThan" value="19.5"/>
+           <Node id="78" score="1">
+            <SimplePredicate field="SibSp" operator="lessOrEqual" value="0.5"/>
+           </Node>
+           <Node id="79">
+            <SimplePredicate field="SibSp" operator="greaterThan" value="0.5"/>
+            <Node id="102" score="1">
+             <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+              <Array n="1" type="string">&quot;Q&quot;</Array>
+             </SimpleSetPredicate>
+            </Node>
+            <Node id="103" score="0">
+             <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+              <Array n="3" type="string">&quot;&quot;   &quot;C&quot;   &quot;S&quot;</Array>
+             </SimpleSetPredicate>
+            </Node>
+           </Node>
+          </Node>
+         </Node>
+         <Node id="29">
+          <SimplePredicate field="Fare" operator="greaterThan" value="17.25"/>
+          <Node id="52">
+           <SimplePredicate field="SibSp" operator="lessOrEqual" value="4.5"/>
+           <Node id="80">
+            <SimplePredicate field="Parch" operator="lessOrEqual" value="5.5"/>
+            <Node id="104">
+             <SimplePredicate field="Fare" operator="lessOrEqual" value="31.3312499999999972"/>
+             <Node id="126">
+              <SimplePredicate field="Age" operator="lessOrEqual" value="33"/>
+              <Node id="144" score="0">
+               <SimplePredicate field="Parch" operator="lessOrEqual" value="0.5"/>
+              </Node>
+              <Node id="145">
+               <SimplePredicate field="Parch" operator="greaterThan" value="0.5"/>
+               <Node id="158" score="0">
+                <SimplePredicate field="Fare" operator="lessOrEqual" value="22.7374999999999972"/>
+               </Node>
+               <Node id="159" score="0">
+                <SimplePredicate field="Fare" operator="greaterThan" value="22.7374999999999972"/>
+               </Node>
+              </Node>
+             </Node>
+             <Node id="127">
+              <SimplePredicate field="Age" operator="greaterThan" value="33"/>
+              <Node id="146" score="1">
+               <SimplePredicate field="Parch" operator="lessOrEqual" value="1.5"/>
+              </Node>
+              <Node id="147" score="0">
+               <SimplePredicate field="Parch" operator="greaterThan" value="1.5"/>
+              </Node>
+             </Node>
+            </Node>
+            <Node id="105">
+             <SimplePredicate field="Fare" operator="greaterThan" value="31.3312499999999972"/>
+             <Node id="128" score="1">
+              <SimplePredicate field="Fare" operator="lessOrEqual" value="32.8812500000000014"/>
+             </Node>
+             <Node id="129" score="0">
+              <SimplePredicate field="Fare" operator="greaterThan" value="32.8812500000000014"/>
+             </Node>
+            </Node>
+           </Node>
+           <Node id="81" score="0">
+            <SimplePredicate field="Parch" operator="greaterThan" value="5.5"/>
+           </Node>
+          </Node>
+          <Node id="53" score="0">
+           <SimplePredicate field="SibSp" operator="greaterThan" value="4.5"/>
+          </Node>
+         </Node>
+        </Node>
+        <Node id="15">
+         <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+          <Array n="1" type="string">&quot;male&quot;</Array>
+         </SimpleSetPredicate>
+         <Node id="30" score="0">
+          <SimplePredicate field="Fare" operator="lessOrEqual" value="7.9104000000000001"/>
+         </Node>
+         <Node id="31">
+          <SimplePredicate field="Fare" operator="greaterThan" value="7.9104000000000001"/>
+          <Node id="54" score="0">
+           <SimplePredicate field="SibSp" operator="lessOrEqual" value="1.5"/>
+          </Node>
+          <Node id="55">
+           <SimplePredicate field="SibSp" operator="greaterThan" value="1.5"/>
+           <Node id="82" score="0">
+            <SimplePredicate field="Fare" operator="lessOrEqual" value="30.2562500000000014"/>
+           </Node>
+           <Node id="83" score="0">
+            <SimplePredicate field="Fare" operator="greaterThan" value="30.2562500000000014"/>
+           </Node>
+          </Node>
+         </Node>
+        </Node>
+       </Node>
+      </Node>
+     </Node>
+    </TreeModel>
+   </Segment>
+   <Segment id="4">
+    <True/>
+    <TreeModel modelName="randomForest_Model" functionName="classification" algorithmName="randomForest" splitCharacteristic="binarySplit">
+     <MiningSchema>
+      <MiningField name="Survived" usageType="predicted"/>
+      <MiningField name="PassengerId" usageType="active"/>
+      <MiningField name="Pclass" usageType="active"/>
+      <MiningField name="Name" usageType="active"/>
+      <MiningField name="Sex" usageType="active"/>
+      <MiningField name="Age" usageType="active"/>
+      <MiningField name="SibSp" usageType="active"/>
+      <MiningField name="Parch" usageType="active"/>
+      <MiningField name="Ticket" usageType="active"/>
+      <MiningField name="Fare" usageType="active"/>
+      <MiningField name="Cabin" usageType="active"/>
+      <MiningField name="Embarked" usageType="active"/>
+     </MiningSchema>
+     <Node id="1">
+      <True/>
+      <Node id="2">
+       <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+        <Array n="1" type="string">&quot;female&quot;</Array>
+       </SimpleSetPredicate>
+       <Node id="4">
+        <SimplePredicate field="Pclass" operator="lessOrEqual" value="2.5"/>
+        <Node id="8" score="1">
+         <SimplePredicate field="Age" operator="lessOrEqual" value="24.5"/>
+        </Node>
+        <Node id="9">
+         <SimplePredicate field="Age" operator="greaterThan" value="24.5"/>
+         <Node id="16">
+          <SimplePredicate field="Age" operator="lessOrEqual" value="27.5"/>
+          <Node id="28">
+           <SimplePredicate field="Pclass" operator="lessOrEqual" value="1.5"/>
+           <Node id="48" score="1">
+            <SimplePredicate field="SibSp" operator="lessOrEqual" value="0.5"/>
+           </Node>
+           <Node id="49" score="0">
+            <SimplePredicate field="SibSp" operator="greaterThan" value="0.5"/>
+           </Node>
+          </Node>
+          <Node id="29">
+           <SimplePredicate field="Pclass" operator="greaterThan" value="1.5"/>
+           <Node id="50" score="1">
+            <SimplePredicate field="Age" operator="lessOrEqual" value="26"/>
+           </Node>
+           <Node id="51">
+            <SimplePredicate field="Age" operator="greaterThan" value="26"/>
+            <Node id="74" score="1">
+             <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+              <Array n="1" type="string">&quot;C&quot;</Array>
+             </SimpleSetPredicate>
+            </Node>
+            <Node id="75" score="0">
+             <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+              <Array n="3" type="string">&quot;&quot;   &quot;Q&quot;   &quot;S&quot;</Array>
+             </SimpleSetPredicate>
+            </Node>
+           </Node>
+          </Node>
+         </Node>
+         <Node id="17">
+          <SimplePredicate field="Age" operator="greaterThan" value="27.5"/>
+          <Node id="30" score="1">
+           <SimplePredicate field="Pclass" operator="lessOrEqual" value="1.5"/>
+          </Node>
+          <Node id="31">
+           <SimplePredicate field="Pclass" operator="greaterThan" value="1.5"/>
+           <Node id="52">
+            <SimplePredicate field="Parch" operator="lessOrEqual" value="0.5"/>
+            <Node id="76" score="1">
+             <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+              <Array n="2" type="string">&quot;C&quot;   &quot;Q&quot;</Array>
+             </SimpleSetPredicate>
+            </Node>
+            <Node id="77">
+             <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+              <Array n="2" type="string">&quot;&quot;   &quot;S&quot;</Array>
+             </SimpleSetPredicate>
+             <Node id="102">
+              <SimplePredicate field="Fare" operator="lessOrEqual" value="23.5"/>
+              <Node id="124" score="1">
+               <SimplePredicate field="Age" operator="lessOrEqual" value="37"/>
+              </Node>
+              <Node id="125" score="0">
+               <SimplePredicate field="Age" operator="greaterThan" value="37"/>
+              </Node>
+             </Node>
+             <Node id="103" score="1">
+              <SimplePredicate field="Fare" operator="greaterThan" value="23.5"/>
+             </Node>
+            </Node>
+           </Node>
+           <Node id="53" score="1">
+            <SimplePredicate field="Parch" operator="greaterThan" value="0.5"/>
+           </Node>
+          </Node>
+         </Node>
+        </Node>
+       </Node>
+       <Node id="5">
+        <SimplePredicate field="Pclass" operator="greaterThan" value="2.5"/>
+        <Node id="10">
+         <SimplePredicate field="Parch" operator="lessOrEqual" value="3.5"/>
+         <Node id="18">
+          <SimplePredicate field="Parch" operator="lessOrEqual" value="0.5"/>
+          <Node id="32">
+           <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+            <Array n="1" type="string">&quot;Q&quot;</Array>
+           </SimpleSetPredicate>
+           <Node id="54">
+            <SimplePredicate field="Age" operator="lessOrEqual" value="18.5"/>
+            <Node id="78" score="1">
+             <SimplePredicate field="Age" operator="lessOrEqual" value="17"/>
+            </Node>
+            <Node id="79" score="0">
+             <SimplePredicate field="Age" operator="greaterThan" value="17"/>
+            </Node>
+           </Node>
+           <Node id="55">
+            <SimplePredicate field="Age" operator="greaterThan" value="18.5"/>
+            <Node id="80" score="1">
+             <SimplePredicate field="Fare" operator="lessOrEqual" value="8.00835000000000008"/>
+            </Node>
+            <Node id="81">
+             <SimplePredicate field="Fare" operator="greaterThan" value="8.00835000000000008"/>
+             <Node id="104" score="0">
+              <SimplePredicate field="SibSp" operator="lessOrEqual" value="0.5"/>
+             </Node>
+             <Node id="105" score="1">
+              <SimplePredicate field="SibSp" operator="greaterThan" value="0.5"/>
+             </Node>
+            </Node>
+           </Node>
+          </Node>
+          <Node id="33">
+           <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+            <Array n="3" type="string">&quot;&quot;   &quot;C&quot;   &quot;S&quot;</Array>
+           </SimpleSetPredicate>
+           <Node id="56">
+            <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+             <Array n="1" type="string">&quot;C&quot;</Array>
+            </SimpleSetPredicate>
+            <Node id="82">
+             <SimplePredicate field="SibSp" operator="lessOrEqual" value="0.5"/>
+             <Node id="106">
+              <SimplePredicate field="Age" operator="lessOrEqual" value="22.5"/>
+              <Node id="126" score="1">
+               <SimplePredicate field="Age" operator="lessOrEqual" value="15"/>
+              </Node>
+              <Node id="127" score="0">
+               <SimplePredicate field="Age" operator="greaterThan" value="15"/>
+              </Node>
+             </Node>
+             <Node id="107" score="1">
+              <SimplePredicate field="Age" operator="greaterThan" value="22.5"/>
+             </Node>
+            </Node>
+            <Node id="83" score="0">
+             <SimplePredicate field="SibSp" operator="greaterThan" value="0.5"/>
+            </Node>
+           </Node>
+           <Node id="57">
+            <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+             <Array n="3" type="string">&quot;&quot;   &quot;Q&quot;   &quot;S&quot;</Array>
+            </SimpleSetPredicate>
+            <Node id="84">
+             <SimplePredicate field="SibSp" operator="lessOrEqual" value="2"/>
+             <Node id="108" score="1">
+              <SimplePredicate field="Fare" operator="lessOrEqual" value="7.52289999999999992"/>
+             </Node>
+             <Node id="109">
+              <SimplePredicate field="Fare" operator="greaterThan" value="7.52289999999999992"/>
+              <Node id="128">
+               <SimplePredicate field="SibSp" operator="lessOrEqual" value="0.5"/>
+               <Node id="142">
+                <SimplePredicate field="Fare" operator="lessOrEqual" value="11.4958500000000008"/>
+                <Node id="154" score="0">
+                 <SimplePredicate field="Age" operator="lessOrEqual" value="25.5"/>
+                </Node>
+                <Node id="155" score="0">
+                 <SimplePredicate field="Age" operator="greaterThan" value="25.5"/>
+                </Node>
+               </Node>
+               <Node id="143" score="1">
+                <SimplePredicate field="Fare" operator="greaterThan" value="11.4958500000000008"/>
+               </Node>
+              </Node>
+              <Node id="129" score="0">
+               <SimplePredicate field="SibSp" operator="greaterThan" value="0.5"/>
+              </Node>
+             </Node>
+            </Node>
+            <Node id="85" score="1">
+             <SimplePredicate field="SibSp" operator="greaterThan" value="2"/>
+            </Node>
+           </Node>
+          </Node>
+         </Node>
+         <Node id="19">
+          <SimplePredicate field="Parch" operator="greaterThan" value="0.5"/>
+          <Node id="34">
+           <SimplePredicate field="SibSp" operator="lessOrEqual" value="0.5"/>
+           <Node id="58">
+            <SimplePredicate field="Fare" operator="lessOrEqual" value="17.252049999999997"/>
+            <Node id="86" score="1">
+             <SimplePredicate field="Age" operator="lessOrEqual" value="11"/>
+            </Node>
+            <Node id="87" score="0">
+             <SimplePredicate field="Age" operator="greaterThan" value="11"/>
+            </Node>
+           </Node>
+           <Node id="59" score="1">
+            <SimplePredicate field="Fare" operator="greaterThan" value="17.252049999999997"/>
+           </Node>
+          </Node>
+          <Node id="35">
+           <SimplePredicate field="SibSp" operator="greaterThan" value="0.5"/>
+           <Node id="60">
+            <SimplePredicate field="Parch" operator="lessOrEqual" value="1.5"/>
+            <Node id="88" score="1">
+             <SimplePredicate field="Age" operator="lessOrEqual" value="2"/>
+            </Node>
+            <Node id="89">
+             <SimplePredicate field="Age" operator="greaterThan" value="2"/>
+             <Node id="110" score="0">
+              <SimplePredicate field="Fare" operator="lessOrEqual" value="16.1000000000000014"/>
+             </Node>
+             <Node id="111">
+              <SimplePredicate field="Fare" operator="greaterThan" value="16.1000000000000014"/>
+              <Node id="130" score="1">
+               <SimplePredicate field="SibSp" operator="lessOrEqual" value="2"/>
+              </Node>
+              <Node id="131" score="0">
+               <SimplePredicate field="SibSp" operator="greaterThan" value="2"/>
+              </Node>
+             </Node>
+            </Node>
+           </Node>
+           <Node id="61" score="0">
+            <SimplePredicate field="Parch" operator="greaterThan" value="1.5"/>
+           </Node>
+          </Node>
+         </Node>
+        </Node>
+        <Node id="11" score="0">
+         <SimplePredicate field="Parch" operator="greaterThan" value="3.5"/>
+        </Node>
+       </Node>
+      </Node>
+      <Node id="3">
+       <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+        <Array n="1" type="string">&quot;male&quot;</Array>
+       </SimpleSetPredicate>
+       <Node id="6">
+        <SimplePredicate field="Pclass" operator="lessOrEqual" value="1.5"/>
+        <Node id="12">
+         <SimplePredicate field="SibSp" operator="lessOrEqual" value="0.5"/>
+         <Node id="20">
+          <SimplePredicate field="Fare" operator="lessOrEqual" value="37"/>
+          <Node id="36" score="0">
+           <SimplePredicate field="Fare" operator="lessOrEqual" value="26.1437500000000007"/>
+          </Node>
+          <Node id="37">
+           <SimplePredicate field="Fare" operator="greaterThan" value="26.1437500000000007"/>
+           <Node id="62">
+            <SimplePredicate field="Fare" operator="lessOrEqual" value="27.1354000000000006"/>
+            <Node id="90" score="1">
+             <SimplePredicate field="Fare" operator="lessOrEqual" value="26.4187500000000028"/>
+            </Node>
+            <Node id="91" score="1">
+             <SimplePredicate field="Fare" operator="greaterThan" value="26.4187500000000028"/>
+            </Node>
+           </Node>
+           <Node id="63">
+            <SimplePredicate field="Fare" operator="greaterThan" value="27.1354000000000006"/>
+            <Node id="92">
+             <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+              <Array n="1" type="string">&quot;C&quot;</Array>
+             </SimpleSetPredicate>
+             <Node id="112" score="1">
+              <SimplePredicate field="Age" operator="lessOrEqual" value="27"/>
+             </Node>
+             <Node id="113" score="0">
+              <SimplePredicate field="Age" operator="greaterThan" value="27"/>
+             </Node>
+            </Node>
+            <Node id="93" score="1">
+             <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+              <Array n="3" type="string">&quot;&quot;   &quot;Q&quot;   &quot;S&quot;</Array>
+             </SimpleSetPredicate>
+            </Node>
+           </Node>
+          </Node>
+         </Node>
+         <Node id="21">
+          <SimplePredicate field="Fare" operator="greaterThan" value="37"/>
+          <Node id="38" score="1">
+           <SimplePredicate field="Age" operator="lessOrEqual" value="12.5"/>
+          </Node>
+          <Node id="39">
+           <SimplePredicate field="Age" operator="greaterThan" value="12.5"/>
+           <Node id="64">
+            <SimplePredicate field="Fare" operator="lessOrEqual" value="379.925000000000011"/>
+            <Node id="94">
+             <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+              <Array n="1" type="string">&quot;C&quot;</Array>
+             </SimpleSetPredicate>
+             <Node id="114">
+              <SimplePredicate field="Parch" operator="lessOrEqual" value="0.5"/>
+              <Node id="132" score="1">
+               <SimplePredicate field="Age" operator="lessOrEqual" value="27.5"/>
+              </Node>
+              <Node id="133" score="0">
+               <SimplePredicate field="Age" operator="greaterThan" value="27.5"/>
+              </Node>
+             </Node>
+             <Node id="115" score="0">
+              <SimplePredicate field="Parch" operator="greaterThan" value="0.5"/>
+             </Node>
+            </Node>
+            <Node id="95" score="0">
+             <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+              <Array n="3" type="string">&quot;&quot;   &quot;Q&quot;   &quot;S&quot;</Array>
+             </SimpleSetPredicate>
+            </Node>
+           </Node>
+           <Node id="65" score="1">
+            <SimplePredicate field="Fare" operator="greaterThan" value="379.925000000000011"/>
+           </Node>
+          </Node>
+         </Node>
+        </Node>
+        <Node id="13">
+         <SimplePredicate field="SibSp" operator="greaterThan" value="0.5"/>
+         <Node id="22" score="1">
+          <SimplePredicate field="Age" operator="lessOrEqual" value="14.5"/>
+         </Node>
+         <Node id="23">
+          <SimplePredicate field="Age" operator="greaterThan" value="14.5"/>
+          <Node id="40" score="0">
+           <SimplePredicate field="Age" operator="lessOrEqual" value="22"/>
+          </Node>
+          <Node id="41">
+           <SimplePredicate field="Age" operator="greaterThan" value="22"/>
+           <Node id="66" score="1">
+            <SimplePredicate field="Age" operator="lessOrEqual" value="27.5"/>
+           </Node>
+           <Node id="67">
+            <SimplePredicate field="Age" operator="greaterThan" value="27.5"/>
+            <Node id="96">
+             <SimplePredicate field="SibSp" operator="lessOrEqual" value="1.5"/>
+             <Node id="116">
+              <SimplePredicate field="Parch" operator="lessOrEqual" value="2.5"/>
+              <Node id="134">
+               <SimplePredicate field="Parch" operator="lessOrEqual" value="0.5"/>
+               <Node id="144" score="0">
+                <SimplePredicate field="Fare" operator="lessOrEqual" value="52.2771000000000043"/>
+               </Node>
+               <Node id="145">
+                <SimplePredicate field="Fare" operator="greaterThan" value="52.2771000000000043"/>
+                <Node id="156" score="1">
+                 <SimplePredicate field="Fare" operator="lessOrEqual" value="61.7646000000000015"/>
+                </Node>
+                <Node id="157" score="0">
+                 <SimplePredicate field="Fare" operator="greaterThan" value="61.7646000000000015"/>
+                </Node>
+               </Node>
+              </Node>
+              <Node id="135">
+               <SimplePredicate field="Parch" operator="greaterThan" value="0.5"/>
+               <Node id="146" score="1">
+                <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+                 <Array n="1" type="string">&quot;C&quot;</Array>
+                </SimpleSetPredicate>
+               </Node>
+               <Node id="147">
+                <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+                 <Array n="3" type="string">&quot;&quot;   &quot;Q&quot;   &quot;S&quot;</Array>
+                </SimpleSetPredicate>
+                <Node id="158" score="1">
+                 <SimplePredicate field="Age" operator="lessOrEqual" value="53.5"/>
+                </Node>
+                <Node id="159" score="0">
+                 <SimplePredicate field="Age" operator="greaterThan" value="53.5"/>
+                </Node>
+               </Node>
+              </Node>
+             </Node>
+             <Node id="117" score="0">
+              <SimplePredicate field="Parch" operator="greaterThan" value="2.5"/>
+             </Node>
+            </Node>
+            <Node id="97" score="1">
+             <SimplePredicate field="SibSp" operator="greaterThan" value="1.5"/>
+            </Node>
+           </Node>
+          </Node>
+         </Node>
+        </Node>
+       </Node>
+       <Node id="7">
+        <SimplePredicate field="Pclass" operator="greaterThan" value="1.5"/>
+        <Node id="14">
+         <SimplePredicate field="Age" operator="lessOrEqual" value="6.5"/>
+         <Node id="24" score="1">
+          <SimplePredicate field="SibSp" operator="lessOrEqual" value="2.5"/>
+         </Node>
+         <Node id="25">
+          <SimplePredicate field="SibSp" operator="greaterThan" value="2.5"/>
+          <Node id="42" score="0">
+           <SimplePredicate field="Age" operator="lessOrEqual" value="2.5"/>
+          </Node>
+          <Node id="43" score="1">
+           <SimplePredicate field="Age" operator="greaterThan" value="2.5"/>
+          </Node>
+         </Node>
+        </Node>
+        <Node id="15">
+         <SimplePredicate field="Age" operator="greaterThan" value="6.5"/>
+         <Node id="26">
+          <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+           <Array n="1" type="string">&quot;C&quot;</Array>
+          </SimpleSetPredicate>
+          <Node id="44">
+           <SimplePredicate field="Parch" operator="lessOrEqual" value="0.5"/>
+           <Node id="68" score="0">
+            <SimplePredicate field="SibSp" operator="lessOrEqual" value="0.5"/>
+           </Node>
+           <Node id="69" score="0">
+            <SimplePredicate field="SibSp" operator="greaterThan" value="0.5"/>
+           </Node>
+          </Node>
+          <Node id="45" score="1">
+           <SimplePredicate field="Parch" operator="greaterThan" value="0.5"/>
+          </Node>
+         </Node>
+         <Node id="27">
+          <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+           <Array n="3" type="string">&quot;&quot;   &quot;Q&quot;   &quot;S&quot;</Array>
+          </SimpleSetPredicate>
+          <Node id="46">
+           <SimplePredicate field="Fare" operator="lessOrEqual" value="51.6979000000000042"/>
+           <Node id="70">
+            <SimplePredicate field="Age" operator="lessOrEqual" value="32.5"/>
+            <Node id="98">
+             <SimplePredicate field="SibSp" operator="lessOrEqual" value="2.5"/>
+             <Node id="118">
+              <SimplePredicate field="Parch" operator="lessOrEqual" value="1.5"/>
+              <Node id="136">
+               <SimplePredicate field="SibSp" operator="lessOrEqual" value="0.5"/>
+               <Node id="148">
+                <SimplePredicate field="Age" operator="lessOrEqual" value="30.75"/>
+                <Node id="160">
+                 <SimplePredicate field="Age" operator="lessOrEqual" value="20.5"/>
+                 <Node id="168" score="0">
+                  <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+                   <Array n="1" type="string">&quot;Q&quot;</Array>
+                  </SimpleSetPredicate>
+                 </Node>
+                 <Node id="169">
+                  <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+                   <Array n="3" type="string">&quot;&quot;   &quot;C&quot;   &quot;S&quot;</Array>
+                  </SimpleSetPredicate>
+                  <Node id="174" score="0">
+                   <SimplePredicate field="Age" operator="lessOrEqual" value="16.5"/>
+                  </Node>
+                  <Node id="175" score="0">
+                   <SimplePredicate field="Age" operator="greaterThan" value="16.5"/>
+                  </Node>
+                 </Node>
+                </Node>
+                <Node id="161">
+                 <SimplePredicate field="Age" operator="greaterThan" value="20.5"/>
+                 <Node id="170" score="0">
+                  <SimplePredicate field="Age" operator="lessOrEqual" value="21.5"/>
+                 </Node>
+                 <Node id="171">
+                  <SimplePredicate field="Age" operator="greaterThan" value="21.5"/>
+                  <Node id="176" score="0">
+                   <SimplePredicate field="Age" operator="lessOrEqual" value="23.5"/>
+                  </Node>
+                  <Node id="177">
+                   <SimplePredicate field="Age" operator="greaterThan" value="23.5"/>
+                   <Node id="178" score="0">
+                    <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+                     <Array n="1" type="string">&quot;Q&quot;</Array>
+                    </SimpleSetPredicate>
+                   </Node>
+                   <Node id="179">
+                    <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+                     <Array n="3" type="string">&quot;&quot;   &quot;C&quot;   &quot;S&quot;</Array>
+                    </SimpleSetPredicate>
+                    <Node id="180">
+                     <SimplePredicate field="Pclass" operator="lessOrEqual" value="2.5"/>
+                     <Node id="182" score="0">
+                      <SimplePredicate field="Fare" operator="lessOrEqual" value="11.75"/>
+                     </Node>
+                     <Node id="183" score="0">
+                      <SimplePredicate field="Fare" operator="greaterThan" value="11.75"/>
+                     </Node>
+                    </Node>
+                    <Node id="181" score="0">
+                     <SimplePredicate field="Pclass" operator="greaterThan" value="2.5"/>
+                    </Node>
+                   </Node>
+                  </Node>
+                 </Node>
+                </Node>
+               </Node>
+               <Node id="149">
+                <SimplePredicate field="Age" operator="greaterThan" value="30.75"/>
+                <Node id="162" score="0">
+                 <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+                  <Array n="1" type="string">&quot;Q&quot;</Array>
+                 </SimpleSetPredicate>
+                </Node>
+                <Node id="163" score="0">
+                 <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+                  <Array n="3" type="string">&quot;&quot;   &quot;C&quot;   &quot;S&quot;</Array>
+                 </SimpleSetPredicate>
+                </Node>
+               </Node>
+              </Node>
+              <Node id="137">
+               <SimplePredicate field="SibSp" operator="greaterThan" value="0.5"/>
+               <Node id="150">
+                <SimplePredicate field="Fare" operator="lessOrEqual" value="22.125"/>
+                <Node id="164" score="0">
+                 <SimplePredicate field="Fare" operator="lessOrEqual" value="8.29374999999999929"/>
+                </Node>
+                <Node id="165" score="0">
+                 <SimplePredicate field="Fare" operator="greaterThan" value="8.29374999999999929"/>
+                </Node>
+               </Node>
+               <Node id="151">
+                <SimplePredicate field="Fare" operator="greaterThan" value="22.125"/>
+                <Node id="166">
+                 <SimplePredicate field="Age" operator="lessOrEqual" value="26.5"/>
+                 <Node id="172" score="0">
+                  <SimplePredicate field="Fare" operator="lessOrEqual" value="31.375"/>
+                 </Node>
+                 <Node id="173" score="1">
+                  <SimplePredicate field="Fare" operator="greaterThan" value="31.375"/>
+                 </Node>
+                </Node>
+                <Node id="167" score="1">
+                 <SimplePredicate field="Age" operator="greaterThan" value="26.5"/>
+                </Node>
+               </Node>
+              </Node>
+             </Node>
+             <Node id="119" score="0">
+              <SimplePredicate field="Parch" operator="greaterThan" value="1.5"/>
+             </Node>
+            </Node>
+            <Node id="99" score="0">
+             <SimplePredicate field="SibSp" operator="greaterThan" value="2.5"/>
+            </Node>
+           </Node>
+           <Node id="71">
+            <SimplePredicate field="Age" operator="greaterThan" value="32.5"/>
+            <Node id="100">
+             <SimplePredicate field="Pclass" operator="lessOrEqual" value="2.5"/>
+             <Node id="120">
+              <SimplePredicate field="Fare" operator="lessOrEqual" value="13.25"/>
+              <Node id="138" score="0">
+               <SimplePredicate field="Fare" operator="lessOrEqual" value="11.3874999999999993"/>
+              </Node>
+              <Node id="139">
+               <SimplePredicate field="Fare" operator="greaterThan" value="11.3874999999999993"/>
+               <Node id="152" score="0">
+                <SimplePredicate field="Age" operator="lessOrEqual" value="45"/>
+               </Node>
+               <Node id="153" score="0">
+                <SimplePredicate field="Age" operator="greaterThan" value="45"/>
+               </Node>
+              </Node>
+             </Node>
+             <Node id="121" score="0">
+              <SimplePredicate field="Fare" operator="greaterThan" value="13.25"/>
+             </Node>
+            </Node>
+            <Node id="101">
+             <SimplePredicate field="Pclass" operator="greaterThan" value="2.5"/>
+             <Node id="122" score="0">
+              <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+               <Array n="1" type="string">&quot;Q&quot;</Array>
+              </SimpleSetPredicate>
+             </Node>
+             <Node id="123">
+              <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+               <Array n="3" type="string">&quot;&quot;   &quot;C&quot;   &quot;S&quot;</Array>
+              </SimpleSetPredicate>
+              <Node id="140" score="0">
+               <SimplePredicate field="Parch" operator="lessOrEqual" value="0.5"/>
+              </Node>
+              <Node id="141" score="0">
+               <SimplePredicate field="Parch" operator="greaterThan" value="0.5"/>
+              </Node>
+             </Node>
+            </Node>
+           </Node>
+          </Node>
+          <Node id="47">
+           <SimplePredicate field="Fare" operator="greaterThan" value="51.6979000000000042"/>
+           <Node id="72" score="1">
+            <SimplePredicate field="Fare" operator="lessOrEqual" value="63.0228999999999999"/>
+           </Node>
+           <Node id="73" score="0">
+            <SimplePredicate field="Fare" operator="greaterThan" value="63.0228999999999999"/>
+           </Node>
+          </Node>
+         </Node>
+        </Node>
+       </Node>
+      </Node>
+     </Node>
+    </TreeModel>
+   </Segment>
+   <Segment id="5">
+    <True/>
+    <TreeModel modelName="randomForest_Model" functionName="classification" algorithmName="randomForest" splitCharacteristic="binarySplit">
+     <MiningSchema>
+      <MiningField name="Survived" usageType="predicted"/>
+      <MiningField name="PassengerId" usageType="active"/>
+      <MiningField name="Pclass" usageType="active"/>
+      <MiningField name="Name" usageType="active"/>
+      <MiningField name="Sex" usageType="active"/>
+      <MiningField name="Age" usageType="active"/>
+      <MiningField name="SibSp" usageType="active"/>
+      <MiningField name="Parch" usageType="active"/>
+      <MiningField name="Ticket" usageType="active"/>
+      <MiningField name="Fare" usageType="active"/>
+      <MiningField name="Cabin" usageType="active"/>
+      <MiningField name="Embarked" usageType="active"/>
+     </MiningSchema>
+     <Node id="1">
+      <True/>
+      <Node id="2">
+       <SimplePredicate field="Parch" operator="lessOrEqual" value="0.5"/>
+       <Node id="4">
+        <SimplePredicate field="Fare" operator="lessOrEqual" value="51.1791499999999999"/>
+        <Node id="8">
+         <SimplePredicate field="Age" operator="lessOrEqual" value="15.5"/>
+         <Node id="16">
+          <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+           <Array n="1" type="string">&quot;female&quot;</Array>
+          </SimpleSetPredicate>
+          <Node id="28">
+           <SimplePredicate field="Fare" operator="lessOrEqual" value="9.54795000000000016"/>
+           <Node id="48" score="1">
+            <SimplePredicate field="Age" operator="lessOrEqual" value="13.5"/>
+           </Node>
+           <Node id="49" score="0">
+            <SimplePredicate field="Age" operator="greaterThan" value="13.5"/>
+           </Node>
+          </Node>
+          <Node id="29">
+           <SimplePredicate field="Fare" operator="greaterThan" value="9.54795000000000016"/>
+           <Node id="50" score="1">
+            <SimplePredicate field="Fare" operator="lessOrEqual" value="13.4646000000000008"/>
+           </Node>
+           <Node id="51">
+            <SimplePredicate field="Fare" operator="greaterThan" value="13.4646000000000008"/>
+            <Node id="74" score="1">
+             <SimplePredicate field="Age" operator="lessOrEqual" value="14.25"/>
+            </Node>
+            <Node id="75" score="1">
+             <SimplePredicate field="Age" operator="greaterThan" value="14.25"/>
+            </Node>
+           </Node>
+          </Node>
+         </Node>
+         <Node id="17" score="0">
+          <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+           <Array n="1" type="string">&quot;male&quot;</Array>
+          </SimpleSetPredicate>
+         </Node>
+        </Node>
+        <Node id="9">
+         <SimplePredicate field="Age" operator="greaterThan" value="15.5"/>
+         <Node id="18">
+          <SimplePredicate field="SibSp" operator="lessOrEqual" value="0.5"/>
+          <Node id="30">
+           <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+            <Array n="1" type="string">&quot;female&quot;</Array>
+           </SimpleSetPredicate>
+           <Node id="52">
+            <SimplePredicate field="Pclass" operator="lessOrEqual" value="2.5"/>
+            <Node id="76">
+             <SimplePredicate field="Age" operator="lessOrEqual" value="49.5"/>
+             <Node id="104" score="1">
+              <SimplePredicate field="Pclass" operator="lessOrEqual" value="1.5"/>
+             </Node>
+             <Node id="105" score="1">
+              <SimplePredicate field="Pclass" operator="greaterThan" value="1.5"/>
+             </Node>
+            </Node>
+            <Node id="77">
+             <SimplePredicate field="Age" operator="greaterThan" value="49.5"/>
+             <Node id="106" score="0">
+              <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+               <Array n="1" type="string">&quot;C&quot;</Array>
+              </SimpleSetPredicate>
+             </Node>
+             <Node id="107" score="1">
+              <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+               <Array n="3" type="string">&quot;&quot;   &quot;Q&quot;   &quot;S&quot;</Array>
+              </SimpleSetPredicate>
+             </Node>
+            </Node>
+           </Node>
+           <Node id="53">
+            <SimplePredicate field="Pclass" operator="greaterThan" value="2.5"/>
+            <Node id="78">
+             <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+              <Array n="2" type="string">&quot;C&quot;   &quot;Q&quot;</Array>
+             </SimpleSetPredicate>
+             <Node id="108" score="0">
+              <SimplePredicate field="Fare" operator="lessOrEqual" value="6.98749999999999982"/>
+             </Node>
+             <Node id="109" score="1">
+              <SimplePredicate field="Fare" operator="greaterThan" value="6.98749999999999982"/>
+             </Node>
+            </Node>
+            <Node id="79">
+             <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+              <Array n="2" type="string">&quot;&quot;   &quot;S&quot;</Array>
+             </SimpleSetPredicate>
+             <Node id="110">
+              <SimplePredicate field="Age" operator="lessOrEqual" value="27"/>
+              <Node id="134" score="1">
+               <SimplePredicate field="Age" operator="lessOrEqual" value="19"/>
+              </Node>
+              <Node id="135" score="1">
+               <SimplePredicate field="Age" operator="greaterThan" value="19"/>
+              </Node>
+             </Node>
+             <Node id="111">
+              <SimplePredicate field="Age" operator="greaterThan" value="27"/>
+              <Node id="136" score="0">
+               <SimplePredicate field="Age" operator="lessOrEqual" value="29"/>
+              </Node>
+              <Node id="137">
+               <SimplePredicate field="Age" operator="greaterThan" value="29"/>
+               <Node id="148" score="0">
+                <SimplePredicate field="Fare" operator="lessOrEqual" value="8.6728999999999985"/>
+               </Node>
+               <Node id="149" score="1">
+                <SimplePredicate field="Fare" operator="greaterThan" value="8.6728999999999985"/>
+               </Node>
+              </Node>
+             </Node>
+            </Node>
+           </Node>
+          </Node>
+          <Node id="31" score="0">
+           <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+            <Array n="1" type="string">&quot;male&quot;</Array>
+           </SimpleSetPredicate>
+          </Node>
+         </Node>
+         <Node id="19">
+          <SimplePredicate field="SibSp" operator="greaterThan" value="0.5"/>
+          <Node id="32">
+           <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+            <Array n="1" type="string">&quot;female&quot;</Array>
+           </SimpleSetPredicate>
+           <Node id="54">
+            <SimplePredicate field="Pclass" operator="lessOrEqual" value="2.5"/>
+            <Node id="80">
+             <SimplePredicate field="Age" operator="lessOrEqual" value="43"/>
+             <Node id="112" score="1">
+              <SimplePredicate field="Age" operator="lessOrEqual" value="27.5"/>
+             </Node>
+             <Node id="113" score="1">
+              <SimplePredicate field="Age" operator="greaterThan" value="27.5"/>
+             </Node>
+            </Node>
+            <Node id="81">
+             <SimplePredicate field="Age" operator="greaterThan" value="43"/>
+             <Node id="114" score="0">
+              <SimplePredicate field="Fare" operator="lessOrEqual" value="32.7999999999999972"/>
+             </Node>
+             <Node id="115" score="1">
+              <SimplePredicate field="Fare" operator="greaterThan" value="32.7999999999999972"/>
+             </Node>
+            </Node>
+           </Node>
+           <Node id="55">
+            <SimplePredicate field="Pclass" operator="greaterThan" value="2.5"/>
+            <Node id="82" score="0">
+             <SimplePredicate field="Fare" operator="lessOrEqual" value="15"/>
+            </Node>
+            <Node id="83">
+             <SimplePredicate field="Fare" operator="greaterThan" value="15"/>
+             <Node id="116" score="1">
+              <SimplePredicate field="Fare" operator="lessOrEqual" value="17.6000000000000014"/>
+             </Node>
+             <Node id="117">
+              <SimplePredicate field="Fare" operator="greaterThan" value="17.6000000000000014"/>
+              <Node id="138" score="0">
+               <SimplePredicate field="SibSp" operator="lessOrEqual" value="1.5"/>
+              </Node>
+              <Node id="139" score="1">
+               <SimplePredicate field="SibSp" operator="greaterThan" value="1.5"/>
+              </Node>
+             </Node>
+            </Node>
+           </Node>
+          </Node>
+          <Node id="33">
+           <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+            <Array n="1" type="string">&quot;male&quot;</Array>
+           </SimpleSetPredicate>
+           <Node id="56" score="0">
+            <SimplePredicate field="Pclass" operator="lessOrEqual" value="2.5"/>
+           </Node>
+           <Node id="57" score="0">
+            <SimplePredicate field="Pclass" operator="greaterThan" value="2.5"/>
+           </Node>
+          </Node>
+         </Node>
+        </Node>
+       </Node>
+       <Node id="5">
+        <SimplePredicate field="Fare" operator="greaterThan" value="51.1791499999999999"/>
+        <Node id="10" score="1">
+         <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+          <Array n="1" type="string">&quot;female&quot;</Array>
+         </SimpleSetPredicate>
+        </Node>
+        <Node id="11">
+         <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+          <Array n="1" type="string">&quot;male&quot;</Array>
+         </SimpleSetPredicate>
+         <Node id="20">
+          <SimplePredicate field="SibSp" operator="lessOrEqual" value="0.5"/>
+          <Node id="34">
+           <SimplePredicate field="Age" operator="lessOrEqual" value="30"/>
+           <Node id="58" score="0">
+            <SimplePredicate field="Age" operator="lessOrEqual" value="25.5"/>
+           </Node>
+           <Node id="59">
+            <SimplePredicate field="Age" operator="greaterThan" value="25.5"/>
+            <Node id="84">
+             <SimplePredicate field="Fare" operator="lessOrEqual" value="149.254199999999997"/>
+             <Node id="118" score="1">
+              <SimplePredicate field="Age" operator="lessOrEqual" value="27.5"/>
+             </Node>
+             <Node id="119">
+              <SimplePredicate field="Age" operator="greaterThan" value="27.5"/>
+              <Node id="140" score="0">
+               <SimplePredicate field="Pclass" operator="lessOrEqual" value="2"/>
+              </Node>
+              <Node id="141" score="0">
+               <SimplePredicate field="Pclass" operator="greaterThan" value="2"/>
+              </Node>
+             </Node>
+            </Node>
+            <Node id="85" score="0">
+             <SimplePredicate field="Fare" operator="greaterThan" value="149.254199999999997"/>
+            </Node>
+           </Node>
+          </Node>
+          <Node id="35">
+           <SimplePredicate field="Age" operator="greaterThan" value="30"/>
+           <Node id="60" score="0">
+            <SimplePredicate field="Fare" operator="lessOrEqual" value="54.2479000000000013"/>
+           </Node>
+           <Node id="61">
+            <SimplePredicate field="Fare" operator="greaterThan" value="54.2479000000000013"/>
+            <Node id="86" score="1">
+             <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+              <Array n="1" type="string">&quot;C&quot;</Array>
+             </SimpleSetPredicate>
+            </Node>
+            <Node id="87" score="1">
+             <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+              <Array n="3" type="string">&quot;&quot;   &quot;Q&quot;   &quot;S&quot;</Array>
+             </SimpleSetPredicate>
+            </Node>
+           </Node>
+          </Node>
+         </Node>
+         <Node id="21">
+          <SimplePredicate field="SibSp" operator="greaterThan" value="0.5"/>
+          <Node id="36">
+           <SimplePredicate field="Age" operator="lessOrEqual" value="47"/>
+           <Node id="62">
+            <SimplePredicate field="Pclass" operator="lessOrEqual" value="1.5"/>
+            <Node id="88">
+             <SimplePredicate field="Age" operator="lessOrEqual" value="28"/>
+             <Node id="120">
+              <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+               <Array n="1" type="string">&quot;C&quot;</Array>
+              </SimpleSetPredicate>
+              <Node id="142" score="0">
+               <SimplePredicate field="Age" operator="lessOrEqual" value="21.5"/>
+              </Node>
+              <Node id="143" score="1">
+               <SimplePredicate field="Age" operator="greaterThan" value="21.5"/>
+              </Node>
+             </Node>
+             <Node id="121" score="1">
+              <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+               <Array n="3" type="string">&quot;&quot;   &quot;Q&quot;   &quot;S&quot;</Array>
+              </SimpleSetPredicate>
+             </Node>
+            </Node>
+            <Node id="89" score="0">
+             <SimplePredicate field="Age" operator="greaterThan" value="28"/>
+            </Node>
+           </Node>
+           <Node id="63" score="0">
+            <SimplePredicate field="Pclass" operator="greaterThan" value="1.5"/>
+           </Node>
+          </Node>
+          <Node id="37" score="1">
+           <SimplePredicate field="Age" operator="greaterThan" value="47"/>
+          </Node>
+         </Node>
+        </Node>
+       </Node>
+      </Node>
+      <Node id="3">
+       <SimplePredicate field="Parch" operator="greaterThan" value="0.5"/>
+       <Node id="6">
+        <SimplePredicate field="Pclass" operator="lessOrEqual" value="2.5"/>
+        <Node id="12" score="0">
+         <SimplePredicate field="Fare" operator="lessOrEqual" value="12.25"/>
+        </Node>
+        <Node id="13">
+         <SimplePredicate field="Fare" operator="greaterThan" value="12.25"/>
+         <Node id="22">
+          <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+           <Array n="1" type="string">&quot;female&quot;</Array>
+          </SimpleSetPredicate>
+          <Node id="38" score="1">
+           <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+            <Array n="1" type="string">&quot;C&quot;</Array>
+           </SimpleSetPredicate>
+          </Node>
+          <Node id="39">
+           <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+            <Array n="3" type="string">&quot;&quot;   &quot;Q&quot;   &quot;S&quot;</Array>
+           </SimpleSetPredicate>
+           <Node id="64">
+            <SimplePredicate field="Age" operator="lessOrEqual" value="3"/>
+            <Node id="90" score="1">
+             <SimplePredicate field="Parch" operator="lessOrEqual" value="1.5"/>
+            </Node>
+            <Node id="91" score="0">
+             <SimplePredicate field="Parch" operator="greaterThan" value="1.5"/>
+            </Node>
+           </Node>
+           <Node id="65">
+            <SimplePredicate field="Age" operator="greaterThan" value="3"/>
+            <Node id="92" score="1">
+             <SimplePredicate field="Age" operator="lessOrEqual" value="24.5"/>
+            </Node>
+            <Node id="93">
+             <SimplePredicate field="Age" operator="greaterThan" value="24.5"/>
+             <Node id="122">
+              <SimplePredicate field="Age" operator="lessOrEqual" value="28.5"/>
+              <Node id="144">
+               <SimplePredicate field="Age" operator="lessOrEqual" value="25.5"/>
+               <Node id="150" score="0">
+                <SimplePredicate field="Pclass" operator="lessOrEqual" value="1.5"/>
+               </Node>
+               <Node id="151" score="1">
+                <SimplePredicate field="Pclass" operator="greaterThan" value="1.5"/>
+               </Node>
+              </Node>
+              <Node id="145" score="0">
+               <SimplePredicate field="Age" operator="greaterThan" value="25.5"/>
+              </Node>
+             </Node>
+             <Node id="123" score="1">
+              <SimplePredicate field="Age" operator="greaterThan" value="28.5"/>
+             </Node>
+            </Node>
+           </Node>
+          </Node>
+         </Node>
+         <Node id="23">
+          <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+           <Array n="1" type="string">&quot;male&quot;</Array>
+          </SimpleSetPredicate>
+          <Node id="40">
+           <SimplePredicate field="Parch" operator="lessOrEqual" value="1.5"/>
+           <Node id="66" score="1">
+            <SimplePredicate field="Age" operator="lessOrEqual" value="16"/>
+           </Node>
+           <Node id="67">
+            <SimplePredicate field="Age" operator="greaterThan" value="16"/>
+            <Node id="94" score="0">
+             <SimplePredicate field="Age" operator="lessOrEqual" value="57"/>
+            </Node>
+            <Node id="95">
+             <SimplePredicate field="Age" operator="greaterThan" value="57"/>
+             <Node id="124" score="1">
+              <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+               <Array n="1" type="string">&quot;C&quot;</Array>
+              </SimpleSetPredicate>
+             </Node>
+             <Node id="125" score="0">
+              <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+               <Array n="3" type="string">&quot;&quot;   &quot;Q&quot;   &quot;S&quot;</Array>
+              </SimpleSetPredicate>
+             </Node>
+            </Node>
+           </Node>
+          </Node>
+          <Node id="41">
+           <SimplePredicate field="Parch" operator="greaterThan" value="1.5"/>
+           <Node id="68">
+            <SimplePredicate field="Fare" operator="lessOrEqual" value="97.5666500000000099"/>
+            <Node id="96">
+             <SimplePredicate field="SibSp" operator="lessOrEqual" value="0.5"/>
+             <Node id="126" score="1">
+              <SimplePredicate field="Age" operator="lessOrEqual" value="20.25"/>
+             </Node>
+             <Node id="127" score="0">
+              <SimplePredicate field="Age" operator="greaterThan" value="20.25"/>
+             </Node>
+            </Node>
+            <Node id="97" score="0">
+             <SimplePredicate field="SibSp" operator="greaterThan" value="0.5"/>
+            </Node>
+           </Node>
+           <Node id="69" score="0">
+            <SimplePredicate field="Fare" operator="greaterThan" value="97.5666500000000099"/>
+           </Node>
+          </Node>
+         </Node>
+        </Node>
+       </Node>
+       <Node id="7">
+        <SimplePredicate field="Pclass" operator="greaterThan" value="2.5"/>
+        <Node id="14">
+         <SimplePredicate field="Age" operator="lessOrEqual" value="6.5"/>
+         <Node id="24">
+          <SimplePredicate field="SibSp" operator="lessOrEqual" value="2.5"/>
+          <Node id="42" score="0">
+           <SimplePredicate field="Fare" operator="lessOrEqual" value="10.7979000000000003"/>
+          </Node>
+          <Node id="43" score="1">
+           <SimplePredicate field="Fare" operator="greaterThan" value="10.7979000000000003"/>
+          </Node>
+         </Node>
+         <Node id="25">
+          <SimplePredicate field="SibSp" operator="greaterThan" value="2.5"/>
+          <Node id="44" score="0">
+           <SimplePredicate field="Fare" operator="lessOrEqual" value="31.3312499999999972"/>
+          </Node>
+          <Node id="45" score="0">
+           <SimplePredicate field="Fare" operator="greaterThan" value="31.3312499999999972"/>
+          </Node>
+         </Node>
+        </Node>
+        <Node id="15">
+         <SimplePredicate field="Age" operator="greaterThan" value="6.5"/>
+         <Node id="26">
+          <SimplePredicate field="Fare" operator="lessOrEqual" value="20.7999999999999972"/>
+          <Node id="46">
+           <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+            <Array n="1" type="string">&quot;female&quot;</Array>
+           </SimpleSetPredicate>
+           <Node id="70">
+            <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+             <Array n="1" type="string">&quot;C&quot;</Array>
+            </SimpleSetPredicate>
+            <Node id="98">
+             <SimplePredicate field="SibSp" operator="lessOrEqual" value="0.5"/>
+             <Node id="128" score="0">
+              <SimplePredicate field="Fare" operator="lessOrEqual" value="16.8562499999999993"/>
+             </Node>
+             <Node id="129" score="1">
+              <SimplePredicate field="Fare" operator="greaterThan" value="16.8562499999999993"/>
+             </Node>
+            </Node>
+            <Node id="99" score="0">
+             <SimplePredicate field="SibSp" operator="greaterThan" value="0.5"/>
+            </Node>
+           </Node>
+           <Node id="71">
+            <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+             <Array n="3" type="string">&quot;&quot;   &quot;Q&quot;   &quot;S&quot;</Array>
+            </SimpleSetPredicate>
+            <Node id="100">
+             <SimplePredicate field="Fare" operator="lessOrEqual" value="10.7979000000000003"/>
+             <Node id="130" score="1">
+              <SimplePredicate field="Fare" operator="lessOrEqual" value="9.90625"/>
+             </Node>
+             <Node id="131" score="0">
+              <SimplePredicate field="Fare" operator="greaterThan" value="9.90625"/>
+             </Node>
+            </Node>
+            <Node id="101">
+             <SimplePredicate field="Fare" operator="greaterThan" value="10.7979000000000003"/>
+             <Node id="132" score="1">
+              <SimplePredicate field="Fare" operator="lessOrEqual" value="18.4562499999999972"/>
+             </Node>
+             <Node id="133">
+              <SimplePredicate field="Fare" operator="greaterThan" value="18.4562499999999972"/>
+              <Node id="146" score="0">
+               <SimplePredicate field="SibSp" operator="lessOrEqual" value="0.5"/>
+              </Node>
+              <Node id="147" score="1">
+               <SimplePredicate field="SibSp" operator="greaterThan" value="0.5"/>
+              </Node>
+             </Node>
+            </Node>
+           </Node>
+          </Node>
+          <Node id="47">
+           <SimpleSetPredicate field="Sex" booleanOperator="isIn">
+            <Array n="1" type="string">&quot;male&quot;</Array>
+           </SimpleSetPredicate>
+           <Node id="72" score="1">
+            <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+             <Array n="1" type="string">&quot;C&quot;</Array>
+            </SimpleSetPredicate>
+           </Node>
+           <Node id="73">
+            <SimpleSetPredicate field="Embarked" booleanOperator="isIn">
+             <Array n="3" type="string">&quot;&quot;   &quot;Q&quot;   &quot;S&quot;</Array>
+            </SimpleSetPredicate>
+            <Node id="102" score="1">
+             <SimplePredicate field="Age" operator="lessOrEqual" value="12.5"/>
+            </Node>
+            <Node id="103" score="0">
+             <SimplePredicate field="Age" operator="greaterThan" value="12.5"/>
+            </Node>
+           </Node>
+          </Node>
+         </Node>
+         <Node id="27" score="0">
+          <SimplePredicate field="Fare" operator="greaterThan" value="20.7999999999999972"/>
+         </Node>
+        </Node>
+       </Node>
+      </Node>
+     </Node>
+    </TreeModel>
+   </Segment>
+  </Segmentation>
+ </MiningModel>
+</PMML>
