@@ -3,13 +3,13 @@ require 'features'
 
 class Gbm
   GBM_FOREST_XPATH = '//Segmentation[@multipleModelMethod="sum"]/Segment'
-  CONST_XPATH      = '//Constant[@dataType="double"]'
+  CONST_XPATH      = '//Target/@rescaleConstant'
 
   def initialize(xml)
     @decision_trees = xml.xpath(GBM_FOREST_XPATH).collect{ |xml_tree|
       DecisionTree.new(xml_tree)
     }
-    @const = Float(xml.xpath(CONST_XPATH).children[0].content)
+    @const = Float(xml.xpath(CONST_XPATH).to_s)
   end
 
   def tree_count

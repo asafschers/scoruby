@@ -9,8 +9,10 @@
         <OutputField name="scaledGbmValue" optype="continuous" dataType="double" feature="transformedValue">
             <Apply function="+">
                 <FieldRef field="rawGbmValue"/>
-                <Constant dataType="double">0.4034788000475802</Constant>
             </Apply>
         </OutputField>
     </Output>
+    <Targets>
+      <Target rescaleConstant="-0.4732877044469254"/>
+    </Targets>
 </PMML>
