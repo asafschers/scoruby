@@ -9,7 +9,7 @@ Ruby scoring API for Predictive Model Markup Language (PMML).
 
 Currently supports random forest and gradient boosted models.
 
-Will be happy to implement new kinds of models by demand, or assist with any other issue.
+Will be happy to implement new models by demand, or assist with any other issue.
 
 Contact me here or at aschers@gmail.com.
 
@@ -30,9 +30,6 @@ Or install it yourself as:
     $ gem install scoruby
 
 ## Usage
-
-
-
 ### Random Forest
 #### Generating  PMML in R
 
