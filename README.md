@@ -31,7 +31,7 @@ Or install it yourself as:
 
 ## Usage
 ### Random Forest
-#### Generating  PMML - R
+#### Generate  PMML - R
 
 ```R
 
