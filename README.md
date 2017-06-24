@@ -89,10 +89,55 @@ random_forest.decisions_count(features)
 
 ### Gradient Boosted model
 
+#### Generate  PMML - R
+
+```R
+
+# Install and require gbm, r2pmml
+
+library("devtools")
+install_github(repo = "jpmml/r2pmml")
+
+library("r2pmml")
+library("gbm")
+
+# Login to Kaggle and download titanic dataset 
+# https://www.kaggle.com/c/titanic/data 
+# Load CSV to data frame -
+
+titanic.train <- read.table("titanic_train.csv", header = TRUE, sep = ",")
+titanic.train$Survived <- as.factor(titanic.train$Survived)
+
+# Train GBM model
+
+titanic.gbm <- gbm(Survived ~ . - PassengerId - Name - Cabin - Ticket,  data = titanic.train)
+
+# Generate pmml from model
+
+pmml <- r2pmml(titanic.gbm, 'titanic_gbm.pmml')
+
+```
+
+#### Classify by PMML - Ruby
+
 ```ruby
+
 gbm = Scoruby.get_model 'gbm.pmml'
-features = {a: 1, b: true, c: 'YES'}
+
+features =  {
+        Sex: 'male',
+        Parch: 0,
+        Age: 30,
+        Fare: 9.6875,
+        Pclass: 2,
+        SibSp: 0,
+        Embarked: 'Q'       
+    }
+
 gbm.score(features)
+
+=> 0.3652639329522468
+
 ```
 
 ## Development
