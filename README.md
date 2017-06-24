@@ -62,7 +62,7 @@ saveXML(pmml, 'titanic_rf.pmml')
 
 ```
 
-#### Classifying by PMML - Ruby
+#### Classify by PMML - Ruby
 
 ```ruby
 
