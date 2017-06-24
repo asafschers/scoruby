@@ -31,7 +31,7 @@ Or install it yourself as:
 
 ## Usage
 ### Random Forest
-#### Generating  PMML in R
+#### Generating  PMML - R
 
 ```R
 
@@ -62,7 +62,7 @@ saveXML(pmml, 'titanic_rf.pmml')
 
 ```
 
-#### Classifying in ruby by PMML 
+#### Classifying by PMML - Ruby
 
 ```ruby
 
