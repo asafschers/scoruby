@@ -31,19 +31,72 @@ Or install it yourself as:
 
 ## Usage
 
+
+
+### Random Forest
+#### Generating  PMML in R
+
+```R
+
+# Install and require randomForest, pmml packages
+
+install.packages('randomForest')
+install.packages('pmml')
+library('randomForest')
+library('pmml')
+
+# Login to Kaggle and download titanic dataset 
+# https://www.kaggle.com/c/titanic/data 
+# Load CSV to data frame -
+
+titanic.train <- read.table("titanic_train.csv", header = TRUE, sep = ",")
+titanic.train$Survived <- as.factor(titanic.train$Survived)
+
+# Train RF model
+
+titanic.rf <- randomForest(Survived ~ . - Name - Cabin - Ticket,
+                           data = titanic.train, 
+                           na.action = na.roughfix)
+
+# Generate pmml from model
+
+pmml <- pmml(titanic.rf)
+saveXML(pmml, 'titanic_rf.pmml')
+
+```
+
+#### Classifying in ruby by PMML 
+
 ```ruby
-# random forest model
-random_forest = Scourby.get_model 'random_forest.pmml'
-features = {a: 1, b: true, c: 'YES'}
+
+random_forest = Scoruby.get_model 'titanic_rf.pmml'
+features =  {
+        Sex: 'male',
+        Parch: 0,
+        Age: 30,
+        Fare: 9.6875,
+        Pclass: 2,
+        SibSp: 0,
+        Embarked: 'Q'       
+    }
+
 random_forest.predict(features)
+
+=> "0"
+
 random_forest.decisions_count(features)
 
-# gradient boosted model
+=> {"0"=>441, "1"=>59}
+
+```
+
+### Gradient Boosted model
+
+```ruby
 gbm = Scoruby.get_model 'gbm.pmml'
 features = {a: 1, b: true, c: 'YES'}
 gbm.score(features)
 ```
-
 
 ## Development
 
