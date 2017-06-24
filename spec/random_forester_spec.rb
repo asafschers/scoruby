@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Scoruby do
 
-  let(:rf_file) { 'spec/fixtures/rf_file.pmml' }
+  let(:rf_file) { 'spec/fixtures/titanic_rf.pmml' }
   let(:non_rf_file) { 'spec/fixtures/non_rf_file.pmml' }
   let(:decision_tree_file) { 'spec/fixtures/decision_tree.pmml' }
   let(:gbm_file) { 'spec/fixtures/gbm_file.pmml' }

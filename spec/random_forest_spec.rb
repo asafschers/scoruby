@@ -20,7 +20,6 @@ describe RandomForest do
         Embarked: 'Q'
         
     }
-       #   male,30,0,0,110469,26,S
   end
 
   def decline_features
@@ -32,21 +31,20 @@ describe RandomForest do
         Pclass: 2,
         SibSp: 1,
         Embarked: 'C'
-    # 38,1,0,PC 17599,71.2833
     }
   end
 
   it 'predicts 0' do
     expect(@random_forest.predict(approve_features)).to eq '0'
     decisions_count = @random_forest.decisions_count(approve_features)
-    expect(decisions_count['0']).to eq 4
-    expect(decisions_count['1']).to eq 1
+    expect(decisions_count['0']).to eq 441
+    expect(decisions_count['1']).to eq 59
   end
 
   it 'predicts 1' do
     expect(@random_forest.predict(decline_features)).to eq '1'
     decisions_count = @random_forest.decisions_count(decline_features)
-    expect(decisions_count['0']).to eq 0
-    expect(decisions_count['1']).to eq 5
+    expect(decisions_count['0']).to eq 41
+    expect(decisions_count['1']).to eq 459
   end
 end
