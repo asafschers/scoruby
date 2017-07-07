@@ -1,6 +1,3 @@
-require 'simple_predicate'
-require 'simple_set_predicate'
-require 'compound_predicate'
 require 'predicate_factory'
 
 class Node

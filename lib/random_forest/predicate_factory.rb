@@ -1,3 +1,7 @@
+require 'compound_predicate'
+require 'simple_predicate'
+require 'simple_set_predicate'
+
 class PredicateFactory
 
   def self.for(pred_xml)
