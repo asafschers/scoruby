@@ -19,9 +19,8 @@ class CompoundPredicate
   private
 
   def surrogate?(features)
-    @predicates[0].feature.is_missing?(feautres) return @predicates[1]
+    return @predicates[1] if @predicates[0] # TODO: add is missing
     @predicates[0].true?(features)
-
   end
 
   def or?(features)
