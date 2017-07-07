@@ -19,7 +19,7 @@ class Gbm
   def score(features)
     formatted_features = Features.new(features).formatted
     x = @decision_trees.map { |dt|
-      score = dt.decide(formatted_features)
+      score = dt.decide(formatted_features).score
       score.to_s.to_f
     }.reduce(:+) + @const
     Math.exp(x) / (1 + Math.exp(x))

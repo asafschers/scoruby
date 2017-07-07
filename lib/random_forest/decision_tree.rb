@@ -11,7 +11,7 @@ class DecisionTree
 
   def decide(features)
     curr = @root
-    while curr.decision == ''
+    while curr.decision.score == ''
       prev = curr
       curr = step(curr, features)
       return if didnt_step?(curr, prev)

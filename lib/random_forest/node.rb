@@ -1,15 +1,21 @@
 require 'predicate_factory'
+require 'decision'
 
 class Node
 
-  attr_reader :decision, :pred, :children 
+  attr_reader :decision, :pred, :children
 
   def initialize(xml)
     children = xml.children
+
+    @decision = Decision.new(xml.attribute('score').to_s,
+                             score_distribution: children.select { |c| c.name == 'ScoreDistribution' } )
+
+    children = remove_nodes(children)
+
     pred_xml = children[0]
     @pred = PredicateFactory.for(pred_xml)
     @children = []
-    @decision = xml.attribute('score').to_s
 
     return if children.count == 1
 
@@ -20,5 +26,11 @@ class Node
 
   def true?(features)
     @pred.nil? || @pred.true?(features)
+  end
+
+  private
+
+  def remove_nodes(children)
+    children.reject { |c| ['Extension', 'ScoreDistribution'].include? c.name  }
   end
 end
