@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PMML xmlns="http://www.dmg.org/PMML-4_1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="4.1" xsi:schemaLocation="http://www.dmg.org/PMML-4_1 pmml-4-1.xsd">
+  <Header copyright="Copyright(c) SPSS Inc. 1989-2009. All rights reserved.">
+    <Application name="IBM SPSS Modeler Common" version="16.0.0.0" />
+    <Timestamp />
+  </Header>
+  <DataDictionary numberOfFields="8">
+    <DataField name="earn_base_points" displayName="earn_base_points" optype="continuous" isCyclic="0" dataType="double" />
+    <DataField name="earn_bonus_points" displayName="earn_bonus_points" optype="continuous" isCyclic="0" dataType="double" />
+    <DataField name="star_rating" displayName="star_rating" optype="ordinal" isCyclic="0" dataType="double">
+      <Value value="0" displayValue="0.0" property="valid" />
+      <Value value="1" displayValue="1.0" property="valid" />
+      <Value value="2" displayValue="2.0" property="valid" />
+      <Value value="2.5" displayValue="2.5" property="valid" />
+      <Value value="3" displayValue="3.0" property="valid" />
+      <Value value="3.5" displayValue="3.5" property="valid" />
+      <Value value="4" displayValue="4.0" property="valid" />
+      <Value value="4.5" displayValue="4.5" property="valid" />
+      <Value value="5" displayValue="5.0" property="valid" />
+    </DataField>
+    <DataField name="cost_per_star" displayName="cost_per_star" optype="continuous" isCyclic="0" dataType="double" />
+    <DataField name="base_points_per_star" displayName="base_points_per_star" optype="continuous" isCyclic="0" dataType="double" />
+    <DataField name="ppd" displayName="ppd" optype="continuous" isCyclic="0" dataType="double" />
+    <DataField name="percent_margin" displayName="percent_margin" optype="continuous" isCyclic="0" dataType="double" />
+    <DataField name="booked" displayName="booked" optype="categorical" isCyclic="0" dataType="double">
+      <Value value="0" displayValue="0" property="valid" />
+      <Value value="1" displayValue="1" property="valid" />
+    </DataField>
+  </DataDictionary>
+  <TreeModel algorithmName="CHAID" functionName="classification">
+    <Extension extender="spss.com">
+      <X-risk value="0.000396687269211734" />
+      <X-seOfRisk value="2.98920999964765e-006" />
+    </Extension>
+    <MiningSchema>
+      <MiningField name="ppd" usageType="active" />
+      <MiningField name="booked" usageType="predicted" />
+    </MiningSchema>
+    <ModelStats>
+      <UnivariateStats field="ppd">
+        <Counts totalFreq="44377527" missingFreq="0" invalidFreq="0" />
+        <NumericInfo minimum="0" maximum="9" />
+      </UnivariateStats>
+    </ModelStats>
+    <Node score="0" recordCount="44377527" id="0" defaultChild="1">
+      <Extension>
+        <X-Node>
+          <X-NodeStats chiSquare="755.26373485444" adjPValue="3.5716285536446e-163" df1="2" />
+        </X-Node>
+      </Extension>
+      <True />
+      <ScoreDistribution recordCount="44359923" value="0" probability="0.999603312730788" confidence="0.999603312730788">
+        <Extension extender="spss.com" name="probability" value="0.999603312730788" />
+      </ScoreDistribution>
+      <ScoreDistribution recordCount="17604" value="1" probability="0.000396687269211734" confidence="0.000396687269211734">
+        <Extension extender="spss.com" name="probability" value="0.000396687269211734" />
+      </ScoreDistribution>
+      <Node score="0" recordCount="17750732" id="1">
+        <CompoundPredicate booleanOperator="surrogate">
+          <CompoundPredicate booleanOperator="and">
+            <True />
+            <SimplePredicate field="ppd" operator="lessOrEqual" value="16.0918513223731" />
+          </CompoundPredicate>
+          <True />
+        </CompoundPredicate>
+        <ScoreDistribution recordCount="17742095" value="0" probability="0.999513428516638" confidence="0.999513428516638">
+          <Extension extender="spss.com" name="probability" value="0.999513428516638" />
+        </ScoreDistribution>
+        <ScoreDistribution recordCount="8637" value="1" probability="0.000486571483361926" confidence="0.000486571483361926">
+          <Extension extender="spss.com" name="probability" value="0.000486571483361926" />
+        </ScoreDistribution>
+      </Node>
+      <Node score="0" recordCount="13313561" id="2">
+        <CompoundPredicate booleanOperator="surrogate">
+          <CompoundPredicate booleanOperator="and">
+            <SimplePredicate field="ppd" operator="greaterThan" value="16.0918513223731" />
+            <SimplePredicate field="ppd" operator="lessOrEqual" value="28.6885245901639" />
+          </CompoundPredicate>
+          <False />
+        </CompoundPredicate>
+        <ScoreDistribution recordCount="13308443" value="0" probability="0.999615579933873" confidence="0.999615579933873">
+          <Extension extender="spss.com" name="probability" value="0.999615579933873" />
+        </ScoreDistribution>
+        <ScoreDistribution recordCount="5118" value="1" probability="0.000384420066126561" confidence="0.000384420066126561">
+          <Extension extender="spss.com" name="probability" value="0.000384420066126561" />
+        </ScoreDistribution>
+      </Node>
+      <Node score="0" recordCount="13313234" id="3">
+        <CompoundPredicate booleanOperator="surrogate">
+          <CompoundPredicate booleanOperator="and">
+            <SimplePredicate field="ppd" operator="greaterThan" value="28.6885245901639" />
+            <True />
+          </CompoundPredicate>
+          <False />
+        </CompoundPredicate>
+        <ScoreDistribution recordCount="13309385" value="0" probability="0.999710889179894" confidence="0.999710889179894">
+          <Extension extender="spss.com" name="probability" value="0.999710889179894" />
+        </ScoreDistribution>
+        <ScoreDistribution recordCount="3849" value="1" probability="0.000289110820105768" confidence="0.000289110820105768">
+          <Extension extender="spss.com" name="probability" value="0.000289110820105768" />
+        </ScoreDistribution>
+      </Node>
+    </Node>
+    <Extension>
+      <X-TreeModel>
+        <X-Priors>
+          <X-Prior-Value targetCategory="0" value="0.999603312730788" />
+          <X-Prior-Value targetCategory="1" value="0.000396687269211734" />
+        </X-Priors>
+      </X-TreeModel>
+    </Extension>
+  </TreeModel>
+</PMML>
