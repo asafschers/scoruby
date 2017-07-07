@@ -1,5 +1,7 @@
 require 'simple_predicate'
 require 'simple_set_predicate'
+require 'compound_predicate'
+require 'predicate_factory'
 
 class Node
 
@@ -8,8 +10,7 @@ class Node
   def initialize(xml)
     children = xml.children
     pred_xml = children[0]
-    @pred = SimplePredicate.new(pred_xml) if pred_xml.name == 'SimplePredicate'
-    @pred = SimpleSetPredicate.new(pred_xml) if pred_xml.name == 'SimpleSetPredicate'
+    @pred = PredicateFactory.for(pred_xml)
     @children = []
     @decision = xml.attribute('score').to_s
 
