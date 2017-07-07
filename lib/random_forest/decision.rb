@@ -2,8 +2,14 @@ class Decision
 
   attr_reader :score, :score_distribution
 
-  def initialize(score, score_distribution)
+  def initialize(score, score_distributions)
     @score = score
-    @score_distribution = score_distribution
+    return if score_distributions.empty?
+
+    @score_distribution = {}
+    score_distributions.each { |score_distribution|
+      attributes = score_distribution.attributes
+      @score_distribution[attributes['value'].to_s]  = attributes['probability'].to_s
+    }
   end
 end

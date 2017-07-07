@@ -9,7 +9,7 @@ class Node
     children = xml.children
 
     @decision = Decision.new(xml.attribute('score').to_s,
-                             score_distribution: children.select { |c| c.name == 'ScoreDistribution' } )
+                             children.select { |c| c.name == 'ScoreDistribution' } )
 
     children = remove_nodes(children)
 

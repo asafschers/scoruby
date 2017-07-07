@@ -131,11 +131,10 @@ describe DecisionTree do
     let(:tree_file) { 'spec/fixtures/decision_tree.pmml' }
     let(:tree_xml) { Scoruby.xml_from_file_path(tree_file) }
     let(:decision_tree) { DecisionTree.new(tree_xml.child) }
-
-    # TODO: finish and spec compound predicate
-    # TODO: ScoreDistribution
-
+    
     it 'scores' do
+      puts decision_tree.decide(ppd: 9.536082).score
+      puts decision_tree.decide(ppd: 9.536082).score_distribution
       #expect(decision_tree.decide(ppd: 9.536082).score).to eq 0.000487
       #expect(decision_tree.decide(ppd: 51.490066)).to eq 0.000289
     end
