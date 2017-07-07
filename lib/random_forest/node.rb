@@ -31,6 +31,6 @@ class Node
   private
 
   def remove_nodes(children)
-    children.reject { |c| ['Extension', 'ScoreDistribution'].include? c.name  }
+    children.reject { |c| %w(Extension ScoreDistribution).include? c.name  }
   end
 end

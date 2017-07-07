@@ -126,17 +126,19 @@ describe DecisionTree do
     end
   end
 
-  context 'decision tree' do
+  context 'IBM SPSS decision tree' do
 
     let(:tree_file) { 'spec/fixtures/decision_tree.pmml' }
     let(:tree_xml) { Scoruby.xml_from_file_path(tree_file) }
     let(:decision_tree) { DecisionTree.new(tree_xml.child) }
     
     it 'scores' do
-      #puts decision_tree.decide(ppd: 9.536082).score
-      #puts decision_tree.decide(ppd: 9.536082).score_distribution
-      #expect(decision_tree.decide(ppd: 9.536082).score).to eq 0.000487
-      #expect(decision_tree.decide(ppd: 51.490066)).to eq 0.000289
+      expect(decision_tree.decide(ppd: 10).score_distribution).to eq(
+                                                                            {'0' => '0.999513428516638', '1' => '0.000486571483361926'})
+      expect(decision_tree.decide(ppd: 20).score_distribution).to eq(
+                                                                            {'0' => '0.999615579933873', '1' => '0.000384420066126561'})
+      expect(decision_tree.decide(ppd: 50).score_distribution).to eq(
+                                                                            {'0' => '0.999710889179894', '1' => '0.000289110820105768'})
     end
   end
 end

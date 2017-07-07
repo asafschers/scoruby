@@ -1,4 +1,7 @@
 class CompoundPredicate
+  # TODO: spec
+
+  attr_reader :field
 
   def initialize(pred_xml)
     attributes = pred_xml.attributes
@@ -8,18 +11,19 @@ class CompoundPredicate
     @predicates = []
     @predicates << PredicateFactory.for(children[0])
     @predicates << PredicateFactory.for(children[1])
+    @field = @predicates.map(&:field)
   end
 
   def true?(features)
-    surrogate?(features) if @boolean_operator == 'surrogate'
-    or?(features) if @boolean_operator == 'or'
+    return surrogate?(features) if @boolean_operator == 'surrogate'
+    return or?(features) if @boolean_operator == 'or'
     and?(features) if @boolean_operator == 'and'
   end
 
   private
 
   def surrogate?(features)
-    return @predicates[1] if @predicates[0] # TODO: add is missing
+    # TODO: return 1 if 0 is missing
     @predicates[0].true?(features)
   end
 
