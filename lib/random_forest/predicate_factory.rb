@@ -1,6 +1,8 @@
-require 'compound_predicate'
-require 'simple_predicate'
-require 'simple_set_predicate'
+require 'predicates/compound_predicate'
+require 'predicates/simple_predicate'
+require 'predicates/simple_set_predicate'
+require 'predicates/true_predicate'
+require 'predicates/false_predicate'
 
 class PredicateFactory
 
@@ -13,23 +15,4 @@ class PredicateFactory
   end
 end
 
-class TruePredicate
-  def field
-    nil
-  end
-
-  def true?(_)
-    true
-  end
-end
-
-class FalsePredicate
-  def field
-    nil
-  end
-
-  def true?(_)
-    false
-  end
-end
 
