@@ -10,7 +10,7 @@ class CompoundPredicate
     @predicates = []
     @predicates << PredicateFactory.for(children[0])
     @predicates << PredicateFactory.for(children[1])
-    @field = @predicates.map(&:field)
+    @field = @predicates.map(&:field).flatten.compact
   end
 
   def true?(features)
@@ -20,7 +20,7 @@ class CompoundPredicate
   end
 
   def is_missing?(features)
-    @field.flatten.compact.any? { |f| !features.keys.include?(f) }
+    @field.any? { |f| !features.keys.include?(f) }
   end
 
   private
