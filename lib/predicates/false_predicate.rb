@@ -6,4 +6,8 @@ class FalsePredicate
   def true?(_)
     false
   end
+
+  def is_missing?(_)
+    false
+  end
 end

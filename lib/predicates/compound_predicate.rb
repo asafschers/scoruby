@@ -1,5 +1,4 @@
 class CompoundPredicate
-  # TODO: spec
 
   attr_reader :field
 
@@ -20,10 +19,14 @@ class CompoundPredicate
     and?(features) if @boolean_operator == 'and'
   end
 
+  def is_missing?(features)
+    @field.flatten.compact.any? { |f| !features.keys.include?(f) }
+  end
+
   private
 
   def surrogate?(features)
-    # TODO: return 1 if 0 is missing
+    return @predicates[1].true?(features) if @predicates[0].is_missing?(features)
     @predicates[0].true?(features)
   end
 

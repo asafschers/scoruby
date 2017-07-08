@@ -15,6 +15,10 @@ class SimpleSetPredicate
     @array.include? features[@field] if @operator == IS_IN
   end
 
+  def is_missing?(features)
+    !features.keys.include?(@field)
+  end
+
   private
 
   def single_or_quoted_words(string)

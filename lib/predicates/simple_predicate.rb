@@ -25,6 +25,12 @@ class SimplePredicate
     features[field].nil? || !features.has_key?(field) if @operator == IS_MISSING
   end
 
+  def is_missing?(features)
+    !features.keys.include?(@field)
+  end
+
+  private
+
   def num_true?(features)
     return false unless features[@field]
     curr_value = Float(features[@field])
