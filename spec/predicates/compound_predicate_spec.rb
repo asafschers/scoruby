@@ -3,7 +3,7 @@ require 'spec_helper'
 describe CompoundPredicate do
 
   context 'evaluates and' do
-    let (:pred_string) { p <<-XML
+    let (:pred_string) {  <<-XML
           <CompoundPredicate booleanOperator="and"><True /><SimplePredicate field="f" operator="lessOrEqual" value="16.0918513223731" /></CompoundPredicate>
     XML
     }
@@ -20,7 +20,7 @@ describe CompoundPredicate do
   end
 
   context 'evaluates or' do
-    let (:pred_string) { p <<-XML
+    let (:pred_string) {  <<-XML
           <CompoundPredicate booleanOperator="or"><False /><SimplePredicate field="f" operator="lessOrEqual" value="16.0918513223731" /></CompoundPredicate>
     XML
     }
@@ -38,5 +38,21 @@ describe CompoundPredicate do
 
   context 'evaluates surrogate' do
 
+    context 'simple predicate' do
+      let (:pred_string) {  <<-XML
+          <CompoundPredicate booleanOperator="surrogate"><SimplePredicate field="f" operator="lessOrEqual" value="16.0918513223731" /><False /></CompoundPredicate>
+      XML
+      }
+      let (:pred_xml) { Nokogiri::XML(pred_string); }
+      let (:predicate) { CompoundPredicate.new(pred_xml.children.first) }
+
+      it 'missing' do
+        expect(predicate.true?(g: 17)).to eq false
+      end
+
+      it 'not missing' do
+        expect(predicate.true?(f: 16)).to eq true
+      end
+    end
   end
 end
