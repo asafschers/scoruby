@@ -37,14 +37,14 @@ describe RandomForest do
   it 'predicts 0' do
     expect(@random_forest.predict(approve_features)).to eq '0'
     decisions_count = @random_forest.decisions_count(approve_features)
-    expect(decisions_count['0']).to eq 441
-    expect(decisions_count['1']).to eq 59
+    expect(decisions_count['0']).to eq 13
+    expect(decisions_count['1']).to eq 2
   end
 
   it 'predicts 1' do
     expect(@random_forest.predict(decline_features)).to eq '1'
     decisions_count = @random_forest.decisions_count(decline_features)
-    expect(decisions_count['0']).to eq 41
-    expect(decisions_count['1']).to eq 459
+    expect(decisions_count['0']).to eq 1
+    expect(decisions_count['1']).to eq 14
   end
 end
