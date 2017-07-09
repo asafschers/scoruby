@@ -1,4 +1,4 @@
-require 'decision_tree'
+require 'models/decision_tree'
 require 'features'
 
 class Gbm

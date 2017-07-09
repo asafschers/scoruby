@@ -1,4 +1,4 @@
-require 'decision_tree'
+require 'models/decision_tree'
 
 class RandomForest
   RF_FOREST_XPATH = 'PMML/MiningModel/Segmentation/Segment'
