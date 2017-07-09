@@ -140,6 +140,28 @@ gbm.score(features)
 
 ```
 
+### Decision Tree
+
+#### Classify by PMML - Ruby
+
+```ruby
+decision_tree = Scoruby.get_model 'decision_tree.pmml'
+
+features =  {
+        Sex: 'male',
+        Parch: 0,
+        Age: 30,
+        Fare: 9.6875,
+        Pclass: 2,
+        SibSp: 0,
+        Embarked: 'Q'       
+    }
+
+decision_tree.decide(features)
+
+=> #<Decision:0x007fc232384180 @score="0", @score_distribution={"0"=>"0.999615579933873", "1"=>"0.000384420066126561"}>
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake rspec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
