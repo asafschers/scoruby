@@ -1,15 +1,10 @@
 require 'scoruby/version'
+require 'models_factory'
 require 'nokogiri'
-require 'random_forest'
-require 'gbm'
 require 'logger'
 require 'pry'
 
 module Scoruby
-  RANDOM_FOREST_MODEL = 'randomForest_Model'
-  GBM_INDICATION = '//OutputField[@name="scaledGbmValue"]'
-  MODEL_NOT_SUPPORTED_ERROR = 'model not supported'
-
   class << self
     attr_writer :logger
 
@@ -22,13 +17,7 @@ module Scoruby
 
   def self.get_model(pmml_file_name)
     xml = xml_from_file_path(pmml_file_name)
-    new_model(xml)
-  end
-
-  def self.new_model(xml)
-    return RandomForest.new(xml) if random_forest?(xml)
-    return Gbm.new(xml) if gbm?(xml)
-    raise MODEL_NOT_SUPPORTED_ERROR
+    ModelsFactory.factory_for(xml)
   end
 
   def self.xml_from_file_path(pmml_file_name)
@@ -39,13 +28,5 @@ module Scoruby
   def self.xml_from_string(pmml_string)
     xml = Nokogiri::XML(pmml_string) { |config| config.noblanks }
     xml.remove_namespaces!
-  end
-
-  def self.random_forest?(xml)
-    xml.xpath('PMML/MiningModel/@modelName').to_s == RANDOM_FOREST_MODEL
-  end
-
-  def self.gbm?(xml)
-    !xml.xpath(GBM_INDICATION).empty?
   end
 end
