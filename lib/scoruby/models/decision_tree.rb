@@ -8,7 +8,7 @@ module Scoruby
 
       def initialize(tree_xml)
         @id   = tree_xml.attribute('id')
-        @root = Scoruby::Node.new(tree_xml.xpath('TreeModel/Node'))
+        @root = Node.new(tree_xml.xpath('TreeModel/Node'))
       end
 
       def decide(features)

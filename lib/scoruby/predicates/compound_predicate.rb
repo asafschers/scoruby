@@ -10,8 +10,8 @@ module Scoruby
 
         @boolean_operator = attributes['booleanOperator'].value
         @predicates       = []
-        @predicates << Scoruby::PredicateFactory.for(children[0])
-        @predicates << Scoruby::PredicateFactory.for(children[1])
+        @predicates << PredicateFactory.for(children[0])
+        @predicates << PredicateFactory.for(children[1])
         @field = @predicates.map(&:field).flatten.compact
       end
 

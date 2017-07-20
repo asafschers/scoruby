@@ -9,9 +9,9 @@ module Scoruby
     MODEL_NOT_SUPPORTED_ERROR = 'model not supported'
 
     def self.factory_for(xml)
-      return Scoruby::Models::RandomForest.new(xml) if random_forest?(xml)
-      return Scoruby::Models::Gbm.new(xml) if gbm?(xml)
-      return Scoruby::Models::DecisionTree.new(xml.child) if decision_tree?(xml)
+      return Models::RandomForest.new(xml) if random_forest?(xml)
+      return Models::Gbm.new(xml) if gbm?(xml)
+      return Models::DecisionTree.new(xml.child) if decision_tree?(xml)
 
       raise MODEL_NOT_SUPPORTED_ERROR
     end

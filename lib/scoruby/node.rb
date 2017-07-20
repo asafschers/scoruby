@@ -9,20 +9,20 @@ module Scoruby
     def initialize(xml)
       children = xml.children
 
-      @decision = Scoruby::Decision.new(xml.attribute('score').to_s,
+      @decision = Decision.new(xml.attribute('score').to_s,
         children.select {|c| c.name == 'ScoreDistribution'})
 
       children = remove_nodes(children)
 
       pred_xml  = children[0]
-      @pred     = Scoruby::PredicateFactory.for(pred_xml)
+      @pred     = PredicateFactory.for(pred_xml)
       @children = []
 
       return if children.count == 1
 
-      @children << Scoruby::Node.new(children[1]) if children[1]
-      @children << Scoruby::Node.new(children[2]) if children[2]
-      @children << Scoruby::Node.new(children[3]) if children[3]
+      @children << Node.new(children[1]) if children[1]
+      @children << Node.new(children[2]) if children[2]
+      @children << Node.new(children[3]) if children[3]
     end
 
     def true?(features)

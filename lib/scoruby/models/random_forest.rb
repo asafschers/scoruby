@@ -6,12 +6,12 @@ module Scoruby
       def initialize(xml)
         xml_trees       = xml.xpath(RF_FOREST_XPATH)
         @decision_trees = xml_trees.collect {|xml_tree|
-          Scoruby::Models::DecisionTree.new(xml_tree)
+          DecisionTree.new(xml_tree)
         }
       end
 
       def decisions_count(features)
-        formatted_features = Scoruby::Features.new(features).formatted
+        formatted_features = Features.new(features).formatted
         decisions          = @decision_trees.collect {|decision_tree|
           decision_tree.decide(formatted_features).score
         }

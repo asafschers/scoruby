@@ -8,11 +8,11 @@ module Scoruby
   class PredicateFactory
 
     def self.for(pred_xml)
-      return Scoruby::Predicates::SimplePredicate.new(pred_xml) if pred_xml.name == 'SimplePredicate'
-      return Scoruby::Predicates::SimpleSetPredicate.new(pred_xml) if pred_xml.name == 'SimpleSetPredicate'
-      return Scoruby::Predicates::CompoundPredicate.new(pred_xml) if pred_xml.name == 'CompoundPredicate'
-      return Scoruby::Predicates::TruePredicate.new if pred_xml.name == 'True'
-      return Scoruby::Predicates::FalsePredicate.new if pred_xml.name == 'False'
+      return Predicates::SimplePredicate.new(pred_xml) if pred_xml.name == 'SimplePredicate'
+      return Predicates::SimpleSetPredicate.new(pred_xml) if pred_xml.name == 'SimpleSetPredicate'
+      return Predicates::CompoundPredicate.new(pred_xml) if pred_xml.name == 'CompoundPredicate'
+      return Predicates::TruePredicate.new if pred_xml.name == 'True'
+      return Predicates::FalsePredicate.new if pred_xml.name == 'False'
     end
   end
 end
