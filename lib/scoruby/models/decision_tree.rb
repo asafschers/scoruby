@@ -1,4 +1,4 @@
-require 'node'
+require 'scoruby/node'
 
 module Scoruby
   module Models
@@ -28,6 +28,8 @@ module Scoruby
         curr = step_on_true(curr, features, 0)
         curr = step_on_true(curr, features, 1)
         curr = step_on_true(curr, features, 2)
+        curr = step_on_true(curr, features, 3)
+        curr = step_on_true(curr, features, 4)
         curr
       end
 

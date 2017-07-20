@@ -1,5 +1,5 @@
-require 'models/decision_tree'
-require 'features'
+require 'scoruby/models/decision_tree'
+require 'scoruby/features'
 
 module Scoruby
   module Models

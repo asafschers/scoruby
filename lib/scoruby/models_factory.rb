@@ -1,6 +1,6 @@
-require 'models/decision_tree'
-require 'models/gbm'
-require 'models/random_forest'
+require 'scoruby/models/decision_tree'
+require 'scoruby/models/gbm'
+require 'scoruby/models/random_forest'
 
 module Scoruby
   class ModelsFactory

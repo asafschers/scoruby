@@ -1,5 +1,5 @@
-require 'predicate_factory'
-require 'decision'
+require 'scoruby/predicate_factory'
+require 'scoruby/decision'
 
 module Scoruby
   class Node
@@ -23,6 +23,8 @@ module Scoruby
       @children << Node.new(children[1]) if children[1]
       @children << Node.new(children[2]) if children[2]
       @children << Node.new(children[3]) if children[3]
+      @children << Node.new(children[4]) if children[4]
+      @children << Node.new(children[5]) if children[5]
     end
 
     def true?(features)

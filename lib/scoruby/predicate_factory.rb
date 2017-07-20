@@ -1,8 +1,8 @@
-require 'predicates/compound_predicate'
-require 'predicates/simple_predicate'
-require 'predicates/simple_set_predicate'
-require 'predicates/true_predicate'
-require 'predicates/false_predicate'
+require 'scoruby/predicates/compound_predicate'
+require 'scoruby/predicates/simple_predicate'
+require 'scoruby/predicates/simple_set_predicate'
+require 'scoruby/predicates/true_predicate'
+require 'scoruby/predicates/false_predicate'
 
 module Scoruby
   class PredicateFactory
