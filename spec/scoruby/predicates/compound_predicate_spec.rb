@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe CompoundPredicate do
+describe Scoruby::Predicates::CompoundPredicate do
 
   context 'evaluates and' do
     let (:pred_string) {  <<-XML
@@ -8,7 +8,7 @@ describe CompoundPredicate do
     XML
     }
     let (:pred_xml) { Nokogiri::XML(pred_string); }
-    let (:predicate) { CompoundPredicate.new(pred_xml.children.first) }
+    let (:predicate) { Scoruby::Predicates::CompoundPredicate.new(pred_xml.children.first) }
 
     it 'returns true' do
       expect(predicate.true?(f: 16)).to eq true
@@ -25,7 +25,7 @@ describe CompoundPredicate do
     XML
     }
     let (:pred_xml) { Nokogiri::XML(pred_string); }
-    let (:predicate) { CompoundPredicate.new(pred_xml.children.first) }
+    let (:predicate) { Scoruby::Predicates::CompoundPredicate.new(pred_xml.children.first) }
 
     it 'returns true' do
       expect(predicate.true?(f: 16)).to eq true
@@ -44,7 +44,7 @@ describe CompoundPredicate do
       XML
       }
       let (:pred_xml) { Nokogiri::XML(pred_string); }
-      let (:predicate) { CompoundPredicate.new(pred_xml.children.first) }
+      let (:predicate) { Scoruby::Predicates::CompoundPredicate.new(pred_xml.children.first) }
 
       it 'missing' do
         expect(predicate.true?(g: 17)).to eq false

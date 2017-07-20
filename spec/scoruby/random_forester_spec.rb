@@ -10,14 +10,14 @@ describe Scoruby do
   it 'raises when type not known' do
     expect {
       Scoruby.get_model(non_rf_file)
-    }.to raise_error(ModelsFactory::MODEL_NOT_SUPPORTED_ERROR)
+    }.to raise_error(Scoruby::ModelsFactory::MODEL_NOT_SUPPORTED_ERROR)
   end
 
   it 'initializes random forest' do
-    expect(Scoruby.get_model(rf_file)).to be_a(RandomForest)
+    expect(Scoruby.get_model(rf_file)).to be_a(Scoruby::Models::RandomForest)
   end
 
   it 'initializes gbm ' do
-    expect(Scoruby.get_model(gbm_file)).to be_a(Gbm)
+    expect(Scoruby.get_model(gbm_file)).to be_a(Scoruby::Models::Gbm)
   end
 end

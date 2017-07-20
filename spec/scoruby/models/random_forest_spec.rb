@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe RandomForest do
+describe Scoruby::Models::RandomForest do
 
   before(:all) do
     rf_file = 'spec/fixtures/titanic_rf.pmml'
     xml = Scoruby.xml_from_file_path(rf_file)
-    @random_forest = RandomForest.new(xml)
+    @random_forest = Scoruby::Models::RandomForest.new(xml)
 
   end
 

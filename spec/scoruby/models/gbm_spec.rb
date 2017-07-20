@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe Gbm do
+describe Scoruby::Models::Gbm do
 
   let(:gbm_file) { 'spec/fixtures/titanic_gbm.pmml'}
   let(:xml) { Scoruby.xml_from_file_path(gbm_file) }
-  let(:gbm) { Gbm.new(xml) }
+  let(:gbm) { Scoruby::Models::Gbm.new(xml) }
 
   it 'loads correct number of trees' do
     expect(gbm.tree_count).to eq 100
