@@ -4,7 +4,7 @@ describe Scoruby::Predicates::SimpleSetPredicate do
 
   let (:pred_xml) { Scoruby.xml_from_string(pred_string) }
   let (:relevant_pred_xml) {  pred_xml.children[0] }
-  let (:categorical_predicate) { Scoruby::Predicates::SimpleSetPredicate.new(relevant_pred_xml) }
+  let (:categorical_predicate) { described_class.new(relevant_pred_xml) }
 
   context 'quotes' do
     let (:pred_string) { '<SimpleSetPredicate field="f36" booleanOperator="isIn">

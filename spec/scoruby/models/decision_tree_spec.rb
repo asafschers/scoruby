@@ -4,7 +4,7 @@ describe Scoruby::Models::DecisionTree do
 
   let(:tree_file) { 'spec/fixtures/gbm_tree.pmml' }
   let(:tree_xml) { Scoruby.xml_from_file_path(tree_file) }
-  let(:decision_tree) { Scoruby::Models::DecisionTree.new(tree_xml.child) }
+  let(:decision_tree) { described_class.new(tree_xml.child) }
 
   context 'sets tree' do
 
@@ -82,7 +82,7 @@ describe Scoruby::Models::DecisionTree do
 
     let(:tree_file) { 'spec/fixtures/decision_tree.pmml' }
     let(:tree_xml) { Scoruby.xml_from_file_path(tree_file) }
-    let(:decision_tree) { Scoruby::Models::DecisionTree.new(tree_xml.child) }
+    let(:decision_tree) { described_class.new(tree_xml.child) }
     
     it 'scores' do
       expect(decision_tree.decide(ppd: 10).score_distribution).to eq(

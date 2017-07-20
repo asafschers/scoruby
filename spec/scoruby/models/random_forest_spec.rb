@@ -5,7 +5,7 @@ describe Scoruby::Models::RandomForest do
   before(:all) do
     rf_file = 'spec/fixtures/titanic_rf.pmml'
     xml = Scoruby.xml_from_file_path(rf_file)
-    @random_forest = Scoruby::Models::RandomForest.new(xml)
+    @random_forest = described_class.new(xml)
 
   end
 
