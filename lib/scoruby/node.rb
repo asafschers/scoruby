@@ -25,6 +25,11 @@ module Scoruby
       @children << Node.new(children[3]) if children[3]
       @children << Node.new(children[4]) if children[4]
       @children << Node.new(children[5]) if children[5]
+      @children << Node.new(children[6]) if children[6]
+      @children << Node.new(children[7]) if children[7]
+      @children << Node.new(children[8]) if children[8]
+      @children << Node.new(children[9]) if children[9]
+      @children << Node.new(children[10]) if children[10]
     end
 
     def true?(features)
