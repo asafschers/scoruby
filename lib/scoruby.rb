@@ -1,8 +1,7 @@
 require 'scoruby/version'
-require 'models_factory'
+require 'scoruby/models_factory'
 require 'nokogiri'
 require 'logger'
-require 'pry'
 
 module Scoruby
   class << self
@@ -17,7 +16,7 @@ module Scoruby
 
   def self.get_model(pmml_file_name)
     xml = xml_from_file_path(pmml_file_name)
-    ModelsFactory.factory_for(xml)
+    Scoruby::ModelsFactory.factory_for(xml)
   end
 
   def self.xml_from_file_path(pmml_file_name)

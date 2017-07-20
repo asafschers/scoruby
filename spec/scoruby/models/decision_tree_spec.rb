@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe DecisionTree do
+describe Scoruby::Models::DecisionTree do
 
   let(:tree_file) { 'spec/fixtures/gbm_tree.pmml' }
   let(:tree_xml) { Scoruby.xml_from_file_path(tree_file) }
-  let(:decision_tree) { DecisionTree.new(tree_xml.child) }
+  let(:decision_tree) { Scoruby::Models::DecisionTree.new(tree_xml.child) }
 
   context 'sets tree' do
 
@@ -14,7 +14,7 @@ describe DecisionTree do
     it 'sets node' do
       expect(l_node.pred.field).to eq :f2
       expect(l_node.decision.score).to eq ''
-      expect(lr_node.children).to all( be_a Node )
+      expect(lr_node.children).to all( be_a Scoruby::Node )
     end
 
     it 'sets leave' do
@@ -82,7 +82,7 @@ describe DecisionTree do
 
     let(:tree_file) { 'spec/fixtures/decision_tree.pmml' }
     let(:tree_xml) { Scoruby.xml_from_file_path(tree_file) }
-    let(:decision_tree) { DecisionTree.new(tree_xml.child) }
+    let(:decision_tree) { Scoruby::Models::DecisionTree.new(tree_xml.child) }
     
     it 'scores' do
       expect(decision_tree.decide(ppd: 10).score_distribution).to eq(
