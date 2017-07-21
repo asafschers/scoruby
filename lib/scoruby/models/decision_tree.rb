@@ -30,6 +30,11 @@ module Scoruby
         curr = step_on_true(curr, features, 2)
         curr = step_on_true(curr, features, 3)
         curr = step_on_true(curr, features, 4)
+        curr = step_on_true(curr, features, 5)
+        curr = step_on_true(curr, features, 6)
+        curr = step_on_true(curr, features, 7)
+        curr = step_on_true(curr, features, 8)
+        curr = step_on_true(curr, features, 9)
         curr
       end
 
