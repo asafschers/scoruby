@@ -25,22 +25,9 @@ module Scoruby
       private
 
       def step(curr, features)
-        curr = step_on_true(curr, features, 0)
-        curr = step_on_true(curr, features, 1)
-        curr = step_on_true(curr, features, 2)
-        curr = step_on_true(curr, features, 3)
-        curr = step_on_true(curr, features, 4)
-        curr = step_on_true(curr, features, 5)
-        curr = step_on_true(curr, features, 6)
-        curr = step_on_true(curr, features, 7)
-        curr = step_on_true(curr, features, 8)
-        curr = step_on_true(curr, features, 9)
-        curr
-      end
-
-      def step_on_true(curr, features, num)
-        return curr.children[num] if curr.children && curr.children[num] && curr.children[num].true?(features)
-        curr
+        return curr unless curr.children
+        next_step = curr.children.find { |c| c && c.true?(features) }
+        next_step || curr
       end
 
       def didnt_step?(curr, prev)
