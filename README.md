@@ -31,38 +31,6 @@ Or install it yourself as:
 
 ## Usage
 ### Random Forest
-#### Generate  PMML - R
-
-```R
-
-# Install and require randomForest, pmml packages
-
-install.packages('randomForest')
-install.packages('pmml')
-library('randomForest')
-library('pmml')
-
-# Login to Kaggle and download titanic dataset 
-# https://www.kaggle.com/c/titanic/data 
-# Load CSV to data frame -
-
-titanic.train <- read.table("titanic_train.csv", header = TRUE, sep = ",")
-titanic.train$Survived <- as.factor(titanic.train$Survived)
-
-# Train RF model
-
-titanic.rf <- randomForest(Survived ~ . - Name - Cabin - Ticket,
-                           data = titanic.train, 
-                           na.action = na.roughfix)
-
-# Generate pmml from model
-
-pmml <- pmml(titanic.rf)
-saveXML(pmml, 'titanic_rf.pmml')
-
-```
-
-#### Classify by PMML - Ruby
 
 ```ruby
 
@@ -89,37 +57,6 @@ random_forest.decisions_count(features)
 
 ### Gradient Boosted model
 
-#### Generate  PMML - R
-
-```R
-
-# Install and require gbm, r2pmml
-
-library("devtools")
-install_github(repo = "jpmml/r2pmml")
-
-library("r2pmml")
-library("gbm")
-
-# Login to Kaggle and download titanic dataset 
-# https://www.kaggle.com/c/titanic/data 
-# Load CSV to data frame -
-
-titanic.train <- read.table("titanic_train.csv", header = TRUE, sep = ",")
-titanic.train$Survived <- as.factor(titanic.train$Survived)
-
-# Train GBM model
-
-titanic.gbm <- gbm(Survived ~ . - PassengerId - Name - Cabin - Ticket,  data = titanic.train)
-
-# Generate pmml from model
-
-pmml <- r2pmml(titanic.gbm, 'titanic_gbm.pmml')
-
-```
-
-#### Classify by PMML - Ruby
-
 ```ruby
 
 gbm = Scoruby.get_model 'gbm.pmml'
@@ -141,8 +78,6 @@ gbm.score(features)
 ```
 
 ### Decision Tree
-
-#### Classify by PMML - Ruby
 
 ```ruby
 decision_tree = Scoruby.get_model 'decision_tree.pmml'
