@@ -33,6 +33,7 @@ Or install it yourself as:
 ### Random Forest
 
 [Generate PMML - R](https://github.com/asafschers/scoruby/wiki/Random-Forest) 
+#### Classify by PMML - Ruby
 
 ```ruby
 
@@ -58,7 +59,7 @@ random_forest.decisions_count(features)
 ```
 
 ### Gradient Boosted model
-
+#### Classify by PMML - Ruby
 
 [Generate PMML - R](https://github.com/asafschers/scoruby/wiki/Gradient-Boosted-Model) 
 
