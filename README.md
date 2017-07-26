@@ -59,9 +59,10 @@ random_forest.decisions_count(features)
 ```
 
 ### Gradient Boosted model
-#### Classify by PMML - Ruby
 
 [Generate PMML - R](https://github.com/asafschers/scoruby/wiki/Gradient-Boosted-Model) 
+
+#### Classify by PMML - Ruby
 
 ```ruby
 
