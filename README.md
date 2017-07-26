@@ -32,6 +32,8 @@ Or install it yourself as:
 ## Usage
 ### Random Forest
 
+[Generate PMML - R](https://github.com/asafschers/scoruby/wiki/Random-Forest) 
+
 ```ruby
 
 random_forest = Scoruby.get_model 'titanic_rf.pmml'
@@ -56,6 +58,9 @@ random_forest.decisions_count(features)
 ```
 
 ### Gradient Boosted model
+
+
+[Generate PMML - R](https://github.com/asafschers/scoruby/wiki/Gradient-Boosted-Model) 
 
 ```ruby
 
