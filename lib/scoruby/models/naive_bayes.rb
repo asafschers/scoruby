@@ -19,11 +19,15 @@ module Scoruby
         @labels.each do |label, _|
           features.each do |feature_name, value|
 
-            @labels[label][feature_name] = @data[feature_name][value][label] if @data[feature_name][value]
+            if @data[feature_name][value]
+              value_count = @data[feature_name][value][label].to_f
+              overall_count = @data[feature_name].sum { |_, value| value[label].to_f }
 
+              @labels[label][feature_name] = value_count / overall_count
+            end
+            
             # TODO: handle nil
             # TODO: handle numerical
-            # TODO: calc sum and ratio
             # TODO: consider threshold on 0
           end
         end
