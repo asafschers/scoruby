@@ -17,27 +17,50 @@ module Scoruby
 
       def score(features)
         @labels.each do |label, _|
-          features.each do |feature_name, value|
+          features.each do |feature_name, feature_value|
 
-            if @data[feature_name][value]
-              value_count = @data[feature_name][value][label].to_f
+            if @data[feature_name][feature_value]
+              value_count = @data[feature_name][feature_value][label].to_f
               overall_count = @data[feature_name].sum { |_, value| value[label].to_f }
 
               @labels[label][feature_name] = value_count / overall_count
+            elsif @data[feature_name][label]
+              @labels[label][feature_name] = calc_numerical(@data[feature_name][label], feature_value)
             end
-            
-            # TODO: handle nil
-            # TODO: handle numerical
+
             # TODO: consider threshold on 0
+            # TODO: calc score from label probabilities 
           end
         end
-
-        # puts @labels
       end
 
       private
 
+      def calc_numerical(label_data, feature_value)
+        variance = label_data[:variance].to_f
+        mean = label_data[:mean].to_f
+        feature_value = feature_value.to_f
+
+        Math.exp(-(feature_value - mean)**2 / (2 * variance)) / Math.sqrt(2 * Math::PI * variance)
+      end
+
       def fetch_feature(feature)
+        return fetch_numerical_feature(feature) if feature.child.name == 'TargetValueStats'
+        fetch_category_feature(feature)
+      end
+
+      def fetch_numerical_feature(feature)
+        features_data = {}
+        feature.child.children.each do |child|
+          features_data[child.attr('value').strip] = {
+            mean: child.child.attr('mean'),
+            variance: child.child.attr('variance')
+          }
+        end
+        features_data
+      end
+
+      def fetch_category_feature(feature)
         feature_data = {}
         feature.children.each do |category|
           feature_data[category.attr('value')] = fetch_category(category)
