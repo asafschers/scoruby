@@ -16,7 +16,7 @@ module Scoruby
         end
       end
 
-      def score(features)
+      def lvalues(features)
         @labels.each do |label, _|
           features.each do |feature_name, feature_value|
 
@@ -31,14 +31,19 @@ module Scoruby
           end
         end
 
+        lvalues = {}
         @labels.each do |label, label_data|
           label_data.each do |key, value|
             label_data[key] = @threshold if value.round(5).zero?
           end
-          @labels[label][:lvalue] = label_data.values.reduce(:*)
+          lvalues[label] = label_data.values.reduce(:*)
         end
+        lvalues
+      end
 
-        
+      def score(features, label)
+        lvalues = lvalues(features)
+        lvalues[label] / lvalues.values.reduce(:+)
       end
 
       private

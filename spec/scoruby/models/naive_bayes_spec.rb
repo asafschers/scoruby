@@ -15,8 +15,11 @@ describe Scoruby::Models::NaiveBayes do
   }
   end
 
-  it 'scores' do
-    puts naive_bayes.score(features)
+  it 'returns lvalues' do
+    puts naive_bayes.lvalues(features)
   end
 
+  it 'scores' do
+    puts naive_bayes.score(features, '1000')
+  end
 end
