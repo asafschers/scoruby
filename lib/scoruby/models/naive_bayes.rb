@@ -4,6 +4,7 @@ module Scoruby
       attr_reader :data
 
       def initialize(xml)
+        @threshold = xml.xpath('//NaiveBayesModel').attr('threshold').value.to_f
         @data = {}
         xml.xpath('//BayesInput').each do |feature|
           @data[feature.attr('fieldName').to_sym] = fetch_feature(feature)
@@ -11,7 +12,7 @@ module Scoruby
 
         @labels = {}
         xml.xpath('//BayesOutput//TargetValueCount').each do |l| l.attr('value')
-          @labels[l.attr('value')] = { 'count': l.attr('count') }
+          @labels[l.attr('value')] = { 'count': l.attr('count').to_f }
         end
       end
 
@@ -27,11 +28,17 @@ module Scoruby
             elsif @data[feature_name][label]
               @labels[label][feature_name] = calc_numerical(@data[feature_name][label], feature_value)
             end
-
-            # TODO: consider threshold on 0
-            # TODO: calc score from label probabilities 
           end
         end
+
+        @labels.each do |label, label_data|
+          label_data.each do |key, value|
+            label_data[key] = @threshold if value.round(5).zero?
+          end
+          @labels[label][:lvalue] = label_data.values.reduce(:*)
+        end
+
+        
       end
 
       private
