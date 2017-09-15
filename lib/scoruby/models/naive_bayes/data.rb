@@ -5,22 +5,34 @@ module Scoruby
         attr_reader :threshold, :labels, :numerical_features, :category_features
 
         def initialize(xml)
-          @threshold = xml.xpath('//NaiveBayesModel').attr('threshold').value.to_f
-
-          @category_features = {}
-          @numerical_features = {}
-          xml.xpath('//BayesInput').each do |feature|
-            @category_features[feature.attr('fieldName').to_sym] = fetch_category_feature(feature)
-            @numerical_features[feature.attr('fieldName').to_sym] ||= fetch_numerical_feature(feature)
-          end
-
-          @labels = {}
-          xml.xpath('//BayesOutput//TargetValueCount').each do |l| l.attr('value')
-          @labels[l.attr('value')] = { 'count': l.attr('count').to_f }
-          end
+          @xml = xml
+          fetch_threshold
+          fetch_features_data
+          fetch_label_counts
         end
 
         private
+
+        def fetch_threshold
+          @threshold = @xml.xpath('//NaiveBayesModel').attr('threshold').value.to_f
+        end
+
+        def fetch_features_data
+          @category_features = {}
+          @numerical_features = {}
+          @xml.xpath('//BayesInput').each do |feature|
+            @category_features[feature.attr('fieldName').to_sym] = fetch_category_feature(feature)
+            @numerical_features[feature.attr('fieldName').to_sym] = fetch_numerical_feature(feature)
+          end
+        end
+
+        def fetch_label_counts
+          @labels = {}
+          @xml.xpath('//BayesOutput//TargetValueCount').each do |l|
+            l.attr('value')
+            @labels[l.attr('value')] = {'count': l.attr('count').to_f}
+          end
+        end
         
         def fetch_numerical_feature(feature)
           return unless feature.child.name == 'TargetValueStats'
