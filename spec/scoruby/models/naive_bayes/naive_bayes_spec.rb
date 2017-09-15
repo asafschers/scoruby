@@ -1,7 +1,7 @@
 require 'spec_helper'
-require 'scoruby/models/naive_bayes'
+require 'scoruby/models/naive_bayes/model'
 
-describe Scoruby::Models::NaiveBayes do
+describe Scoruby::Models::NaiveBayes::Model do
 
   let(:naive_bayes_file) { 'spec/fixtures/naive_bayes.pmml'}
   let(:xml) { Scoruby.xml_from_file_path(naive_bayes_file) }
