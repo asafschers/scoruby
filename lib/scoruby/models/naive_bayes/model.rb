@@ -1,4 +1,4 @@
-require 'scoruby/models/naive_bayes/data'
+require 'scoruby/models/naive_bayes/model_data'
 require 'forwardable'
 
 module Scoruby
