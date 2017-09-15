@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    scoruby (0.2.4)
+    scoruby (0.2.5)
       nokogiri (~> 1.7)
 
 GEM
@@ -18,9 +18,9 @@ GEM
     docile (1.1.5)
     json (2.1.0)
     method_source (0.8.2)
-    mini_portile2 (2.1.0)
-    nokogiri (1.7.0.1)
-      mini_portile2 (~> 2.1.0)
+    mini_portile2 (2.2.0)
+    nokogiri (1.8.0)
+      mini_portile2 (~> 2.2.0)
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -64,4 +64,4 @@ DEPENDENCIES
   scoruby!
 
 BUNDLED WITH
-   1.11.2
+   1.15.4
