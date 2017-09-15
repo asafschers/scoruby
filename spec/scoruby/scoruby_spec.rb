@@ -6,6 +6,7 @@ describe Scoruby do
   let(:non_rf_file) { 'spec/fixtures/non_rf_file.pmml' }
   let(:decision_tree_file) { 'spec/fixtures/decision_tree.pmml' }
   let(:gbm_file) { 'spec/fixtures/gbm_file.pmml' }
+  let(:naive_bayes_file) { 'spec/fixtures/naive_bayes.pmml' }
 
   it 'raises when type not known' do
     expect {
@@ -19,5 +20,9 @@ describe Scoruby do
 
   it 'initializes gbm ' do
     expect(Scoruby.get_model(gbm_file)).to be_a(Scoruby::Models::Gbm)
+  end
+
+  it 'initializes NaiveBayes' do
+    expect(Scoruby.get_model(naive_bayes_file)).to be_a Scoruby::Models::NaiveBayes::Model
   end
 end
