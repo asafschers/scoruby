@@ -2,13 +2,16 @@ module Scoruby
   module Models
     module NaiveBayes
       class ModelData
-        attr_reader :threshold, :data, :labels
+        attr_reader :threshold, :labels, :numerical_features, :category_features
 
         def initialize(xml)
           @threshold = xml.xpath('//NaiveBayesModel').attr('threshold').value.to_f
-          @data = {}
+
+          @category_features = {}
+          @numerical_features = {}
           xml.xpath('//BayesInput').each do |feature|
-            @data[feature.attr('fieldName').to_sym] = fetch_feature(feature)
+            @category_features[feature.attr('fieldName').to_sym] = fetch_category_feature(feature)
+            @numerical_features[feature.attr('fieldName').to_sym] ||= fetch_numerical_feature(feature)
           end
 
           @labels = {}
@@ -18,13 +21,9 @@ module Scoruby
         end
 
         private
-
-        def fetch_feature(feature)
-          return fetch_numerical_feature(feature) if feature.child.name == 'TargetValueStats'
-          fetch_category_feature(feature)
-        end
-
+        
         def fetch_numerical_feature(feature)
+          return unless feature.child.name == 'TargetValueStats'
           features_data = {}
           feature.child.children.each do |child|
             features_data[child.attr('value').strip] = {
@@ -36,6 +35,7 @@ module Scoruby
         end
 
         def fetch_category_feature(feature)
+          return unless feature.children.any? { |f| f.name == 'PairCounts' }
           feature_data = {}
           feature.children.each do |category|
             feature_data[category.attr('value')] = fetch_category(category)

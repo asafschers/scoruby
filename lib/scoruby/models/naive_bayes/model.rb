@@ -6,8 +6,7 @@ module Scoruby
     module NaiveBayes
       class Model
         extend Forwardable
-        attr_reader :model_data
-        def_delegators :@model_data, :data, :threshold, :labels
+        def_delegators :@model_data, :threshold, :labels, :numerical_features, :category_features
 
         def initialize(xml)
           @model_data = ModelData.new(xml)
@@ -38,26 +37,25 @@ module Scoruby
         def calc_label_feature_values(features)
           labels.each do |label, _|
             features.each do |feature_name, feature_value|
-              if data[feature_name][feature_value]
-                labels[label][feature_name] = calc_category(feature_name, feature_value, label)
-              elsif data[feature_name][label]
-                labels[label][feature_name] = calc_numerical(data[feature_name][label], feature_value)
-              end
+              label_value = calc_category(feature_name, feature_value, label)
+              label_value ||= calc_numerical(feature_name, feature_value, label)
+              labels[label][feature_name] = label_value if label_value
             end
           end
         end
 
         def calc_category(feature_name, feature_value, label)
-          value_count = data[feature_name][feature_value][label].to_f
-          overall_count = data[feature_name].sum { |_, value| value[label].to_f }
+          return unless category_features[feature_name] && category_features[feature_name][feature_value]
+          value_count = category_features[feature_name][feature_value][label].to_f
+          overall_count = category_features[feature_name].sum { |_, value| value[label].to_f }
           value_count / overall_count
         end
 
-        def calc_numerical(label_data, feature_value)
-          variance = label_data[:variance].to_f
-          mean = label_data[:mean].to_f
+        def calc_numerical(feature_name, feature_value, label)
+          return unless numerical_features[feature_name] && numerical_features[feature_name][label]
+          variance = numerical_features[feature_name][label][:variance].to_f
+          mean = numerical_features[feature_name][label][:mean].to_f
           feature_value = feature_value.to_f
-
           Math.exp(-(feature_value - mean)**2 / (2 * variance)) / Math.sqrt(2 * Math::PI * variance)
         end
       end
