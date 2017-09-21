@@ -7,7 +7,7 @@
 
 Ruby scoring API for Predictive Model Markup Language (PMML).
 
-Currently supports Decision Tree, Random Forest and Gradient Boosted Models.
+Currently supports Decision Tree, Random Forest Naive Bayes and Gradient Boosted Models.
 
 Will be happy to implement new models by demand, or assist with any other issue.
 
@@ -88,20 +88,19 @@ gbm.score(features)
 
 ```ruby
 decision_tree = Scoruby.get_model 'decision_tree.pmml'
-
-features =  {
-        Sex: 'male',
-        Parch: 0,
-        Age: 30,
-        Fare: 9.6875,
-        Pclass: 2,
-        SibSp: 0,
-        Embarked: 'Q'       
-    }
-
+features = { f1 : v1, ... } 
 decision_tree.decide(features)
 
 => #<Decision:0x007fc232384180 @score="0", @score_distribution={"0"=>"0.999615579933873", "1"=>"0.000384420066126561"}>
+```
+
+### Naibve Bayes
+
+```ruby
+naive_bayes = Scoruby.get_model 'naive_bayes.pmml'
+features = { f1: v1 , ... } 
+naive_bayes.lvalues(features)
+naive_bayes.score(features, 'l1')
 ```
 
 ## Development
