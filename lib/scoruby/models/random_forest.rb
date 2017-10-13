@@ -19,7 +19,11 @@ module Scoruby
       end
 
       def predict(features)
-        decisions_count(features).max_by {|_, v| v}[0]
+        decisions_count = decisions_count(features)
+        {
+            label: decisions_count.max_by {|_, v| v}[0],
+            score: decisions_count.max_by {|_, v| v}[1] / decisions_count.values.sum.to_f
+        }
       end
     end
   end

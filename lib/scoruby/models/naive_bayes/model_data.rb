@@ -30,7 +30,7 @@ module Scoruby
           @labels = {}
           @xml.xpath('//BayesOutput//TargetValueCount').each do |l|
             l.attr('value')
-            @labels[l.attr('value')] = {'count': l.attr('count').to_f}
+            @labels[l.attr('value')] = { 'count': l.attr('count').to_f }
           end
         end
         
