@@ -7,7 +7,7 @@
 
 Ruby scoring API for Predictive Model Markup Language (PMML).
 
-Currently supports Decision Tree, Random Forest Naive Bayes and Gradient Boosted Models.
+Currently supports Decision Tree, Random Forest, Naive Bayes and Gradient Boosted Models.
 
 Will be happy to implement new models by demand, or assist with any other issue.
 
