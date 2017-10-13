@@ -22,7 +22,7 @@ module Scoruby
         decisions_count = decisions_count(features)
         {
             label: decisions_count.max_by {|_, v| v}[0],
-            score: decisions_count.max_by {|_, v| v}[1] / decisions_count.values.sum.to_f
+            score: decisions_count.max_by {|_, v| v}[1] / decisions_count.values.reduce(0, :+).to_f
         }
       end
     end
