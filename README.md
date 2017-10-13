@@ -50,7 +50,7 @@ features =  {
 
 random_forest.predict(features)
 
-=> "0"
+=> {:label=>"0", :score=>0.882}
 
 random_forest.decisions_count(features)
 
