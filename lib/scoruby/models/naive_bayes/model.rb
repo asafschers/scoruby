@@ -47,7 +47,7 @@ module Scoruby
         def calc_category(feature_name, feature_value, label)
           return unless category_features[feature_name] && category_features[feature_name][feature_value]
           value_count = category_features[feature_name][feature_value][label].to_f
-          overall_count = category_features[feature_name].sum { |_, value| value[label].to_f }
+          overall_count = category_features[feature_name].map { |_, value| value[label].to_f }.reduce(0, :+)
           value_count / overall_count
         end
 
