@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'scoruby/predicates/compound_predicate'
 require 'scoruby/predicates/simple_predicate'
 require 'scoruby/predicates/simple_set_predicate'

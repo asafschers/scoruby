@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'scoruby/predicate_factory'
 require 'scoruby/decision'
 

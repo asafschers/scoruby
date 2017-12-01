@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'scoruby/version'
 require 'scoruby/models_factory'
 require 'nokogiri'

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'scoruby/models/decision_tree'
 require 'scoruby/features'
 

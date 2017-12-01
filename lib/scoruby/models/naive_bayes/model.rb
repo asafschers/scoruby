@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'scoruby/models/naive_bayes/model_data'
 require 'forwardable'
 

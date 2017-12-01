@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'scoruby/models/decision_tree'
 require 'scoruby/models/gbm'
 require 'scoruby/models/random_forest'
