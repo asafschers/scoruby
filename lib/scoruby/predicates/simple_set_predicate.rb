@@ -2,7 +2,6 @@
 
 module Scoruby
   module Predicates
-    # Returns true if input is in predicates array
     class SimpleSetPredicate
       IS_IN = 'isIn'
 
