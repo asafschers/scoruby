@@ -5,13 +5,14 @@ require 'scoruby/models_factory'
 require 'nokogiri'
 require 'logger'
 
+# Scoruby loads Machine Learning models from PMML files
 module Scoruby
   class << self
     attr_writer :logger
 
     def logger
       @logger ||= Logger.new($stdout).tap do |log|
-        log.progname = self.name
+        log.progname = name
       end
     end
   end
@@ -27,7 +28,7 @@ module Scoruby
   end
 
   def self.xml_from_string(pmml_string)
-    xml = Nokogiri::XML(pmml_string) { |config| config.noblanks }
+    xml = Nokogiri::XML(pmml_string, &:noblanks)
     xml.remove_namespaces!
   end
 end
