@@ -23,14 +23,14 @@ module Scoruby
         and?(features) if @boolean_operator == 'and'
       end
 
-      def is_missing?(features)
+      def missing?(features)
         @field.any? {|f| !features.keys.include?(f)}
       end
 
       private
 
       def surrogate?(features)
-        return @predicates[1].true?(features) if @predicates[0].is_missing?(features)
+        return @predicates[1].true?(features) if @predicates[0].missing?(features)
         @predicates[0].true?(features)
       end
 

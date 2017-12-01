@@ -11,7 +11,7 @@ module Scoruby
         true
       end
 
-      def is_missing?(_)
+      def missing?(_)
         false
       end
     end

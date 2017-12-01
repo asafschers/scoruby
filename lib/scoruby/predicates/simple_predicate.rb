@@ -29,7 +29,7 @@ module Scoruby
         features[field].nil? || !features.has_key?(field) if @operator == IS_MISSING
       end
 
-      def is_missing?(features)
+      def missing?(features)
         !features.keys.include?(@field)
       end
 

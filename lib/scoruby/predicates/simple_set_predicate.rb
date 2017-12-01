@@ -19,7 +19,7 @@ module Scoruby
         @array.include? features[@field] if @operator == IS_IN
       end
 
-      def is_missing?(features)
+      def missing?(features)
         !features.keys.include?(@field)
       end
 
