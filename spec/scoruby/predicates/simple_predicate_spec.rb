@@ -1,11 +1,14 @@
 require 'spec_helper'
 
 describe Scoruby::Predicates::SimplePredicate do
-
   context 'less or equal predicate' do
-    let (:pred_string) { '<SimplePredicate field="f33" operator="lessOrEqual" value="18.8513846048894"/>' }
-    let (:pred_xml) { Nokogiri::XML(pred_string); }
-    let (:predicate) { described_class.new(pred_xml.children.first) }
+    let(:pred_string) do
+      <<-XML
+        <SimplePredicate field="f33" operator="lessOrEqual" value="18.8513846048894"/>
+      XML
+    end
+    let(:pred_xml) { Nokogiri::XML(pred_string); }
+    let(:predicate) { described_class.new(pred_xml.children.first) }
 
     it 'returns true' do
       expect(predicate.true?(f33: 18)).to eq true
@@ -17,9 +20,14 @@ describe Scoruby::Predicates::SimplePredicate do
   end
 
   context 'is missing predicate' do
-    let (:pred_string) { '<SimplePredicate field="f33" operator="isMissing"/>' }
-    let (:pred_xml) { Nokogiri::XML(pred_string); }
-    let (:predicate) { described_class.new(pred_xml.children.first) }
+    let(:pred_string) do
+      <<-XML
+        <SimplePredicate field="f33" operator="isMissing"/>
+      XML
+    end
+
+    let(:pred_xml) { Nokogiri::XML(pred_string); }
+    let(:predicate) { described_class.new(pred_xml.children.first) }
 
     it 'returns true' do
       expect(predicate.true?(f33: nil)).to eq true
@@ -35,9 +43,14 @@ describe Scoruby::Predicates::SimplePredicate do
   end
 
   context 'equals predicate' do
-    let (:pred_string) { '<SimplePredicate field="f33" operator="equal" value="f2v3"/>' }
-    let (:pred_xml) { Nokogiri::XML(pred_string); }
-    let (:predicate) { described_class.new(pred_xml.children.first) }
+    let(:pred_string) do
+      <<-XML
+        <SimplePredicate field="f33" operator="equal" value="f2v3"/>
+      XML
+    end
+
+    let(:pred_xml) { Nokogiri::XML(pred_string); }
+    let(:predicate) { described_class.new(pred_xml.children.first) }
 
     it 'returns true' do
       expect(predicate.true?(f33: 'f2v3')).to eq true
@@ -51,5 +64,4 @@ describe Scoruby::Predicates::SimplePredicate do
       expect(predicate.true?({})).to eq false
     end
   end
-
 end
