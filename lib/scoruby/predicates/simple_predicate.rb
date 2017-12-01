@@ -3,12 +3,14 @@
 module Scoruby
   module Predicates
     class SimplePredicate
-
       GREATER_THAN     = 'greaterThan'
       LESS_THAN        = 'lessThan'
       LESS_OR_EQUAL    = 'lessOrEqual'
       GREATER_OR_EQUAL = 'greaterOrEqual'
-      MATH_OPS         = [GREATER_THAN, LESS_THAN, LESS_OR_EQUAL, GREATER_OR_EQUAL]
+      MATH_OPS         = [GREATER_THAN,
+                          LESS_THAN,
+                          LESS_OR_EQUAL,
+                          GREATER_OR_EQUAL].freeze
       EQUAL            = 'equal'
       IS_MISSING       = 'isMissing'
 
@@ -26,7 +28,7 @@ module Scoruby
       def true?(features)
         return num_true?(features) if MATH_OPS.include?(@operator)
         return features[@field] == @value if @operator == EQUAL
-        features[field].nil? || !features.has_key?(field) if @operator == IS_MISSING
+        features[field].nil? || !features.key?(field) if @operator == IS_MISSING
       end
 
       def missing?(features)
