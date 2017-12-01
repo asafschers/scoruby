@@ -2,8 +2,8 @@
 
 module Scoruby
   module Predicates
+    # Returns true if input is in predicates array
     class SimpleSetPredicate
-
       IS_IN = 'isIn'
 
       attr_reader :field
@@ -26,9 +26,9 @@ module Scoruby
       private
 
       def single_or_quoted_words(string)
-        string.split(/\s(?=(?:[^"]|"[^"]*")*$)/).
-          reject(&:empty?).
-          map {|w| w.tr('"', '')}
+        string.split(/\s(?=(?:[^"]|"[^"]*")*$)/)
+              .reject(&:empty?)
+              .map { |w| w.tr('"', '') }
       end
     end
   end
