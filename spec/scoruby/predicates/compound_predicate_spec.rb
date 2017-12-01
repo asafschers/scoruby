@@ -4,10 +4,7 @@ describe Scoruby::Predicates::CompoundPredicate do
   context 'evaluates and' do
     let(:pred_string) do
       <<-XML
-        <CompoundPredicate booleanOperator="and">
-          <True />
-          <SimplePredicate field="f" operator="lessOrEqual" value="16.0918513223731" />
-        </CompoundPredicate>
+        <CompoundPredicate booleanOperator="and"><True /><SimplePredicate field="f" operator="lessOrEqual" value="16.0918513223731" /></CompoundPredicate>
       XML
     end
 
