@@ -37,7 +37,7 @@ Or install it yourself as:
 
 ```ruby
 
-random_forest = Scoruby.get_model 'titanic_rf.pmml'
+random_forest = Scoruby.load_model 'titanic_rf.pmml'
 features =  {
         Sex: 'male',
         Parch: 0,
@@ -66,7 +66,7 @@ random_forest.decisions_count(features)
 
 ```ruby
 
-gbm = Scoruby.get_model 'gbm.pmml'
+gbm = Scoruby.load_model 'gbm.pmml'
 
 features =  {
         Sex: 'male',
@@ -87,7 +87,7 @@ gbm.score(features)
 ### Decision Tree
 
 ```ruby
-decision_tree = Scoruby.get_model 'decision_tree.pmml'
+decision_tree = Scoruby.load_model 'decision_tree.pmml'
 features = { f1 : v1, ... } 
 decision_tree.decide(features)
 
@@ -97,7 +97,7 @@ decision_tree.decide(features)
 ### Naibve Bayes
 
 ```ruby
-naive_bayes = Scoruby.get_model 'naive_bayes.pmml'
+naive_bayes = Scoruby.load_model 'naive_bayes.pmml'
 features = { f1: v1 , ... } 
 naive_bayes.lvalues(features)
 naive_bayes.score(features, 'l1')

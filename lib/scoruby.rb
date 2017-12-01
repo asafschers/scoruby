@@ -14,7 +14,7 @@ module Scoruby
     end
   end
 
-  def self.get_model(pmml_file_name)
+  def self.load_model(pmml_file_name)
     xml = xml_from_file_path(pmml_file_name)
     ModelsFactory.factory_for(xml)
   end
