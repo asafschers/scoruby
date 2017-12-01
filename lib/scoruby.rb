@@ -5,7 +5,7 @@ require 'scoruby/models_factory'
 require 'nokogiri'
 require 'logger'
 
-# Scoruby loads Machine Learning models from PMML files
+# Loads Machine Learning models from PMML files
 module Scoruby
   class << self
     attr_writer :logger

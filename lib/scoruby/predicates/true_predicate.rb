@@ -2,7 +2,7 @@
 
 module Scoruby
   module Predicates
-    # TruePredicate - returns true for any input
+    # Returns true for any input
     class TruePredicate
       def field
         nil
