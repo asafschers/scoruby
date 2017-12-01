@@ -97,7 +97,7 @@ decision_tree.decide(features)
 => #<Decision:0x007fc232384180 @score="0", @score_distribution={"0"=>"0.999615579933873", "1"=>"0.000384420066126561"}>
 ```
 
-### Naibve Bayes
+### Naive Bayes
 
 ```ruby
 naive_bayes = Scoruby.get_model 'naive_bayes.pmml'
