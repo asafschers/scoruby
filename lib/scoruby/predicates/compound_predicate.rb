@@ -3,7 +3,6 @@
 module Scoruby
   module Predicates
     class CompoundPredicate
-
       attr_reader :field
 
       def initialize(pred_xml)
@@ -24,22 +23,26 @@ module Scoruby
       end
 
       def missing?(features)
-        @field.any? {|f| !features.keys.include?(f)}
+        @field.any? { |f| !features.keys.include?(f) }
       end
 
       private
 
       def surrogate?(features)
-        return @predicates[1].true?(features) if @predicates[0].missing?(features)
+        return @predicates[1].true?(features) if first_missing?(features)
         @predicates[0].true?(features)
       end
 
+      def first_missing?(features)
+        @predicates[0].missing?(features)
+      end
+
       def or?(features)
-        @predicates.any? {|p| p.true?(features)}
+        @predicates.any? { |p| p.true?(features) }
       end
 
       def and?(features)
-        @predicates.all? {|p| p.true?(features)}
+        @predicates.all? { |p| p.true?(features) }
       end
     end
   end
