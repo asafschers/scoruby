@@ -10,10 +10,10 @@ module Scoruby
       CONST_XPATH      = '//Target/@rescaleConstant'
 
       def initialize(xml)
-        @decision_trees = xml.xpath(GBM_FOREST_XPATH).collect {|xml_tree|
+        @decision_trees = xml.xpath(GBM_FOREST_XPATH).map do |xml_tree|   
           DecisionTree.new(xml_tree)
-        }
-        @const          = Float(xml.xpath(CONST_XPATH).to_s)
+        end
+        @const = Float(xml.xpath(CONST_XPATH).to_s)
       end
 
       def tree_count
@@ -22,11 +22,11 @@ module Scoruby
 
       def score(features)
         formatted_features = Features.new(features).formatted
-        x                  = @decision_trees.map {|dt|
-          score = dt.decide(formatted_features).score
-          score.to_s.to_f
-        }.reduce(:+) + @const
-        Math.exp(x) / (1 + Math.exp(x))
+        scores = @decision_trees.map do |dt|
+          dt.decide(formatted_features).score.to_s.to_f
+        end
+        sum = scores.reduce(:+) + @const
+        Math.exp(sum) / (1 + Math.exp(sum))
       end
     end
   end
