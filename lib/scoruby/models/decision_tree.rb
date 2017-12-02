@@ -5,7 +5,6 @@ require 'scoruby/node'
 module Scoruby
   module Models
     class DecisionTree
-
       attr_reader :root
 
       def initialize(tree_xml)
@@ -28,13 +27,14 @@ module Scoruby
 
       def step(curr, features)
         return curr unless curr.children
-        next_step = curr.children.find { |c| c && c.true?(features) }
+        next_step = curr.children.find { |c| c&.true?(features) }
         next_step || curr
       end
 
       def didnt_step?(curr, prev)
-        return false if (prev.pred != curr.pred)
-        Scoruby.logger.error "Null tree: #{@id}, bad feature: #{curr.children[0].pred.field }"
+        return false if prev.pred != curr.pred
+        feature = curr.children[0].pred.field
+        Scoruby.logger.error "Null tree: #{@id}, bad feature: #{feature}"
         true
       end
     end
