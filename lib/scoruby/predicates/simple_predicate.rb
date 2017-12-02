@@ -39,8 +39,10 @@ module Scoruby
 
       def num_true?(features)
         return false unless features[@field]
-        curr_value = Float(features[@field])
-        value      = Float(@value)
+        compare(Float(features[@field]), Float(@value))
+      end
+
+      def compare(curr_value, value)
         return curr_value > value if @operator == GREATER_THAN
         return curr_value < value if @operator == LESS_THAN
         return curr_value <= value if @operator == LESS_OR_EQUAL
