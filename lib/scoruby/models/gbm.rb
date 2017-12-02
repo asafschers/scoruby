@@ -10,7 +10,7 @@ module Scoruby
       CONST_XPATH      = '//Target/@rescaleConstant'
 
       def initialize(xml)
-        @decision_trees = xml.xpath(GBM_FOREST_XPATH).map do |xml_tree|   
+        @decision_trees = xml.xpath(GBM_FOREST_XPATH).map do |xml_tree|
           DecisionTree.new(xml_tree)
         end
         @const = Float(xml.xpath(CONST_XPATH).to_s)

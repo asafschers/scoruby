@@ -2,7 +2,6 @@
 
 module Scoruby
   class Features
-
     attr_reader :formatted
 
     def initialize(features)
@@ -10,10 +9,10 @@ module Scoruby
     end
 
     def format_booleans(features)
-      features.map {|k, v|
+      features.map do |k, v|
         features[k] = 'f' if v == false
         features[k] = 't' if v == true
-      }
+      end
       features
     end
   end
