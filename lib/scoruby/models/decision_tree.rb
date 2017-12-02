@@ -27,7 +27,7 @@ module Scoruby
 
       def step(curr, features)
         return curr unless curr.children
-        next_step = curr.children.find { |c| c&.true?(features) }
+        next_step = curr.children.find { |c| c && c.true?(features) }
         next_step || curr
       end
 
