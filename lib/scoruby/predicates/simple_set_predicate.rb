@@ -5,7 +5,7 @@ module Scoruby
     class SimpleSetPredicate
       IS_IN = 'isIn'
 
-      attr_reader :field
+      attr_reader :field, :array
 
       def initialize(pred_xml)
         attributes = pred_xml.attributes

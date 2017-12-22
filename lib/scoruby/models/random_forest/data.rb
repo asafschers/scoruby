@@ -3,10 +3,10 @@
 module Scoruby
   module Models
     module RandomForest
-      RF_FOREST_XPATH = 'PMML/MiningModel/Segmentation/Segment'
-      FEATURES_XPATH = 'PMML/DataDictionary/DataField'
-
       class Data
+        RF_FOREST_XPATH = 'PMML/MiningModel/Segmentation/Segment'
+        FEATURES_XPATH = 'PMML/DataDictionary/DataField'
+
         def initialize(xml)
           @xml = xml
         end
@@ -17,18 +17,27 @@ module Scoruby
           end
         end
 
-        def continuous_features
-          features_by('continuous').map { |feature| feature.attr('name') }
+        def categorical_features
+          categorical_predicates.each_with_object(Hash.new([])) do |xml, res|
+            predicate = Predicates::SimpleSetPredicate.new(xml)
+            res[predicate.field] = res[predicate.field] | predicate.array
+          end
         end
 
-        def categorical_features
-          features_by('categorical').map { |feature| feature.attr('name') }
+        def continuous_features
+          continuous_predicates.map do |xml|
+            Predicates::SimplePredicate.new(xml).field
+          end.uniq
         end
 
         private
 
-        def features_by(type)
-          @xml.xpath(FEATURES_XPATH).select { |fn| fn.attr('optype') == type }
+        def categorical_predicates
+          @xml.xpath('//SimpleSetPredicate')
+        end
+
+        def continuous_predicates
+          @xml.xpath('//SimplePredicate')
         end
       end
     end

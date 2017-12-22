@@ -7,8 +7,10 @@ describe Scoruby::Models::RandomForest::Data do
   let(:xml) { Scoruby.xml_from_file_path(rf_file) }
   let(:data) { described_class.new(xml) }
   let(:trees_count) { data.decision_trees.count }
-  let(:continuous_features) { %w[Age Fare Parch PassengerId Pclass SibSp] }
-  let(:categorical_features) { %w[Cabin Embarked Name Sex Survived Ticket] }
+  let(:continuous_features) { %i[Age Fare Parch Pclass SibSp] }
+  let(:categorical_features) {
+    { Sex: %w[female male], Embarked: ['C', '', 'Q', 'S'] }
+  }
 
   it 'loads correct number of trees' do
     expect(trees_count).to eq 15
@@ -19,6 +21,6 @@ describe Scoruby::Models::RandomForest::Data do
   end
 
   it 'loads categorical features' do
-    expect(data.categorical_features).to match_array categorical_features
+    expect(data.categorical_features).to match categorical_features
   end
 end
