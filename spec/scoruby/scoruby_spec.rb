@@ -15,7 +15,7 @@ describe Scoruby do
   let(:rf_model) { Scoruby.load_model(rf_file) }
 
   it 'loads random forest' do
-    expect(rf_model).to be_a(Scoruby::Models::RandomForest)
+    expect(rf_model).to be_a(Scoruby::Models::RandomForest::Model)
   end
 
   let(:gbm_file) { 'spec/fixtures/gbm_file.pmml' }

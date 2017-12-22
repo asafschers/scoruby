@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe Scoruby::Models::RandomForest do
+describe Scoruby::Models::RandomForest::Model do
   let(:rf_file) { 'spec/fixtures/titanic_rf.pmml' }
   let(:xml) { Scoruby.xml_from_file_path(rf_file) }
   let(:random_forest) { described_class.new(xml) }
