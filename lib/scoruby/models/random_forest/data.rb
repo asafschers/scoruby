@@ -18,15 +18,17 @@ module Scoruby
         end
 
         def continuous_features
-          continuous_features_nodes.map { |feature| feature.attr('name') }
+          features_by('continuous').map { |feature| feature.attr('name') }
+        end
+
+        def categorical_features
+          features_by('categorical').map { |feature| feature.attr('name') }
         end
 
         private
 
-        def continuous_features_nodes
-          @xml.xpath(FEATURES_XPATH).select do |feature|
-            feature.attr('optype') == 'continuous'
-          end
+        def features_by(type)
+          @xml.xpath(FEATURES_XPATH).select { |fn| fn.attr('optype') == type }
         end
       end
     end
