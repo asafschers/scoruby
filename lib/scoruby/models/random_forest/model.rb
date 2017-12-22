@@ -1,15 +1,13 @@
 # frozen_string_literal: true
 
+require 'scoruby/models/random_forest/data'
+
 module Scoruby
   module Models
     module RandomForest
       class Model
-        RF_FOREST_XPATH = 'PMML/MiningModel/Segmentation/Segment'
-
         def initialize(xml)
-          @decision_trees = xml.xpath(RF_FOREST_XPATH).map do |xml_tree|
-            DecisionTree.new(xml_tree)
-          end
+          @decision_trees = Data.new(xml).decision_trees
         end
 
         def predict(features)
