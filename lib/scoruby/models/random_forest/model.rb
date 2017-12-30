@@ -1,13 +1,17 @@
 # frozen_string_literal: true
 
 require 'scoruby/models/random_forest/data'
+require 'forwardable'
 
 module Scoruby
   module Models
     module RandomForest
       class Model
+        extend Forwardable
+        def_delegators :@data, :decision_trees, :categorical_features, :continuous_features
+
         def initialize(xml)
-          @decision_trees = Data.new(xml).decision_trees
+          @data = Data.new(xml)
         end
 
         def predict(features)
@@ -28,7 +32,7 @@ module Scoruby
         private
 
         def traverse_trees(formatted_features)
-          @decision_trees.map do |decision_tree|
+          decision_trees.map do |decision_tree|
             decision_tree.decide(formatted_features).score
           end
         end
