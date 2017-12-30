@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    scoruby (0.2.9)
+    scoruby (0.2.10)
       nokogiri (~> 1.7)
 
 GEM
@@ -64,4 +64,4 @@ DEPENDENCIES
   scoruby!
 
 BUNDLED WITH
-   1.15.4
+   1.16.1
