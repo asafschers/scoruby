@@ -9,9 +9,7 @@ module Scoruby
 
     def initialize(xml)
       children = xml.children
-      distributions = children.select { |c| c.name == 'ScoreDistribution' }
-      @decision = Decision.new(xml.attribute('score').to_s,
-                               distributions)
+      @decision = Decision.new(xml)
       children = remove_nodes(children)
       @pred     = PredicateFactory.for(children[0])
       @children = children_nodes(children)
