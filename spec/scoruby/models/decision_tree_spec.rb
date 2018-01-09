@@ -154,11 +154,16 @@ describe Scoruby::Models::DecisionTree do
     let(:tree_file) { 'spec/fixtures/binary_split_decision_tree.pmml' }
     let(:tree_xml) { Scoruby.xml_from_file_path(tree_file) }
     let(:decision_tree) { described_class.new(tree_xml.child) }
-    let(:decision) { decision_tree.decide(ppd: ppd,
-                                          business_traveler: business_traveler,
-                                          total_nights: total_nights,
-                                          days_to_booking: days_to_booking,
-                                          percent_distance_avg_price: percent_distance_avg_price) }
+    let(:features) {
+      {
+        ppd: ppd,
+        business_traveler: business_traveler,
+        total_nights: total_nights,
+        days_to_booking: days_to_booking,
+        percent_distance_avg_price: percent_distance_avg_price
+      }
+    }
+    let(:decision) { decision_tree.decide(features) }
     let(:score_distribution) { decision.score_distribution }
 
     let(:ppd) { 10 }
@@ -172,7 +177,7 @@ describe Scoruby::Models::DecisionTree do
         '1' => 0.5492957746478874
       }
     end
-    
+
     it 'scores' do
       expect(score_distribution).to eq(expected)
     end
