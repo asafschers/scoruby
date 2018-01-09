@@ -112,8 +112,8 @@ describe Scoruby::Models::DecisionTree do
       let(:ppd) { 10 }
       let(:expected) do
         {
-          '0' => '0.999513428516638',
-          '1' => '0.000486571483361926'
+          '0' => 0.999513428516638,
+          '1' => 0.000486571483361926
         }
       end
       it 'scores' do
@@ -125,8 +125,8 @@ describe Scoruby::Models::DecisionTree do
       let(:ppd) { 20 }
       let(:expected) do
         {
-          '0' => '0.999615579933873',
-          '1' => '0.000384420066126561'
+          '0' => 0.999615579933873,
+          '1' => 0.000384420066126561
         }
       end
 
@@ -139,14 +139,42 @@ describe Scoruby::Models::DecisionTree do
       let(:ppd) { 50 }
       let(:expected) do
         {
-          '0' => '0.999710889179894',
-          '1' => '0.000289110820105768'
+          '0' => 0.999710889179894,
+          '1' => 0.000289110820105768
         }
       end
 
       it 'scores' do
         expect(score_distribution).to eq(expected)
       end
+    end
+  end
+
+  context 'Score distribution' do
+    let(:tree_file) { 'spec/fixtures/binary_split_decision_tree.pmml' }
+    let(:tree_xml) { Scoruby.xml_from_file_path(tree_file) }
+    let(:decision_tree) { described_class.new(tree_xml.child) }
+    let(:decision) { decision_tree.decide(ppd: ppd,
+                                          business_traveler: business_traveler,
+                                          total_nights: total_nights,
+                                          days_to_booking: days_to_booking,
+                                          percent_distance_avg_price: percent_distance_avg_price) }
+    let(:score_distribution) { decision.score_distribution }
+
+    let(:ppd) { 10 }
+    let(:business_traveler) { 0.3 }
+    let(:percent_distance_avg_price) { 0.1 }
+    let(:total_nights) { 2 }
+    let(:days_to_booking) { 6 }
+    let(:expected) do
+      {
+        '0' => 0.4507042253521127,
+        '1' => 0.5492957746478874
+      }
+    end
+    
+    it 'scores' do
+      expect(score_distribution).to eq(expected)
     end
   end
 end

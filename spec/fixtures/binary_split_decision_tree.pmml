@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PMML xmlns="http://www.dmg.org/PMML-4_3" version="4.3">
+  <Header>
+    <Application name="JPMML-SkLearn" version="1.3.6"/>
+    <Timestamp>2017-12-19T22:11:27Z</Timestamp>
+  </Header>
+  <DataDictionary>
+    <DataField name="y" optype="categorical" dataType="integer">
+      <Value value="0"/>
+      <Value value="1"/>
+    </DataField>
+    <DataField name="total_nights" optype="continuous" dataType="float"/>
+    <DataField name="days_to_booking" optype="continuous" dataType="float"/>
+    <DataField name="ppd" optype="continuous" dataType="float"/>
+    <DataField name="business_traveler" optype="continuous" dataType="float"/>
+    <DataField name="percent_distance_avg_price" optype="continuous" dataType="float"/>
+    <DataField name="distance_to_city_km" optype="continuous" dataType="float"/>
+  </DataDictionary>
+  <TreeModel functionName="classification" splitCharacteristic="binarySplit">
+    <MiningSchema>
+      <MiningField name="y" usageType="target"/>
+      <MiningField name="total_nights"/>
+      <MiningField name="days_to_booking"/>
+      <MiningField name="ppd"/>
+      <MiningField name="business_traveler"/>
+      <MiningField name="percent_distance_avg_price"/>
+      <MiningField name="distance_to_city_km"/>
+    </MiningSchema>
+    <Output>
+      <OutputField name="probability(0)" optype="continuous" dataType="double" feature="probability" value="0"/>
+      <OutputField name="probability(1)" optype="continuous" dataType="double" feature="probability" value="1"/>
+    </Output>
+    <Node id="1">
+      <True/>
+      <Node id="2">
+        <SimplePredicate field="ppd" operator="lessOrEqual" value="8.461737"/>
+        <Node id="10" score="0" recordCount="14960.0">
+          <SimplePredicate field="ppd" operator="lessOrEqual" value="3.2442136"/>
+          <ScoreDistribution value="0" recordCount="14939.0"/>
+          <ScoreDistribution value="1" recordCount="21.0"/>
+        </Node>
+        <Node id="11" score="0" recordCount="4071.0">
+          <SimplePredicate field="ppd" operator="greaterThan" value="3.2442136"/>
+          <ScoreDistribution value="0" recordCount="3525.0"/>
+          <ScoreDistribution value="1" recordCount="546.0"/>
+        </Node>
+      </Node>
+      <Node id="3">
+        <SimplePredicate field="ppd" operator="greaterThan" value="8.461737"/>
+        <Node id="4">
+          <SimplePredicate field="business_traveler" operator="lessOrEqual" value="0.5"/>
+          <Node id="6" score="1" recordCount="508.0">
+            <SimplePredicate field="percent_distance_avg_price" operator="lessOrEqual" value="6.7344605E-5"/>
+            <ScoreDistribution value="0" recordCount="5.0"/>
+            <ScoreDistribution value="1" recordCount="503.0"/>
+          </Node>
+          <Node id="7">
+            <SimplePredicate field="percent_distance_avg_price" operator="greaterThan" value="6.7344605E-5"/>
+            <Node id="8">
+              <SimplePredicate field="total_nights" operator="lessOrEqual" value="1.5"/>
+              <Node id="16" score="0" recordCount="486.0">
+                <SimplePredicate field="ppd" operator="lessOrEqual" value="9.76857"/>
+                <ScoreDistribution value="0" recordCount="287.0"/>
+                <ScoreDistribution value="1" recordCount="199.0"/>
+              </Node>
+              <Node id="17" score="1" recordCount="2492.0">
+                <SimplePredicate field="ppd" operator="greaterThan" value="9.76857"/>
+                <ScoreDistribution value="0" recordCount="892.0"/>
+                <ScoreDistribution value="1" recordCount="1600.0"/>
+              </Node>
+            </Node>
+            <Node id="9">
+              <SimplePredicate field="total_nights" operator="greaterThan" value="1.5"/>
+              <Node id="18" score="1" recordCount="568.0">
+                <SimplePredicate field="days_to_booking" operator="lessOrEqual" value="6.5"/>
+                <ScoreDistribution value="0" recordCount="256.0"/>
+                <ScoreDistribution value="1" recordCount="312.0"/>
+              </Node>
+              <Node id="19" score="0" recordCount="3390.0">
+                <SimplePredicate field="days_to_booking" operator="greaterThan" value="6.5"/>
+                <ScoreDistribution value="0" recordCount="2230.0"/>
+                <ScoreDistribution value="1" recordCount="1160.0"/>
+              </Node>
+            </Node>
+          </Node>
+        </Node>
+        <Node id="5">
+          <SimplePredicate field="business_traveler" operator="greaterThan" value="0.5"/>
+          <Node id="12" score="1" recordCount="454.0">
+            <SimplePredicate field="percent_distance_avg_price" operator="lessOrEqual" value="0.0038093738"/>
+            <ScoreDistribution value="0" recordCount="6.0"/>
+            <ScoreDistribution value="1" recordCount="448.0"/>
+          </Node>
+          <Node id="13">
+            <SimplePredicate field="percent_distance_avg_price" operator="greaterThan" value="0.0038093738"/>
+            <Node id="14">
+              <SimplePredicate field="days_to_booking" operator="lessOrEqual" value="15.5"/>
+              <Node id="20" score="1" recordCount="455.0">
+                <SimplePredicate field="ppd" operator="lessOrEqual" value="9.816237"/>
+                <ScoreDistribution value="0" recordCount="187.0"/>
+                <ScoreDistribution value="1" recordCount="268.0"/>
+              </Node>
+              <Node id="21" score="1" recordCount="2409.0">
+                <SimplePredicate field="ppd" operator="greaterThan" value="9.816237"/>
+                <ScoreDistribution value="0" recordCount="451.0"/>
+                <ScoreDistribution value="1" recordCount="1958.0"/>
+              </Node>
+            </Node>
+            <Node id="15">
+              <SimplePredicate field="days_to_booking" operator="greaterThan" value="15.5"/>
+              <Node id="22" score="1" recordCount="960.0">
+                <SimplePredicate field="distance_to_city_km" operator="lessOrEqual" value="4.05"/>
+                <ScoreDistribution value="0" recordCount="294.0"/>
+                <ScoreDistribution value="1" recordCount="666.0"/>
+              </Node>
+              <Node id="23" score="0" recordCount="730.0">
+                <SimplePredicate field="distance_to_city_km" operator="greaterThan" value="4.05"/>
+                <ScoreDistribution value="0" recordCount="377.0"/>
+                <ScoreDistribution value="1" recordCount="353.0"/>
+              </Node>
+            </Node>
+          </Node>
+        </Node>
+      </Node>
+    </Node>
+  </TreeModel>
+</PMML>
