@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'scoruby/version'
-require 'scoruby/models_factory'
+require 'scoruby/model_factory'
 require 'nokogiri'
 require 'logger'
 
@@ -18,7 +18,7 @@ module Scoruby
 
   def self.load_model(pmml_file_name)
     xml = xml_from_file_path(pmml_file_name)
-    ModelsFactory.factory_for(xml)
+    ModelFactory.factory_for(xml)
   end
 
   def self.xml_from_file_path(pmml_file_name)

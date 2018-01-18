@@ -6,9 +6,10 @@ require 'scoruby/models/random_forest/model'
 require 'scoruby/models/naive_bayes/model'
 
 module Scoruby
-  class ModelsFactory
+  class ModelFactory
     RANDOM_FOREST_MODEL       = 'randomForest_Model'
-    GBM_INDICATION            = '//OutputField[@name="scaledGbmValue"]'
+    GBM_INDICATION_4_2        = '//OutputField[@name="scaledGbmValue"]'
+    GBM_INDICATION_4_3        = '//OutputField[@name="gbmValue"]'
     MODEL_NOT_SUPPORTED_ERROR = 'model not supported'
 
     def self.factory_for(xml)
@@ -33,7 +34,15 @@ module Scoruby
     end
 
     def self.gbm?(xml)
-      !xml.xpath(GBM_INDICATION).empty?
+      gbm_4_2?(xml) || gbm_4_3?(xml)
+    end
+
+    def self.gbm_4_2?(xml)
+      !xml.xpath(GBM_INDICATION_4_2).empty?
+    end
+
+    def self.gbm_4_3?(xml)
+      !xml.xpath(GBM_INDICATION_4_3).empty?
     end
   end
 end
