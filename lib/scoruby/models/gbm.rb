@@ -8,12 +8,13 @@ module Scoruby
     class Gbm
       GBM_FOREST_XPATH = '//Segmentation[@multipleModelMethod="sum"]/Segment'
       CONST_XPATH      = '//Target/@rescaleConstant'
+      CONST_XPATH_4_2  = '//Constant'
 
       def initialize(xml)
         @decision_trees = xml.xpath(GBM_FOREST_XPATH).map do |xml_tree|
           DecisionTree.new(xml_tree)
         end
-        @const = Float(xml.xpath(CONST_XPATH).to_s)
+        @const = const(xml)
       end
 
       def tree_count
@@ -27,6 +28,13 @@ module Scoruby
         end
         sum = scores.reduce(:+) + @const
         Math.exp(sum) / (1 + Math.exp(sum))
+      end
+
+      private
+
+      def const(xml)
+        return Float(xml.xpath(CONST_XPATH).to_s) if ModelFactory.gbm_4_3?(xml)
+        Float(xml.xpath(CONST_XPATH_4_2).first.content)
       end
     end
   end
