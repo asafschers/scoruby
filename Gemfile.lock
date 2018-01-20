@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    scoruby (0.2.11)
+    scoruby (0.2.12)
       nokogiri (~> 1.7)
 
 GEM
