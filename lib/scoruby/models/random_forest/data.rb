@@ -18,19 +18,27 @@ module Scoruby
         end
 
         def categorical_features
-          categorical_predicates.each_with_object(Hash.new([])) do |xml, res|
-            predicate = Predicates::SimpleSetPredicate.new(xml)
-            res[predicate.field] = res[predicate.field] | predicate.array
-          end
+          @categorical_features ||= fetch_categorical_features
         end
 
         def continuous_features
+          @continuous_features ||= fetch_continuous_features
+        end
+
+        private
+
+        def fetch_continuous_features
           continuous_predicates.map do |xml|
             Predicates::SimplePredicate.new(xml).field
           end.uniq
         end
 
-        private
+        def fetch_categorical_features
+          categorical_predicates.each_with_object(Hash.new([])) do |xml, res|
+            predicate = Predicates::SimpleSetPredicate.new(xml)
+            res[predicate.field] = res[predicate.field] | predicate.array
+          end
+        end
 
         def categorical_predicates
           @xml.xpath('//SimpleSetPredicate')
