@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe Scoruby::Models::Gbm do
+describe Scoruby::Models::GradientBoostedModel::Model do
   let(:xml) { Scoruby.xml_from_file_path(gbm_file) }
   let(:gbm) { described_class.new(xml) }
   let(:approve_features) { { Sex: 'male', Parch: 0, Age: 30, Fare: 9.6875, Pclass: 2, SibSp: 0, Embarked: 'Q' } }
@@ -12,7 +12,7 @@ describe Scoruby::Models::Gbm do
     let(:gbm_file) { 'spec/fixtures/titanic_gbm.pmml' }
 
     it 'loads correct number of trees' do
-      expect(gbm.tree_count).to eq 100
+      expect(gbm.decision_trees.count).to eq 100
     end
 
     it 'predicts approve' do
@@ -28,7 +28,7 @@ describe Scoruby::Models::Gbm do
     let(:gbm_file) { 'spec/fixtures/titanic_gbm_4_2.pmml' }
 
     it 'loads correct number of trees' do
-      expect(gbm.tree_count).to eq 100
+      expect(gbm.decision_trees.count).to eq 100
     end
 
     it 'predicts approve' do

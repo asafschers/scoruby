@@ -12,7 +12,7 @@ module Scoruby
         end
 
         def decision_trees
-          @xml.xpath(RF_FOREST_XPATH).map do |xml_tree|
+          @decision_trees ||= @xml.xpath(RF_FOREST_XPATH).map do |xml_tree|
             DecisionTree.new(xml_tree)
           end
         end

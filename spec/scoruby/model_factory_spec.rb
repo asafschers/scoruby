@@ -28,7 +28,7 @@ describe Scoruby::ModelFactory do
       let(:gbm_model) { Scoruby.load_model(gbm_file) }
 
       it 'loads gbm' do
-        expect(gbm_model).to be_a(Scoruby::Models::Gbm)
+        expect(gbm_model).to be_a(Scoruby::Models::GradientBoostedModel::Model)
       end
     end
 
@@ -37,7 +37,7 @@ describe Scoruby::ModelFactory do
       let(:gbm_model) { Scoruby.load_model(gbm_file) }
 
       it 'loads gbm' do
-        expect(gbm_model).to be_a(Scoruby::Models::Gbm)
+        expect(gbm_model).to be_a(Scoruby::Models::GradientBoostedModel::Model)
       end
     end
   end

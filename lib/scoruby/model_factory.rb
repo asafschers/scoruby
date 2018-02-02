@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'scoruby/models/decision_tree'
-require 'scoruby/models/gbm'
+require 'scoruby/models/gradient_boosted_model/model'
 require 'scoruby/models/random_forest/model'
 require 'scoruby/models/naive_bayes/model'
 
@@ -14,7 +14,7 @@ module Scoruby
 
     def self.factory_for(xml)
       return Models::RandomForest::Model.new(xml) if random_forest?(xml)
-      return Models::Gbm.new(xml) if gbm?(xml)
+      return Models::GradientBoostedModel::Model.new(xml) if gbm?(xml)
       return Models::DecisionTree.new(xml.child) if decision_tree?(xml)
       return Models::NaiveBayes::Model.new(xml) if naive_bayes?(xml)
 
