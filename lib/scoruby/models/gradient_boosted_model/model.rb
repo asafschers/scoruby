@@ -17,11 +17,15 @@ module Scoruby
 
         def score(features)
           formatted_features = Features.new(features).formatted
-          scores = decision_trees.map do |dt|
-            dt.decide(formatted_features).score.to_s.to_f
-          end
+          scores = traverse_trees(formatted_features)
           sum = scores.reduce(:+) + const
           Math.exp(sum) / (1 + Math.exp(sum))
+        end
+
+        def traverse_trees(formatted_features)
+          decision_trees.map do |dt|
+            dt.decide(formatted_features).score.to_s.to_f
+          end
         end
       end
     end
