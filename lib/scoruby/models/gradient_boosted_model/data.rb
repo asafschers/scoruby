@@ -22,7 +22,37 @@ module Scoruby
           @const ||= const_by_version
         end
 
+        def continuous_features
+          @continuous_features ||= fetch_continuous_features
+        end
+
+        def categorical_features
+          puts target
+          @categorical_features ||= fetch_categorical_features
+        end
+
         private
+
+        def fetch_continuous_features
+          @xml.xpath('//DataField')
+            .select { |xml| xml.attr('optype') == 'continuous' }
+            .map { |xml| xml.attr('name') }
+        end
+
+        def fetch_categorical_features
+          @xml.xpath('//DataField')
+            .select { |xml| xml.attr('optype') == 'categorical' }
+            .reject { |xml| xml.attr('name') == target }
+            .each_with_object(Hash.new([])) do |xml, res|
+                res[xml.attr('name').to_sym] = xml.xpath('Value').map { |xml| xml.attr('value') }
+          end
+        end
+
+        def target
+          @target ||= @xml.xpath('//MiningField')
+            .find { |xml| xml.attr('usageType') == 'target' }
+            .attr('name').to_s
+        end
 
         def const_by_version
           return Float(@xml.xpath(CONST_XPATH).to_s) if ModelFactory.gbm_4_3?(@xml)
