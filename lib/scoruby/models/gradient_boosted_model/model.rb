@@ -9,7 +9,8 @@ module Scoruby
     module GradientBoostedModel
       class Model
         extend Forwardable
-        def_delegators :@data, :decision_trees, :const
+        def_delegators :@data, :decision_trees, :const, :continuous_features,
+                       :categorical_features
 
         def initialize(xml)
           @data = Data.new(xml)
