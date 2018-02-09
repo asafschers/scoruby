@@ -8,7 +8,8 @@ module Scoruby
     module RandomForest
       class Model
         extend Forwardable
-        def_delegators :@data, :decision_trees, :categorical_features, :continuous_features
+        def_delegators :@data, :decision_trees, :categorical_features,
+                       :continuous_features
 
         def initialize(xml)
           @data = Data.new(xml)
