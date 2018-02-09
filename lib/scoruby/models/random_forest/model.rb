@@ -15,7 +15,7 @@ module Scoruby
           @data = Data.new(xml)
         end
 
-        def predict(features)
+        def score(features)
           decisions_count = decisions_count(features)
           decision = decisions_count.max_by { |_, v| v }
           {

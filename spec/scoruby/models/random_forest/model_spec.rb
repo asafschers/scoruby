@@ -6,7 +6,7 @@ describe Scoruby::Models::RandomForest::Model do
   let(:rf_file) { 'spec/fixtures/titanic_rf.pmml' }
   let(:xml) { Scoruby.xml_from_file_path(rf_file) }
   let(:random_forest) { described_class.new(xml) }
-  let(:prediction) { random_forest.predict(features) }
+  let(:prediction) { random_forest.score(features) }
   let(:decisions_count) { random_forest.decisions_count(features) }
 
   context '0 features' do

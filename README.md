@@ -51,7 +51,7 @@ features =  {
         Embarked: 'Q'       
     }
 
-random_forest.predict(features)
+random_forest.score(features)
 
 => {:label=>"0", :score=>0.882}
 
