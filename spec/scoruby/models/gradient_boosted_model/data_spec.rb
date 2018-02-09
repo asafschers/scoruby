@@ -6,7 +6,6 @@ describe Scoruby::Models::GradientBoostedModel::Data do
   let(:xml) { Scoruby.xml_from_file_path(gbm_file) }
   let(:gbm_file) { 'spec/fixtures/titanic_gbm.pmml' }
   let(:data) { described_class.new(xml) }
-  let(:continuous_features) { %i[Age Fare Parch Pclass SibSp] }
   let(:categorical_features) {
     { Sex: %w[female male] }
   }

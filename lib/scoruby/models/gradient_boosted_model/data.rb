@@ -35,7 +35,7 @@ module Scoruby
         def fetch_continuous_features
           @xml.xpath('//DataField')
               .select { |xml| xml.attr('optype') == 'continuous' }
-              .map { |xml| xml.attr('name') }
+              .map { |xml| xml.attr('name').to_sym }
         end
 
         def fetch_categorical_features
