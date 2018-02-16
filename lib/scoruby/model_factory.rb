@@ -31,7 +31,7 @@ module Scoruby
 
     def self.random_forest?(xml)
       xml.xpath('PMML/MiningModel/@modelName').to_s == RANDOM_FOREST_MODEL ||
-        xml.xpath('//Extension').to_s.include?('RandomForestClassifier')
+        xml.at('//Segmentation[@multipleModelMethod="average"]')
     end
 
     def self.gbm?(xml)
