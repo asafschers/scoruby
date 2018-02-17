@@ -8,9 +8,9 @@ describe Scoruby::Models::RandomForest::Data do
   let(:data) { described_class.new(xml) }
   let(:trees_count) { data.decision_trees.count }
   let(:continuous_features) { %i[Age Fare Parch Pclass SibSp] }
-  let(:categorical_features) {
+  let(:categorical_features) do
     { Sex: %w[female male], Embarked: ['C', '', 'Q', 'S'] }
-  }
+  end
 
   it 'loads correct number of trees' do
     expect(trees_count).to eq 15

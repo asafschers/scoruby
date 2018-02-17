@@ -6,9 +6,7 @@ describe Scoruby::Models::GradientBoostedModel::Data do
   let(:xml) { Scoruby.xml_from_file_path(gbm_file) }
   let(:gbm_file) { 'spec/fixtures/titanic_gbm.pmml' }
   let(:data) { described_class.new(xml) }
-  let(:categorical_features) {
-    { Sex: %w[female male] }
-  }
+  let(:categorical_features) { { Sex: %w[female male] } }
 
   it 'loads correct number of trees' do
     expect(data.decision_trees.count).to eq 100

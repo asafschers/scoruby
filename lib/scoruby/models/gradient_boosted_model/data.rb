@@ -39,13 +39,16 @@ module Scoruby
         end
 
         def fetch_categorical_features
-          @xml.xpath('//DataField')
-              .select { |xml| xml.attr('optype') == 'categorical' }
-              .reject { |xml| xml.attr('name') == target }
-              .each_with_object(Hash.new([])) do |xml, res|
+          categorical_features_xml.each_with_object(Hash.new([])) do |xml, res|
             res[xml.attr('name').to_sym] = xml.xpath('Value')
                                               .map { |xml| xml.attr('value') }
           end
+        end
+
+        def categorical_features_xml
+          @xml.xpath('//DataField')
+              .select { |xml| xml.attr('optype') == 'categorical' }
+              .reject { |xml| xml.attr('name') == target }
         end
 
         def target
@@ -55,8 +58,15 @@ module Scoruby
         end
 
         def const_by_version
-          return Float(@xml.xpath(CONST_XPATH).to_s) if ModelFactory.gbm_4_3?(@xml)
-          Float(@xml.xpath(CONST_XPATH_4_2).first.content)
+          ModelFactory.gbm_4_3?(@xml) ? const_pmml_4_3 : const_pmml_4_2
+        end
+
+        def const_pmml_4_2
+          @xml.xpath(CONST_XPATH_4_2).first.content.to_f
+        end
+
+        def const_pmml_4_3
+          @xml.xpath(CONST_XPATH).to_s.to_f
         end
       end
     end
