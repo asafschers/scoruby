@@ -2,7 +2,6 @@
 [![Coverage Status](https://coveralls.io/repos/github/asafschers/scoruby/badge.svg?branch=master)](https://coveralls.io/github/asafschers/scoruby?branch=master)
 [![Gem Version](https://badge.fury.io/rb/scoruby.svg)](https://badge.fury.io/rb/scoruby)
 [![Build Status](https://travis-ci.org/asafschers/scoruby.svg?branch=master)](https://travis-ci.org/asafschers/scoruby)
-[![Open Source Helpers](https://www.codetriage.com/asafschers/random_forester/badges/users.svg)](https://www.codetriage.com/asafschers/random_forester)
 
 # Scoruby
 
