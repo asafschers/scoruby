@@ -154,7 +154,7 @@ describe Scoruby::Models::DecisionTree do
     let(:tree_file) { 'spec/fixtures/binary_split_decision_tree.pmml' }
     let(:tree_xml) { Scoruby.xml_from_file_path(tree_file) }
     let(:decision_tree) { described_class.new(tree_xml.child) }
-    let(:features) {
+    let(:features) do
       {
         ppd: ppd,
         business_traveler: business_traveler,
@@ -162,7 +162,7 @@ describe Scoruby::Models::DecisionTree do
         days_to_booking: days_to_booking,
         percent_distance_avg_price: percent_distance_avg_price
       }
-    }
+    end
     let(:decision) { decision_tree.decide(features) }
     let(:score_distribution) { decision.score_distribution }
 
