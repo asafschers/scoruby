@@ -21,7 +21,11 @@ module Scoruby
     def probability(score_distribution, xml)
       probability = score_distribution.attributes['probability'].to_s
       return probability.to_f if probability != ''
-      score_distribution.attributes['recordCount'].to_s.to_f / xml.attributes['recordCount'].to_s.to_f
+      record_count(score_distribution) / record_count(xml)
+    end
+
+    def record_count(xml)
+      xml.attributes['recordCount'].to_s.to_f
     end
   end
 end
