@@ -21,6 +21,11 @@ module Scoruby
     ModelFactory.factory_for(xml)
   end
 
+  def self.load_model_from_string(pmml_string)
+    xml = xml_from_string(pmml_string)
+    ModelFactory.factory_for(xml)
+  end
+
   def self.xml_from_file_path(pmml_file_name)
     pmml_string = File.open(pmml_file_name, 'rb').read
     xml_from_string(pmml_string)
