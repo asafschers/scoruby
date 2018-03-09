@@ -9,11 +9,11 @@ describe Scoruby::Models::GradientBoostedModel::Data do
   let(:categorical_features) { { Sex: %w[female male] } }
 
   it 'loads correct number of trees' do
-    expect(data.decision_trees.count).to eq 100
+    expect(data.decision_trees.count).to eq 15
   end
 
   it 'loads continuous features' do
-    expect(data.continuous_features).to be_empty
+    expect(data.continuous_features).to match_array %i[Survived Pclass Age Fare]
   end
 
   it 'loads categorical features' do
@@ -21,16 +21,17 @@ describe Scoruby::Models::GradientBoostedModel::Data do
   end
 
   context 'const value' do
-    let(:const) { -0.4732877044469254 }
     context 'pmml 4.3' do
-      it 'loads correct number of trees' do
+      let(:const) { 1.3838383838383839 }
+      it 'loads const' do
         expect(data.const).to eq const
       end
     end
 
     context 'pmml 4.2' do
+      let(:const) { -0.4732877044469254 }
       let(:gbm_file) { 'spec/fixtures/titanic_gbm_4_2.pmml' }
-      it 'loads correct number of trees' do
+      it 'loads const' do
         expect(data.const).to eq const
       end
     end
