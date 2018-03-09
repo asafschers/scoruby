@@ -58,15 +58,19 @@ module Scoruby
         end
 
         def const_by_version
-          ModelFactory.gbm_4_3?(@xml) ? const_pmml_4_3 : const_pmml_4_2
-        end
-
-        def const_pmml_4_2
-          @xml.xpath(CONST_XPATH_4_2).first.content.to_f
+          const_pmml_4_2_xml ? const_pmml_4_2 : const_pmml_4_3
         end
 
         def const_pmml_4_3
           @xml.xpath(CONST_XPATH).to_s.to_f
+        end
+
+        def const_pmml_4_2
+          const_pmml_4_2_xml.content.to_f
+        end
+
+        def const_pmml_4_2_xml
+          @xml.xpath(CONST_XPATH_4_2).first
         end
       end
     end
