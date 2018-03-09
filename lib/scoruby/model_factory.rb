@@ -8,8 +8,8 @@ require 'scoruby/models/naive_bayes/model'
 module Scoruby
   class ModelFactory
     RANDOM_FOREST_MODEL       = 'randomForest_Model'
-    GBM_INDICATION_4_2        = '//OutputField[@name="scaledGbmValue"]'
-    GBM_INDICATION_4_3        = '//OutputField[@name="gbmValue"]'
+    GBM_INDICATION            = '//Segmentation[@multipleModelMethod="sum"]'
+    RF_INDICATION             = '//Segmentation[@multipleModelMethod="average"]'
     MODEL_NOT_SUPPORTED_ERROR = 'model not supported'
 
     def self.factory_for(xml)
@@ -31,19 +31,11 @@ module Scoruby
 
     def self.random_forest?(xml)
       xml.xpath('PMML/MiningModel/@modelName').to_s == RANDOM_FOREST_MODEL ||
-        xml.at('//Segmentation[@multipleModelMethod="average"]')
+        xml.at(RF_INDICATION)
     end
 
     def self.gbm?(xml)
-      gbm_4_2?(xml) || gbm_4_3?(xml)
-    end
-
-    def self.gbm_4_2?(xml)
-      !xml.xpath(GBM_INDICATION_4_2).empty?
-    end
-
-    def self.gbm_4_3?(xml)
-      !xml.xpath(GBM_INDICATION_4_3).empty?
+      xml.at(GBM_INDICATION)
     end
   end
 end
