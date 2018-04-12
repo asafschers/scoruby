@@ -41,7 +41,7 @@ module Scoruby
         def fetch_categorical_features
           categorical_features_xml.each_with_object(Hash.new([])) do |xml, res|
             res[xml.attr('name').to_sym] = xml.xpath('Value')
-                                              .map { |xml| xml.attr('value') }
+                                              .map { |v| v.attr('value') }
           end
         end
 
