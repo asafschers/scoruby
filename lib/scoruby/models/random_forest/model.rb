@@ -9,7 +9,7 @@ module Scoruby
       class Model
         extend Forwardable
         def_delegators :@data, :decision_trees, :categorical_features,
-                       :continuous_features
+                       :continuous_features, :regression?
 
         def initialize(xml)
           @data = Data.new(xml)
@@ -17,11 +17,18 @@ module Scoruby
 
         def score(features)
           decisions_count = decisions_count(features)
-          decision = decisions_count.max_by { |_, v| v }
-          {
-            label: decision[0],
-            score: decision[1] / decisions_count.values.reduce(0, :+).to_f
-          }
+
+          if regression?
+            {
+              response: sum(decisions_count.map { |k, v| k.to_f * v }) / sum(decisions_count.values)
+            }
+          else
+            decision = decisions_count.max_by { |_, v| v }
+            {
+              label: decision[0],
+              score: decision[1] / sum(decisions_count.values).to_f
+            }
+          end
         end
 
         def decisions_count(features)
@@ -42,6 +49,10 @@ module Scoruby
           decisions.each_with_object(Hash.new(0)) do |score, counts|
             counts[score] += 1
           end
+        end
+
+        def sum(values)
+          values.reduce(0, :+)
         end
       end
     end

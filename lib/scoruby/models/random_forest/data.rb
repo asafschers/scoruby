@@ -25,6 +25,10 @@ module Scoruby
           @continuous_features ||= fetch_continuous_features
         end
 
+        def regression?
+          @xml.xpath("//MiningModel[@functionName='regression']").any?
+        end
+
         private
 
         def fetch_continuous_features
