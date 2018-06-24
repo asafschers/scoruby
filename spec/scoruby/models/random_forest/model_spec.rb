@@ -49,4 +49,17 @@ describe Scoruby::Models::RandomForest::Model do
       expect(decisions_count['1']).to eq 14
     end
   end
+
+  context 'regression' do
+    let(:rf_file) { 'spec/fixtures/cars_rf.pmml' }
+    let(:features) do
+      {
+        speed: 10
+      }
+    end
+
+    it 'predicts correctly' do
+      expect(prediction[:response]).to be_within(0.001).of(27.37778)
+    end
+  end
 end

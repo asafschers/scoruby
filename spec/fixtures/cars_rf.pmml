@@ -1,0 +1,257 @@
+<?xml version="1.0"?>
+<PMML version="4.3" xmlns="http://www.dmg.org/PMML-4_3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.dmg.org/PMML-4_3 http://www.dmg.org/pmml/v4-3/pmml-4-3.xsd">
+ <Header copyright="Copyright (c) 2018 andrew" description="Random Forest Tree Model">
+  <Extension name="user" value="andrew" extender="Rattle/PMML"/>
+  <Application name="Rattle/PMML" version="1.4"/>
+  <Timestamp>2018-06-24 15:00:11</Timestamp>
+ </Header>
+ <DataDictionary numberOfFields="2">
+  <DataField name="dist" optype="continuous" dataType="double"/>
+  <DataField name="speed" optype="continuous" dataType="double"/>
+ </DataDictionary>
+ <MiningModel modelName="randomForest_Model" algorithmName="randomForest" functionName="regression">
+  <MiningSchema>
+   <MiningField name="dist" usageType="predicted" invalidValueTreatment="returnInvalid"/>
+   <MiningField name="speed" usageType="active" invalidValueTreatment="returnInvalid"/>
+  </MiningSchema>
+  <Output>
+   <OutputField name="Predicted_dist" feature="predictedValue"/>
+  </Output>
+  <Segmentation multipleModelMethod="average">
+   <Segment id="1">
+    <True/>
+    <TreeModel modelName="randomForest_Model" functionName="regression" algorithmName="randomForest" splitCharacteristic="binarySplit">
+     <MiningSchema>
+      <MiningField name="dist" usageType="predicted" invalidValueTreatment="asIs"/>
+      <MiningField name="speed" usageType="active" invalidValueTreatment="asIs"/>
+     </MiningSchema>
+     <Node id="1">
+      <True/>
+      <Node id="2">
+       <SimplePredicate field="speed" operator="lessOrEqual" value="17.5"/>
+       <Node id="4" score="11">
+        <SimplePredicate field="speed" operator="lessOrEqual" value="9.5"/>
+       </Node>
+       <Node id="5">
+        <SimplePredicate field="speed" operator="greaterThan" value="9.5"/>
+        <Node id="8">
+         <SimplePredicate field="speed" operator="lessOrEqual" value="15.5"/>
+         <Node id="12">
+          <SimplePredicate field="speed" operator="lessOrEqual" value="12.5"/>
+          <Node id="16">
+           <SimplePredicate field="speed" operator="lessOrEqual" value="11.5"/>
+           <Node id="22" score="26">
+            <SimplePredicate field="speed" operator="lessOrEqual" value="10.5"/>
+           </Node>
+           <Node id="23" score="25.25">
+            <SimplePredicate field="speed" operator="greaterThan" value="10.5"/>
+           </Node>
+          </Node>
+          <Node id="17" score="24">
+           <SimplePredicate field="speed" operator="greaterThan" value="11.5"/>
+          </Node>
+         </Node>
+         <Node id="13">
+          <SimplePredicate field="speed" operator="greaterThan" value="12.5"/>
+          <Node id="18" score="40">
+           <SimplePredicate field="speed" operator="lessOrEqual" value="13.5"/>
+          </Node>
+          <Node id="19">
+           <SimplePredicate field="speed" operator="greaterThan" value="13.5"/>
+           <Node id="24" score="28">
+            <SimplePredicate field="speed" operator="lessOrEqual" value="14.5"/>
+           </Node>
+           <Node id="25" score="24.5">
+            <SimplePredicate field="speed" operator="greaterThan" value="14.5"/>
+           </Node>
+          </Node>
+         </Node>
+        </Node>
+        <Node id="9" score="36">
+         <SimplePredicate field="speed" operator="greaterThan" value="15.5"/>
+        </Node>
+       </Node>
+      </Node>
+      <Node id="3">
+       <SimplePredicate field="speed" operator="greaterThan" value="17.5"/>
+       <Node id="6">
+        <SimplePredicate field="speed" operator="lessOrEqual" value="23.5"/>
+        <Node id="10" score="67.7142857142857">
+         <SimplePredicate field="speed" operator="lessOrEqual" value="18.5"/>
+        </Node>
+        <Node id="11">
+         <SimplePredicate field="speed" operator="greaterThan" value="18.5"/>
+         <Node id="14">
+          <SimplePredicate field="speed" operator="lessOrEqual" value="21"/>
+          <Node id="20" score="42.6666666666667">
+           <SimplePredicate field="speed" operator="lessOrEqual" value="19.5"/>
+          </Node>
+          <Node id="21" score="45.7142857142857">
+           <SimplePredicate field="speed" operator="greaterThan" value="19.5"/>
+          </Node>
+         </Node>
+         <Node id="15" score="60">
+          <SimplePredicate field="speed" operator="greaterThan" value="21"/>
+         </Node>
+        </Node>
+       </Node>
+       <Node id="7" score="85">
+        <SimplePredicate field="speed" operator="greaterThan" value="23.5"/>
+       </Node>
+      </Node>
+     </Node>
+    </TreeModel>
+   </Segment>
+   <Segment id="2">
+    <True/>
+    <TreeModel modelName="randomForest_Model" functionName="regression" algorithmName="randomForest" splitCharacteristic="binarySplit">
+     <MiningSchema>
+      <MiningField name="dist" usageType="predicted" invalidValueTreatment="asIs"/>
+      <MiningField name="speed" usageType="active" invalidValueTreatment="asIs"/>
+     </MiningSchema>
+     <Node id="1">
+      <True/>
+      <Node id="2">
+       <SimplePredicate field="speed" operator="lessOrEqual" value="13.5"/>
+       <Node id="4">
+        <SimplePredicate field="speed" operator="lessOrEqual" value="9.5"/>
+        <Node id="8" score="6">
+         <SimplePredicate field="speed" operator="lessOrEqual" value="5.5"/>
+        </Node>
+        <Node id="9" score="16">
+         <SimplePredicate field="speed" operator="greaterThan" value="5.5"/>
+        </Node>
+       </Node>
+       <Node id="5">
+        <SimplePredicate field="speed" operator="greaterThan" value="9.5"/>
+        <Node id="10">
+         <SimplePredicate field="speed" operator="lessOrEqual" value="12.5"/>
+         <Node id="14" score="31.3333333333333">
+          <SimplePredicate field="speed" operator="lessOrEqual" value="10.5"/>
+         </Node>
+         <Node id="15" score="18.6">
+          <SimplePredicate field="speed" operator="greaterThan" value="10.5"/>
+         </Node>
+        </Node>
+        <Node id="11" score="34">
+         <SimplePredicate field="speed" operator="greaterThan" value="12.5"/>
+        </Node>
+       </Node>
+      </Node>
+      <Node id="3">
+       <SimplePredicate field="speed" operator="greaterThan" value="13.5"/>
+       <Node id="6">
+        <SimplePredicate field="speed" operator="lessOrEqual" value="23"/>
+        <Node id="12" score="76">
+         <SimplePredicate field="speed" operator="lessOrEqual" value="14.5"/>
+        </Node>
+        <Node id="13">
+         <SimplePredicate field="speed" operator="greaterThan" value="14.5"/>
+         <Node id="16">
+          <SimplePredicate field="speed" operator="lessOrEqual" value="17.5"/>
+          <Node id="18" score="42.8">
+           <SimplePredicate field="speed" operator="lessOrEqual" value="15.5"/>
+          </Node>
+          <Node id="19">
+           <SimplePredicate field="speed" operator="greaterThan" value="15.5"/>
+           <Node id="22" score="34.6666666666667">
+            <SimplePredicate field="speed" operator="lessOrEqual" value="16.5"/>
+           </Node>
+           <Node id="23" score="40.5714285714286">
+            <SimplePredicate field="speed" operator="greaterThan" value="16.5"/>
+           </Node>
+          </Node>
+         </Node>
+         <Node id="17">
+          <SimplePredicate field="speed" operator="greaterThan" value="17.5"/>
+          <Node id="20" score="65.3333333333333">
+           <SimplePredicate field="speed" operator="lessOrEqual" value="18.5"/>
+          </Node>
+          <Node id="21">
+           <SimplePredicate field="speed" operator="greaterThan" value="18.5"/>
+           <Node id="24" score="52.8">
+            <SimplePredicate field="speed" operator="lessOrEqual" value="20.5"/>
+           </Node>
+           <Node id="25" score="66">
+            <SimplePredicate field="speed" operator="greaterThan" value="20.5"/>
+           </Node>
+          </Node>
+         </Node>
+        </Node>
+       </Node>
+       <Node id="7" score="94.8">
+        <SimplePredicate field="speed" operator="greaterThan" value="23"/>
+       </Node>
+      </Node>
+     </Node>
+    </TreeModel>
+   </Segment>
+   <Segment id="3">
+    <True/>
+    <TreeModel modelName="randomForest_Model" functionName="regression" algorithmName="randomForest" splitCharacteristic="binarySplit">
+     <MiningSchema>
+      <MiningField name="dist" usageType="predicted" invalidValueTreatment="asIs"/>
+      <MiningField name="speed" usageType="active" invalidValueTreatment="asIs"/>
+     </MiningSchema>
+     <Node id="1">
+      <True/>
+      <Node id="2">
+       <SimplePredicate field="speed" operator="lessOrEqual" value="22"/>
+       <Node id="4">
+        <SimplePredicate field="speed" operator="lessOrEqual" value="12.5"/>
+        <Node id="6" score="8">
+         <SimplePredicate field="speed" operator="lessOrEqual" value="9.5"/>
+        </Node>
+        <Node id="7">
+         <SimplePredicate field="speed" operator="greaterThan" value="9.5"/>
+         <Node id="10" score="24.8">
+          <SimplePredicate field="speed" operator="lessOrEqual" value="11.5"/>
+         </Node>
+         <Node id="11" score="21">
+          <SimplePredicate field="speed" operator="greaterThan" value="11.5"/>
+         </Node>
+        </Node>
+       </Node>
+       <Node id="5">
+        <SimplePredicate field="speed" operator="greaterThan" value="12.5"/>
+        <Node id="8">
+         <SimplePredicate field="speed" operator="lessOrEqual" value="17.5"/>
+         <Node id="12" score="33.3333333333333">
+          <SimplePredicate field="speed" operator="lessOrEqual" value="13.5"/>
+         </Node>
+         <Node id="13">
+          <SimplePredicate field="speed" operator="greaterThan" value="13.5"/>
+          <Node id="16" score="49.6666666666667">
+           <SimplePredicate field="speed" operator="lessOrEqual" value="14.5"/>
+          </Node>
+          <Node id="17">
+           <SimplePredicate field="speed" operator="greaterThan" value="14.5"/>
+           <Node id="18" score="33.3333333333333">
+            <SimplePredicate field="speed" operator="lessOrEqual" value="15.5"/>
+           </Node>
+           <Node id="19" score="40.6666666666667">
+            <SimplePredicate field="speed" operator="greaterThan" value="15.5"/>
+           </Node>
+          </Node>
+         </Node>
+        </Node>
+        <Node id="9">
+         <SimplePredicate field="speed" operator="greaterThan" value="17.5"/>
+         <Node id="14" score="66.5">
+          <SimplePredicate field="speed" operator="lessOrEqual" value="18.5"/>
+         </Node>
+         <Node id="15" score="43.2">
+          <SimplePredicate field="speed" operator="greaterThan" value="18.5"/>
+         </Node>
+        </Node>
+       </Node>
+      </Node>
+      <Node id="3" score="93.25">
+       <SimplePredicate field="speed" operator="greaterThan" value="22"/>
+      </Node>
+     </Node>
+    </TreeModel>
+   </Segment>
+  </Segmentation>
+ </MiningModel>
+</PMML>
