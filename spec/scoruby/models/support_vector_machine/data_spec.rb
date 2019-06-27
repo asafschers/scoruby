@@ -11,4 +11,8 @@ describe Scoruby::Models::SupportVectorMachine::Data do
   it 'reads coefficients from XML' do
     expect(data.coefficients).to match_array [-1, 1, 1, -1]
   end
+
+  it 'reads support vectors ids from XML' do
+    expect(data.support_vectors_ids).to match_array %w(mv0 mv1 mv2 mv3)
+  end
 end
