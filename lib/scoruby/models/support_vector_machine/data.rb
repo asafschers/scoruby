@@ -6,9 +6,14 @@ module Scoruby
       class Data
         SUPPORT_VECTORS_XPATH = 'PMML/SupportVectorMachineModel/SupportVectorMachine/SupportVectors/SupportVector'
         COEFFICIENTS_XPATH = 'PMML/SupportVectorMachineModel/SupportVectorMachine/Coefficients/Coefficient'
+        ABSOLUTE_VALUE_XPATH = 'PMML/SupportVectorMachineModel/SupportVectorMachine/Coefficients'
 
         def initialize(xml)
           @xml = xml
+        end
+
+        def absolute_value
+          @xml.xpath(ABSOLUTE_VALUE_XPATH).attribute('absoluteValue').value.to_i
         end
 
         def coefficients

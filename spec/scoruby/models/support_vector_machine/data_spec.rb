@@ -15,4 +15,8 @@ describe Scoruby::Models::SupportVectorMachine::Data do
   it 'reads support vectors ids from XML' do
     expect(data.support_vectors_ids).to match_array %w(mv0 mv1 mv2 mv3)
   end
+
+  it 'reads support vectors ids from XML' do
+    expect(data.absolute_value).to be 0
+  end
 end
