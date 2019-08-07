@@ -4,6 +4,7 @@ require 'scoruby/models/decision_tree'
 require 'scoruby/models/gradient_boosted_model/model'
 require 'scoruby/models/random_forest/model'
 require 'scoruby/models/naive_bayes/model'
+require 'scoruby/models/logistic_regression/model'
 
 module Scoruby
   class ModelFactory
@@ -17,8 +18,13 @@ module Scoruby
       return Models::GradientBoostedModel::Model.new(xml) if gbm?(xml)
       return Models::DecisionTree.new(xml.child) if decision_tree?(xml)
       return Models::NaiveBayes::Model.new(xml) if naive_bayes?(xml)
+      return Models::LogisticRegression::Model.new(xml) if logistic_regression?(xml)
 
       raise MODEL_NOT_SUPPORTED_ERROR
+    end
+
+    def self.logistic_regression?(xml)
+      !xml.xpath('PMML/GeneralRegressionModel').empty?
     end
 
     def self.naive_bayes?(xml)
