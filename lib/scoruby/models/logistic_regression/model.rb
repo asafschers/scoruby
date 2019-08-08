@@ -21,7 +21,7 @@ module Scoruby
         def score(features)
           logodds = intercept
           features.each do |key, value|
-            logodds += coefficients[key] * value
+            logodds += coefficients[key.to_s] * value
           end
 
           1.0 / (1.0 + Math.exp(-logodds))
