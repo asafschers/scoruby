@@ -17,7 +17,7 @@ module Scoruby
         while curr.children[0]
           prev = curr
           curr = step(curr, features)
-          return if didnt_step?(curr, prev)
+          break if didnt_step?(curr, prev)
         end
 
         curr.decision
