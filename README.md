@@ -13,7 +13,7 @@ Currently supports -
 * Naive Bayes
 * Logistic Regression
 * Random Forest 
-* Gradient Boosted Models.
+* Gradient Boosted Trees
 
 Will be happy to implement new models by demand, or assist with any other issue.
 
