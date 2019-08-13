@@ -7,7 +7,13 @@
 
 Ruby scoring API for Predictive Model Markup Language (PMML).
 
-Currently supports Decision Tree, Random Forest, Naive Bayes and Gradient Boosted Models.
+Currently supports - 
+
+* Decision Tree
+* Naive Bayes
+* Logistic Regression
+* Random Forest 
+* Gradient Boosted Models.
 
 Will be happy to implement new models by demand, or assist with any other issue.
 
@@ -33,10 +39,37 @@ Or install it yourself as:
     $ gem install scoruby
 
 ## Usage
+
+### Naive Bayes
+
+```ruby
+naive_bayes = Scoruby.load_model 'naive_bayes.pmml'
+features = { f1: v1 , ... } 
+naive_bayes.lvalues(features)
+naive_bayes.score(features, 'l1')
+```
+
+### Logistic Regression
+
+```ruby
+logistic_regression = Scoruby.load_model 'logistic_regression.pmml'
+features = { f1: v1 , ... } 
+logistic_regression.score(features)
+```
+
+### Decision Tree
+
+```ruby
+decision_tree = Scoruby.load_model 'decision_tree.pmml'
+features = { f1 : v1, ... } 
+decision_tree.decide(features)
+
+=> #<Decision:0x007fc232384180 @score="0", @score_distribution={"0"=>"0.999615579933873", "1"=>"0.000384420066126561"}>
+```
+
 ### Random Forest
 
 [Generate PMML - R](https://github.com/asafschers/scoruby/wiki/Random-Forest) 
-#### Classify by PMML - Ruby
 
 ```ruby
 
@@ -65,8 +98,6 @@ random_forest.decisions_count(features)
 
 [Generate PMML - R](https://github.com/asafschers/scoruby/wiki/Gradient-Boosted-Model) 
 
-#### Classify by PMML - Ruby
-
 ```ruby
 
 gbm = Scoruby.load_model 'gbm.pmml'
@@ -85,25 +116,6 @@ gbm.score(features)
 
 => 0.3652639329522468
 
-```
-
-### Decision Tree
-
-```ruby
-decision_tree = Scoruby.load_model 'decision_tree.pmml'
-features = { f1 : v1, ... } 
-decision_tree.decide(features)
-
-=> #<Decision:0x007fc232384180 @score="0", @score_distribution={"0"=>"0.999615579933873", "1"=>"0.000384420066126561"}>
-```
-
-### Naive Bayes
-
-```ruby
-naive_bayes = Scoruby.load_model 'naive_bayes.pmml'
-features = { f1: v1 , ... } 
-naive_bayes.lvalues(features)
-naive_bayes.score(features, 'l1')
 ```
 
 ## Development

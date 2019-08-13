@@ -50,4 +50,13 @@ describe Scoruby::ModelFactory do
       expect(naive_bayes_model).to be_a Scoruby::Models::NaiveBayes::Model
     end
   end
+
+  context 'logistic_regression pmml' do
+    let(:logistic_regression_file) { 'spec/fixtures/logistic_regression.pmml' }
+    let(:logistic_regression_model) { Scoruby.load_model(logistic_regression_file) }
+
+    it 'loads LogisticRegression' do
+      expect(logistic_regression_model).to be_a Scoruby::Models::LogisticRegression::Model
+    end
+  end
 end
