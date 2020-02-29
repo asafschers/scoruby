@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib", "lib/scoruby", "lib/scoruby/models/random_forest", "lib/scoruby/models/gbm"]
 
   spec.add_development_dependency "bundler", "~> 1.10"
-  spec.add_development_dependency "rake", "~> 12.0"
+  spec.add_development_dependency "rake", "~> 13.0"
   spec.add_development_dependency "rspec", "~> 3.5"
   spec.add_development_dependency "pry", "~> 0.10"
   spec.add_development_dependency "coveralls"
